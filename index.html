@@ -372,31 +372,18 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 .landing-cards {
   display:grid;
-  grid-template-columns:repeat(4, minmax(220px, 1fr));
+  grid-template-columns:repeat(3, 220px);
   justify-content:center;
-  align-items:stretch;
-  gap:24px;
-  max-width:980px;
+  gap:18px;
+  max-width:720px;
   margin:0 auto;
 }
 
-.landing-cards .landing-card {
-  width:100%;
-}
-
-@media(min-width:901px) {
-  .landing-cards .payouts-card,
-  .landing-cards .players-card {
-    grid-column:auto;
-  }
-
-  .landing-cards {
-    grid-template-columns:repeat(3, minmax(220px, 280px));
-    justify-content:center;
-  }
+.landing-card {
+  width:220px;
 }
 .landing-card {
-  min-height:230px;
+  min-height:214px;
   position:relative;
   overflow:hidden;
   display:flex;
@@ -471,6 +458,12 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 
 
 
+@media(max-width:1000px) {
+  .landing-cards {
+    grid-template-columns:repeat(2, 220px);
+    max-width:460px;
+  }
+}
 @media(max-width:1000px) {
   .landing-cards { grid-template-columns:repeat(2,1fr); max-width:760px; }
 }
@@ -561,175 +554,6 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .banner .label { font-size:7px; }
   .trophy { font-size:30px; }
 }
-
-.mobile-menu-button {
-  display:none;
-  background:none;
-  border:1px solid var(--line);
-  color:#fff;
-  border-radius:10px;
-  font-size:24px;
-  width:44px;
-  height:38px;
-  cursor:pointer;
-}
-.mobile-menu {
-  display:none;
-  position:absolute;
-  top:70px;
-  right:20px;
-  width:220px;
-  padding:15px;
-  background:#101925;
-  border:1px solid var(--line);
-  border-radius:15px;
-  z-index:999;
-}
-.mobile-menu a {
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  padding:12px;
-  border-bottom:1px solid var(--line);
-  font-weight:800;
-  font-size:13px;
-}
-@media(max-width:900px) {
-  .navlinks { display:none; }
-  .mobile-menu-button { display:block; }
-  .nav { position:relative; display:flex; justify-content:space-between; align-items:center; }
-}
-
-
-/* Mobile hamburger menu fix */
-.mobile-menu {
-  display:none;
-  position:absolute;
-  top:55px;
-  right:10px;
-  width:230px;
-  padding:12px;
-  background:#101925 !important;
-  border:1px solid rgba(245,196,81,.35);
-  border-radius:14px;
-  z-index:9999 !important;
-  box-shadow:0 20px 50px rgba(0,0,0,.7);
-}
-
-.mobile-menu a {
-  display:block;
-  color:#ffffff !important;
-  background:#101925;
-  text-decoration:none;
-  padding:14px 12px;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  font-weight:800;
-  font-size:14px;
-  position:relative;
-  z-index:10000;
-}
-
-.mobile-menu a:last-child {
-  border-bottom:none;
-}
-
-.mobile-menu-button {
-  position:relative;
-  z-index:10001;
-}
-
-
-.manual-refresh-note {
-  color: var(--muted);
-  font-size: 11px;
-  margin-right: 10px;
-}
-
-
-/* FINAL MOBILE MENU FIX */
-@media (max-width: 900px) {
-  .navlinks {
-    display:none !important;
-  }
-
-  .mobile-menu-button {
-    display:block !important;
-    position:relative;
-    z-index:10002;
-    cursor:pointer;
-  }
-}
-
-.mobile-menu {
-  display:none;
-  position:absolute !important;
-  top:55px;
-  right:10px;
-  width:240px;
-  padding:10px;
-  background:#111827 !important;
-  opacity:1 !important;
-  visibility:visible !important;
-  border:1px solid #39465a;
-  border-radius:12px;
-  z-index:10001 !important;
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
-}
-
-.mobile-menu a {
-  display:block !important;
-  color:#ffffff !important;
-  background:#111827 !important;
-  opacity:1 !important;
-  padding:14px 12px;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  position:relative;
-  z-index:10003;
-}
-
-.mobile-menu a:last-child {
-  border-bottom:none;
-}
-
-
-/* Hamburger menu final override */
-.mobile-menu {
-  display:none;
-  position:fixed !important;
-  top:70px;
-  right:15px;
-  width:240px;
-  padding:10px;
-  background:#101827 !important;
-  opacity:1 !important;
-  visibility:visible !important;
-  pointer-events:auto !important;
-  border:1px solid #39465a;
-  border-radius:14px;
-  z-index:99999 !important;
-  box-shadow:0 20px 50px rgba(0,0,0,.8);
-}
-
-.mobile-menu a {
-  display:block !important;
-  background:#101827 !important;
-  color:#ffffff !important;
-  opacity:1 !important;
-  pointer-events:auto !important;
-  position:relative;
-  z-index:100000;
-  padding:14px;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.15);
-}
-
-.mobile-menu-button {
-  position:relative;
-  z-index:100001 !important;
-  pointer-events:auto !important;
-}
-
 </style>
 <style>
 .active-nav {
@@ -751,34 +575,19 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
     <nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
-
-        <a href="index.html">Champions</a>
+        <a href="index.html" class="active-nav">Champions</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
         <a href="payouts.html">Payouts</a>
         <a href="players.html">Players</a>
       </div>
-    
-<button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu">☰</button>
-<div class="mobile-menu" id="mobileMenu">
-
-<a href="index.html">Champions</a>
-<a href="records.html">Records</a>
-<a href="history.html">History</a>
-<a href="rules.html">Rules</a>
-<a href="payouts.html">Payouts</a>
-<a href="players.html">Players</a>
-
-</div>
-
-</nav>
+    </nav>
     <div class="hero page-hero">
       <div class="kicker">THE OFFICIAL LEAGUE ARCHIVE</div>
       <h1>CHQ FANTASY<br><em>KEEPER LEAGUE</em></h1>
       <p>Six seasons of bragging rights, championships, records, and league history.</p>
       <div class="sync-controls">
-<span class="manual-refresh-note">Manual refresh enabled — data updates only when you click Refresh Data.</span>
         <span id="syncStatus" class="sync-status">● Loading league data…</span>
         <button id="refreshData" type="button">↻ Refresh Data</button>
       </div>
@@ -844,15 +653,16 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
         <span>View Payouts →</span>
       </div>
     </a>
-<a class="landing-card players-card" href="players.html">
-  <div class="landing-card-art">👥</div>
-  <div class="landing-card-content">
-    <div class="landing-card-kicker">MEET THE OWNERS</div>
-    <h3>The Players</h3>
-    <p>Meet the personalities, rivalries, histories, and questionable decisions behind the league.</p>
-    <span>Meet the Players →</span>
-  </div>
-</a>
+
+    <a class="landing-card players-card" href="players.html">
+      <div class="landing-card-art">👥</div>
+      <div class="landing-card-content">
+        <div class="landing-card-kicker">MEET THE OWNERS</div>
+        <h3>The Players</h3>
+        <p>Meet the personalities, rivalries, histories, and questionable decisions behind the league.</p>
+        <span>Meet the Players →</span>
+      </div>
+    </a>
   </div>
 
   <div class="landing-champions" id="championships">
@@ -1163,68 +973,7 @@ async function refreshData() {
 
 document.getElementById("refreshData").addEventListener("click", refreshData);
 renderAll();
-
+refreshData();
 </script>
-
-
-
-
-
-
-
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("mobileMenuButton");
-  const menu = document.getElementById("mobileMenu");
-
-  if (!button || !menu) return;
-
-  button.onclick = function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  };
-
-  menu.onclick = function (e) {
-    e.stopPropagation();
-  };
-
-  document.onclick = function () {
-    menu.style.display = "none";
-  };
-});
-</script>
-
-
-<script>
-(function(){
-  function setupMobileMenu(){
-    const button = document.getElementById("mobileMenuButton");
-    const menu = document.getElementById("mobileMenu");
-
-    if (!button || !menu) return;
-
-    button.addEventListener("click", function(e){
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }, true);
-
-    menu.addEventListener("click", function(e){
-      e.stopPropagation();
-    });
-
-    document.addEventListener("click", function(){
-      menu.style.display = "none";
-    });
-  }
-
-  setupMobileMenu();
-})();
-</script>
-
 </body>
 </html>
