@@ -450,6 +450,16 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 .landing-champions {
   margin-top:90px;
 }
+
+@media(min-width:1001px) {
+  .landing-cards .payouts-card {
+    grid-column:2 / span 2;
+    max-width:calc(50% - 9px);
+    width:100%;
+    justify-self:center;
+  }
+}
+
 @media(max-width:1000px) {
   .landing-cards { grid-template-columns:repeat(2,1fr); max-width:760px; }
 }
