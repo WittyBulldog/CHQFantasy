@@ -771,7 +771,14 @@ async function refreshData() {
     const freshMoney = normalizeMoneyRows(moneyRows);
 
     if (!freshSeasons.length) throw new Error("No season data was found.");
-    seasons = freshSeasons;
+
+    // Keep known historical seasons if a Google Sheets refresh temporarily
+    // omits one. This prevents the 2025 banner from disappearing when the
+    // Yearly_Finishes tab does not return that row.
+    const merged = new Map(FALLBACK_SEASONS.map(s => [s.year, s]));
+    freshSeasons.forEach(s => merged.set(s.year, s));
+    seasons = Array.from(merged.values()).sort((a,b) => b.year - a.year);
+
     if (freshMoney.length) money = freshMoney;
     rules = ruleRows || [];
 
