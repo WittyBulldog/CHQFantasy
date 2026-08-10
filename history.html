@@ -437,6 +437,44 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .nav { position:relative; display:flex; justify-content:space-between; align-items:center; }
 }
 
+
+/* Mobile hamburger menu fix */
+.mobile-menu {
+  display:none;
+  position:absolute;
+  top:55px;
+  right:10px;
+  width:230px;
+  padding:12px;
+  background:#101925 !important;
+  border:1px solid rgba(245,196,81,.35);
+  border-radius:14px;
+  z-index:9999 !important;
+  box-shadow:0 20px 50px rgba(0,0,0,.7);
+}
+
+.mobile-menu a {
+  display:block;
+  color:#ffffff !important;
+  background:#101925;
+  text-decoration:none;
+  padding:14px 12px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-weight:800;
+  font-size:14px;
+  position:relative;
+  z-index:10000;
+}
+
+.mobile-menu a:last-child {
+  border-bottom:none;
+}
+
+.mobile-menu-button {
+  position:relative;
+  z-index:10001;
+}
+
 </style>
 <style>
 .active-nav {
@@ -802,6 +840,29 @@ if (mobileMenuButton && mobileMenu) {
     }
   });
 }
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const button = document.getElementById("mobileMenuButton");
+  const menu = document.getElementById("mobileMenu");
+
+  if (button && menu) {
+    button.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    menu.addEventListener("click", function(e) {
+      e.stopPropagation();
+    });
+
+    document.addEventListener("click", function() {
+      menu.style.display = "none";
+    });
+  }
+});
 </script>
 
 </body>
