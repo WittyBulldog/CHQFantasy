@@ -338,8 +338,7 @@ tr:hover td { background:rgba(255,255,255,.018); }
 @media(max-width:900px) {
   .constitution-grid { grid-template-columns:1fr 1fr; }
 }
-@media(max-width:600px) {
-  .constitution-grid { grid-template-columns:1fr; }
+
 }
 
 footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; }
@@ -370,14 +369,7 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   line-height:1.7;
   font-size:15px;
 }
-.landing-cards {
-  display:grid;
-  grid-template-columns:repeat(3, 220px);
-  justify-content:center;
-  gap:18px;
-  max-width:720px;
-  margin:0 auto;
-}
+
 
 .landing-card {
   width:220px;
@@ -458,20 +450,12 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 
 
 
-@media(max-width:1000px) {
-  .landing-cards {
-    grid-template-columns:repeat(2, 220px);
-    max-width:460px;
-  }
-}
-@media(max-width:1000px) {
-  .landing-cards { grid-template-columns:repeat(2,1fr); max-width:760px; }
-}
-@media(max-width:600px) {
-  .landing-home { padding:55px 0 50px; }
+
+
+
   .landing-intro { margin-bottom:34px; padding:0 10px; }
   .landing-intro h2 { font-size:42px; }
-  .landing-cards { grid-template-columns:1fr; gap:14px; padding:0 10px; }
+  
   .landing-card { min-height:184px; }
   .landing-card-art { height:68px; }
   .landing-champions { margin-top:60px; }
@@ -578,6 +562,42 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 .page-hero {
   padding-bottom:38px;
 }
+
+.landing-cards {
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 220px));
+  justify-content:center;
+  gap:24px;
+  margin:0 auto;
+  max-width:760px;
+}
+
+.landing-card {
+  width:220px;
+}
+
+@media(max-width:1000px) {
+  .landing-cards {
+    grid-template-columns:repeat(2, minmax(0, 220px));
+    gap:20px;
+  }
+}
+
+@media(max-width:600px) {
+  .landing-cards {
+    grid-template-columns:1fr;
+    gap:18px;
+    width:100%;
+    max-width:320px;
+  }
+
+  .landing-card {
+    width:100%;
+    max-width:320px;
+    margin:0 auto;
+  }
+}
+
 </style>
 </head>
 <body>
