@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHQ Fantasy Keeper League — THE CHQ HALL OF CHAMPIONS</title>
+<title>CHQ Fantasy Keeper League — RECORDS & LEADERS</title>
 <style>
 :root {
   --bg:#080b12;
@@ -419,16 +419,16 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
     <nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
-        <a href="index.html" class="active-nav">Champions</a>
-        <a href="records.html">Records</a>
+        <a href="index.html">Champions</a>
+        <a href="records.html" class="active-nav">Records</a>
         <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
       </div>
     </nav>
     <div class="hero page-hero">
-      <div class="kicker">THE BANNERS</div>
-      <h1>THE CHQ HALL OF CHAMPIONS</h1>
-      <p>Explore every championship season. Click a banner to see the championship profile and season awards.</p>
+      <div class="kicker">LEAGUE HISTORY</div>
+      <h1>RECORDS & LEADERS</h1>
+      <p>See the all-time money leaderboard and the records built across every season.</p>
       <div class="sync-controls">
         <span id="syncStatus" class="sync-status">● Loading league data…</span>
         <button id="refreshData" type="button">↻ Refresh Data</button>
@@ -438,13 +438,28 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 </header>
 
 <main class="container">
-<section class="section" id="champions">
+<section class="section" id="records">
   <div class="section-head">
-    <div><div class="eyebrow">The banners</div><h2>Championships</h2></div>
-    <p>Click any season to see the championship profile and season awards.</p>
+    <div><div class="eyebrow">League history</div><h2>Records & Leaders</h2></div>
+    <p>All-time figures calculated from the six seasons in the league archive.</p>
   </div>
-  <div class="champions" id="championBanners"></div>
-  <div class="detail" id="seasonDetail"></div>
+  <div class="records">
+    <div class="panel">
+      <h3>💰 All-Time Money Leaders</h3>
+      <div id="moneyLeaders"></div>
+    </div>
+    <div class="panel">
+      <h3>🏆 League Records</h3>
+      <div class="record-grid">
+        <div class="record"><div class="icon">👑</div><div class="rlabel">Most Championships</div><div class="rvalue">Mark Mackey</div><div class="rsub">2 titles</div></div>
+        <div class="record"><div class="icon">💵</div><div class="rlabel">Most Money Won</div><div class="rvalue">$1,550</div><div class="rsub">Mark Mackey</div></div>
+        <div class="record"><div class="icon">🥈</div><div class="rlabel">Most 2nd Places</div><div class="rvalue">Mickey Brown</div><div class="rsub">3 runner-up finishes</div></div>
+        <div class="record"><div class="icon">🏅</div><div class="rlabel">Most Top-3 Finishes</div><div class="rvalue">Mark Mackey</div><div class="rsub">3 total</div></div>
+        <div class="record"><div class="icon">💰</div><div class="rlabel">Largest Championship Payout</div><div class="rvalue">$750</div><div class="rsub">Mark Mackey • 2020</div></div>
+        <div class="record"><div class="icon">🔥</div><div class="rlabel">Repeat Champion</div><div class="rvalue">Mark Mackey</div><div class="rsub">2020 & 2021</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 

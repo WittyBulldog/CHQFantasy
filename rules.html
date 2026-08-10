@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHQ Fantasy Keeper League — THE CHQ HALL OF CHAMPIONS</title>
+<title>CHQ Fantasy Keeper League — LEAGUE CONSTITUTION</title>
 <style>
 :root {
   --bg:#080b12;
@@ -419,16 +419,16 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
     <nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
-        <a href="index.html" class="active-nav">Champions</a>
+        <a href="index.html">Champions</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
-        <a href="rules.html">Rules</a>
+        <a href="rules.html" class="active-nav">Rules</a>
       </div>
     </nav>
     <div class="hero page-hero">
-      <div class="kicker">THE BANNERS</div>
-      <h1>THE CHQ HALL OF CHAMPIONS</h1>
-      <p>Explore every championship season. Click a banner to see the championship profile and season awards.</p>
+      <div class="kicker">THE RULEBOOK</div>
+      <h1>LEAGUE CONSTITUTION</h1>
+      <p>The rules, settings, keeper system, scoring, playoffs, and traditions of the league.</p>
       <div class="sync-controls">
         <span id="syncStatus" class="sync-status">● Loading league data…</span>
         <button id="refreshData" type="button">↻ Refresh Data</button>
@@ -438,13 +438,121 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 </header>
 
 <main class="container">
-<section class="section" id="champions">
+<section class="section" id="constitution">
   <div class="section-head">
-    <div><div class="eyebrow">The banners</div><h2>Championships</h2></div>
-    <p>Click any season to see the championship profile and season awards.</p>
+    <div>
+      <div class="eyebrow">The rulebook</div>
+      <h2>League Constitution</h2>
+    </div>
+    <p>The rules that make CHQ Fantasy Keeper League a keeper league.</p>
   </div>
-  <div class="champions" id="championBanners"></div>
-  <div class="detail" id="seasonDetail"></div>
+
+  <div class="constitution-grid">
+    <div class="rule-card">
+      <div class="rule-icon">🔒</div>
+      <h3>Keeper Rules</h3>
+      <ul>
+        <li>Each team may keep a maximum of 3 players; there is no minimum.</li>
+        <li>A keeper's draft cost is based on the player's previous draft round minus 2 rounds.</li>
+        <li>Multiple keepers may come from the same round when a team has multiple picks available there.</li>
+        <li>Keepers are due to the commissioner one week before the draft.</li>
+        <li>Players drafted in the first two rounds generally cannot be kept unless they were dropped during the season.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">💰</div>
+      <h3>FAAB</h3>
+      <p>Every team receives $100 FAAB for the season. Free-agent keeper cost is based on the player's most recent FAAB spending.</p>
+      <div class="faab-table-wrap">
+        <table class="faab-table">
+          <thead><tr><th>FAAB Spent</th><th>Keeper Round</th></tr></thead>
+          <tbody>
+            <tr><td>$0</td><td>11th</td></tr>
+            <tr><td>$1–$3</td><td>10th</td></tr>
+            <tr><td>$4–$6</td><td>9th</td></tr>
+            <tr><td>$7–$9</td><td>8th</td></tr>
+            <tr><td>$10–$12</td><td>7th</td></tr>
+            <tr><td>$13–$15</td><td>6th</td></tr>
+            <tr><td>$16–$19</td><td>5th</td></tr>
+            <tr><td>$20+</td><td>4th</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🐍</div>
+      <h3>Draft</h3>
+      <ul>
+        <li>The league uses a snake draft.</li>
+        <li>Draft order is the reverse of the previous season's standings.</li>
+        <li>The 12th-place team picks first.</li>
+        <li>Draft-pick trading is allowed, but only for the upcoming draft.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">📋</div>
+      <h3>Roster</h3>
+      <ul>
+        <li>1 QB</li>
+        <li>2 WR</li>
+        <li>2 RB</li>
+        <li>1 TE</li>
+        <li>1 Flex</li>
+        <li>1 K</li>
+        <li>1 Defense</li>
+        <li>6 Bench</li>
+        <li>2 IR</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🏈</div>
+      <h3>Scoring</h3>
+      <ul>
+        <li>PPR scoring.</li>
+        <li>3-point bonus for 300 passing yards.</li>
+        <li>3-point bonus for 100 rushing yards.</li>
+        <li>3-point bonus for 100 receiving yards.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🏆</div>
+      <h3>Playoffs</h3>
+      <ul>
+        <li>Playoffs are held during Weeks 15, 16, and 17.</li>
+        <li>The top 6 teams make the playoffs.</li>
+        <li>The top 2 teams receive a Week 15 bye.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">💵</div>
+      <h3>League Money</h3>
+      <ul>
+        <li>$100 buy-in is due by draft night.</li>
+        <li>Trades require commissioner approval; vetoes are reserved for collusion.</li>
+        <li>If the season does not finish, money is returned.</li>
+        <li>If the season ends during Week 17, the top two split the top-two money and the 3rd/4th-place game splits the third-place money.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">👑</div>
+      <h3>League Tradition</h3>
+      <p>The champion earns the right to rename the league each season.</p>
+      <div class="rule-callout">
+        <div class="big">🏆</div>
+        <div>
+          <strong>Win it. Name it.</strong>
+          <span>The champion gets the final say on the league name for the following season.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 
