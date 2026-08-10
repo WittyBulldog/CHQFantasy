@@ -475,6 +475,13 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   z-index:10001;
 }
 
+
+.manual-refresh-note {
+  color: var(--muted);
+  font-size: 11px;
+  margin-right: 10px;
+}
+
 </style>
 <style>
 .active-nav {
@@ -523,6 +530,7 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
       <h1>LEAGUE CONSTITUTION</h1>
       <p>The rules, settings, keeper system, scoring, playoffs, and traditions of the league.</p>
       <div class="sync-controls">
+<span class="manual-refresh-note">Manual refresh enabled — data updates only when you click Refresh Data.</span>
         <span id="syncStatus" class="sync-status">● Loading league data…</span>
         <button id="refreshData" type="button">↻ Refresh Data</button>
       </div>
@@ -927,7 +935,7 @@ async function refreshData() {
 
 document.getElementById("refreshData").addEventListener("click", refreshData);
 renderAll();
-refreshData();
+
 </script>
 
 <script>
