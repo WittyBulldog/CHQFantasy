@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CHQ Fantasy Keeper League — championship history, league records, and all-time money leaders.">
+<title>CHQ Fantasy Keeper League | Hall of Champions</title>
+<style>
+:root {
+  --bg:#080b12;
+  --panel:#101621;
+  --panel2:#151c29;
+  --line:#273143;
+  --text:#f5f7fb;
+  --muted:#9ca8bb;
+  --gold:#f5c451;
+  --gold2:#ffe39a;
+  --green:#65d69a;
+  --red:#ff7373;
+  --blue:#6ea8ff;
+  --shadow:0 18px 55px rgba(0,0,0,.34);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text); background:
+    radial-gradient(circle at 50% -10%, rgba(245,196,81,.12), transparent 32rem),
+    linear-gradient(180deg,#080b12 0%,#0b0f17 55%,#080b12 100%);
+}
+button { font:inherit; }
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,92vw); margin:auto; }
+
+header {
+  position:relative; overflow:hidden; border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,#0b0f18,#151b28 55%,#0b0f18);
+}
+header:before, header:after {
+  content:""; position:absolute; width:420px; height:420px; border-radius:50%;
+  border:1px solid rgba(245,196,81,.09); pointer-events:none;
+}
+header:before { left:-250px; top:-250px; }
+header:after { right:-250px; bottom:-300px; }
+
+.nav {
+  display:flex; justify-content:space-between; align-items:center; padding:20px 0;
+  position:relative; z-index:2;
+}
+.brand { font-weight:900; letter-spacing:.08em; font-size:14px; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; color:var(--muted); font-size:13px; }
+.navlinks a:hover { color:white; }
+
+.hero { padding:60px 0 72px; text-align:center; position:relative; z-index:2; }
+.kicker {
+  display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border:1px solid rgba(245,196,81,.28);
+  color:var(--gold2); border-radius:999px; background:rgba(245,196,81,.06);
+  text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.14em;
+}
+.hero h1 { margin:18px 0 10px; font-size:clamp(42px,7vw,78px); line-height:.95; letter-spacing:-.05em; }
+.hero h1 em { color:var(--gold); font-style:normal; }
+.hero p { max-width:640px; margin:18px auto 0; color:var(--muted); font-size:16px; line-height:1.7; }
+
+.section { padding:70px 0; }
+.section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:24px; }
+.eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.16em; font-size:11px; font-weight:900; }
+h2 { margin:7px 0 0; font-size:32px; letter-spacing:-.035em; }
+.section-head p { margin:0; color:var(--muted); font-size:14px; max-width:500px; line-height:1.6; }
+
+.champions {
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:24px;
+  align-items:start;
+  padding:14px 8px 8px;
+}
+
+.banner {
+  appearance:none;
+  border:0;
+  min-height:305px;
+  padding:0 13px 31px;
+  cursor:pointer;
+  position:relative;
+  overflow:visible;
+  color:#fff;
+  background:transparent;
+  transition:.25s transform,.25s filter,.25s box-shadow;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.42));
+}
+.banner .banner-pole {
+  position:absolute; top:0; left:-5px; right:-5px; height:12px; border-radius:8px; z-index:5;
+  background:linear-gradient(180deg,#fff0a0 0%,#f5c451 28%,#a97112 72%,#6d470b 100%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 2px 3px rgba(0,0,0,.55);
+}
+.banner .banner-pole:before,.banner .banner-pole:after {
+  content:""; position:absolute; top:-3px; width:18px; height:18px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff6b5 0 10%,#f5c451 25%,#a97012 68%,#5e3d08 100%);
+  border:2px solid #e4b63f; box-shadow:0 2px 4px rgba(0,0,0,.6);
+}
+.banner .banner-pole:before { left:-7px; }
+.banner .banner-pole:after { right:-7px; }
+
+.banner .banner-fabric {
+  position:relative; min-height:292px; padding:31px 12px 58px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  background:
+    radial-gradient(circle at 50% 20%,rgba(79,102,137,.28),transparent 48%),
+    linear-gradient(105deg,#111c2d 0%,#1b2940 48%,#0b1424 100%);
+  border:3px solid #c79628;
+  box-shadow:inset 0 0 0 2px rgba(255,225,126,.55),inset 0 -30px 45px rgba(0,0,0,.2);
+}
+.banner .banner-fabric:before {
+  content:""; position:absolute; inset:9px 8px 35px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  border:2px solid rgba(255,255,255,.72); pointer-events:none;
+}
+.banner .banner-fabric:after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.055) 48%,transparent 70%);
+  pointer-events:none;
+}
+.banner .year {
+  position:relative; z-index:2; font-size:28px; line-height:1; font-weight:950;
+  color:#f5c451; letter-spacing:.05em; text-shadow:0 2px 4px rgba(0,0,0,.8);
+}
+.banner .label {
+  position:relative; z-index:2; margin-top:12px; color:#fff; font-size:10px; font-weight:850;
+  text-transform:uppercase; letter-spacing:.18em; text-shadow:0 2px 4px rgba(0,0,0,.85);
+}
+.banner .champion {
+  position:relative; z-index:2; color:#fff; font-weight:950; font-size:17px; line-height:1.08;
+  margin-top:10px; text-transform:uppercase; text-shadow:0 2px 5px rgba(0,0,0,.9);
+}
+.trophy {
+  position:relative; z-index:2; font-size:44px; line-height:1; margin:24px 0 5px;
+  filter:drop-shadow(0 4px 4px rgba(0,0,0,.7));
+}
+.banner .banner-fabric .laurel {
+  position:absolute; left:50%; bottom:43px; transform:translateX(-50%);
+  width:86px; height:36px; z-index:2; opacity:.9;
+}
+.banner .banner-fabric .laurel:before,.banner .banner-fabric .laurel:after {
+  content:"❯ ❯ ❯"; position:absolute; top:0; color:#f5c451; font-size:12px; letter-spacing:-2px;
+}
+.banner .banner-fabric .laurel:before { right:48px; transform:rotate(58deg); }
+.banner .banner-fabric .laurel:after { left:48px; transform:scaleX(-1) rotate(58deg); }
+
+.banner:hover {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(0,0,0,.55)) brightness(1.08);
+}
+.banner.active {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(245,196,81,.2)) brightness(1.08);
+}
+.banner.active .banner-fabric {
+  box-shadow:inset 0 0 0 2px rgba(255,241,169,.8),inset 0 -30px 45px rgba(0,0,0,.18),
+             0 0 0 1px rgba(245,196,81,.35);
+}
+
+.detail {
+  margin-top:18px; border:1px solid var(--line); background:linear-gradient(135deg,#131a27,#0d121b);
+  border-radius:20px; padding:28px; box-shadow:var(--shadow);
+}
+.detail-top { display:flex; justify-content:space-between; gap:20px; align-items:start; }
+.detail-title { display:flex; gap:16px; align-items:center; }
+.avatar {
+  width:58px; height:58px; border-radius:16px; display:grid; place-items:center;
+  background:linear-gradient(135deg,#f5c451,#9d741c); color:#111; font-weight:950;
+}
+.detail h3 { margin:0; font-size:26px; }
+.detail .sub { margin:5px 0 0; color:var(--muted); font-size:13px; }
+.badge { padding:8px 11px; border-radius:999px; background:rgba(101,214,154,.1); color:var(--green); font-size:11px; font-weight:900; text-transform:uppercase; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px; }
+.stat { background:rgba(255,255,255,.025); border:1px solid var(--line); border-radius:12px; padding:15px; }
+.stat .v { font-size:22px; font-weight:900; }
+.stat .l { margin-top:5px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+
+.awards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+.award { padding:13px; border-left:3px solid var(--gold); background:rgba(245,196,81,.035); border-radius:8px; }
+.award strong { display:block; font-size:13px; }
+.award span { display:block; color:var(--muted); font-size:12px; margin-top:4px; }
+
+.records { display:grid; grid-template-columns:1.15fr .85fr; gap:20px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:24px; }
+.panel h3 { margin:0 0 18px; font-size:18px; }
+.leader { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+.leader:last-child { border-bottom:0; }
+.rank { width:28px; color:var(--muted); font-weight:800; }
+.mini-avatar { width:34px; height:34px; border-radius:10px; background:#1d2636; display:grid; place-items:center; font-size:11px; font-weight:900; }
+.leader-name { flex:1; font-weight:750; font-size:14px; }
+.bar { width:110px; height:6px; background:#252e3e; border-radius:999px; overflow:hidden; }
+.bar i { display:block; height:100%; width:var(--w); background:linear-gradient(90deg,var(--gold),#fff0ba); border-radius:inherit; }
+.money { min-width:62px; text-align:right; color:var(--gold2); font-weight:900; }
+
+.record-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.record {
+  min-height:120px; padding:16px; border:1px solid var(--line); border-radius:14px;
+  background:linear-gradient(135deg,#121a27,#0d131c);
+}
+.record .icon { font-size:22px; }
+.record .rlabel { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; margin-top:12px; }
+.record .rvalue { font-size:16px; font-weight:900; margin-top:4px; }
+.record .rsub { color:var(--muted); font-size:11px; margin-top:3px; }
+
+.history { overflow:auto; border:1px solid var(--line); border-radius:18px; }
+table { width:100%; border-collapse:collapse; min-width:760px; }
+th,td { padding:15px 16px; border-bottom:1px solid var(--line); text-align:left; }
+th { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; background:#0e141e; }
+td { font-size:13px; }
+tr:last-child td { border-bottom:0; }
+tr:hover td { background:rgba(255,255,255,.018); }
+.year-cell { color:var(--gold); font-weight:950; }
+.place1 { font-weight:900; }
+
+
+
+.sync-controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+.sync-status {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--muted);
+  font-size:11px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.025);
+}
+.sync-status.live { color:var(--green); border-color:rgba(101,214,154,.25); }
+.sync-status.error { color:var(--red); border-color:rgba(255,115,115,.25); }
+#refreshData {
+  border:1px solid rgba(245,196,81,.35);
+  background:rgba(245,196,81,.07);
+  color:var(--gold2);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:800;
+}
+#refreshData:hover { background:rgba(245,196,81,.14); }
+
+
+/* League Constitution */
+.constitution-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.rule-card {
+  background:linear-gradient(135deg,#121a27,#0d131c);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.16);
+}
+.rule-card:hover {
+  border-color:rgba(245,196,81,.35);
+  transform:translateY(-2px);
+}
+.rule-icon { font-size:27px; margin-bottom:12px; }
+.rule-card h3 { margin:0 0 9px; font-size:17px; }
+.rule-card p { margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.65; }
+.rule-card ul { margin:0; padding-left:18px; color:#d9e0eb; font-size:13px; line-height:1.7; }
+.rule-card li + li { margin-top:5px; }
+
+.faab-table-wrap {
+  margin-top:14px;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.faab-table { width:100%; min-width:430px; border-collapse:collapse; }
+.faab-table th,.faab-table td {
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  font-size:12px;
+}
+.faab-table th {
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:10px;
+  background:#0e141e;
+}
+.faab-table tr:last-child td { border-bottom:0; }
+.rule-callout {
+  margin-top:18px;
+  padding:18px 20px;
+  border:1px solid rgba(245,196,81,.28);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(245,196,81,.08),rgba(245,196,81,.025));
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.rule-callout .big { font-size:30px; }
+.rule-callout strong { display:block; }
+.rule-callout span { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
+
+@media(max-width:900px) {
+  .constitution-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  .constitution-grid { grid-template-columns:1fr; }
+}
+
+footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; }
+
+@media(max-width:1100px) {
+  .champions { grid-template-columns:repeat(3,1fr); }
+  .records { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  .navlinks { display:none; }
+  .hero { padding:45px 0 55px; }
+  .champions { grid-template-columns:repeat(2,1fr); gap:14px; padding-left:0; padding-right:0; }
+  .banner { min-height:260px; padding-left:8px; padding-right:8px; }
+  .banner .banner-fabric { min-height:248px; padding-left:7px; padding-right:7px; }
+  .banner .year { font-size:22px; }
+  .banner .champion { font-size:14px; }
+  .trophy { font-size:34px; }
+  .stats { grid-template-columns:1fr 1fr; }
+  .awards { grid-template-columns:1fr; }
+  .section { padding:50px 0; }
+  .detail-top { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <div class="navlinks">
+        <a href="#champions">Champions</a>
+        <a href="#records">Records</a>
+        <a href="#history">History</a>
+        <a href="#constitution">Rules</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="kicker">Est. League Archive • 2020–2025</div>
+      <h1>THE <em>CHQ</em><br>HALL OF CHAMPIONS</h1>
+      <p>Six seasons. Plenty of bragging rights. Explore the champions, prize money, league records, and the history of the CHQ Fantasy Keeper League.</p>
+      <div class="sync-controls">
+        <span id="syncStatus" class="sync-status">● Loading league data…</span>
+        <button id="refreshData" type="button">↻ Refresh Data</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<section class="section" id="champions">
+  <div class="section-head">
+    <div><div class="eyebrow">The banners</div><h2>Championships</h2></div>
+    <p>Click any season to see the championship profile and season awards.</p>
+  </div>
+  <div class="champions" id="championBanners"></div>
+  <div class="detail" id="seasonDetail"></div>
+</section>
+
+<section class="section" id="records">
+  <div class="section-head">
+    <div><div class="eyebrow">League history</div><h2>Records & Leaders</h2></div>
+    <p>All-time figures calculated from the six seasons in the league archive.</p>
+  </div>
+  <div class="records">
+    <div class="panel">
+      <h3>💰 All-Time Money Leaders</h3>
+      <div id="moneyLeaders"></div>
+    </div>
+    <div class="panel">
+      <h3>🏆 League Records</h3>
+      <div class="record-grid">
+        <div class="record"><div class="icon">👑</div><div class="rlabel">Most Championships</div><div class="rvalue">Mark Mackey</div><div class="rsub">2 titles</div></div>
+        <div class="record"><div class="icon">💵</div><div class="rlabel">Most Money Won</div><div class="rvalue">$1,550</div><div class="rsub">Mark Mackey</div></div>
+        <div class="record"><div class="icon">🥈</div><div class="rlabel">Most 2nd Places</div><div class="rvalue">Mickey Brown</div><div class="rsub">3 runner-up finishes</div></div>
+        <div class="record"><div class="icon">🏅</div><div class="rlabel">Most Top-3 Finishes</div><div class="rvalue">Mark Mackey</div><div class="rsub">3 total</div></div>
+        <div class="record"><div class="icon">💰</div><div class="rlabel">Largest Championship Payout</div><div class="rvalue">$750</div><div class="rsub">Mark Mackey • 2020</div></div>
+        <div class="record"><div class="icon">🔥</div><div class="rlabel">Repeat Champion</div><div class="rvalue">Mark Mackey</div><div class="rsub">2020 & 2021</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+  <div class="section-head">
+    <div><div class="eyebrow">Season by season</div><h2>League History</h2></div>
+    <p>A quick view of every championship finish currently in the archive.</p>
+  </div>
+  <div class="history">
+    <table>
+      <thead><tr><th>Season</th><th>🥇 Champion</th><th>🥈 Runner-Up</th><th>🥉 3rd</th><th>Consolation</th></tr></thead>
+      <tbody id="historyRows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="constitution">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">The rulebook</div>
+      <h2>League Constitution</h2>
+    </div>
+    <p>The rules that make CHQ Fantasy Keeper League a keeper league.</p>
+  </div>
+
+  <div class="constitution-grid">
+    <div class="rule-card">
+      <div class="rule-icon">🔒</div>
+      <h3>Keeper Rules</h3>
+      <ul>
+        <li>Each team may keep a maximum of 3 players; there is no minimum.</li>
+        <li>A keeper's draft cost is based on the player's previous draft round minus 2 rounds.</li>
+        <li>Multiple keepers may come from the same round when a team has multiple picks available there.</li>
+        <li>Keepers are due to the commissioner one week before the draft.</li>
+        <li>Players drafted in the first two rounds generally cannot be kept unless they were dropped during the season.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">💰</div>
+      <h3>FAAB</h3>
+      <p>Every team receives $100 FAAB for the season. Free-agent keeper cost is based on the player's most recent FAAB spending.</p>
+      <div class="faab-table-wrap">
+        <table class="faab-table">
+          <thead><tr><th>FAAB Spent</th><th>Keeper Round</th></tr></thead>
+          <tbody>
+            <tr><td>$0</td><td>11th</td></tr>
+            <tr><td>$1–$3</td><td>10th</td></tr>
+            <tr><td>$4–$6</td><td>9th</td></tr>
+            <tr><td>$7–$9</td><td>8th</td></tr>
+            <tr><td>$10–$12</td><td>7th</td></tr>
+            <tr><td>$13–$15</td><td>6th</td></tr>
+            <tr><td>$16–$19</td><td>5th</td></tr>
+            <tr><td>$20+</td><td>4th</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🐍</div>
+      <h3>Draft</h3>
+      <ul>
+        <li>The league uses a snake draft.</li>
+        <li>Draft order is the reverse of the previous season's standings.</li>
+        <li>The 12th-place team picks first.</li>
+        <li>Draft-pick trading is allowed, but only for the upcoming draft.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">📋</div>
+      <h3>Roster</h3>
+      <ul>
+        <li>1 QB</li>
+        <li>2 WR</li>
+        <li>2 RB</li>
+        <li>1 TE</li>
+        <li>1 Flex</li>
+        <li>1 K</li>
+        <li>1 Defense</li>
+        <li>6 Bench</li>
+        <li>2 IR</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🏈</div>
+      <h3>Scoring</h3>
+      <ul>
+        <li>PPR scoring.</li>
+        <li>3-point bonus for 300 passing yards.</li>
+        <li>3-point bonus for 100 rushing yards.</li>
+        <li>3-point bonus for 100 receiving yards.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">🏆</div>
+      <h3>Playoffs</h3>
+      <ul>
+        <li>Playoffs are held during Weeks 15, 16, and 17.</li>
+        <li>The top 6 teams make the playoffs.</li>
+        <li>The top 2 teams receive a Week 15 bye.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">💵</div>
+      <h3>League Money</h3>
+      <ul>
+        <li>$100 buy-in is due by draft night.</li>
+        <li>Trades require commissioner approval; vetoes are reserved for collusion.</li>
+        <li>If the season does not finish, money is returned.</li>
+        <li>If the season ends during Week 17, the top two split the top-two money and the 3rd/4th-place game splits the third-place money.</li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-icon">👑</div>
+      <h3>League Tradition</h3>
+      <p>The champion earns the right to rename the league each season.</p>
+      <div class="rule-callout">
+        <div class="big">🏆</div>
+        <div>
+          <strong>Win it. Name it.</strong>
+          <span>The champion gets the final say on the league name for the following season.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
+</footer>
+
+<script>
+/*
+  CHQ Fantasy Keeper League — live data
+  Source: public Google Sheet
+  https://docs.google.com/spreadsheets/d/13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4/edit
+*/
+
+const SHEET_ID = "13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4";
+
+const FALLBACK_SEASONS = [
+  {year:2025, champion:"Dan Ekstrom", second:"Mickey Brown", third:"Nick Nowakowski", consolation:"Mark Melquist", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Nick Nowakowski", mostWeeks:"Dan Ekstrom", mostPA:"Brett Dehner"},
+  {year:2024, champion:"Dillon McMahon", second:"Jason Buccola", third:"Dusty Dudenhoeffer", consolation:"Mark Mackey", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dillon McMahon", mostWeeks:"Jason Buccola", mostPA:"Mickey Brown"},
+  {year:2023, champion:"Nick Nowakowski", second:"Mickey Brown", third:"Mark Mackey", consolation:"Jason Buccola", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mickey Brown", mostPA:"Chris Mulheron"},
+  {year:2022, champion:"Chris Mulheron", second:"Mickey Brown", third:"Jason Buccola", consolation:"Jason Harle", championPayout:400, secondPayout:400, thirdPayout:150, consolationPayout:100, weeklyWinner:"Mickey Brown", mostWeeks:"Mickey Brown", mostPA:"Dusty Dudenhoeffer"},
+  {year:2021, champion:"Mark Mackey", second:"Nick Nowakowski", third:"Mark Melquist", consolation:"Tylor Cardone", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mark Mackey", mostPA:"Dan Ekstrom"},
+  {year:2020, champion:"Mark Mackey", second:"Chris Mulheron", third:"Jon Barlow", consolation:"—", championPayout:750, secondPayout:300, thirdPayout:100, consolationPayout:0, weeklyWinner:"—", mostWeeks:"—", mostPA:"Jason Harle"}
+];
+
+const FALLBACK_MONEY = [
+  ["Mark Mackey",1550],["Mickey Brown",1200],["Nick Nowakowski",1000],["Chris Mulheron",750],
+  ["Jason Buccola",600],["Dan Ekstrom",600],["Dillon McMahon",550],["Dusty Dudenhoeffer",300],
+  ["Mark Melquist",250],["Jason Harle",150],["Jon Barlow",100],["Tylor Cardone",100],["Brett Dehner",50]
+];
+
+let seasons = [...FALLBACK_SEASONS];
+let money = [...FALLBACK_MONEY];
+let rules = [];
+
+function initials(name) {
+  if (!name || name === "—") return "—";
+  return name.split(" ").slice(0,2).map(x => x[0]).join("").toUpperCase();
+}
+
+function cellValue(row, index) {
+  return row[index] == null ? "" : String(row[index]).trim();
+}
+
+function parseGviz(text) {
+  const match = text.match(/setResponse\(([\s\S]*)\);?\s*$/);
+  if (!match) throw new Error("Unexpected Google Sheets response.");
+  return JSON.parse(match[1]);
+}
+
+async function getSheet(sheetName) {
+  const url =
+    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
+    `?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&headers=1`;
+  const response = await fetch(url, {cache:"no-store"});
+  if (!response.ok) throw new Error(`Could not load ${sheetName}.`);
+  const data = parseGviz(await response.text());
+  if (data.status !== "ok") throw new Error(`Google Sheets returned an error for ${sheetName}.`);
+  return data.table.rows.map(r => r.c.map(c => c ? c.v : ""));
+}
+
+function normalizeSeasonRows(rows) {
+  const result = [];
+  let current = null;
+
+  for (const row of rows) {
+    const first = cellValue(row,0);
+    const second = cellValue(row,1);
+    const third = cellValue(row,2);
+
+    // A season header is a standalone year.
+    if (/^20\d{2}$/.test(first) && !second && !third) {
+      if (current) result.push(current);
+      current = {
+        year:Number(first),
+        champion:"—", second:"—", third:"—", consolation:"—",
+        championPayout:0, secondPayout:0, thirdPayout:0, consolationPayout:0,
+        weeklyWinner:"—", mostWeeks:"—", mostPA:"—"
+      };
+      continue;
+    }
+
+    if (!current) continue;
+
+    const label = first.toLowerCase();
+    if (label === "1st") { current.champion=second || "—"; current.championPayout=Number(third)||0; }
+    else if (label === "2nd") { current.second=second || "—"; current.secondPayout=Number(third)||0; }
+    else if (label === "3rd") { current.third=second || "—"; current.thirdPayout=Number(third)||0; }
+    else if (label.includes("consolation")) { current.consolation=second || "—"; current.consolationPayout=Number(third)||0; }
+    else if (label.includes("highest point")) current.weeklyWinner=second || "—";
+    else if (label.includes("most weeks")) current.mostWeeks=second || "—";
+    else if (label.includes("most points against")) current.mostPA=second || "—";
+  }
+
+  if (current) result.push(current);
+  return result.sort((a,b)=>b.year-a.year);
+}
+
+function normalizeMoneyRows(rows) {
+  return rows
+    .map(r => [cellValue(r,0), Number(cellValue(r,1).replace(/[$,]/g,"")) || 0])
+    .filter(r => r[0] && r[1] > 0)
+    .sort((a,b)=>b[1]-a[1]);
+}
+
+function renderDetail(index) {
+  const s = seasons[index];
+  document.querySelectorAll(".banner").forEach((b,i)=>b.classList.toggle("active",i===index));
+  document.getElementById("seasonDetail").innerHTML = `
+    <div class="detail-top">
+      <div class="detail-title">
+        <div class="avatar">${initials(s.champion)}</div>
+        <div>
+          <h3>${s.year} Champion — ${s.champion}</h3>
+          <div class="sub">CHQ Fantasy Keeper League • Championship banner #${seasons.length-index}</div>
+        </div>
+      </div>
+      <div class="badge">🏆 League Champion</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">$${s.championPayout}</div><div class="l">Champion payout</div></div>
+      <div class="stat"><div class="v">${s.second}</div><div class="l">Runner-up</div></div>
+      <div class="stat"><div class="v">${s.third}</div><div class="l">Third place</div></div>
+      <div class="stat"><div class="v">${s.consolation}</div><div class="l">Consolation winner</div></div>
+    </div>
+    <div class="awards">
+      <div class="award"><strong>🔥 Highest Weekly Score</strong><span>${s.weeklyWinner}</span></div>
+      <div class="award"><strong>📈 Most Weeks with Most Points</strong><span>${s.mostWeeks}</span></div>
+      <div class="award"><strong>🧱 Most Points Against</strong><span>${s.mostPA}</span></div>
+    </div>`;
+}
+
+function renderBanners() {
+  const container = document.getElementById("championBanners");
+  container.innerHTML = "";
+  seasons.forEach((s,i) => {
+    const b = document.createElement("button");
+    b.className = "banner";
+    b.type = "button";
+    b.innerHTML = `
+      <div class="banner-pole"></div>
+      <div class="banner-fabric">
+        <div class="year">${s.year}</div>
+        <div class="label">★ &nbsp; CHAMPION &nbsp; ★</div>
+        <div class="champion">${s.champion}</div>
+        <div class="trophy">🏆</div>
+        <div class="laurel"></div>
+      </div>`;
+    b.addEventListener("click",()=>renderDetail(i));
+    container.appendChild(b);
+  });
+  if (seasons.length) renderDetail(0);
+}
+
+function renderMoney() {
+  const maxMoney = money.length ? money[0][1] : 1;
+  document.getElementById("moneyLeaders").innerHTML = money.map((m,i)=>`
+    <div class="leader">
+      <div class="rank">${i+1}</div>
+      <div class="mini-avatar">${initials(m[0])}</div>
+      <div class="leader-name">${m[0]}</div>
+      <div class="bar"><i style="--w:${(m[1]/maxMoney*100).toFixed(1)}%"></i></div>
+      <div class="money">$${m[1].toLocaleString()}</div>
+    </div>`).join("");
+}
+
+function renderHistory() {
+  document.getElementById("historyRows").innerHTML = seasons.map(s=>`
+    <tr>
+      <td class="year-cell">${s.year}</td>
+      <td class="place1">${s.champion}</td>
+      <td>${s.second}</td>
+      <td>${s.third}</td>
+      <td>${s.consolation}</td>
+    </tr>`).join("");
+}
+
+function renderRecords() {
+  const counts = {};
+  const seconds = {};
+  const top3 = {};
+  seasons.forEach(s=>{
+    [s.champion,s.second,s.third].forEach((name,i)=>{
+      if (!name || name==="—") return;
+      top3[name]=(top3[name]||0)+1;
+      if (i===0) counts[name]=(counts[name]||0)+1;
+      if (i===1) seconds[name]=(seconds[name]||0)+1;
+    });
+  });
+  const maxTitles = Math.max(0,...Object.values(counts));
+  const champ = Object.keys(counts).find(n=>counts[n]===maxTitles) || "—";
+  const maxSeconds = Math.max(0,...Object.values(seconds));
+  const runner = Object.keys(seconds).find(n=>seconds[n]===maxSeconds) || "—";
+  const maxTop3 = Math.max(0,...Object.values(top3));
+  const top3Name = Object.keys(top3).find(n=>top3[n]===maxTop3) || "—";
+  const moneyLeader = money[0] || ["—",0];
+  const repeat = Object.keys(counts).find(n=>counts[n]>=2) || "—";
+  const repeatYears = repeat==="—" ? "—" : seasons.filter(s=>s.champion===repeat).map(s=>s.year).join(" & ");
+  const largest = seasons.reduce((a,b)=>b.championPayout>a.championPayout?b:a,seasons[0]);
+
+  const records = document.querySelectorAll(".record .rvalue");
+  const subs = document.querySelectorAll(".record .rsub");
+  if (records.length >= 6) {
+    records[0].textContent=champ;
+    subs[0].textContent=`${maxTitles} title${maxTitles===1?"":"s"}`;
+    records[1].textContent=`$${moneyLeader[1].toLocaleString()}`;
+    subs[1].textContent=moneyLeader[0];
+    records[2].textContent=runner;
+    subs[2].textContent=`${maxSeconds} runner-up finish${maxSeconds===1?"":"es"}`;
+    records[3].textContent=top3Name;
+    subs[3].textContent=`${maxTop3} total`;
+    records[4].textContent=`$${largest?.championPayout || 0}`;
+    subs[4].textContent=`${largest?.champion || "—"} • ${largest?.year || "—"}`;
+    records[5].textContent=repeat;
+    subs[5].textContent=repeat==="—" ? "No repeat champion yet" : repeatYears;
+  }
+}
+
+
+function renderAll() {
+  renderBanners();
+  renderMoney();
+  renderHistory();
+  renderRecords();
+}
+
+function setStatus(message, state="") {
+  const el = document.getElementById("syncStatus");
+  el.textContent = `● ${message}`;
+  el.className = `sync-status ${state}`;
+}
+
+async function refreshData() {
+  const button = document.getElementById("refreshData");
+  button.disabled = true;
+  setStatus("Updating from Google Sheets…");
+
+  try {
+    const [finishRows, moneyRows, ruleRows] = await Promise.all([
+      getSheet("Yearly_Finishes"),
+      getSheet("$ Leaderboard"),
+      getSheet("Rules")
+    ]);
+
+    const freshSeasons = normalizeSeasonRows(finishRows);
+    const freshMoney = normalizeMoneyRows(moneyRows);
+
+    if (!freshSeasons.length) throw new Error("No season data was found.");
+
+    // Keep known historical seasons if a Google Sheets refresh temporarily
+    // omits one. This prevents the 2025 banner from disappearing when the
+    // Yearly_Finishes tab does not return that row.
+    const merged = new Map(FALLBACK_SEASONS.map(s => [s.year, s]));
+    freshSeasons.forEach(s => merged.set(s.year, s));
+    seasons = Array.from(merged.values()).sort((a,b) => b.year - a.year);
+
+    if (freshMoney.length) money = freshMoney;
+    rules = ruleRows || [];
+
+    renderAll();
+    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
+    setStatus(`Live • Updated ${stamp}`, "live");
+  } catch (error) {
+    console.warn(error);
+    renderAll();
+    setStatus("Using saved league data • Google Sheets unavailable", "error");
+  } finally {
+    button.disabled = false;
+  }
+}
+
+document.getElementById("refreshData").addEventListener("click", refreshData);
+renderAll();
+refreshData();
+</script>
+</body>
+</html>
