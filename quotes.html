@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHQ Fantasy Keeper League — Payouts</title>
+<title>CHQ Fantasy Keeper League — Favorite Quotes</title>
 <style>
 :root {
   --bg:#080b12;
@@ -412,202 +412,119 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 </style>
 <style>
 .active-nav {
-  color:var(--gold2) !important;
+  color:var(--gold2)!important;
   border-bottom:2px solid var(--gold);
   padding-bottom:4px;
 }
-.payouts-section {
-  padding:60px 0 80px;
+.quotes-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  padding-bottom:70px;
 }
-.payouts-table-wrap {
-  overflow:auto;
+.quote-card {
+  position:relative;
   border:1px solid var(--line);
-  border-radius:18px;
-  background:linear-gradient(145deg,#121a27,#0d131c);
-  box-shadow:0 15px 40px rgba(0,0,0,.18);
+  border-radius:20px;
+  padding:30px;
+  background:linear-gradient(145deg,#151e2c,#0d141e);
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
-.payouts-table {
-  width:100%;
-  border-collapse:collapse;
-  min-width:520px;
-}
-.payouts-table th,
-.payouts-table td {
-  padding:15px 16px;
-  border-bottom:1px solid var(--line);
-  text-align:left;
-  vertical-align:top;
-  font-size:13px;
-}
-.payouts-table th {
-  color:var(--gold2);
-  background:#0c131d;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  font-size:10px;
-  position:sticky;
-  top:0;
-}
-.payouts-table tr:last-child td { border-bottom:0; }
-.payouts-table tr:hover td { background:rgba(245,196,81,.025); }
-
-.payout-amount {
-  color:var(--gold2);
+.quote-card:before {
+  content:'“';
+  position:absolute;
+  top:5px;
+  right:20px;
+  font-size:80px;
+  color:rgba(245,196,81,.15);
   font-weight:900;
-  white-space:nowrap;
 }
-
-.payouts-table td:first-child { font-weight:800; color:#fff; }
-.payouts-note {
+.quote-name {
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:11px;
+  font-weight:900;
+}
+.quote-text {
+  font-size:22px;
+  line-height:1.5;
+  font-weight:800;
   margin-top:14px;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.6;
 }
-.payouts-empty {
-  padding:40px 25px;
-  text-align:center;
+.quote-note {
   color:var(--muted);
+  margin-top:14px;
+  font-size:13px;
+  font-style:italic;
+}
+@media(max-width:800px) {
+ .quotes-grid {grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 <header>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-      <div class="navlinks">
-        <a href="index.html">Champions</a>
-        <a href="records.html">Records</a>
-        <a href="history.html">History</a>
-        <a href="rules.html">Rules</a>
-        <a href="payouts.html" class="active-nav">Payouts</a>
-        <a href="players.html">Players</a>
-        <a href="quotes.html">Quotes</a>
-      </div>
-    </nav>
-    <div class="hero page-hero">
-      <div class="kicker">LEAGUE FINANCES</div>
-      <h1>PAYOUTS</h1>
-      <p>Live payout information pulled directly from the Payouts tab of the league Google Sheet.</p>
-      <div class="sync-controls">
-        <span id="syncStatus" class="sync-status">● Loading payout data…</span>
-        <button id="refreshData" type="button">↻ Refresh Data</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<nav class="nav">
+<div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+<div class="navlinks">
+<a href="index.html">Champions</a>
+<a href="records.html">Records</a>
+<a href="history.html">History</a>
+<a href="rules.html">Rules</a>
+<a href="payouts.html">Payouts</a>
+<a href="players.html">Players</a>
+<a href="quotes.html" class="active-nav">Quotes</a>
+</div>
+</nav>
+<div class="hero page-hero">
+<div class="kicker">LEAGUE LORE</div>
+<h1>FAVORITE QUOTES</h1>
+<p>The legendary comments, trash talk, and moments that define the CHQ Fantasy Keeper League.</p>
+</div>
+</div>
 </header>
 
 <main class="container">
-  <section class="section payouts-section">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Finances</div>
-        <h2>League Payouts</h2>
-      </div>
-      <p>Changes made in the spreadsheet will appear here after a refresh.</p>
-    </div>
+<section class="section">
+<div class="section-head">
+<div>
+<div class="eyebrow">The archives</div>
+<h2>League Quotes</h2>
+</div>
+<p>The greatest words ever spoken before, during, and after fantasy heartbreak.</p>
+</div>
 
-    <div class="payouts-table-wrap">
-      <div id="payoutsContent" class="payouts-empty">Loading payouts…</div>
-    </div>
-    <div class="payouts-note">
-      This page displays the Payouts tab as it exists in the league spreadsheet. No payout values are hard-coded into the website.
-    </div>
-  </section>
+<div class="quotes-grid">
+<article class="quote-card">
+<div class="quote-name">Dusty</div>
+<div class="quote-text">"Winning this one so my kid knows I am a champ"</div>
+<div class="quote-note">He then lost...</div>
+</article>
+
+<article class="quote-card">
+<div class="quote-name">Nick</div>
+<div class="quote-text">"Dillon won? But he's a trout sniffer!"</div>
+</article>
+
+<article class="quote-card">
+<div class="quote-name">Tylor vs. Dillon</div>
+<div class="quote-text">Tylor: "My next victim is current defending champion Dillon. Hope you're ready for this beating."</div>
+<div class="quote-text">Dillon Responds: "Patiently holding my ankles"</div>
+</article>
+
+<article class="quote-card">
+<div class="quote-name">Dusty</div>
+<div class="quote-text">"Dang when I grow up I want to be as cool as you Tylor 😎"</div>
+</article>
+
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
+<div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
 </footer>
-
-<script>
-const SHEET_ID = "13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4";
-
-function parseGviz(text) {
-  const match = text.match(/setResponse\(([\s\S]*)\);?\s*$/);
-  if (!match) throw new Error("Unexpected Google Sheets response.");
-  return JSON.parse(match[1]);
-}
-
-async function getPayouts() {
-  const url =
-    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
-    `?tqx=out:json&sheet=${encodeURIComponent("Payouts")}&headers=1`;
-  const response = await fetch(url, {cache:"no-store"});
-  if (!response.ok) throw new Error("Could not load the Payouts tab.");
-  const data = parseGviz(await response.text());
-  if (data.status !== "ok") throw new Error("Google Sheets returned an error for Payouts.");
-  return data.table.rows.map(r => r.c.map(c => c ? c.v : ""));
-}
-
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
-
-function renderPayouts(rows) {
-  const container = document.getElementById("payoutsContent");
-  if (!rows || !rows.length) {
-    container.className = "payouts-empty";
-    container.innerHTML = "No payout data was returned from the Payouts tab.";
-    return;
-  }
-
-  // The Payouts tab is displayed as the league's two-column payout list:
-  // Prize and Amount. The first sheet row is treated as the header row.
-  const dataRows = rows.slice(1).filter(r => r.some(v => String(v ?? "").trim()));
-
-  container.className = "";
-  container.innerHTML = `
-    <table class="payouts-table">
-      <thead>
-        <tr>
-          <th>Prize</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${dataRows.map(row => `
-          <tr>
-            <td>${escapeHtml(row[0] ?? "")}</td>
-            <td class="payout-amount">$${escapeHtml(String(row[1] ?? "").replace(/^\$/, ""))}</td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>`;
-}
-
-async function refreshData() {
-  const button = document.getElementById("refreshData");
-  button.disabled = true;
-  const status = document.getElementById("syncStatus");
-  status.textContent = "● Updating from Google Sheets…";
-  status.className = "sync-status";
-
-  try {
-    const rows = await getPayouts();
-    renderPayouts(rows);
-    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
-    status.textContent = `● Live • Updated ${stamp}`;
-    status.className = "sync-status live";
-  } catch (error) {
-    console.warn(error);
-    document.getElementById("payoutsContent").innerHTML =
-      `<div class="payouts-empty">Unable to load the Payouts tab right now. Check that the Google Sheet is shared publicly and try Refresh Data again.</div>`;
-    status.textContent = "● Google Sheets unavailable";
-    status.className = "sync-status error";
-  } finally {
-    button.disabled = false;
-  }
-}
-
-document.getElementById("refreshData").addEventListener("click", refreshData);
-refreshData();
-</script>
 </body>
 </html>
