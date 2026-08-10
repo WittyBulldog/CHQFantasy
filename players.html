@@ -1,0 +1,395 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CHQ Fantasy Keeper League — Players</title><style>
+:root {
+  --bg:#080b12;
+  --panel:#101621;
+  --panel2:#151c29;
+  --line:#273143;
+  --text:#f5f7fb;
+  --muted:#9ca8bb;
+  --gold:#f5c451;
+  --gold2:#ffe39a;
+  --green:#65d69a;
+  --red:#ff7373;
+  --blue:#6ea8ff;
+  --shadow:0 18px 55px rgba(0,0,0,.34);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text); background:
+    radial-gradient(circle at 50% -10%, rgba(245,196,81,.12), transparent 32rem),
+    linear-gradient(180deg,#080b12 0%,#0b0f17 55%,#080b12 100%);
+}
+button { font:inherit; }
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,92vw); margin:auto; }
+
+header {
+  position:relative; overflow:hidden; border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,#0b0f18,#151b28 55%,#0b0f18);
+}
+header:before, header:after {
+  content:""; position:absolute; width:420px; height:420px; border-radius:50%;
+  border:1px solid rgba(245,196,81,.09); pointer-events:none;
+}
+header:before { left:-250px; top:-250px; }
+header:after { right:-250px; bottom:-300px; }
+
+.nav {
+  display:flex; justify-content:space-between; align-items:center; padding:20px 0;
+  position:relative; z-index:2;
+}
+.brand { font-weight:900; letter-spacing:.08em; font-size:14px; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; color:var(--muted); font-size:13px; }
+.navlinks a:hover { color:white; }
+
+.hero { padding:60px 0 72px; text-align:center; position:relative; z-index:2; }
+.kicker {
+  display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border:1px solid rgba(245,196,81,.28);
+  color:var(--gold2); border-radius:999px; background:rgba(245,196,81,.06);
+  text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.14em;
+}
+.hero h1 { margin:18px 0 10px; font-size:clamp(42px,7vw,78px); line-height:.95; letter-spacing:-.05em; }
+.hero h1 em { color:var(--gold); font-style:normal; }
+.hero p { max-width:640px; margin:18px auto 0; color:var(--muted); font-size:16px; line-height:1.7; }
+
+.section { padding:70px 0; }
+.section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:24px; }
+.eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.16em; font-size:11px; font-weight:900; }
+h2 { margin:7px 0 0; font-size:32px; letter-spacing:-.035em; }
+.section-head p { margin:0; color:var(--muted); font-size:14px; max-width:500px; line-height:1.6; }
+
+.champions {
+  display:grid;
+  grid-template-columns:repeat(6,130px);
+  justify-content:center;
+  column-gap:55px;
+  row-gap:32px;
+  align-items:start;
+  padding:20px 20px 18px;
+}
+
+.banner {
+  appearance:none;
+  border:0;
+  min-height:305px;
+  padding:0 13px 31px;
+  cursor:pointer;
+  position:relative;
+  overflow:visible;
+  color:#fff;
+  background:transparent;
+  transition:.25s transform,.25s filter,.25s box-shadow;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.42));
+}
+.banner .banner-pole {
+  position:absolute; top:0; left:-5px; right:-5px; height:12px; border-radius:8px; z-index:5;
+  background:linear-gradient(180deg,#fff0a0 0%,#f5c451 28%,#a97112 72%,#6d470b 100%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 2px 3px rgba(0,0,0,.55);
+}
+.banner .banner-pole:before,.banner .banner-pole:after {
+  content:""; position:absolute; top:-3px; width:18px; height:18px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff6b5 0 10%,#f5c451 25%,#a97012 68%,#5e3d08 100%);
+  border:2px solid #e4b63f; box-shadow:0 2px 4px rgba(0,0,0,.6);
+}
+.banner .banner-pole:before { left:-7px; }
+.banner .banner-pole:after { right:-7px; }
+
+.banner .banner-fabric {
+  position:relative; min-height:292px; padding:31px 12px 58px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  background:
+    radial-gradient(circle at 50% 20%,rgba(79,102,137,.28),transparent 48%),
+    linear-gradient(105deg,#111c2d 0%,#1b2940 48%,#0b1424 100%);
+  border:3px solid #c79628;
+  box-shadow:inset 0 0 0 2px rgba(255,225,126,.55),inset 0 -30px 45px rgba(0,0,0,.2);
+}
+.banner .banner-fabric:before {
+  content:""; position:absolute; inset:9px 8px 35px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  border:2px solid rgba(255,255,255,.72); pointer-events:none;
+}
+.banner .banner-fabric:after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.055) 48%,transparent 70%);
+  pointer-events:none;
+}
+.banner .year {
+  position:relative; z-index:2; font-size:28px; line-height:1; font-weight:950;
+  color:#f5c451; letter-spacing:.05em; text-shadow:0 2px 4px rgba(0,0,0,.8);
+}
+.banner .label {
+  position:relative; z-index:2; margin-top:12px; color:#fff; font-size:10px; font-weight:850;
+  text-transform:uppercase; letter-spacing:.18em; text-shadow:0 2px 4px rgba(0,0,0,.85);
+}
+.banner .champion {
+  position:relative; z-index:2; color:#fff; font-weight:950; font-size:17px; line-height:1.08;
+  margin-top:10px; text-transform:uppercase; text-shadow:0 2px 5px rgba(0,0,0,.9);
+}
+
+.banner .champion {
+  hyphens:none;
+  text-align:center;
+}
+
+.trophy {
+  position:relative; z-index:2; font-size:44px; line-height:1; margin:24px 0 5px;
+  filter:drop-shadow(0 4px 4px rgba(0,0,0,.7));
+}
+.banner .banner-fabric .laurel {
+  position:absolute; left:50%; bottom:43px; transform:translateX(-50%);
+  width:86px; height:36px; z-index:2; opacity:.9;
+}
+.banner .banner-fabric .laurel:before,.banner .banner-fabric .laurel:after {
+  content:"❯ ❯ ❯"; position:absolute; top:0; color:#f5c451; font-size:12px; letter-spacing:-2px;
+}
+.banner .banner-fabric .laurel:before { right:48px; transform:rotate(58deg); }
+.banner .banner-fabric .laurel:after { left:48px; transform:scaleX(-1) rotate(58deg); }
+
+.banner:hover {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(0,0,0,.55)) brightness(1.08);
+}
+.banner.active {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(245,196,81,.2)) brightness(1.08);
+}
+.banner.active .banner-fabric {
+  box-shadow:inset 0 0 0 2px rgba(255,241,169,.8),inset 0 -30px 45px rgba(0,0,0,.18),
+             0 0 0 1px rgba(245,196,81,.35);
+}
+
+.detail {
+  margin-top:18px; border:1px solid var(--line); background:linear-gradient(135deg,#131a27,#0d121b);
+  border-radius:20px; padding:28px; box-shadow:var(--shadow);
+}
+.detail-top { display:flex; justify-content:space-between; gap:20px; align-items:start; }
+.detail-title { display:flex; gap:16px; align-items:center; }
+.avatar {
+  width:58px; height:58px; border-radius:16px; display:grid; place-items:center;
+  background:linear-gradient(135deg,#f5c451,#9d741c); color:#111; font-weight:950;
+}
+.detail h3 { margin:0; font-size:26px; }
+.detail .sub { margin:5px 0 0; color:var(--muted); font-size:13px; }
+.badge { padding:8px 11px; border-radius:999px; background:rgba(101,214,154,.1); color:var(--green); font-size:11px; font-weight:900; text-transform:uppercase; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px; }
+.stat { background:rgba(255,255,255,.025); border:1px solid var(--line); border-radius:12px; padding:15px; }
+.stat .v { font-size:22px; font-weight:900; }
+.stat .l { margin-top:5px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+
+.awards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+.award { padding:13px; border-left:3px solid var(--gold); background:rgba(245,196,81,.035); border-radius:8px; }
+.award strong { display:block; font-size:13px; }
+.award span { display:block; color:var(--muted); font-size:12px; margin-top:4px; }
+
+.records { display:grid; grid-template-columns:1.15fr .85fr; gap:20px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:24px; }
+.panel h3 { margin:0 0 18px; font-size:18px; }
+.leader { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+.leader:last-child { border-bottom:0; }
+.rank { width:28px; color:var(--muted); font-weight:800; }
+.mini-avatar { width:34px; height:34px; border-radius:10px; background:#1d2636; display:grid; place-items:center; font-size:11px; font-weight:900; }
+.leader-name { flex:1; font-weight:750; font-size:14px; }
+.bar { width:110px; height:6px; background:#252e3e; border-radius:999px; overflow:hidden; }
+.bar i { display:block; height:100%; width:var(--w); background:linear-gradient(90deg,var(--gold),#fff0ba); border-radius:inherit; }
+.money { min-width:62px; text-align:right; color:var(--gold2); font-weight:900; }
+
+.record-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.record {
+  min-height:120px; padding:16px; border:1px solid var(--line); border-radius:14px;
+  background:linear-gradient(135deg,#121a27,#0d131c);
+}
+.record .icon { font-size:22px; }
+.record .rlabel { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; margin-top:12px; }
+.record .rvalue { font-size:16px; font-weight:900; margin-top:4px; }
+.record .rsub { color:var(--muted); font-size:11px; margin-top:3px; }
+
+.history { overflow:auto; border:1px solid var(--line); border-radius:18px; }
+table { width:100%; border-collapse:collapse; min-width:760px; }
+th,td { padding:15px 16px; border-bottom:1px solid var(--line); text-align:left; }
+th { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; background:#0e141e; }
+td { font-size:13px; }
+tr:last-child td { border-bottom:0; }
+tr:hover td { background:rgba(255,255,255,.018); }
+.year-cell { color:var(--gold); font-weight:950; }
+.place1 { font-weight:900; }
+
+
+
+.sync-controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+.sync-status {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--muted);
+  font-size:11px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.025);
+}
+.sync-status.live { color:var(--green); border-color:rgba(101,214,154,.25); }
+.sync-status.error { color:var(--red); border-color:rgba(255,115,115,.25); }
+#refreshData {
+  border:1px solid rgba(245,196,81,.35);
+  background:rgba(245,196,81,.07);
+  color:var(--gold2);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:800;
+}
+#refreshData:hover { background:rgba(245,196,81,.14); }
+
+
+/* League Constitution */
+.constitution-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.rule-card {
+  background:linear-gradient(135deg,#121a27,#0d131c);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.16);
+}
+.rule-card:hover {
+  border-color:rgba(245,196,81,.35);
+  transform:translateY(-2px);
+}
+.rule-icon { font-size:27px; margin-bottom:12px; }
+.rule-card h3 { margin:0 0 9px; font-size:17px; }
+.rule-card p { margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.65; }
+.rule-card ul { margin:0; padding-left:18px; color:#d9e0eb; font-size:13px; line-height:1.7; }
+.rule-card li + li { margin-top:5px; }
+
+.faab-table-wrap {
+  margin-top:14px;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.faab-table { width:100%; min-width:430px; border-collapse:collapse; }
+.faab-table th,.faab-table td {
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  font-size:12px;
+}
+.faab-table th {
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:10px;
+  background:#0e141e;
+}
+.faab-table tr:last-child td { border-bottom:0; }
+.rule-callout {
+  margin-top:18px;
+  padding:18px 20px;
+  border:1px solid rgba(245,196,81,.28);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(245,196,81,.08),rgba(245,196,81,.025));
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.rule-callout .big { font-size:30px; }
+.rule-callout strong { display:block; }
+.rule-callout span { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
+
+@media(max-width:900px) {
+  .constitution-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  .constitution-grid { grid-template-columns:1fr; }
+}
+
+footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; }
+
+@media(max-width:1100px) {
+  .champions {
+    grid-template-columns:repeat(3,135px);
+    justify-content:center;
+    gap:42px;
+  }
+  .records { grid-template-columns:1fr; }
+}
+
+@media(max-width:700px) {
+  .navlinks { display:none; }
+  .hero { padding:45px 0 55px; }
+
+  .champions {
+    grid-template-columns:repeat(2,minmax(115px,145px));
+    justify-content:center;
+    gap:28px 28px;
+    padding:18px 8px 12px;
+  }
+
+  .banner {
+    min-height:270px;
+    padding-left:6px;
+    padding-right:6px;
+  }
+
+  .banner .banner-fabric {
+    min-height:258px;
+    padding-left:7px;
+    padding-right:7px;
+  }
+
+  .banner .year { font-size:22px; }
+  .banner .champion {
+    font-size:13px;
+    line-height:1.05;
+    padding-left:2px;
+    padding-right:2px;
+  }
+  .banner .label { font-size:8px; letter-spacing:.12em; }
+  .trophy { font-size:34px; }
+
+  .stats { grid-template-columns:1fr 1fr; }
+  .awards { grid-template-columns:1fr; }
+  .section { padding:50px 0; }
+  .detail-top { flex-direction:column; }
+}
+
+@media(max-width:430px) {
+  .champions {
+    grid-template-columns:repeat(2,minmax(105px,130px));
+    gap:24px 22px;
+    padding-left:4px;
+    padding-right:4px;
+  }
+
+  .banner {
+    min-height:245px;
+  }
+
+  .banner .banner-fabric {
+    min-height:234px;
+    padding-top:28px;
+  }
+
+  .banner .year { font-size:20px; }
+  .banner .champion {
+    font-size:11px;
+    line-height:1.04;
+    padding-left:1px;
+    padding-right:1px;
+  }
+  .banner .label { font-size:7px; }
+  .trophy { font-size:30px; }
+}
+</style><style>.active-nav{color:var(--gold2)!important;border-bottom:2px solid var(--gold);padding-bottom:4px}.players-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:10px 0 70px}.player-card{position:relative;display:flex;gap:20px;padding:25px;min-height:285px;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#151e2c,#0d141e);box-shadow:0 15px 40px rgba(0,0,0,.2)}.player-card:after{content:"";position:absolute;width:190px;height:190px;right:-100px;top:-100px;border-radius:50%;background:rgba(245,196,81,.055)}.player-number{position:absolute;top:15px;right:18px;color:#364254;font-size:30px;font-weight:950}.player-avatar{flex:0 0 62px;height:62px;display:flex;align-items:center;justify-content:center;border:2px solid #c79628;border-radius:50%;color:#fff;background:radial-gradient(circle at 35% 25%,#334765,#111b2c 70%);font-size:25px;font-weight:950}.player-body{position:relative;z-index:1;min-width:0}.player-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:9px;font-weight:900}.player-card h3{margin:5px 0 13px;font-size:25px}.player-stats{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:15px}.player-stats div{padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:#0b111a}.player-stats span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.1em}.player-stats strong{display:block;margin-top:2px;color:#fff;font-size:11px}.player-card p{margin:0;color:#c5cedb;font-size:12px;line-height:1.7}@media(max-width:900px){.players-grid{grid-template-columns:1fr}}@media(max-width:600px){.player-card{padding:20px;gap:14px}.player-avatar{flex-basis:50px;height:50px;font-size:20px}.player-card h3{font-size:22px}}</style></head><body><header><div class="container"><nav class="nav"><div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div><div class="navlinks"><a href="index.html">Champions</a><a href="records.html">Records</a><a href="history.html">History</a><a href="rules.html">Rules</a><a href="payouts.html">Payouts</a><a href="players.html" class="active-nav">Players</a></div></nav><div class="hero page-hero"><div class="kicker">MEET THE OWNERS</div><h1>THE PLAYERS</h1><p>Get to know the personalities, histories, and questionable fantasy decisions behind the CHQ Fantasy Keeper League.</p></div></div></header><main class="container"><section class="section"><div class="section-head"><div><div class="eyebrow">The cast</div><h2>Meet the Players</h2></div><p>Every contender, trade addict, runner-up, and commissioner who makes the league what it is.</p></div><div class="players-grid"><article class="player-card"><div class="player-number">01</div><div class="player-avatar">B</div><div class="player-body"><div class="player-kicker">The Pick Hoarder</div><h3>Brett D</h3><div class="player-stats"><div><span>Experience</span><strong>Rookie-ish</strong></div><div><span>Career Earnings</span><strong>Ask him about next year’s picks</strong></div></div><p>The youngest and least experienced member of the league, Brett is still waiting for his fantasy football breakthrough—and preferably before someone makes him do a humiliating league punishment. A former Air Force man who spent a couple years overseas, he has displayed tremendous courage in his career… just not when it comes to setting a competitive fantasy lineup. Brett has never really come close to winning, but he has mastered one skill: selling his team for future draft picks. At this point, he may have more future picks than actual confidence in his current roster.</p></div></article><article class="player-card"><div class="player-number">02</div><div class="player-avatar">C</div><div class="player-body"><div class="player-kicker">The Rochester Contender</div><h3>Chris M</h3><div class="player-stats"><div><span>Experience</span><strong>Veteran</strong></div><div><span>Career Earnings</span><strong>Respectable</strong></div></div><p>Located way out in the Rochester wilderness, Chris is one of the league&#x27;s more reliable contenders. He&#x27;ll make a trade when the right opportunity comes along, but for the most part, he falls in love with the team he drafts and refuses to let his players go. A former league champion, Chris has proven he can get the job done and is usually somewhere in the mix when the money is on the line. When he&#x27;s not managing his roster, he&#x27;s probably on a golf course wondering why his fantasy team isn&#x27;t performing as well as his golf game.</p></div></article><article class="player-card"><div class="player-number">03</div><div class="player-avatar">D</div><div class="player-body"><div class="player-kicker">The Electric Champion</div><h3>Dan E</h3><div class="player-stats"><div><span>Experience</span><strong>Finally Relevant</strong></div><div><span>Career Earnings</span><strong>Recently upgraded</strong></div></div><p>After years of fantasy mediocrity, Dan finally got the monkey off his back and captured his first league championship. And he didn&#x27;t do it quietly—he leveraged extra draft picks, made the necessary moves, and even sacrificed some future draft capital to keep his championship roster loaded. As an electrician, Dan knows how to get things wired correctly, although nobody is quite sure how long it took him to figure out fantasy football. He claims he doesn&#x27;t really care about fantasy, which is especially impressive considering how much effort he puts into it. A devoted Chicago Bears fan who loves his mom Patty, Dan now has one championship and approximately zero excuses.</p></div></article><article class="player-card"><div class="player-number">04</div><div class="player-avatar">D</div><div class="player-body"><div class="player-kicker">The Cali Redneck</div><h3>Dusty D</h3><div class="player-stats"><div><span>Experience</span><strong>Veteran</strong></div><div><span>Career Earnings</span><strong>California, apparently</strong></div></div><p>Dusty loves reminding everyone that he escaped New York and now lives the California lifestyle. Sunshine, palm trees, good vibes… and the same redneck tendencies he&#x27;s always had. Dusty doesn&#x27;t make many trades unless he&#x27;s absolutely convinced he&#x27;s fleecing the other owner, making him one of the league&#x27;s toughest negotiators. He&#x27;s also a pretty boy who isn&#x27;t afraid to admire his own reflection. He may live in California now, but deep down, he&#x27;s still just a New York redneck with better weather and a higher opinion of himself.</p></div></article><article class="player-card"><div class="player-number">05</div><div class="player-avatar">J</div><div class="player-body"><div class="player-kicker">The Fantasy Addict</div><h3>Jason B</h3><div class="player-stats"><div><span>Experience</span><strong>Veteran</strong></div><div><span>Career Earnings</span><strong>Usually in the money</strong></div></div><p>Jason doesn&#x27;t just play fantasy football—Jason lives fantasy football. He is constantly wheeling, dealing, trading players, trading picks, rebuilding, contending, and generally finding a way to make the league more complicated than it needs to be. One year he&#x27;s going all-in; the next he&#x27;s selling his entire roster for future draft capital. Despite never winning the league, Jason is almost always lurking around the money. When he&#x27;s not obsessing over fantasy, he’s convincing himself that this is finally the year for the Tennessee Titans.</p></div></article><article class="player-card"><div class="player-number">06</div><div class="player-avatar">J</div><div class="player-body"><div class="player-kicker">The Vibes Guy</div><h3>Jason H</h3><div class="player-stats"><div><span>Experience</span><strong>Questionable</strong></div><div><span>Career Earnings</span><strong>Here for the experience</strong></div></div><p>A die-hard Yankees and Buffalo Bills fan, Jason brings plenty of sports passion to the league—just not necessarily fantasy success. Married to the commissioner&#x27;s sister and working alongside his wife, Jason has managed to secure a permanent place in the league through connections alone. He&#x27;s rarely a serious threat to win the championship, but that&#x27;s okay. Every league needs a guy who&#x27;s there for the vibes, and Jason has embraced that role. He&#x27;s not here to dominate. He&#x27;s here to hang out, talk some shit, and occasionally check his lineup.</p></div></article><article class="player-card"><div class="player-number">07</div><div class="player-avatar">M</div><div class="player-body"><div class="player-kicker">The Dynasty</div><h3>Mark Ma</h3><div class="player-stats"><div><span>Experience</span><strong>Ancient</strong></div><div><span>Career Earnings</span><strong>LEAGUE LEADER</strong></div></div><p>Mark came out of the gates like a man possessed, winning the league&#x27;s first two championships and apparently deciding that was enough work for one lifetime. A grizzled retired Army veteran, Mark has earned more money than anyone else in league history and is absolutely going to remind you about it. Those first two championships have become his fantasy football birthright, and he has been living off that glory ever since. These days, he supervises an IT helpdesk, where he presumably spends his time reminding younger employees that things were better back when he was winning fantasy championships.</p></div></article><article class="player-card"><div class="player-number">08</div><div class="player-avatar">M</div><div class="player-body"><div class="player-kicker">The Elder Statesman</div><h3>Mark Me</h3><div class="player-stats"><div><span>Experience</span><strong>A LOT</strong></div><div><span>Career Earnings</span><strong>Still counting</strong></div></div><p>The oldest member of the league by a considerable margin, Mark Me brings decades of life experience and an impressive willingness to keep trading with a bunch of people young enough to be his fantasy football grandchildren. A retired firefighter and husband of the commissioner&#x27;s mom, Mark has plenty of connections to keep him entrenched in the league. He&#x27;s somehow juggling this league along with what feels like approximately 47 other fantasy leagues, yet still finds time to wheel and deal. He may not be the youngest owner, but he&#x27;s still showing up and making moves.</p></div></article><article class="player-card"><div class="player-number">09</div><div class="player-avatar">M</div><div class="player-body"><div class="player-kicker">The Almost Champion</div><h3>Mick</h3><div class="player-stats"><div><span>Experience</span><strong>Veteran</strong></div><div><span>Career Earnings</span><strong>The runner-up specialist</strong></div></div><p>Nobody has mastered the art of finishing second quite like Mick. He&#x27;s reached the championship game three separate times and somehow managed to lose every single one. At this point, &#x27;almost&#x27; might as well be his middle name. He&#x27;s a die-hard Yankees and Bills fan, which is fitting considering his fantasy career has adopted the same general philosophy: always competitive, never quite there when it matters most. Mick also appears to have a contractual obligation to draft Buffalo Bills players, regardless of whether they&#x27;re actually good fantasy options.</p></div></article><article class="player-card"><div class="player-number">10</div><div class="player-avatar">N</div><div class="player-body"><div class="player-kicker">The Nostalgia King</div><h3>Nick N</h3><div class="player-stats"><div><span>Experience</span><strong>Veteran</strong></div><div><span>Career Earnings</span><strong>Top-3 Finishes: 3</strong></div></div><p>An IT guy with a severe case of 1990s nostalgia, Nick would probably abandon modern technology altogether if someone offered him a VHS copy of a Ninja Turtles movie and a WWF Attitude Era pay-per-view. His fantasy résumé, however, is considerably more modern: Nick is tied for the league lead with three top-three finishes, including a championship. He may spend his free time reminiscing about the glory days of the &#x27;90s, but when it comes to fantasy football, he&#x27;s proven that he&#x27;s still one of the league&#x27;s most consistently successful owners.</p></div></article><article class="player-card"><div class="player-number">11</div><div class="player-avatar">T</div><div class="player-body"><div class="player-kicker">The Stat Nerd</div><h3>Tylor C</h3><div class="player-stats"><div><span>Experience</span><strong>Commissioner</strong></div><div><span>Career Earnings</span><strong>Painfully low</strong></div></div><p>As commissioner, Tylor does all the work, keeps the league running, handles the rules, manages the finances, and generally makes sure everyone else can enjoy fantasy football—all for absolutely nothing. Unfortunately, that organizational ability has not translated into fantasy success. Despite being a self-proclaimed stats nerd who spends an unhealthy amount of time analyzing numbers, trends, matchups, and meaningless data points, Tylor has shockingly little to show for it. He has the second-lowest career winnings in the league, tied with a guy who literally quit after one season. A proud 49ers fan, Tylor remains convinced that this is finally the year he puts it all together. It won&#x27;t be. But he&#x27;ll have a spreadsheet explaining why it should have happened.</p></div></article></div></section></main><footer><div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div></footer></body></html>
