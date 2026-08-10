@@ -469,6 +469,91 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   z-index:10001;
 }
 
+
+/* FINAL MOBILE MENU FIX */
+@media (max-width: 900px) {
+  .navlinks {
+    display:none !important;
+  }
+
+  .mobile-menu-button {
+    display:block !important;
+    position:relative;
+    z-index:10002;
+    cursor:pointer;
+  }
+}
+
+.mobile-menu {
+  display:none;
+  position:absolute !important;
+  top:55px;
+  right:10px;
+  width:240px;
+  padding:10px;
+  background:#111827 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  border:1px solid #39465a;
+  border-radius:12px;
+  z-index:10001 !important;
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+.mobile-menu a {
+  display:block !important;
+  color:#ffffff !important;
+  background:#111827 !important;
+  opacity:1 !important;
+  padding:14px 12px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  position:relative;
+  z-index:10003;
+}
+
+.mobile-menu a:last-child {
+  border-bottom:none;
+}
+
+
+/* Hamburger menu final override */
+.mobile-menu {
+  display:none;
+  position:fixed !important;
+  top:70px;
+  right:15px;
+  width:240px;
+  padding:10px;
+  background:#101827 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  border:1px solid #39465a;
+  border-radius:14px;
+  z-index:99999 !important;
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
+}
+
+.mobile-menu a {
+  display:block !important;
+  background:#101827 !important;
+  color:#ffffff !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  position:relative;
+  z-index:100000;
+  padding:14px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.mobile-menu-button {
+  position:relative;
+  z-index:100001 !important;
+  pointer-events:auto !important;
+}
+
 </style><style>.active-nav{color:var(--gold2)!important;border-bottom:2px solid var(--gold);padding-bottom:4px}.players-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:10px 0 70px}.player-card{position:relative;display:flex;gap:20px;padding:25px;min-height:285px;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#151e2c,#0d141e);box-shadow:0 15px 40px rgba(0,0,0,.2)}.player-card:after{content:"";position:absolute;width:190px;height:190px;right:-100px;top:-100px;border-radius:50%;background:rgba(245,196,81,.055)}.player-number{position:absolute;top:15px;right:18px;color:#364254;font-size:30px;font-weight:950}.player-avatar{flex:0 0 62px;height:62px;display:flex;align-items:center;justify-content:center;border:2px solid #c79628;border-radius:50%;color:#fff;background:radial-gradient(circle at 35% 25%,#334765,#111b2c 70%);font-size:25px;font-weight:950}.player-body{position:relative;z-index:1;min-width:0}.player-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:9px;font-weight:900}.player-card h3{margin:5px 0 13px;font-size:25px}.player-stats{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:15px}.player-stats div{padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:#0b111a}.player-stats span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.1em}.player-stats strong{display:block;margin-top:2px;color:#fff;font-size:11px}.player-card p{margin:0;color:#c5cedb;font-size:12px;line-height:1.7}@media(max-width:900px){.players-grid{grid-template-columns:1fr}}@media(max-width:600px){.player-card{padding:20px;gap:14px}.player-avatar{flex-basis:50px;height:50px;font-size:20px}.player-card h3{font-size:22px}}</style></head><body><header><div class="container"><nav class="nav"><div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div><div class="navlinks">
 
         <a href="index.html">Champions</a>

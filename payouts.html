@@ -482,6 +482,91 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   margin-right: 10px;
 }
 
+
+/* FINAL MOBILE MENU FIX */
+@media (max-width: 900px) {
+  .navlinks {
+    display:none !important;
+  }
+
+  .mobile-menu-button {
+    display:block !important;
+    position:relative;
+    z-index:10002;
+    cursor:pointer;
+  }
+}
+
+.mobile-menu {
+  display:none;
+  position:absolute !important;
+  top:55px;
+  right:10px;
+  width:240px;
+  padding:10px;
+  background:#111827 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  border:1px solid #39465a;
+  border-radius:12px;
+  z-index:10001 !important;
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+.mobile-menu a {
+  display:block !important;
+  color:#ffffff !important;
+  background:#111827 !important;
+  opacity:1 !important;
+  padding:14px 12px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  position:relative;
+  z-index:10003;
+}
+
+.mobile-menu a:last-child {
+  border-bottom:none;
+}
+
+
+/* Hamburger menu final override */
+.mobile-menu {
+  display:none;
+  position:fixed !important;
+  top:70px;
+  right:15px;
+  width:240px;
+  padding:10px;
+  background:#101827 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  border:1px solid #39465a;
+  border-radius:14px;
+  z-index:99999 !important;
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
+}
+
+.mobile-menu a {
+  display:block !important;
+  background:#101827 !important;
+  color:#ffffff !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  position:relative;
+  z-index:100000;
+  padding:14px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.mobile-menu-button {
+  position:relative;
+  z-index:100001 !important;
+  pointer-events:auto !important;
+}
+
 </style>
 <style>
 .active-nav {
@@ -697,43 +782,64 @@ document.getElementById("refreshData").addEventListener("click", refreshData);
 
 </script>
 
+
+
+
+
+
+
+
+
+
 <script>
-const mobileMenuButton = document.getElementById("mobileMenuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-if (mobileMenuButton && mobileMenu) {
-  mobileMenuButton.addEventListener("click", () => {
-    mobileMenu.style.display =
-      mobileMenu.style.display === "block" ? "none" : "block";
-  });
-  document.addEventListener("click", (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-      mobileMenu.style.display = "none";
-    }
-  });
-}
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("mobileMenuButton");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!button || !menu) return;
+
+  button.onclick = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  };
+
+  menu.onclick = function (e) {
+    e.stopPropagation();
+  };
+
+  document.onclick = function () {
+    menu.style.display = "none";
+  };
+});
 </script>
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const button = document.getElementById("mobileMenuButton");
-  const menu = document.getElementById("mobileMenu");
+(function(){
+  function setupMobileMenu(){
+    const button = document.getElementById("mobileMenuButton");
+    const menu = document.getElementById("mobileMenu");
 
-  if (button && menu) {
-    button.addEventListener("click", function(e) {
+    if (!button || !menu) return;
+
+    button.addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }, true);
+
+    menu.addEventListener("click", function(e){
       e.stopPropagation();
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
     });
 
-    menu.addEventListener("click", function(e) {
-      e.stopPropagation();
-    });
-
-    document.addEventListener("click", function() {
+    document.addEventListener("click", function(){
       menu.style.display = "none";
     });
   }
-});
+
+  setupMobileMenu();
+})();
 </script>
 
 </body>
