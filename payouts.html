@@ -439,6 +439,13 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 .payouts-table tr:last-child td { border-bottom:0; }
 .payouts-table tr:hover td { background:rgba(245,196,81,.025); }
+
+.payout-amount {
+  color:var(--gold2);
+  font-weight:900;
+  white-space:nowrap;
+}
+
 .payouts-table td:first-child { font-weight:800; color:#fff; }
 .payouts-note {
   margin-top:14px;
@@ -482,7 +489,7 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   <section class="section payouts-section">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Google Sheets</div>
+        <div class="eyebrow">Finances</div>
         <h2>League Payouts</h2>
       </div>
       <p>Changes made in the spreadsheet will appear here after a refresh.</p>
@@ -538,8 +545,8 @@ function renderPayouts(rows) {
     return;
   }
 
-  const columnCount = Math.max(...rows.map(r => r.length), 1);
-  const headers = rows[0];
+  // The Payouts tab is displayed as the league's two-column payout list:
+  // Prize and Amount. The first sheet row is treated as the header row.
   const dataRows = rows.slice(1).filter(r => r.some(v => String(v ?? "").trim()));
 
   container.className = "";
@@ -547,17 +554,15 @@ function renderPayouts(rows) {
     <table class="payouts-table">
       <thead>
         <tr>
-          ${Array.from({length:columnCount},(_,i) =>
-            `<th>${escapeHtml(headers[i] || `Column ${i+1}`)}</th>`
-          ).join("")}
+          <th>Prize</th>
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
         ${dataRows.map(row => `
           <tr>
-            ${Array.from({length:columnCount},(_,i) =>
-              `<td>${escapeHtml(row[i] ?? "")}</td>`
-            ).join("")}
+            <td>${escapeHtml(row[0] ?? "")}</td>
+            <td class="payout-amount">$${escapeHtml(String(row[1] ?? "").replace(/^\$/, ""))}</td>
           </tr>
         `).join("")}
       </tbody>
