@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHQ Fantasy Keeper League — Payouts</title>
+<style>
+:root {
+  --bg:#080b12;
+  --panel:#101621;
+  --panel2:#151c29;
+  --line:#273143;
+  --text:#f5f7fb;
+  --muted:#9ca8bb;
+  --gold:#f5c451;
+  --gold2:#ffe39a;
+  --green:#65d69a;
+  --red:#ff7373;
+  --blue:#6ea8ff;
+  --shadow:0 18px 55px rgba(0,0,0,.34);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text); background:
+    radial-gradient(circle at 50% -10%, rgba(245,196,81,.12), transparent 32rem),
+    linear-gradient(180deg,#080b12 0%,#0b0f17 55%,#080b12 100%);
+}
+button { font:inherit; }
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,92vw); margin:auto; }
+
+header {
+  position:relative; overflow:hidden; border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,#0b0f18,#151b28 55%,#0b0f18);
+}
+header:before, header:after {
+  content:""; position:absolute; width:420px; height:420px; border-radius:50%;
+  border:1px solid rgba(245,196,81,.09); pointer-events:none;
+}
+header:before { left:-250px; top:-250px; }
+header:after { right:-250px; bottom:-300px; }
+
+.nav {
+  display:flex; justify-content:space-between; align-items:center; padding:20px 0;
+  position:relative; z-index:2;
+}
+.brand { font-weight:900; letter-spacing:.08em; font-size:14px; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; color:var(--muted); font-size:13px; }
+.navlinks a:hover { color:white; }
+
+.hero { padding:60px 0 72px; text-align:center; position:relative; z-index:2; }
+.kicker {
+  display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border:1px solid rgba(245,196,81,.28);
+  color:var(--gold2); border-radius:999px; background:rgba(245,196,81,.06);
+  text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.14em;
+}
+.hero h1 { margin:18px 0 10px; font-size:clamp(42px,7vw,78px); line-height:.95; letter-spacing:-.05em; }
+.hero h1 em { color:var(--gold); font-style:normal; }
+.hero p { max-width:640px; margin:18px auto 0; color:var(--muted); font-size:16px; line-height:1.7; }
+
+.section { padding:70px 0; }
+.section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:24px; }
+.eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.16em; font-size:11px; font-weight:900; }
+h2 { margin:7px 0 0; font-size:32px; letter-spacing:-.035em; }
+.section-head p { margin:0; color:var(--muted); font-size:14px; max-width:500px; line-height:1.6; }
+
+.champions {
+  display:grid;
+  grid-template-columns:repeat(6,130px);
+  justify-content:center;
+  column-gap:55px;
+  row-gap:32px;
+  align-items:start;
+  padding:20px 20px 18px;
+}
+
+.banner {
+  appearance:none;
+  border:0;
+  min-height:305px;
+  padding:0 13px 31px;
+  cursor:pointer;
+  position:relative;
+  overflow:visible;
+  color:#fff;
+  background:transparent;
+  transition:.25s transform,.25s filter,.25s box-shadow;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.42));
+}
+.banner .banner-pole {
+  position:absolute; top:0; left:-5px; right:-5px; height:12px; border-radius:8px; z-index:5;
+  background:linear-gradient(180deg,#fff0a0 0%,#f5c451 28%,#a97112 72%,#6d470b 100%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 2px 3px rgba(0,0,0,.55);
+}
+.banner .banner-pole:before,.banner .banner-pole:after {
+  content:""; position:absolute; top:-3px; width:18px; height:18px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff6b5 0 10%,#f5c451 25%,#a97012 68%,#5e3d08 100%);
+  border:2px solid #e4b63f; box-shadow:0 2px 4px rgba(0,0,0,.6);
+}
+.banner .banner-pole:before { left:-7px; }
+.banner .banner-pole:after { right:-7px; }
+
+.banner .banner-fabric {
+  position:relative; min-height:292px; padding:31px 12px 58px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  background:
+    radial-gradient(circle at 50% 20%,rgba(79,102,137,.28),transparent 48%),
+    linear-gradient(105deg,#111c2d 0%,#1b2940 48%,#0b1424 100%);
+  border:3px solid #c79628;
+  box-shadow:inset 0 0 0 2px rgba(255,225,126,.55),inset 0 -30px 45px rgba(0,0,0,.2);
+}
+.banner .banner-fabric:before {
+  content:""; position:absolute; inset:9px 8px 35px;
+  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
+  border:2px solid rgba(255,255,255,.72); pointer-events:none;
+}
+.banner .banner-fabric:after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.055) 48%,transparent 70%);
+  pointer-events:none;
+}
+.banner .year {
+  position:relative; z-index:2; font-size:28px; line-height:1; font-weight:950;
+  color:#f5c451; letter-spacing:.05em; text-shadow:0 2px 4px rgba(0,0,0,.8);
+}
+.banner .label {
+  position:relative; z-index:2; margin-top:12px; color:#fff; font-size:10px; font-weight:850;
+  text-transform:uppercase; letter-spacing:.18em; text-shadow:0 2px 4px rgba(0,0,0,.85);
+}
+.banner .champion {
+  position:relative; z-index:2; color:#fff; font-weight:950; font-size:17px; line-height:1.08;
+  margin-top:10px; text-transform:uppercase; text-shadow:0 2px 5px rgba(0,0,0,.9);
+}
+
+.banner .champion {
+  hyphens:none;
+  text-align:center;
+}
+
+.trophy {
+  position:relative; z-index:2; font-size:44px; line-height:1; margin:24px 0 5px;
+  filter:drop-shadow(0 4px 4px rgba(0,0,0,.7));
+}
+.banner .banner-fabric .laurel {
+  position:absolute; left:50%; bottom:43px; transform:translateX(-50%);
+  width:86px; height:36px; z-index:2; opacity:.9;
+}
+.banner .banner-fabric .laurel:before,.banner .banner-fabric .laurel:after {
+  content:"❯ ❯ ❯"; position:absolute; top:0; color:#f5c451; font-size:12px; letter-spacing:-2px;
+}
+.banner .banner-fabric .laurel:before { right:48px; transform:rotate(58deg); }
+.banner .banner-fabric .laurel:after { left:48px; transform:scaleX(-1) rotate(58deg); }
+
+.banner:hover {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(0,0,0,.55)) brightness(1.08);
+}
+.banner.active {
+  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(245,196,81,.2)) brightness(1.08);
+}
+.banner.active .banner-fabric {
+  box-shadow:inset 0 0 0 2px rgba(255,241,169,.8),inset 0 -30px 45px rgba(0,0,0,.18),
+             0 0 0 1px rgba(245,196,81,.35);
+}
+
+.detail {
+  margin-top:18px; border:1px solid var(--line); background:linear-gradient(135deg,#131a27,#0d121b);
+  border-radius:20px; padding:28px; box-shadow:var(--shadow);
+}
+.detail-top { display:flex; justify-content:space-between; gap:20px; align-items:start; }
+.detail-title { display:flex; gap:16px; align-items:center; }
+.avatar {
+  width:58px; height:58px; border-radius:16px; display:grid; place-items:center;
+  background:linear-gradient(135deg,#f5c451,#9d741c); color:#111; font-weight:950;
+}
+.detail h3 { margin:0; font-size:26px; }
+.detail .sub { margin:5px 0 0; color:var(--muted); font-size:13px; }
+.badge { padding:8px 11px; border-radius:999px; background:rgba(101,214,154,.1); color:var(--green); font-size:11px; font-weight:900; text-transform:uppercase; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px; }
+.stat { background:rgba(255,255,255,.025); border:1px solid var(--line); border-radius:12px; padding:15px; }
+.stat .v { font-size:22px; font-weight:900; }
+.stat .l { margin-top:5px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+
+.awards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+.award { padding:13px; border-left:3px solid var(--gold); background:rgba(245,196,81,.035); border-radius:8px; }
+.award strong { display:block; font-size:13px; }
+.award span { display:block; color:var(--muted); font-size:12px; margin-top:4px; }
+
+.records { display:grid; grid-template-columns:1.15fr .85fr; gap:20px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:24px; }
+.panel h3 { margin:0 0 18px; font-size:18px; }
+.leader { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+.leader:last-child { border-bottom:0; }
+.rank { width:28px; color:var(--muted); font-weight:800; }
+.mini-avatar { width:34px; height:34px; border-radius:10px; background:#1d2636; display:grid; place-items:center; font-size:11px; font-weight:900; }
+.leader-name { flex:1; font-weight:750; font-size:14px; }
+.bar { width:110px; height:6px; background:#252e3e; border-radius:999px; overflow:hidden; }
+.bar i { display:block; height:100%; width:var(--w); background:linear-gradient(90deg,var(--gold),#fff0ba); border-radius:inherit; }
+.money { min-width:62px; text-align:right; color:var(--gold2); font-weight:900; }
+
+.record-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.record {
+  min-height:120px; padding:16px; border:1px solid var(--line); border-radius:14px;
+  background:linear-gradient(135deg,#121a27,#0d131c);
+}
+.record .icon { font-size:22px; }
+.record .rlabel { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; margin-top:12px; }
+.record .rvalue { font-size:16px; font-weight:900; margin-top:4px; }
+.record .rsub { color:var(--muted); font-size:11px; margin-top:3px; }
+
+.history { overflow:auto; border:1px solid var(--line); border-radius:18px; }
+table { width:100%; border-collapse:collapse; min-width:760px; }
+th,td { padding:15px 16px; border-bottom:1px solid var(--line); text-align:left; }
+th { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; background:#0e141e; }
+td { font-size:13px; }
+tr:last-child td { border-bottom:0; }
+tr:hover td { background:rgba(255,255,255,.018); }
+.year-cell { color:var(--gold); font-weight:950; }
+.place1 { font-weight:900; }
+
+
+
+.sync-controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+.sync-status {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--muted);
+  font-size:11px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.025);
+}
+.sync-status.live { color:var(--green); border-color:rgba(101,214,154,.25); }
+.sync-status.error { color:var(--red); border-color:rgba(255,115,115,.25); }
+#refreshData {
+  border:1px solid rgba(245,196,81,.35);
+  background:rgba(245,196,81,.07);
+  color:var(--gold2);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:800;
+}
+#refreshData:hover { background:rgba(245,196,81,.14); }
+
+
+/* League Constitution */
+.constitution-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.rule-card {
+  background:linear-gradient(135deg,#121a27,#0d131c);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.16);
+}
+.rule-card:hover {
+  border-color:rgba(245,196,81,.35);
+  transform:translateY(-2px);
+}
+.rule-icon { font-size:27px; margin-bottom:12px; }
+.rule-card h3 { margin:0 0 9px; font-size:17px; }
+.rule-card p { margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.65; }
+.rule-card ul { margin:0; padding-left:18px; color:#d9e0eb; font-size:13px; line-height:1.7; }
+.rule-card li + li { margin-top:5px; }
+
+.faab-table-wrap {
+  margin-top:14px;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.faab-table { width:100%; min-width:430px; border-collapse:collapse; }
+.faab-table th,.faab-table td {
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  font-size:12px;
+}
+.faab-table th {
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:10px;
+  background:#0e141e;
+}
+.faab-table tr:last-child td { border-bottom:0; }
+.rule-callout {
+  margin-top:18px;
+  padding:18px 20px;
+  border:1px solid rgba(245,196,81,.28);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(245,196,81,.08),rgba(245,196,81,.025));
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.rule-callout .big { font-size:30px; }
+.rule-callout strong { display:block; }
+.rule-callout span { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
+
+@media(max-width:900px) {
+  .constitution-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  .constitution-grid { grid-template-columns:1fr; }
+}
+
+footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; }
+
+@media(max-width:1100px) {
+  .champions {
+    grid-template-columns:repeat(3,135px);
+    justify-content:center;
+    gap:42px;
+  }
+  .records { grid-template-columns:1fr; }
+}
+
+@media(max-width:700px) {
+  .navlinks { display:none; }
+  .hero { padding:45px 0 55px; }
+
+  .champions {
+    grid-template-columns:repeat(2,minmax(115px,145px));
+    justify-content:center;
+    gap:28px 28px;
+    padding:18px 8px 12px;
+  }
+
+  .banner {
+    min-height:270px;
+    padding-left:6px;
+    padding-right:6px;
+  }
+
+  .banner .banner-fabric {
+    min-height:258px;
+    padding-left:7px;
+    padding-right:7px;
+  }
+
+  .banner .year { font-size:22px; }
+  .banner .champion {
+    font-size:13px;
+    line-height:1.05;
+    padding-left:2px;
+    padding-right:2px;
+  }
+  .banner .label { font-size:8px; letter-spacing:.12em; }
+  .trophy { font-size:34px; }
+
+  .stats { grid-template-columns:1fr 1fr; }
+  .awards { grid-template-columns:1fr; }
+  .section { padding:50px 0; }
+  .detail-top { flex-direction:column; }
+}
+
+@media(max-width:430px) {
+  .champions {
+    grid-template-columns:repeat(2,minmax(105px,130px));
+    gap:24px 22px;
+    padding-left:4px;
+    padding-right:4px;
+  }
+
+  .banner {
+    min-height:245px;
+  }
+
+  .banner .banner-fabric {
+    min-height:234px;
+    padding-top:28px;
+  }
+
+  .banner .year { font-size:20px; }
+  .banner .champion {
+    font-size:11px;
+    line-height:1.04;
+    padding-left:1px;
+    padding-right:1px;
+  }
+  .banner .label { font-size:7px; }
+  .trophy { font-size:30px; }
+}
+</style>
+<style>
+.active-nav {
+  color:var(--gold2) !important;
+  border-bottom:2px solid var(--gold);
+  padding-bottom:4px;
+}
+.payouts-section {
+  padding:60px 0 80px;
+}
+.payouts-table-wrap {
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(145deg,#121a27,#0d131c);
+  box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+.payouts-table {
+  width:100%;
+  border-collapse:collapse;
+  min-width:520px;
+}
+.payouts-table th,
+.payouts-table td {
+  padding:15px 16px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+  font-size:13px;
+}
+.payouts-table th {
+  color:var(--gold2);
+  background:#0c131d;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:10px;
+  position:sticky;
+  top:0;
+}
+.payouts-table tr:last-child td { border-bottom:0; }
+.payouts-table tr:hover td { background:rgba(245,196,81,.025); }
+.payouts-table td:first-child { font-weight:800; color:#fff; }
+.payouts-note {
+  margin-top:14px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+.payouts-empty {
+  padding:40px 25px;
+  text-align:center;
+  color:var(--muted);
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <div class="navlinks">
+        <a href="index.html">Champions</a>
+        <a href="records.html">Records</a>
+        <a href="history.html">History</a>
+        <a href="rules.html">Rules</a>
+        <a href="payouts.html" class="active-nav">Payouts</a>
+      </div>
+    </nav>
+    <div class="hero page-hero">
+      <div class="kicker">LEAGUE FINANCES</div>
+      <h1>PAYOUTS</h1>
+      <p>Live payout information pulled directly from the Payouts tab of the league Google Sheet.</p>
+      <div class="sync-controls">
+        <span id="syncStatus" class="sync-status">● Loading payout data…</span>
+        <button id="refreshData" type="button">↻ Refresh Data</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section payouts-section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Google Sheets</div>
+        <h2>League Payouts</h2>
+      </div>
+      <p>Changes made in the spreadsheet will appear here after a refresh.</p>
+    </div>
+
+    <div class="payouts-table-wrap">
+      <div id="payoutsContent" class="payouts-empty">Loading payouts…</div>
+    </div>
+    <div class="payouts-note">
+      This page displays the Payouts tab as it exists in the league spreadsheet. No payout values are hard-coded into the website.
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
+</footer>
+
+<script>
+const SHEET_ID = "13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4";
+
+function parseGviz(text) {
+  const match = text.match(/setResponse\(([\s\S]*)\);?\s*$/);
+  if (!match) throw new Error("Unexpected Google Sheets response.");
+  return JSON.parse(match[1]);
+}
+
+async function getPayouts() {
+  const url =
+    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
+    `?tqx=out:json&sheet=${encodeURIComponent("Payouts")}&headers=1`;
+  const response = await fetch(url, {cache:"no-store"});
+  if (!response.ok) throw new Error("Could not load the Payouts tab.");
+  const data = parseGviz(await response.text());
+  if (data.status !== "ok") throw new Error("Google Sheets returned an error for Payouts.");
+  return data.table.rows.map(r => r.c.map(c => c ? c.v : ""));
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function renderPayouts(rows) {
+  const container = document.getElementById("payoutsContent");
+  if (!rows || !rows.length) {
+    container.className = "payouts-empty";
+    container.innerHTML = "No payout data was returned from the Payouts tab.";
+    return;
+  }
+
+  const columnCount = Math.max(...rows.map(r => r.length), 1);
+  const headers = rows[0];
+  const dataRows = rows.slice(1).filter(r => r.some(v => String(v ?? "").trim()));
+
+  container.className = "";
+  container.innerHTML = `
+    <table class="payouts-table">
+      <thead>
+        <tr>
+          ${Array.from({length:columnCount},(_,i) =>
+            `<th>${escapeHtml(headers[i] || `Column ${i+1}`)}</th>`
+          ).join("")}
+        </tr>
+      </thead>
+      <tbody>
+        ${dataRows.map(row => `
+          <tr>
+            ${Array.from({length:columnCount},(_,i) =>
+              `<td>${escapeHtml(row[i] ?? "")}</td>`
+            ).join("")}
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>`;
+}
+
+async function refreshData() {
+  const button = document.getElementById("refreshData");
+  button.disabled = true;
+  const status = document.getElementById("syncStatus");
+  status.textContent = "● Updating from Google Sheets…";
+  status.className = "sync-status";
+
+  try {
+    const rows = await getPayouts();
+    renderPayouts(rows);
+    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
+    status.textContent = `● Live • Updated ${stamp}`;
+    status.className = "sync-status live";
+  } catch (error) {
+    console.warn(error);
+    document.getElementById("payoutsContent").innerHTML =
+      `<div class="payouts-empty">Unable to load the Payouts tab right now. Check that the Google Sheet is shared publicly and try Refresh Data again.</div>`;
+    status.textContent = "● Google Sheets unavailable";
+    status.className = "sync-status error";
+  } finally {
+    button.disabled = false;
+  }
+}
+
+document.getElementById("refreshData").addEventListener("click", refreshData);
+refreshData();
+</script>
+</body>
+</html>

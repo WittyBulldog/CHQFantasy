@@ -131,13 +131,34 @@ h2 { margin:7px 0 0; font-size:32px; letter-spacing:-.035em; }
   text-transform:uppercase; letter-spacing:.18em; text-shadow:0 2px 4px rgba(0,0,0,.85);
 }
 .banner .champion {
-  position:relative; z-index:2; color:#fff; font-weight:950; font-size:17px; line-height:1.08;
-  margin-top:10px; text-transform:uppercase; text-shadow:0 2px 5px rgba(0,0,0,.9);
+  position:relative;
+  z-index:2;
+  color:#fff;
+  font-weight:950;
+  font-size:9px;
+  line-height:1.05;
+  margin:8px auto 0;
+  width:100%;
+  max-width:105px;
+  padding:0 2px;
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  text-align:center;
+  text-transform:uppercase;
+  text-shadow:0 2px 5px rgba(0,0,0,.9);
 }
 
 .banner .champion {
   hyphens:none;
   text-align:center;
+}
+
+
+.banner .champion .first-name,
+.banner .champion .last-name {
+  display:block;
+  width:100%;
 }
 
 .trophy {
@@ -476,10 +497,11 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 
   .banner .year { font-size:22px; }
   .banner .champion {
-    font-size:13px;
-    line-height:1.05;
-    padding-left:2px;
-    padding-right:2px;
+    font-size:8px;
+    line-height:1.02;
+    max-width:96px;
+    padding-left:1px;
+    padding-right:1px;
   }
   .banner .label { font-size:8px; letter-spacing:.12em; }
   .trophy { font-size:34px; }
@@ -509,8 +531,9 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 
   .banner .year { font-size:20px; }
   .banner .champion {
-    font-size:11px;
-    line-height:1.04;
+    font-size:7px;
+    line-height:1.02;
+    max-width:88px;
     padding-left:1px;
     padding-right:1px;
   }
@@ -542,6 +565,7 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
+        <a href="payouts.html">Payouts</a>
       </div>
     </nav>
     <div class="hero page-hero">
@@ -751,6 +775,22 @@ function renderDetail(index) {
     </div>`;
 }
 
+
+function splitChampionName(name) {
+  const parts = String(name || "—").trim().split(/\s+/);
+  if (parts.length <= 1) return escapeBannerText(parts[0] || "—");
+  return `<span class="first-name">${escapeBannerText(parts[0])}</span><span class="last-name">${escapeBannerText(parts.slice(1).join(" "))}</span>`;
+}
+
+function escapeBannerText(value) {
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
 function renderBanners() {
   const container = document.getElementById("championBanners");
   if (!container) return;
@@ -763,8 +803,8 @@ function renderBanners() {
       <div class="banner-pole"></div>
       <div class="banner-fabric">
         <div class="year">${s.year}</div>
-        <div class="label">★ &nbsp; CHAMPION &nbsp; ★</div>
-        <div class="champion">${s.champion}</div>
+        
+        <div class="champion">${splitChampionName(s.champion)}</div>
         <div class="trophy">🏆</div>
         <div class="laurel"></div>
       </div>`;
