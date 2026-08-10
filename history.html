@@ -398,6 +398,45 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .banner .label { font-size:7px; }
   .trophy { font-size:30px; }
 }
+
+.mobile-menu-button {
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:#fff;
+  border-radius:10px;
+  font-size:24px;
+  width:44px;
+  height:38px;
+  cursor:pointer;
+}
+.mobile-menu {
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  width:220px;
+  padding:15px;
+  background:#101925;
+  border:1px solid var(--line);
+  border-radius:15px;
+  z-index:999;
+}
+.mobile-menu a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  padding:12px;
+  border-bottom:1px solid var(--line);
+  font-weight:800;
+  font-size:13px;
+}
+@media(max-width:900px) {
+  .navlinks { display:none; }
+  .mobile-menu-button { display:block; }
+  .nav { position:relative; display:flex; justify-content:space-between; align-items:center; }
+}
+
 </style>
 <style>
 .active-nav {
@@ -419,13 +458,28 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
     <nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
+
         <a href="index.html">Champions</a>
         <a href="records.html">Records</a>
-        <a href="history.html" class="active-nav">History</a>
+        <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
         <a href="payouts.html">Payouts</a>
+        <a href="players.html">Players</a>
       </div>
-    </nav>
+    
+<button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu">☰</button>
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Champions</a>
+<a href="records.html">Records</a>
+<a href="history.html">History</a>
+<a href="rules.html">Rules</a>
+<a href="payouts.html">Payouts</a>
+<a href="players.html">Players</a>
+
+</div>
+
+</nav>
     <div class="hero page-hero">
       <div class="kicker">SEASON BY SEASON</div>
       <h1>LEAGUE HISTORY</h1>
@@ -733,5 +787,22 @@ document.getElementById("refreshData").addEventListener("click", refreshData);
 renderAll();
 refreshData();
 </script>
+
+<script>
+const mobileMenuButton = document.getElementById("mobileMenuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+if (mobileMenuButton && mobileMenu) {
+  mobileMenuButton.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "block" ? "none" : "block";
+  });
+  document.addEventListener("click", (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+      mobileMenu.style.display = "none";
+    }
+  });
+}
+</script>
+
 </body>
 </html>

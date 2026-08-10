@@ -372,13 +372,31 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 .landing-cards {
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  max-width:900px;
+  grid-template-columns:repeat(4, minmax(220px, 1fr));
+  justify-content:center;
+  align-items:stretch;
+  gap:24px;
+  max-width:980px;
   margin:0 auto;
 }
+
+.landing-cards .landing-card {
+  width:100%;
+}
+
+@media(min-width:901px) {
+  .landing-cards .payouts-card,
+  .landing-cards .players-card {
+    grid-column:auto;
+  }
+
+  .landing-cards {
+    grid-template-columns:repeat(3, minmax(220px, 280px));
+    justify-content:center;
+  }
+}
 .landing-card {
-  min-height:214px;
+  min-height:230px;
   position:relative;
   overflow:hidden;
   display:flex;
@@ -451,14 +469,7 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   margin-top:90px;
 }
 
-@media(min-width:1001px) {
-  .landing-cards .payouts-card {
-    grid-column:2 / span 2;
-    max-width:calc(50% - 7px);
-    width:100%;
-    justify-self:center;
-  }
-}
+
 
 @media(max-width:1000px) {
   .landing-cards { grid-template-columns:repeat(2,1fr); max-width:760px; }
@@ -550,6 +561,45 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .banner .label { font-size:7px; }
   .trophy { font-size:30px; }
 }
+
+.mobile-menu-button {
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:#fff;
+  border-radius:10px;
+  font-size:24px;
+  width:44px;
+  height:38px;
+  cursor:pointer;
+}
+.mobile-menu {
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  width:220px;
+  padding:15px;
+  background:#101925;
+  border:1px solid var(--line);
+  border-radius:15px;
+  z-index:999;
+}
+.mobile-menu a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  padding:12px;
+  border-bottom:1px solid var(--line);
+  font-weight:800;
+  font-size:13px;
+}
+@media(max-width:900px) {
+  .navlinks { display:none; }
+  .mobile-menu-button { display:block; }
+  .nav { position:relative; display:flex; justify-content:space-between; align-items:center; }
+}
+
 </style>
 <style>
 .active-nav {
@@ -571,13 +621,28 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
     <nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
-        <a href="index.html" class="active-nav">Champions</a>
+
+        <a href="index.html">Champions</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
         <a href="payouts.html">Payouts</a>
+        <a href="players.html">Players</a>
       </div>
-    </nav>
+    
+<button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu">☰</button>
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Champions</a>
+<a href="records.html">Records</a>
+<a href="history.html">History</a>
+<a href="rules.html">Rules</a>
+<a href="payouts.html">Payouts</a>
+<a href="players.html">Players</a>
+
+</div>
+
+</nav>
     <div class="hero page-hero">
       <div class="kicker">THE OFFICIAL LEAGUE ARCHIVE</div>
       <h1>CHQ FANTASY<br><em>KEEPER LEAGUE</em></h1>
@@ -648,6 +713,15 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
         <span>View Payouts →</span>
       </div>
     </a>
+<a class="landing-card players-card" href="players.html">
+  <div class="landing-card-art">👥</div>
+  <div class="landing-card-content">
+    <div class="landing-card-kicker">MEET THE OWNERS</div>
+    <h3>The Players</h3>
+    <p>Meet the personalities, rivalries, histories, and questionable decisions behind the league.</p>
+    <span>Meet the Players →</span>
+  </div>
+</a>
   </div>
 
   <div class="landing-champions" id="championships">
@@ -960,5 +1034,22 @@ document.getElementById("refreshData").addEventListener("click", refreshData);
 renderAll();
 refreshData();
 </script>
+
+<script>
+const mobileMenuButton = document.getElementById("mobileMenuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+if (mobileMenuButton && mobileMenu) {
+  mobileMenuButton.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "block" ? "none" : "block";
+  });
+  document.addEventListener("click", (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+      mobileMenu.style.display = "none";
+    }
+  });
+}
+</script>
+
 </body>
 </html>
