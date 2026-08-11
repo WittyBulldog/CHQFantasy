@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHQ Fantasy Keeper League — LEAGUE HISTORY</title>
+<title>CHQ Fantasy Keeper League — Updates</title>
 <style>
 :root {
   --bg:#080b12;
@@ -411,341 +411,46 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 </style>
 <style>
-.active-nav {
-  color:var(--gold2) !important;
-  border-bottom:2px solid var(--gold);
-  padding-bottom:4px;
+.updates-wrap {
+  padding:50px 0 80px;
 }
-.page-hero h1 {
-  font-size:clamp(38px,6vw,64px);
-}
-.page-hero {
-  padding-bottom:38px;
+.doc-frame {
+  width:100%;
+  height:1000px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
 }
 </style>
 </head>
 <body>
 <header>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-      <div class="navlinks">
-        <a href="index.html">Champions</a>
-        <a href="records.html">Records</a>
-        <a href="history.html" class="active-nav">History</a>
-        <a href="rules.html">Rules</a>
-        <a href="payouts.html">Payouts</a>
-        <a href="players.html">Players</a>
-        <a href="quotes.html">Quotes</a>
-      <a href="updates.html">Updates</a>
-      </div>
-    </nav>
-    <div class="hero page-hero">
-      <div class="kicker">SEASON BY SEASON</div>
-      <h1>LEAGUE HISTORY</h1>
-      <p>A complete championship-by-championship history of the CHQ Fantasy Keeper League.</p>
-      <div class="sync-controls">
-        <span id="syncStatus" class="sync-status">● Loading league data…</span>
-        <button id="refreshData" type="button">↻ Refresh Data</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<nav class="nav">
+<div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+<div class="navlinks">
+<a href="index.html">Champions</a>
+<a href="records.html">Records</a>
+<a href="history.html">History</a>
+<a href="rules.html">Rules</a>
+<a href="payouts.html">Payouts</a>
+<a href="players.html">Players</a>
+<a href="quotes.html">Quotes</a>
+<a href="updates.html" class="active-nav">Updates</a>
+</div>
+</nav>
+<div class="hero">
+<div class="kicker">LEAGUE NEWS</div>
+<h1>UPDATES</h1>
+<p>League announcements, news, and important CHQ Fantasy Keeper League updates.</p>
+</div>
+</div>
 </header>
-
 <main class="container">
-<section class="section" id="history">
-  <div class="section-head">
-    <div><div class="eyebrow">Season by season</div><h2>League History</h2></div>
-    <p>A quick view of every championship finish currently in the archive.</p>
-  </div>
-  <div class="history">
-    <table>
-      <thead><tr><th>Season</th><th>🥇 Champion</th><th>🥈 Runner-Up</th><th>🥉 3rd</th><th>Consolation</th></tr></thead>
-      <tbody id="historyRows"></tbody>
-    </table>
-  </div>
+<section class="updates-wrap">
+<iframe class="doc-frame" src="https://docs.google.com/document/d/e/2PACX-1vSsPqTIWUHbWaNOc0s1kcOH0TiBcFirClj3NJ1CQkYRvIgP25Pzzyp0zZUZXDkN2eMa7SdST3T2Lbus/pub"></iframe>
 </section>
 </main>
-
-<footer>
-  <div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
-</footer>
-
-<script>
-/*
-  CHQ Fantasy Keeper League — live data
-  Source: public Google Sheet
-  https://docs.google.com/spreadsheets/d/13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4/edit
-*/
-
-const SHEET_ID = "13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4";
-
-const FALLBACK_SEASONS = [
-  {year:2025, champion:"Dan Ekstrom", second:"Mickey Brown", third:"Nick Nowakowski", consolation:"Mark Melquist", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Nick Nowakowski", mostWeeks:"Dan Ekstrom", mostPA:"Brett Dehner"},
-  {year:2024, champion:"Dillon McMahon", second:"Jason Buccola", third:"Dusty Dudenhoeffer", consolation:"Mark Mackey", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dillon McMahon", mostWeeks:"Jason Buccola", mostPA:"Mickey Brown"},
-  {year:2023, champion:"Nick Nowakowski", second:"Mickey Brown", third:"Mark Mackey", consolation:"Jason Buccola", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mickey Brown", mostPA:"Chris Mulheron"},
-  {year:2022, champion:"Chris Mulheron", second:"Mickey Brown", third:"Jason Buccola", consolation:"Jason Harle", championPayout:400, secondPayout:400, thirdPayout:150, consolationPayout:100, weeklyWinner:"Mickey Brown", mostWeeks:"Mickey Brown", mostPA:"Dusty Dudenhoeffer"},
-  {year:2021, champion:"Mark Mackey", second:"Nick Nowakowski", third:"Mark Melquist", consolation:"Tylor Cardone", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mark Mackey", mostPA:"Dan Ekstrom"},
-  {year:2020, champion:"Mark Mackey", second:"Chris Mulheron", third:"Jon Barlow", consolation:"—", championPayout:750, secondPayout:300, thirdPayout:100, consolationPayout:0, weeklyWinner:"—", mostWeeks:"—", mostPA:"Jason Harle"}
-];
-
-const FALLBACK_MONEY = [
-  ["Mark Mackey",1550],["Mickey Brown",1200],["Nick Nowakowski",1000],["Chris Mulheron",750],
-  ["Jason Buccola",600],["Dan Ekstrom",600],["Dillon McMahon",550],["Dusty Dudenhoeffer",300],
-  ["Mark Melquist",250],["Jason Harle",150],["Jon Barlow",100],["Tylor Cardone",100],["Brett Dehner",50]
-];
-
-let seasons = [...FALLBACK_SEASONS];
-let money = [...FALLBACK_MONEY];
-let rules = [];
-
-function initials(name) {
-  if (!name || name === "—") return "—";
-  return name.split(" ").slice(0,2).map(x => x[0]).join("").toUpperCase();
-}
-
-function cellValue(row, index) {
-  return row[index] == null ? "" : String(row[index]).trim();
-}
-
-function parseGviz(text) {
-  const match = text.match(/setResponse\(([\s\S]*)\);?\s*$/);
-  if (!match) throw new Error("Unexpected Google Sheets response.");
-  return JSON.parse(match[1]);
-}
-
-async function getSheet(sheetName) {
-  const url =
-    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
-    `?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&headers=1`;
-  const response = await fetch(url, {cache:"no-store"});
-  if (!response.ok) throw new Error(`Could not load ${sheetName}.`);
-  const data = parseGviz(await response.text());
-  if (data.status !== "ok") throw new Error(`Google Sheets returned an error for ${sheetName}.`);
-  return data.table.rows.map(r => r.c.map(c => c ? c.v : ""));
-}
-
-function normalizeSeasonRows(rows) {
-  const result = [];
-  let current = null;
-
-  for (const row of rows) {
-    const first = cellValue(row,0);
-    const second = cellValue(row,1);
-    const third = cellValue(row,2);
-
-    // A season header is a standalone year.
-    if (/^20\d{2}$/.test(first) && !second && !third) {
-      if (current) result.push(current);
-      current = {
-        year:Number(first),
-        champion:"—", second:"—", third:"—", consolation:"—",
-        championPayout:0, secondPayout:0, thirdPayout:0, consolationPayout:0,
-        weeklyWinner:"—", mostWeeks:"—", mostPA:"—"
-      };
-      continue;
-    }
-
-    if (!current) continue;
-
-    const label = first.toLowerCase();
-    if (label === "1st") { current.champion=second || "—"; current.championPayout=Number(third)||0; }
-    else if (label === "2nd") { current.second=second || "—"; current.secondPayout=Number(third)||0; }
-    else if (label === "3rd") { current.third=second || "—"; current.thirdPayout=Number(third)||0; }
-    else if (label.includes("consolation")) { current.consolation=second || "—"; current.consolationPayout=Number(third)||0; }
-    else if (label.includes("highest point")) current.weeklyWinner=second || "—";
-    else if (label.includes("most weeks")) current.mostWeeks=second || "—";
-    else if (label.includes("most points against")) current.mostPA=second || "—";
-  }
-
-  if (current) result.push(current);
-  return result.sort((a,b)=>b.year-a.year);
-}
-
-function normalizeMoneyRows(rows) {
-  return rows
-    .map(r => [cellValue(r,0), Number(cellValue(r,1).replace(/[$,]/g,"")) || 0])
-    .filter(r => r[0] && r[1] > 0)
-    .sort((a,b)=>b[1]-a[1]);
-}
-
-function renderDetail(index) {
-  const s = seasons[index];
-  document.querySelectorAll(".banner").forEach((b,i)=>b.classList.toggle("active",i===index));
-  const detail = document.getElementById("seasonDetail");
-  if (!detail) return;
-  detail.innerHTML = `
-    <div class="detail-top">
-      <div class="detail-title">
-        <div class="avatar">${initials(s.champion)}</div>
-        <div>
-          <h3>${s.year} Champion — ${s.champion}</h3>
-          <div class="sub">CHQ Fantasy Keeper League • Championship banner #${seasons.length-index}</div>
-        </div>
-      </div>
-      <div class="badge">🏆 League Champion</div>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="v">$${s.championPayout}</div><div class="l">Champion payout</div></div>
-      <div class="stat"><div class="v">${s.second}</div><div class="l">Runner-up</div></div>
-      <div class="stat"><div class="v">${s.third}</div><div class="l">Third place</div></div>
-      <div class="stat"><div class="v">${s.consolation}</div><div class="l">Consolation winner</div></div>
-    </div>
-    <div class="awards">
-      <div class="award"><strong>🔥 Highest Weekly Score</strong><span>${s.weeklyWinner}</span></div>
-      <div class="award"><strong>📈 Most Weeks with Most Points</strong><span>${s.mostWeeks}</span></div>
-      <div class="award"><strong>🧱 Most Points Against</strong><span>${s.mostPA}</span></div>
-    </div>`;
-}
-
-function renderBanners() {
-  const container = document.getElementById("championBanners");
-  if (!container) return;
-  container.innerHTML = "";
-  seasons.forEach((s,i) => {
-    const b = document.createElement("button");
-    b.className = "banner";
-    b.type = "button";
-    b.innerHTML = `
-      <div class="banner-pole"></div>
-      <div class="banner-fabric">
-        <div class="year">${s.year}</div>
-        <div class="label">★ &nbsp; CHAMPION &nbsp; ★</div>
-        <div class="champion">${s.champion}</div>
-        <div class="trophy">🏆</div>
-        <div class="laurel"></div>
-      </div>`;
-    b.addEventListener("click",()=>renderDetail(i));
-    container.appendChild(b);
-  });
-  if (seasons.length) renderDetail(0);
-}
-
-function renderMoney() {
-  const moneyContainer = document.getElementById("moneyLeaders");
-  if (!moneyContainer) return;
-  const maxMoney = money.length ? money[0][1] : 1;
-  moneyContainer.innerHTML = money.map((m,i)=>`
-    <div class="leader">
-      <div class="rank">${i+1}</div>
-      <div class="mini-avatar">${initials(m[0])}</div>
-      <div class="leader-name">${m[0]}</div>
-      <div class="bar"><i style="--w:${(m[1]/maxMoney*100).toFixed(1)}%"></i></div>
-      <div class="money">$${m[1].toLocaleString()}</div>
-    </div>`).join("");
-}
-
-function renderHistory() {
-  const historyRows = document.getElementById("historyRows");
-  if (!historyRows) return;
-  historyRows.innerHTML = seasons.map(s=>`
-    <tr>
-      <td class="year-cell">${s.year}</td>
-      <td class="place1">${s.champion}</td>
-      <td>${s.second}</td>
-      <td>${s.third}</td>
-      <td>${s.consolation}</td>
-    </tr>`).join("");
-}
-
-function renderRecords() {
-  const counts = {};
-  const seconds = {};
-  const top3 = {};
-  seasons.forEach(s=>{
-    [s.champion,s.second,s.third].forEach((name,i)=>{
-      if (!name || name==="—") return;
-      top3[name]=(top3[name]||0)+1;
-      if (i===0) counts[name]=(counts[name]||0)+1;
-      if (i===1) seconds[name]=(seconds[name]||0)+1;
-    });
-  });
-  const maxTitles = Math.max(0,...Object.values(counts));
-  const champ = Object.keys(counts).find(n=>counts[n]===maxTitles) || "—";
-  const maxSeconds = Math.max(0,...Object.values(seconds));
-  const runner = Object.keys(seconds).find(n=>seconds[n]===maxSeconds) || "—";
-  const maxTop3 = Math.max(0,...Object.values(top3));
-  const top3Name = Object.keys(top3).find(n=>top3[n]===maxTop3) || "—";
-  const moneyLeader = money[0] || ["—",0];
-  const repeat = Object.keys(counts).find(n=>counts[n]>=2) || "—";
-  const repeatYears = repeat==="—" ? "—" : seasons.filter(s=>s.champion===repeat).map(s=>s.year).join(" & ");
-  const largest = seasons.reduce((a,b)=>b.championPayout>a.championPayout?b:a,seasons[0]);
-
-  const records = document.querySelectorAll(".record .rvalue");
-  if (!records.length) return;
-  const subs = document.querySelectorAll(".record .rsub");
-  if (records.length >= 6) {
-    records[0].textContent=champ;
-    subs[0].textContent=`${maxTitles} title${maxTitles===1?"":"s"}`;
-    records[1].textContent=`$${moneyLeader[1].toLocaleString()}`;
-    subs[1].textContent=moneyLeader[0];
-    records[2].textContent=runner;
-    subs[2].textContent=`${maxSeconds} runner-up finish${maxSeconds===1?"":"es"}`;
-    records[3].textContent=top3Name;
-    subs[3].textContent=`${maxTop3} total`;
-    records[4].textContent=`$${largest?.championPayout || 0}`;
-    subs[4].textContent=`${largest?.champion || "—"} • ${largest?.year || "—"}`;
-    records[5].textContent=repeat;
-    subs[5].textContent=repeat==="—" ? "No repeat champion yet" : repeatYears;
-  }
-}
-
-
-function renderAll() {
-  renderBanners();
-  renderMoney();
-  renderHistory();
-  renderRecords();
-}
-
-function setStatus(message, state="") {
-  const el = document.getElementById("syncStatus");
-  el.textContent = `● ${message}`;
-  el.className = `sync-status ${state}`;
-}
-
-async function refreshData() {
-  const button = document.getElementById("refreshData");
-  button.disabled = true;
-  setStatus("Updating from Google Sheets…");
-
-  try {
-    const [finishRows, moneyRows, ruleRows] = await Promise.all([
-      getSheet("Yearly_Finishes"),
-      getSheet("$ Leaderboard"),
-      getSheet("Rules")
-    ]);
-
-    const freshSeasons = normalizeSeasonRows(finishRows);
-    const freshMoney = normalizeMoneyRows(moneyRows);
-
-    if (!freshSeasons.length) throw new Error("No season data was found.");
-
-    // Keep known historical seasons if a Google Sheets refresh temporarily
-    // omits one. This prevents the 2025 banner from disappearing when the
-    // Yearly_Finishes tab does not return that row.
-    const merged = new Map(FALLBACK_SEASONS.map(s => [s.year, s]));
-    freshSeasons.forEach(s => merged.set(s.year, s));
-    seasons = Array.from(merged.values()).sort((a,b) => b.year - a.year);
-
-    if (freshMoney.length) money = freshMoney;
-    rules = ruleRows || [];
-
-    renderAll();
-    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
-    setStatus(`Live • Updated ${stamp}`, "live");
-  } catch (error) {
-    console.warn(error);
-    renderAll();
-    setStatus("Using saved league data • Google Sheets unavailable", "error");
-  } finally {
-    button.disabled = false;
-  }
-}
-
-document.getElementById("refreshData").addEventListener("click", refreshData);
-renderAll();
-refreshData();
-</script>
+<footer><div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div></footer>
 </body>
 </html>
