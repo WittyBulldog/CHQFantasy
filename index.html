@@ -877,7 +877,7 @@ function renderBanners() {
         <div class="trophy">🏆</div>
         <div class="laurel"></div>
       </div>`;
-    b.addEventListener("click",()=>renderDetail(i));
+    b.addEventListener("click",()=>{      renderDetail(i);      setTimeout(()=>{        const detail=document.getElementById("seasonDetail");        if(detail){          detail.scrollIntoView({behavior:"smooth", block:"start"});        }      },50);    });
     container.appendChild(b);
   });
   if (seasons.length) renderDetail(0);
