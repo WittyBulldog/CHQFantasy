@@ -560,7 +560,8 @@ function renderPayouts(rows) {
 
   // The Payouts tab is displayed as the league's two-column payout list:
   // Prize and Amount. The first sheet row is treated as the header row.
-  const dataRows = rows.slice(1).filter(r => r.some(v => String(v ?? "").trim()));
+  const hasHeader = rows[0] && String(rows[0][0] ?? "").toLowerCase().includes("prize") && String(rows[0][1] ?? "").toLowerCase().includes("amount");
+  const dataRows = (hasHeader ? rows.slice(1) : rows).filter(r => r.some(v => String(v ?? "").trim()));
 
   container.className = "";
   container.innerHTML = `
