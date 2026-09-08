@@ -504,6 +504,24 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<style>
+@media (max-width:700px) {
+  .payouts-section { padding:36px 0 48px; }
+  .payouts-table { min-width:0; table-layout:fixed; }
+  .payouts-table th:first-child { width:65%; }
+  .payouts-table th:last-child { width:35%; text-align:right; }
+  .payouts-table th, .payouts-table td {
+    padding:16px 12px;
+    overflow-wrap:anywhere;
+    white-space:normal;
+    line-height:1.5;
+  }
+  .payouts-table td { font-size:14px; }
+  .payouts-table td.payout-amount { text-align:right; font-variant-numeric:tabular-nums; }
+  .payouts-table tbody tr:nth-child(even) { background:rgba(255,255,255,.025); }
+  .payouts-empty { padding:24px 16px; overflow-wrap:anywhere; }
+}
+</style>
 <link rel="stylesheet" href="mobile-nav.css">
 <script src="mobile-nav.js" defer></script>
 </head>

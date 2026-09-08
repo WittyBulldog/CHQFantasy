@@ -457,6 +457,28 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<style>
+.history-season-list { display:none; }
+@media (max-width:700px) {
+  #history .history { display:none; }
+  .history-season-list { display:grid; gap:16px; }
+  .history-season {
+    min-width:0;
+    padding:20px 16px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:linear-gradient(145deg,#121a27,#0d131c);
+    overflow-wrap:anywhere;
+  }
+  .history-season h3 { margin:0 0 16px; font-size:24px; color:var(--gold); }
+  .history-season dl { margin:0; }
+  .history-finish { padding:12px 0; border-top:1px solid var(--line); }
+  .history-finish dt { color:var(--muted); font-size:12px; line-height:1.5; }
+  .history-finish dd { margin:4px 0 0; font-size:16px; font-weight:700; line-height:1.5; }
+  .history-finish:first-child dd { color:var(--gold2); }
+  .history-finish:last-child { padding-bottom:0; }
+}
+</style>
 <link rel="stylesheet" href="mobile-nav.css">
 <script src="mobile-nav.js" defer></script>
 </head>
@@ -505,6 +527,7 @@ img, svg { max-width:100%; }
       <tbody id="historyRows"></tbody>
     </table>
   </div>
+  <div class="history-season-list" id="historySeasons"></div>
 </section>
 </main>
 
@@ -679,14 +702,28 @@ function renderMoney() {
 function renderHistory() {
   const historyRows = document.getElementById("historyRows");
   if (!historyRows) return;
+  const escape = value => String(value ?? "—").replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[char]));
   historyRows.innerHTML = seasons.map(s=>`
     <tr>
-      <td class="year-cell">${s.year}</td>
-      <td class="place1">${s.champion}</td>
-      <td>${s.second}</td>
-      <td>${s.third}</td>
-      <td>${s.consolation}</td>
+      <td class="year-cell">${escape(s.year)}</td>
+      <td class="place1">${escape(s.champion)}</td>
+      <td>${escape(s.second)}</td>
+      <td>${escape(s.third)}</td>
+      <td>${escape(s.consolation)}</td>
     </tr>`).join("");
+  const historySeasons = document.getElementById("historySeasons");
+  if (historySeasons) historySeasons.innerHTML = seasons.map(s => `
+    <article class="history-season">
+      <h3>${escape(s.year)} Season</h3>
+      <dl>
+        <div class="history-finish"><dt>🥇 Champion</dt><dd>${escape(s.champion)}</dd></div>
+        <div class="history-finish"><dt>🥈 Runner-Up</dt><dd>${escape(s.second)}</dd></div>
+        <div class="history-finish"><dt>🥉 Third Place</dt><dd>${escape(s.third)}</dd></div>
+        <div class="history-finish"><dt>Consolation</dt><dd>${escape(s.consolation)}</dd></div>
+      </dl>
+    </article>`).join("");
 }
 
 function renderRecords() {
