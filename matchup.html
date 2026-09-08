@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHQ Fantasy Keeper League — THE CHQ HALL OF CHAMPIONS</title>
+<title>Matchup of the Week | CHQ Fantasy Keeper League</title>
 <style>
 :root {
   --bg:#080b12;
@@ -599,11 +599,126 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 
 </style>
+<style>
+/* Matchup of the Week page */
+.matchup-page {
+  width:min(1000px, calc(100% - 32px));
+  margin:0 auto;
+  padding-bottom:60px;
+}
+.matchup-hero {
+  text-align:center;
+  padding:65px 0 40px;
+}
+.matchup-hero .kicker {
+  color:#f5c451;
+  font-weight:800;
+  letter-spacing:.14em;
+  font-size:12px;
+  margin-bottom:12px;
+}
+.matchup-hero h1 {
+  margin:0;
+  font-size:clamp(42px,6vw,68px);
+}
+.matchup-hero p {
+  color:#9fb0c8;
+  max-width:700px;
+  margin:18px auto 0;
+  line-height:1.6;
+}
+.matchup-feature {
+  background:linear-gradient(145deg,#121d2c,#0d1521);
+  border:1px solid #2b3a50;
+  border-radius:18px;
+  overflow:hidden;
+}
+.matchup-label {
+  text-align:center;
+  padding:16px;
+  color:#f5c451;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.13em;
+  border-bottom:1px solid #2b3a50;
+}
+.matchup-teams {
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:24px;
+  align-items:center;
+  padding:40px 28px;
+}
+.matchup-team {
+  text-align:center;
+  padding:20px;
+}
+.matchup-team h2 {
+  margin:0;
+  font-size:clamp(25px,4vw,42px);
+}
+.matchup-record {
+  color:#9fb0c8;
+  margin-top:8px;
+}
+.matchup-vs {
+  color:#f5c451;
+  font-size:24px;
+  font-weight:900;
+}
+.matchup-sections {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  padding:0 20px 20px;
+}
+.matchup-panel {
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:22px;
+}
+.matchup-panel h3 {
+  margin:0 0 12px;
+}
+.matchup-panel p {
+  color:#c2cede;
+  line-height:1.65;
+  margin:0;
+}
+.matchup-pick {
+  margin:0 20px 20px;
+  padding:25px;
+  text-align:center;
+  border:1px solid rgba(245,196,81,.45);
+  border-radius:14px;
+  background:rgba(245,196,81,.06);
+}
+.matchup-pick .kicker {
+  color:#f5c451;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.matchup-pick h2 {
+  color:#f5c451;
+  margin:8px 0;
+  font-size:30px;
+}
+.matchup-pick p {
+  color:#9fb0c8;
+  margin:0;
+}
+@media(max-width:700px) {
+  .matchup-teams { grid-template-columns:1fr; gap:8px; }
+  .matchup-vs { margin:0; }
+  .matchup-sections { grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <nav class="nav">
+<div class="matchup-page">
+<nav class="nav">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
       <div class="navlinks">
         <a href="index.html" class="active-nav">Champions</a>
@@ -617,409 +732,59 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
       </div>
     <a href="matchup.html">Matchup of the Week</a>
 </nav>
-    <div class="hero page-hero">
-      <div class="kicker">THE OFFICIAL LEAGUE ARCHIVE</div>
-      <h1>CHQ FANTASY<br><em>KEEPER LEAGUE</em></h1>
-      <p>Six seasons of bragging rights, championships, records, and league history.</p>
-      <div class="sync-controls">
-        <span id="syncStatus" class="sync-status">● Loading league data…</span>
-        <button id="refreshData" type="button">↻ Refresh Data</button>
-      </div>
+<main>
+<section class="matchup-hero">
+  <div class="kicker">WEEKLY FEATURE</div>
+  <h1>Matchup of the Week</h1>
+  <p>One matchup. Two teams. One prediction. Each week, we'll break down one league matchup and make the call on who comes out on top.</p>
+</section>
+
+<section class="matchup-feature">
+  <div class="matchup-label">THIS WEEK'S FEATURED MATCHUP</div>
+
+  <div class="matchup-teams">
+    <div class="matchup-team">
+      <h2>TEAM ONE</h2>
+      <div class="matchup-record">0–0 • Owner Name</div>
+    </div>
+
+    <div class="matchup-vs">VS</div>
+
+    <div class="matchup-team">
+      <h2>TEAM TWO</h2>
+      <div class="matchup-record">0–0 • Owner Name</div>
     </div>
   </div>
-</header>
 
-<main class="container">
-<section class="landing-home">
-  <div class="landing-intro">
-    <div class="eyebrow">CHQ Fantasy Keeper League • Est. 2020</div>
-    <h2>Welcome to the<br><span>Hall of Champions</span></h2>
-    <p>The official home of league history, championship banners, records, and the rules that keep CHQ Fantasy Keeper League running.</p>
-  </div>
-
-  <div class="landing-cards">
-    
-
-    <a class="landing-card records-card" href="records.html">
-      <div class="landing-card-art">📊</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">ALL-TIME</div>
-        <h3>Records & Leaders</h3>
-        <p>See the money leaders, championship records, repeat champions, and more.</p>
-        <span>View Records →</span>
-      </div>
-    </a>
-
-    <a class="landing-card history-card" href="history.html">
-      <div class="landing-card-art">📜</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">SEASON BY SEASON</div>
-        <h3>League History</h3>
-        <p>Take a year-by-year look at the championship finishes throughout the league.</p>
-        <span>View History →</span>
-      </div>
-    </a>
-
-    <a class="landing-card rules-card" href="rules.html">
-      <div class="landing-card-art">📖</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">THE RULEBOOK</div>
-        <h3>League Rules</h3>
-        <p>Keeper rules, FAAB, roster settings, scoring, playoffs, and league traditions.</p>
-        <span>View Rules →</span>
-      </div>
-    </a>
-
-    <a class="landing-card payouts-card" href="payouts.html">
-      <div class="landing-card-art">💰</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">LEAGUE FINANCES</div>
-        <h3>Payouts</h3>
-        <p>See the league's payout information directly from the live Google Sheet.</p>
-        <span>View Payouts →</span>
-      </div>
-    </a>
-
-    <a class="landing-card players-card" href="players.html">
-      <div class="landing-card-art">👥</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">MEET THE OWNERS</div>
-        <h3>The Players</h3>
-        <p>Meet the personalities, rivalries, histories, and questionable decisions behind the league.</p>
-        <span>Meet the Players →</span>
-      </div>
-    </a>
-    <a class="landing-card quotes-card" href="quotes.html">
-      <div class="landing-card-art">💬</div>
-      <div class="landing-card-content">
-        <div class="landing-card-kicker">LEAGUE LORE</div>
-        <h3>Favorite Quotes</h3>
-        <p>Relive the trash talk, memorable moments, and legendary comments from the league.</p>
-        <span>View Quotes →</span>
-      </div>
-    </a>
-<a class="landing-card updates-card" href="updates.html">
-  <div class="landing-card-art">📰</div>
-  <div class="landing-card-content">
-    <div class="landing-card-kicker">LEAGUE NEWS</div>
-    <h3>Updates</h3>
-    <p>League announcements, commissioner notes, and important CHQ news.</p>
-    <span>View Updates →</span>
-  </div>
-</a>
-
-
-  </div>
-
-  <div class="landing-champions" id="championships">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The banners</div>
-        <h2>Championships</h2>
-      </div>
-      <p>Click any season to see the championship profile and season awards.</p>
+  <div class="matchup-sections">
+    <div class="matchup-panel">
+      <h3>Why This Matchup Matters</h3>
+      <p>Write the story behind this week's matchup here — rivalry, playoff implications, standings, or whatever makes this game worth watching.</p>
     </div>
-    <div class="champions" id="championBanners"></div>
-    <div class="detail" id="seasonDetail"></div>
+
+    <div class="matchup-panel">
+      <h3>What I'm Watching</h3>
+      <p>Highlight the players, injuries, trends, or position battles that could decide the matchup.</p>
+    </div>
+
+    <div class="matchup-panel">
+      <h3>Team One Breakdown</h3>
+      <p>Break down Team One's roster, strengths, weaknesses, and outlook for the week.</p>
+    </div>
+
+    <div class="matchup-panel">
+      <h3>Team Two Breakdown</h3>
+      <p>Break down Team Two's roster, strengths, weaknesses, and outlook for the week.</p>
+    </div>
+  </div>
+
+  <div class="matchup-pick">
+    <div class="kicker">MY PICK</div>
+    <h2>TEAM ONE</h2>
+    <p>Prediction: Team One wins • Confidence: 7/10</p>
   </div>
 </section>
 </main>
-
-<footer>
-  <div class="container">CHQ Fantasy Keeper League • Hall of Champions • Built for bragging rights.</div>
-</footer>
-
-<script>
-/*
-  CHQ Fantasy Keeper League — live data
-  Source: public Google Sheet
-  https://docs.google.com/spreadsheets/d/13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4/edit
-*/
-
-const SHEET_ID = "13doKKg7J6ckX6vh-J6K2rviTC-T6a_9ECm2qXm2svg4";
-
-const FALLBACK_SEASONS = [
-  {year:2025, champion:"Dan Ekstrom", second:"Mickey Brown", third:"Nick Nowakowski", consolation:"Mark Melquist", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Nick Nowakowski", mostWeeks:"Dan Ekstrom", mostPA:"Brett Dehner"},
-  {year:2024, champion:"Dillon McMahon", second:"Jason Buccola", third:"Dusty Dudenhoeffer", consolation:"Mark Mackey", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dillon McMahon", mostWeeks:"Jason Buccola", mostPA:"Mickey Brown"},
-  {year:2023, champion:"Nick Nowakowski", second:"Mickey Brown", third:"Mark Mackey", consolation:"Jason Buccola", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mickey Brown", mostPA:"Chris Mulheron"},
-  {year:2022, champion:"Chris Mulheron", second:"Mickey Brown", third:"Jason Buccola", consolation:"Jason Harle", championPayout:400, secondPayout:400, thirdPayout:150, consolationPayout:100, weeklyWinner:"Mickey Brown", mostWeeks:"Mickey Brown", mostPA:"Dusty Dudenhoeffer"},
-  {year:2021, champion:"Mark Mackey", second:"Nick Nowakowski", third:"Mark Melquist", consolation:"Tylor Cardone", championPayout:500, secondPayout:300, thirdPayout:150, consolationPayout:100, weeklyWinner:"Dusty Dudenhoeffer", mostWeeks:"Mark Mackey", mostPA:"Dan Ekstrom"},
-  {year:2020, champion:"Mark Mackey", second:"Chris Mulheron", third:"Jon Barlow", consolation:"—", championPayout:750, secondPayout:300, thirdPayout:100, consolationPayout:0, weeklyWinner:"—", mostWeeks:"—", mostPA:"Jason Harle"}
-];
-
-const FALLBACK_MONEY = [
-  ["Mark Mackey",1550],["Mickey Brown",1200],["Nick Nowakowski",1000],["Chris Mulheron",750],
-  ["Jason Buccola",600],["Dan Ekstrom",600],["Dillon McMahon",550],["Dusty Dudenhoeffer",300],
-  ["Mark Melquist",250],["Jason Harle",150],["Jon Barlow",100],["Tylor Cardone",100],["Brett Dehner",50]
-];
-
-let seasons = [...FALLBACK_SEASONS];
-let money = [...FALLBACK_MONEY];
-let rules = [];
-
-function initials(name) {
-  if (!name || name === "—") return "—";
-  return name.split(" ").slice(0,2).map(x => x[0]).join("").toUpperCase();
-}
-
-function cellValue(row, index) {
-  return row[index] == null ? "" : String(row[index]).trim();
-}
-
-function parseGviz(text) {
-  const match = text.match(/setResponse\(([\s\S]*)\);?\s*$/);
-  if (!match) throw new Error("Unexpected Google Sheets response.");
-  return JSON.parse(match[1]);
-}
-
-async function getSheet(sheetName) {
-  const url =
-    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
-    `?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&headers=1`;
-  const response = await fetch(url, {cache:"no-store"});
-  if (!response.ok) throw new Error(`Could not load ${sheetName}.`);
-  const data = parseGviz(await response.text());
-  if (data.status !== "ok") throw new Error(`Google Sheets returned an error for ${sheetName}.`);
-  return data.table.rows.map(r => r.c.map(c => c ? c.v : ""));
-}
-
-function normalizeSeasonRows(rows) {
-  const result = [];
-  let current = null;
-
-  for (const row of rows) {
-    const first = cellValue(row,0);
-    const second = cellValue(row,1);
-    const third = cellValue(row,2);
-
-    // A season header is a standalone year.
-    if (/^20\d{2}$/.test(first) && !second && !third) {
-      if (current) result.push(current);
-      current = {
-        year:Number(first),
-        champion:"—", second:"—", third:"—", consolation:"—",
-        championPayout:0, secondPayout:0, thirdPayout:0, consolationPayout:0,
-        weeklyWinner:"—", mostWeeks:"—", mostPA:"—"
-      };
-      continue;
-    }
-
-    if (!current) continue;
-
-    const label = first.toLowerCase();
-    if (label === "1st") { current.champion=second || "—"; current.championPayout=Number(third)||0; }
-    else if (label === "2nd") { current.second=second || "—"; current.secondPayout=Number(third)||0; }
-    else if (label === "3rd") { current.third=second || "—"; current.thirdPayout=Number(third)||0; }
-    else if (label.includes("consolation")) { current.consolation=second || "—"; current.consolationPayout=Number(third)||0; }
-    else if (label.includes("highest point")) current.weeklyWinner=second || "—";
-    else if (label.includes("most weeks")) current.mostWeeks=second || "—";
-    else if (label.includes("most points against")) current.mostPA=second || "—";
-  }
-
-  if (current) result.push(current);
-  return result.sort((a,b)=>b.year-a.year);
-}
-
-function normalizeMoneyRows(rows) {
-  return rows
-    .map(r => [cellValue(r,0), Number(cellValue(r,1).replace(/[$,]/g,"")) || 0])
-    .filter(r => r[0] && r[1] > 0)
-    .sort((a,b)=>b[1]-a[1]);
-}
-
-function renderDetail(index) {
-  const s = seasons[index];
-  document.querySelectorAll(".banner").forEach((b,i)=>b.classList.toggle("active",i===index));
-  const detail = document.getElementById("seasonDetail");
-  if (!detail) return;
-  detail.innerHTML = `
-    <div class="detail-top">
-      <div class="detail-title">
-        <div class="avatar">${initials(s.champion)}</div>
-        <div>
-          <h3>${s.year} Champion — ${s.champion}</h3>
-          <div class="sub">CHQ Fantasy Keeper League • Championship banner #${seasons.length-index}</div>
-        </div>
-      </div>
-      <div class="badge">🏆 League Champion</div>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="v">$${s.championPayout}</div><div class="l">Champion payout</div></div>
-      <div class="stat"><div class="v">${s.second}</div><div class="l">Runner-up</div></div>
-      <div class="stat"><div class="v">${s.third}</div><div class="l">Third place</div></div>
-      <div class="stat"><div class="v">${s.consolation}</div><div class="l">Consolation winner</div></div>
-    </div>
-    <div class="awards">
-      <div class="award"><strong>🔥 Highest Weekly Score</strong><span>${s.weeklyWinner}</span></div>
-      <div class="award"><strong>📈 Most Weeks with Most Points</strong><span>${s.mostWeeks}</span></div>
-      <div class="award"><strong>🧱 Most Points Against</strong><span>${s.mostPA}</span></div>
-    </div>`;
-}
-
-
-function splitChampionName(name) {
-  const parts = String(name || "—").trim().split(/\s+/);
-  if (parts.length <= 1) return escapeBannerText(parts[0] || "—");
-  return `<span class="first-name">${escapeBannerText(parts[0])}</span><span class="last-name">${escapeBannerText(parts.slice(1).join(" "))}</span>`;
-}
-
-function escapeBannerText(value) {
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
-
-function renderBanners() {
-  const container = document.getElementById("championBanners");
-  if (!container) return;
-  container.innerHTML = "";
-  seasons.forEach((s,i) => {
-    const b = document.createElement("button");
-    b.className = "banner";
-    b.type = "button";
-    b.innerHTML = `
-      <div class="banner-pole"></div>
-      <div class="banner-fabric">
-        <div class="year">${s.year}</div>
-        
-        <div class="champion">${splitChampionName(s.champion)}</div>
-        <div class="trophy">🏆</div>
-        <div class="laurel"></div>
-      </div>`;
-    b.addEventListener("click",()=>{      renderDetail(i);      setTimeout(()=>{        const detail=document.getElementById("seasonDetail");        if(detail){          detail.scrollIntoView({behavior:"smooth", block:"start"});        }      },50);    });
-    container.appendChild(b);
-  });
-  if (seasons.length) renderDetail(0);
-}
-
-function renderMoney() {
-  const moneyContainer = document.getElementById("moneyLeaders");
-  if (!moneyContainer) return;
-  const maxMoney = money.length ? money[0][1] : 1;
-  moneyContainer.innerHTML = money.map((m,i)=>`
-    <div class="leader">
-      <div class="rank">${i+1}</div>
-      <div class="mini-avatar">${initials(m[0])}</div>
-      <div class="leader-name">${m[0]}</div>
-      <div class="bar"><i style="--w:${(m[1]/maxMoney*100).toFixed(1)}%"></i></div>
-      <div class="money">$${m[1].toLocaleString()}</div>
-    </div>`).join("");
-}
-
-function renderHistory() {
-  const historyRows = document.getElementById("historyRows");
-  if (!historyRows) return;
-  historyRows.innerHTML = seasons.map(s=>`
-    <tr>
-      <td class="year-cell">${s.year}</td>
-      <td class="place1">${s.champion}</td>
-      <td>${s.second}</td>
-      <td>${s.third}</td>
-      <td>${s.consolation}</td>
-    </tr>`).join("");
-}
-
-function renderRecords() {
-  const counts = {};
-  const seconds = {};
-  const top3 = {};
-  seasons.forEach(s=>{
-    [s.champion,s.second,s.third].forEach((name,i)=>{
-      if (!name || name==="—") return;
-      top3[name]=(top3[name]||0)+1;
-      if (i===0) counts[name]=(counts[name]||0)+1;
-      if (i===1) seconds[name]=(seconds[name]||0)+1;
-    });
-  });
-  const maxTitles = Math.max(0,...Object.values(counts));
-  const champ = Object.keys(counts).find(n=>counts[n]===maxTitles) || "—";
-  const maxSeconds = Math.max(0,...Object.values(seconds));
-  const runner = Object.keys(seconds).find(n=>seconds[n]===maxSeconds) || "—";
-  const maxTop3 = Math.max(0,...Object.values(top3));
-  const top3Name = Object.keys(top3).find(n=>top3[n]===maxTop3) || "—";
-  const moneyLeader = money[0] || ["—",0];
-  const repeat = Object.keys(counts).find(n=>counts[n]>=2) || "—";
-  const repeatYears = repeat==="—" ? "—" : seasons.filter(s=>s.champion===repeat).map(s=>s.year).join(" & ");
-  const largest = seasons.reduce((a,b)=>b.championPayout>a.championPayout?b:a,seasons[0]);
-
-  const records = document.querySelectorAll(".record .rvalue");
-  if (!records.length) return;
-  const subs = document.querySelectorAll(".record .rsub");
-  if (records.length >= 6) {
-    records[0].textContent=champ;
-    subs[0].textContent=`${maxTitles} title${maxTitles===1?"":"s"}`;
-    records[1].textContent=`$${moneyLeader[1].toLocaleString()}`;
-    subs[1].textContent=moneyLeader[0];
-    records[2].textContent=runner;
-    subs[2].textContent=`${maxSeconds} runner-up finish${maxSeconds===1?"":"es"}`;
-    records[3].textContent=top3Name;
-    subs[3].textContent=`${maxTop3} total`;
-    records[4].textContent=`$${largest?.championPayout || 0}`;
-    subs[4].textContent=`${largest?.champion || "—"} • ${largest?.year || "—"}`;
-    records[5].textContent=repeat;
-    subs[5].textContent=repeat==="—" ? "No repeat champion yet" : repeatYears;
-  }
-}
-
-
-function renderAll() {
-  renderBanners();
-  renderMoney();
-  renderHistory();
-  renderRecords();
-}
-
-function setStatus(message, state="") {
-  const el = document.getElementById("syncStatus");
-  el.textContent = `● ${message}`;
-  el.className = `sync-status ${state}`;
-}
-
-async function refreshData() {
-  const button = document.getElementById("refreshData");
-  button.disabled = true;
-  setStatus("Updating from Google Sheets…");
-
-  try {
-    const [finishRows, moneyRows, ruleRows] = await Promise.all([
-      getSheet("Yearly_Finishes"),
-      getSheet("$ Leaderboard"),
-      getSheet("Rules")
-    ]);
-
-    const freshSeasons = normalizeSeasonRows(finishRows);
-    const freshMoney = normalizeMoneyRows(moneyRows);
-
-    if (!freshSeasons.length) throw new Error("No season data was found.");
-
-    // Keep known historical seasons if a Google Sheets refresh temporarily
-    // omits one. This prevents the 2025 banner from disappearing when the
-    // Yearly_Finishes tab does not return that row.
-    const merged = new Map(FALLBACK_SEASONS.map(s => [s.year, s]));
-    freshSeasons.forEach(s => merged.set(s.year, s));
-    seasons = Array.from(merged.values()).sort((a,b) => b.year - a.year);
-
-    if (freshMoney.length) money = freshMoney;
-    rules = ruleRows || [];
-
-    renderAll();
-    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
-    setStatus(`Live • Updated ${stamp}`, "live");
-  } catch (error) {
-    console.warn(error);
-    renderAll();
-    setStatus("Using saved league data • Google Sheets unavailable", "error");
-  } finally {
-    button.disabled = false;
-  }
-}
-
-document.getElementById("refreshData").addEventListener("click", refreshData);
-renderAll();
-refreshData();
-</script>
+</div>
 </body>
 </html>
