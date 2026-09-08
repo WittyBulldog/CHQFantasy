@@ -749,13 +749,19 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<link rel="stylesheet" href="mobile-nav.css">
+<script src="mobile-nav.js" defer></script>
 </head>
 <body>
 <header>
   <div class="container">
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-      <div class="navlinks">
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
         <a href="index.html">Champions</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
@@ -763,12 +769,10 @@ img, svg { max-width:100%; }
         <a href="payouts.html">Payouts</a>
         <a href="players.html">Players</a>
         <a href="quotes.html">Quotes</a>
-      <a href="updates.html">Updates</a>
+        <a href="updates.html">Updates</a>
         <a href="matchup.html" class="active-nav">Matchup of the Week</a>
       </div>
-      
-      </div>
-</nav>
+    </nav>
     <div class="hero page-hero">
       <div class="kicker">WEEKLY FEATURE • WEEK 1</div>
       <h1>MATCHUP OF THE WEEK</h1>
@@ -825,8 +829,9 @@ img, svg { max-width:100%; }
     </div>
 
     <div class="matchup-panel full-width">
-      <h3>📊 The Numbers from Yahoo</h3>
-      <div class="comparison-table-wrap">
+      <h3 id="yahoo-numbers-heading">📊 The Numbers from Yahoo</h3>
+      <p class="comparison-scroll-hint" id="comparison-scroll-hint">Swipe left or right on the table to see both teams and their projections.</p>
+      <div class="comparison-table-wrap" role="region" aria-labelledby="yahoo-numbers-heading" aria-describedby="comparison-scroll-hint" tabindex="0">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -881,6 +886,12 @@ img, svg { max-width:100%; }
 
 <style>
 /* Matchup-specific additions */
+.matchup-feature, .matchup-sections, .matchup-panel, .matchup-team {
+  min-width:0;
+}
+.matchup-panel, .matchup-team, .projection-callout, .matchup-pick {
+  overflow-wrap:anywhere;
+}
 .matchup-feature {
   max-width: 1080px;
   margin: 0 auto 80px;
@@ -954,7 +965,7 @@ img, svg { max-width:100%; }
 }
 .matchup-sections {
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:18px;
   margin-top:18px;
 }
@@ -973,7 +984,17 @@ img, svg { max-width:100%; }
   line-height:1.75;
 }
 .matchup-panel p:last-child { margin-bottom:0; }
-.comparison-table-wrap { overflow:auto; border:1px solid var(--line); border-radius:12px; }
+.comparison-scroll-hint { display:none; }
+.comparison-table-wrap {
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.comparison-table-wrap:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
 .comparison-table { width:100%; min-width:650px; border-collapse:collapse; }
 .comparison-table th,
 .comparison-table td {
@@ -1045,16 +1066,24 @@ img, svg { max-width:100%; }
 
 @media(max-width:700px) {
   .matchup-teams {
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0,1fr);
     gap:12px;
+    padding:20px 12px;
   }
+  .matchup-team { padding:20px 16px; }
   .matchup-vs { text-align:center; }
   .projection-callout {
     flex-direction:column;
     align-items:flex-start;
   }
   .projection-note { text-align:left; }
-  .matchup-sections { grid-template-columns:1fr; }
+  .matchup-sections {
+    grid-template-columns:minmax(0,1fr);
+    padding:0 12px 12px;
+  }
+  .matchup-panel { padding:18px 14px; }
+  .matchup-panel h3 { font-size:18px; line-height:1.4; }
+  .comparison-scroll-hint { display:block; }
   .matchup-panel.full-width { grid-column:auto; }
   .matchup-pick { padding:26px 20px; }
 }

@@ -1,0 +1,87 @@
+/* Shared navigation: keep links available when JavaScript is disabled. */
+.nav { gap:16px; flex-wrap:wrap; }
+.navlinks { flex-wrap:wrap; }
+.nav-toggle { display:none; }
+.nav-toggle[hidden] { display:none; }
+.nav :focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+
+@media (max-width:900px) {
+  header .nav {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 0;
+  }
+  header .nav .brand {
+    flex:1;
+    min-width:0;
+    text-align:left;
+    font-size:12px;
+    line-height:1.5;
+  }
+  .nav-toggle {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-width:88px;
+    min-height:44px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--panel);
+    color:var(--gold2);
+    font:inherit;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .nav-toggle-icon { position:relative; width:18px; height:14px; }
+  .nav-toggle-icon::before, .nav-toggle-icon::after, .nav-toggle-icon span {
+    content:"";
+    position:absolute;
+    left:0;
+    width:18px;
+    height:2px;
+    border-radius:2px;
+    background:currentColor;
+  }
+  .nav-toggle-icon::before { top:0; }
+  .nav-toggle-icon span { top:6px; }
+  .nav-toggle-icon::after { top:12px; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before { top:6px; transform:rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after { top:6px; transform:rotate(-45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon span { opacity:0; }
+  header .nav .navlinks {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    flex-basis:100%;
+    width:100%;
+    margin:0;
+    padding:8px;
+    gap:4px;
+    overflow:visible;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--panel);
+  }
+  header .nav.nav-enhanced:not(.nav-open) .navlinks { display:none; }
+  header .nav .navlinks a {
+    display:flex;
+    align-items:center;
+    min-height:44px;
+    padding:10px 12px;
+    border:1px solid transparent;
+    border-radius:8px;
+    white-space:normal;
+    font-size:14px;
+    line-height:1.4;
+  }
+  header .nav .navlinks a.active-nav {
+    padding-bottom:10px;
+    border-color:rgba(245,196,81,.35);
+    background:rgba(245,196,81,.08);
+  }
+}

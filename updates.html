@@ -456,25 +456,30 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<link rel="stylesheet" href="mobile-nav.css">
+<script src="mobile-nav.js" defer></script>
 </head>
 <body>
 <header>
 <div class="container">
-<nav class="nav">
-<div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-<div class="navlinks">
-<a href="index.html">Champions</a>
-<a href="records.html">Records</a>
-<a href="history.html">History</a>
-<a href="rules.html">Rules</a>
-<a href="payouts.html">Payouts</a>
-<a href="players.html">Players</a>
-<a href="quotes.html">Quotes</a>
-<a href="updates.html" class="active-nav">Updates</a>
+<nav class="nav" aria-label="Main navigation">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
+        <a href="index.html">Champions</a>
+        <a href="records.html">Records</a>
+        <a href="history.html">History</a>
+        <a href="rules.html">Rules</a>
+        <a href="payouts.html">Payouts</a>
+        <a href="players.html">Players</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="updates.html" class="active-nav">Updates</a>
         <a href="matchup.html">Matchup of the Week</a>
-</div>
-
-</nav>
+      </div>
+    </nav>
 <div class="hero">
 <div class="kicker">LEAGUE NEWS</div>
 <h1>UPDATES</h1>

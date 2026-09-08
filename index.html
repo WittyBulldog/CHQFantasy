@@ -633,13 +633,19 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<link rel="stylesheet" href="mobile-nav.css">
+<script src="mobile-nav.js" defer></script>
 </head>
 <body>
 <header>
   <div class="container">
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-      <div class="navlinks">
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
         <a href="index.html" class="active-nav">Champions</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
@@ -650,9 +656,7 @@ img, svg { max-width:100%; }
         <a href="updates.html">Updates</a>
         <a href="matchup.html">Matchup of the Week</a>
       </div>
-      
-      </div>
-</nav>
+    </nav>
     <div class="hero page-hero">
       <div class="kicker">THE OFFICIAL LEAGUE ARCHIVE</div>
       <h1>CHQ FANTASY<br><em>KEEPER LEAGUE</em></h1>
@@ -674,7 +678,15 @@ img, svg { max-width:100%; }
   </div>
 
   <div class="landing-cards">
-    
+    <a class="landing-card matchup-card" href="matchup.html">
+      <div class="landing-card-art">🏈</div>
+      <div class="landing-card-content">
+        <div class="landing-card-kicker">GAME OF THE WEEK</div>
+        <h3>Matchups</h3>
+        <p>See this week’s featured showdown, team comparisons, and the commissioner’s pick.</p>
+        <span>View Matchup →</span>
+      </div>
+    </a>
 
     <a class="landing-card records-card" href="records.html">
       <div class="landing-card-art">📊</div>
