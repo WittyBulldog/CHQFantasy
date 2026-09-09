@@ -243,38 +243,6 @@ tr:hover td { background:rgba(255,255,255,.018); }
 
 
 
-.sync-controls {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
-  margin-top:22px;
-  flex-wrap:wrap;
-}
-.sync-status {
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  color:var(--muted);
-  font-size:11px;
-  padding:8px 11px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:rgba(255,255,255,.025);
-}
-.sync-status.live { color:var(--green); border-color:rgba(101,214,154,.25); }
-.sync-status.error { color:var(--red); border-color:rgba(255,115,115,.25); }
-#refreshData {
-  border:1px solid rgba(245,196,81,.35);
-  background:rgba(245,196,81,.07);
-  color:var(--gold2);
-  border-radius:999px;
-  padding:8px 12px;
-  cursor:pointer;
-  font-size:11px;
-  font-weight:800;
-}
-#refreshData:hover { background:rgba(245,196,81,.14); }
 
 
 /* League Constitution */
@@ -664,10 +632,6 @@ img, svg { max-width:100%; }
       <div class="kicker">THE OFFICIAL LEAGUE ARCHIVE</div>
       <h1>CHQ FANTASY<br><em>KEEPER LEAGUE</em></h1>
       <p>Six seasons of bragging rights, championships, records, and league history.</p>
-      <div class="sync-controls">
-        <span id="syncStatus" class="sync-status">● Loading league data…</span>
-        <button id="refreshData" type="button">↻ Refresh Data</button>
-      </div>
     </div>
   </div>
 </header>
@@ -942,16 +906,8 @@ function renderAll() {
   renderRecords();
 }
 
-function setStatus(message, state="") {
-  const el = document.getElementById("syncStatus");
-  el.textContent = `● ${message}`;
-  el.className = `sync-status ${state}`;
-}
 
 async function refreshData() {
-  const button = document.getElementById("refreshData");
-  button.disabled = true;
-  setStatus("Updating from Google Sheets…");
 
   try {
     const [finishRows, moneyRows, ruleRows] = await Promise.all([
@@ -976,18 +932,12 @@ async function refreshData() {
     rules = ruleRows || [];
 
     renderAll();
-    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
-    setStatus(`Live • Updated ${stamp}`, "live");
   } catch (error) {
     console.warn(error);
     renderAll();
-    setStatus("Using saved league data • Google Sheets unavailable", "error");
-  } finally {
-    button.disabled = false;
   }
 }
 
-document.getElementById("refreshData").addEventListener("click", refreshData);
 renderAll();
 refreshData();
 </script>

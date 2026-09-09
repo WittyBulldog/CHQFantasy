@@ -222,38 +222,6 @@ tr:hover td { background:rgba(255,255,255,.018); }
 
 
 
-.sync-controls {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
-  margin-top:22px;
-  flex-wrap:wrap;
-}
-.sync-status {
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  color:var(--muted);
-  font-size:11px;
-  padding:8px 11px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:rgba(255,255,255,.025);
-}
-.sync-status.live { color:var(--green); border-color:rgba(101,214,154,.25); }
-.sync-status.error { color:var(--red); border-color:rgba(255,115,115,.25); }
-#refreshData {
-  border:1px solid rgba(245,196,81,.35);
-  background:rgba(245,196,81,.07);
-  color:var(--gold2);
-  border-radius:999px;
-  padding:8px 12px;
-  cursor:pointer;
-  font-size:11px;
-  font-weight:800;
-}
-#refreshData:hover { background:rgba(245,196,81,.14); }
 
 
 /* League Constitution */
@@ -550,10 +518,6 @@ img, svg { max-width:100%; }
       <div class="kicker">LEAGUE FINANCES</div>
       <h1>PAYOUTS</h1>
       <p>Live payout information pulled directly from the Payouts tab of the league Google Sheet.</p>
-      <div class="sync-controls">
-        <span id="syncStatus" class="sync-status">● Loading payout data…</span>
-        <button id="refreshData" type="button">↻ Refresh Data</button>
-      </div>
     </div>
   </div>
 </header>
@@ -565,7 +529,7 @@ img, svg { max-width:100%; }
         <div class="eyebrow">Finances</div>
         <h2>League Payouts</h2>
       </div>
-      <p>Changes made in the spreadsheet will appear here after a refresh.</p>
+      <p>Payout amounts load automatically when you open this page.</p>
     </div>
 
     <div class="payouts-table-wrap">
@@ -644,30 +608,17 @@ function renderPayouts(rows) {
 }
 
 async function refreshData() {
-  const button = document.getElementById("refreshData");
-  button.disabled = true;
-  const status = document.getElementById("syncStatus");
-  status.textContent = "● Updating from Google Sheets…";
-  status.className = "sync-status";
 
   try {
     const rows = await getPayouts();
     renderPayouts(rows);
-    const stamp = new Date().toLocaleString([], {dateStyle:"medium",timeStyle:"short"});
-    status.textContent = `● Live • Updated ${stamp}`;
-    status.className = "sync-status live";
   } catch (error) {
     console.warn(error);
     document.getElementById("payoutsContent").innerHTML =
-      `<div class="payouts-empty">Unable to load the Payouts tab right now. Check that the Google Sheet is shared publicly and try Refresh Data again.</div>`;
-    status.textContent = "● Google Sheets unavailable";
-    status.className = "sync-status error";
-  } finally {
-    button.disabled = false;
+      `<div class="payouts-empty">Unable to load the Payouts tab right now. Check that the Google Sheet is shared publicly and reload this page to try again.</div>`;
   }
 }
 
-document.getElementById("refreshData").addEventListener("click", refreshData);
 refreshData();
 </script>
 </body>
