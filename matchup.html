@@ -339,9 +339,7 @@ tr:hover td { background:rgba(255,255,255,.018); }
   .constitution-grid { grid-template-columns:1fr 1fr; }
 }
 
-}
-
-footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; }
+footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--muted); font-size:12px; text-align:center; line-height:1.7; }
 
 
 /* Landing page */
@@ -459,7 +457,6 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .landing-card { min-height:184px; }
   .landing-card-art { height:68px; }
   .landing-champions { margin-top:60px; }
-}
 
 @media(max-width:1100px) {
   .champions {
@@ -763,14 +760,14 @@ img, svg { max-width:100%; }
       </button>
       <div class="navlinks" id="site-navigation">
         <a href="index.html">Champions</a>
+        <a href="matchup.html" class="active-nav" aria-current="page">Matchup of the Week</a>
+        <a href="weekly-updates.html">Weekly Updates</a>
+        <a href="players.html">Players</a>
+        <a href="quotes.html">Quotes</a>
         <a href="records.html">Records</a>
         <a href="history.html">History</a>
         <a href="rules.html">Rules</a>
         <a href="payouts.html">Payouts</a>
-        <a href="players.html">Players</a>
-        <a href="quotes.html">Quotes</a>
-        <a href="updates.html">Updates</a>
-        <a href="matchup.html" class="active-nav">Matchup of the Week</a>
       </div>
     </nav>
     <div class="hero page-hero">
@@ -882,7 +879,10 @@ img, svg { max-width:100%; }
   </div>
 </section>
 </main>
-</div>
+
+<footer>
+  <div class="container">CHQ Fantasy Keeper League • Weekly Updates • Built for bragging rights.</div>
+</footer>
 
 <style>
 /* Matchup-specific additions */

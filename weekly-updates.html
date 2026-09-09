@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHQ Fantasy Keeper League — Weekly Updates</title>
+<style>
+:root {
+  --bg:#080b12; --panel:#101621; --line:#273143; --text:#f5f7fb;
+  --muted:#9ca8bb; --gold:#f5c451; --gold2:#ffe39a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:radial-gradient(circle at 50% 0,rgba(245,196,81,.08),transparent 35rem),var(--bg);
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,calc(100% - 32px)); margin:auto; }
+header { border-bottom:1px solid var(--line); background:linear-gradient(135deg,#0b0f18,#151b28); }
+.nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+.brand { font-size:14px; font-weight:900; letter-spacing:.08em; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; font-size:13px; color:var(--muted); }
+.navlinks a:hover { color:white; }
+.active-nav { color:var(--gold2); border-bottom:2px solid var(--gold); padding-bottom:4px; }
+.hero { padding:48px 0 52px; text-align:center; }
+.kicker, .eyebrow { color:var(--gold); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+.hero h1 { margin:16px 0; font-size:clamp(34px,7vw,68px); line-height:1.05; letter-spacing:-.04em; }
+.hero p { max-width:600px; margin:auto; color:var(--muted); line-height:1.7; }
+.weekly-content { padding:40px 0 64px; }
+.weekly-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+.weekly-heading h2 { margin:8px 0 0; font-size:28px; letter-spacing:-.03em; }
+.status { margin:0; padding:9px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); }
+.weekly-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.weekly-card { min-width:0; padding:26px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#151e2c,#0d141e); overflow-wrap:anywhere; }
+.category { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.category-icon { display:grid; place-items:center; flex:0 0 44px; height:44px; font-size:24px; border-radius:12px; background:rgba(245,196,81,.08); }
+.weekly-card h3 { margin:0; font-size:22px; line-height:1.3; letter-spacing:-.025em; }
+.weekly-card p { color:var(--muted); font-size:14px; line-height:1.75; }
+.weekly-card .result-title { color:var(--gold2); font-size:17px; font-weight:800; margin:20px 0 8px; }
+.weekly-card dl { margin:24px 0 0; }
+.weekly-stat { padding:14px 0; border-top:1px solid var(--line); }
+.weekly-stat dt { color:var(--muted); font-size:12px; line-height:1.5; }
+.weekly-stat dd { margin:5px 0 0; font-size:15px; font-weight:800; line-height:1.5; }
+.weekly-card .result-note { margin:20px 0 0; }
+footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:center; color:var(--muted); font-size:12px; line-height:1.7; }
+@media(max-width:900px) { .weekly-grid { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:600px) {
+  .hero { padding:32px 0 36px; }
+  .hero p { font-size:14px; }
+  .weekly-content { padding:28px 0 44px; }
+  .weekly-card { padding:20px 16px; }
+  .weekly-card h3 { font-size:21px; }
+}
+</style>
+<link rel="stylesheet" href="mobile-nav.css">
+<script src="mobile-nav.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
+        <a href="index.html">Champions</a>
+        <a href="matchup.html">Matchup of the Week</a>
+        <a href="weekly-updates.html" class="active-nav" aria-current="page">Weekly Updates</a>
+        <a href="players.html">Players</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="records.html">Records</a>
+        <a href="history.html">History</a>
+        <a href="rules.html">Rules</a>
+        <a href="payouts.html">Payouts</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="kicker">The week's bragging rights</div>
+      <h1>WEEKLY UPDATES</h1>
+      <p>The nail-biters, the surprises, and the points that never made it into the lineup.</p>
+    </div>
+  </div>
+</header>
+<main class="container weekly-content">
+  <div class="weekly-heading">
+    <!-- Update the week heading and status when publishing a recap. -->
+    <div><div class="eyebrow">Around the league</div><h2>This Week's Highlights</h2></div>
+    <p class="status">Awaiting the first weekly recap</p>
+  </div>
+  <div class="weekly-grid">
+    <!-- Replace each pending result with the actual weekly result and commentary. -->
+    <section class="weekly-card" aria-labelledby="closest-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="closest-heading">Closest Matchup</h3></div>
+      <p>The game decided by the smallest margin. Every catch, yard, and extra point mattered.</p>
+      <p class="result-title">Too close for comfort</p>
+      <dl>
+        <div class="weekly-stat"><dt>Matchup</dt><dd>To be announced</dd></div>
+        <div class="weekly-stat"><dt>Final score</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Winning margin</dt><dd>Awaiting results</dd></div>
+      </dl>
+      <p class="result-note">The closest finish and its deciding moment will appear here after the week's games.</p>
+    </section>
+    <section class="weekly-card" aria-labelledby="upset-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="upset-heading">Biggest Upset</h3></div>
+      <p>The underdog who turned the projections upside down and earned the right to talk about it.</p>
+      <p class="result-title">So much for the projections</p>
+      <dl>
+        <div class="weekly-stat"><dt>Upset winner</dt><dd>To be announced</dd></div>
+        <div class="weekly-stat"><dt>Opponent &amp; final score</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Projected disadvantage</dt><dd>Awaiting results</dd></div>
+      </dl>
+      <p class="result-note">The week's biggest surprise and the performance that sparked it will appear here.</p>
+    </section>
+    <section class="weekly-card" aria-labelledby="bench-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="bench-heading">Worst Bench Decision</h3></div>
+      <p>The points were there. Unfortunately, they were sitting on the bench.</p>
+      <p class="result-title">Hindsight is undefeated</p>
+      <dl>
+        <div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>To be announced</dd></div>
+        <div class="weekly-stat"><dt>Bench points vs. starter points</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Points left on the bench</dt><dd>Awaiting results</dd></div>
+      </dl>
+      <p class="result-note">The most painful lineup call—and whether it changed the result—will appear here.</p>
+    </section>
+  </div>
+</main>
+<footer><div class="container">CHQ Fantasy Keeper League • Weekly Updates • Built for bragging rights.</div></footer>
+</body>
+</html>
