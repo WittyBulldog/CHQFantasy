@@ -457,6 +457,26 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<style>
+/* Keep every rule and the FAAB table inside its grid column. */
+#constitution .constitution-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+#constitution .rule-card { min-width:0; overflow-wrap:anywhere; }
+#constitution .faab-table-wrap { min-width:0; max-width:100%; }
+#constitution .faab-table { min-width:0; table-layout:fixed; }
+#constitution .faab-table th, #constitution .faab-table td { overflow-wrap:anywhere; white-space:normal; }
+#constitution .rule-callout > div { min-width:0; }
+#constitution .rule-callout .big { flex-shrink:0; }
+@media (max-width:900px) {
+  #constitution .constitution-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:700px) {
+  #constitution .constitution-grid { grid-template-columns:minmax(0,1fr); }
+  #constitution .rule-card { padding:18px 16px; }
+  #constitution .rule-card p, #constitution .rule-card ul { font-size:14px; line-height:1.75; }
+  #constitution .faab-table th, #constitution .faab-table td { padding:12px 10px; line-height:1.5; }
+  #constitution .rule-callout { padding:14px 12px; gap:10px; }
+}
+</style>
 <link rel="stylesheet" href="mobile-nav.css">
 <script src="mobile-nav.js" defer></script>
 </head>

@@ -457,6 +457,41 @@ img, svg { max-width:100%; }
   .rule-callout { align-items:flex-start; padding:15px; }
 }
 </style>
+<style>
+/* Allow record panels and their contents to shrink within the viewport. */
+#records .records { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }
+#records .panel, #records .record, #records .leader-name { min-width:0; overflow-wrap:anywhere; }
+#records .record-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:1100px) {
+  #records .records { grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:700px) {
+  #records .leader {
+    display:grid;
+    grid-template-columns:24px 34px minmax(0,1fr);
+    gap:6px 10px;
+    align-items:center;
+    padding:16px 0;
+  }
+  #records .rank { grid-column:1; grid-row:1; width:auto; }
+  #records .mini-avatar { grid-column:2; grid-row:1; }
+  #records .leader-name { grid-column:3; grid-row:1; font-size:15px; line-height:1.5; }
+  #records .money {
+    grid-column:3;
+    grid-row:2;
+    min-width:0;
+    text-align:left;
+    overflow-wrap:anywhere;
+    font-variant-numeric:tabular-nums;
+  }
+  #records .bar { grid-column:3; grid-row:3; width:100%; margin-top:4px; }
+  #records .panel h3 { line-height:1.5; }
+}
+@media (max-width:500px) {
+  #records .record-grid { grid-template-columns:minmax(0,1fr); }
+  #records .record { min-height:0; }
+}
+</style>
 <link rel="stylesheet" href="mobile-nav.css">
 <script src="mobile-nav.js" defer></script>
 </head>
