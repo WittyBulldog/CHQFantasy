@@ -1,0 +1,21 @@
+{
+  "source": "Owner-to-team mapping supplied by the commissioner in this conversation.",
+  "notes": "Names are preserved as supplied. Missing season keys mean the person did not participate. Match team names case-insensitively after trimming and collapsing whitespace; normalize curly apostrophes to straight apostrophes. Never match owners by team ID across seasons.",
+  "members": [
+    {"id":"tylor-c","name":"Tylor C","teams":{"2020":"Tylor's Squad","2021":"Big Waller Brand","2022":"Commish","2023":"Commish","2024":"Commish","2025":"Grim Reaper"}},
+    {"id":"mark-ma","name":"Mark Ma","teams":{"2020":"Mark's Team","2021":"Mark's Team","2022":"Mark's Team","2023":"Mark's Team","2024":"Mark's Team","2025":"Mark's Team"}},
+    {"id":"chris-m","name":"Chris M","teams":{"2020":"Chris's Team","2021":"Chris's Team","2022":"Chris's Team","2023":"Chris's Team","2024":"Chris's Team","2025":"Chris's Team"}},
+    {"id":"john-b","name":"John B","teams":{"2020":"Life's A Brees"}},
+    {"id":"thomas-k","name":"Thomas K","teams":{"2020":"Franchise Tagged"}},
+    {"id":"nick-n","name":"Nick N","teams":{"2020":"Beast Infection","2021":"Beast Infection","2022":"Beast Infection","2023":"Beast Infection","2024":"Beast Infection","2025":"Beast Infection"}},
+    {"id":"jason-b","name":"Jason B","teams":{"2020":"Jason's Grand Team","2021":"Fresh Prince of Helaire","2022":"Fresh Prince of Helaire","2023":"Saquon deez nuts","2024":"Saquon deez nuts","2025":"Slim Pickens"}},
+    {"id":"jason-h","name":"Jason H","teams":{"2020":"Lion-O Buffalo","2021":"I'm Jdub","2022":"Gotham Knights","2023":"Gotham Knights","2024":"Gotham Knights","2025":"Gotham Knights"}},
+    {"id":"mickey-b","name":"Mickey B","teams":{"2020":"QuaranTeam","2021":"Overdue Bills","2022":"Overdue Bills","2023":"Overdue Bills","2024":"Overdue Bills","2025":"Overdue Bills"}},
+    {"id":"brett-d","name":"Brett D","teams":{"2020":"DonkeyWoodDean","2021":"DonkeyWoodDean","2022":"DonkeyWoodDean","2023":"DonkeyWoodDean","2024":"DonkeyWoodDean","2025":"DonkeyWoodDean"}},
+    {"id":"mark-me","name":"Mark Me","teams":{"2020":"Mels-16","2021":"Mels-16","2022":"Mels-16","2023":"Mels-16","2024":"Mels-16","2025":"Mels-16"}},
+    {"id":"dusty-d","name":"Dusty D","teams":{"2020":"dust's Dandy Team","2021":"West Coast","2022":"West Coast","2023":"West Coast","2024":"West Coast","2025":"West Coast"}},
+    {"id":"john-y","name":"John Y","teams":{"2021":"silence of Cardone"}},
+    {"id":"dan-e","name":"Dan E","teams":{"2021":"daniel's Primo Team","2022":"daniel's Primo Team","2023":"daniel's Primo Team","2024":"daniel's Primo Team","2025":"daniel's Primo Team"}},
+    {"id":"dillon-m","name":"Dillon M","teams":{"2022":"Dillon's Team","2023":"Dillon's Team","2024":"Dillon's Team","2025":"Dillon's Team"}}
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"chq-fantasy-keeper-league","private":true,"scripts":{"build":"node build.cjs","dev":"node data/preview.cjs","test":"node data/build-career.cjs"}}
