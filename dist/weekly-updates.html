@@ -56,6 +56,21 @@ header { border-bottom:1px solid var(--line); background:linear-gradient(135deg,
 .weekly-stat dt { color:var(--muted); font-size:12px; line-height:1.5; }
 .weekly-stat dd { margin:5px 0 0; font-size:15px; font-weight:800; line-height:1.5; }
 .weekly-card .result-note { margin:20px 0 0; }
+.season-awards { margin-top:44px; padding-top:32px; border-top:1px solid var(--line); }
+.season-awards h2 { font-size:28px; margin:8px 0 12px; }
+.award-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.award-standings { list-style:none; padding:0; margin:16px 0 0; }
+.award-standings li + li { border-top:1px solid var(--line); margin-top:16px; padding-top:16px; }
+.award-standings h4 { margin:0; font-size:17px; color:var(--gold2); }
+.award-standings p { margin:6px 0 0; }
+.award-standings li { min-width:0; padding:16px 12px; border-radius:10px; }
+.award-standings .award-leader { background:rgba(245,196,81,.07); }
+.weekly-card .award-row-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:12px 0; }
+.award-row-stats dt { font-size:11px; line-height:1.5; color:var(--muted); }
+.award-row-stats dd { margin:4px 0 0; font-size:18px; font-weight:800; font-variant-numeric:tabular-nums; }
+@media(max-width:700px) { .award-grid { grid-template-columns:minmax(0,1fr); } }
+.recap-note { margin:0 0 24px; color:var(--muted); font-size:14px; line-height:1.7; }
+.weekly-card .source-link { display:inline-block; margin-top:16px; padding:10px 0; color:var(--gold2); text-decoration:underline; text-underline-offset:3px; font-size:13px; }
 footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:center; color:var(--muted); font-size:12px; line-height:1.7; }
 @media(max-width:900px) { .weekly-grid { grid-template-columns:minmax(0,1fr); } }
 @media(max-width:600px) {
@@ -68,6 +83,8 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
 </style>
 <link rel="stylesheet" href="mobile-nav.css">
 <script src="mobile-nav.js" defer></script>
+<script src="season-awards-data.js" defer></script>
+<script src="season-awards.js" defer></script>
 </head>
 <body>
 <header>
@@ -100,46 +117,70 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
 </header>
 <main class="container weekly-content">
   <div class="weekly-heading">
-    <!-- Update the week heading and status when publishing a recap. -->
-    <div><div class="eyebrow">Around the league</div><h2>This Week's Highlights</h2></div>
-    <p class="status">Awaiting the first weekly recap</p>
+    <div><div class="eyebrow">September 9–14, 2026</div><h2>Week 1 Highlights</h2></div>
+    <p class="status">Sunday recap • Monday game pending</p>
   </div>
+  <p class="recap-note">Week 1 is still in progress. These are the leading stories entering Monday night's Denver–Kansas City game, based on Yahoo's scores and lineups. Awards are provisional; remaining players and stat corrections can change the results.</p>
   <div class="weekly-grid">
-    <!-- Replace each pending result with the actual weekly result and commentary. -->
+    <!-- Provisional Week 1 recap: reviewed September 14 before Monday Night Football. -->
     <section class="weekly-card" aria-labelledby="closest-heading">
       <div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="closest-heading">Closest Matchup</h3></div>
-      <p>The game decided by the smallest margin. Every catch, yard, and extra point mattered.</p>
-      <p class="result-title">Too close for comfort</p>
+      <p>Brett has the lead. Chris has Rashee Rice. Monday night gets the last word.</p>
+      <p class="result-title">Brett's done. Chris isn't.</p>
       <dl>
-        <div class="weekly-stat"><dt>Matchup</dt><dd>To be announced</dd></div>
-        <div class="weekly-stat"><dt>Final score</dt><dd>Awaiting results</dd></div>
-        <div class="weekly-stat"><dt>Winning margin</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Matchup</dt><dd>Chris M vs. Brett D</dd></div>
+        <div class="weekly-stat"><dt>Current score</dt><dd>Brett 163.04 • Chris 151.66</dd></div>
+        <div class="weekly-stat"><dt>Current margin</dt><dd>Brett leads by 11.38</dd></div>
       </dl>
-      <p class="result-note">The closest finish and its deciding moment will appear here after the week's games.</p>
+      <p class="result-note">This is the league's smallest current margin. Caleb Williams (37.26), D'Andre Swift (35.40), and Christian Watson (35.70) kept Chris alive, while Jahmyr Gibbs (36.60) and Chris Olave (31.20) helped Brett reach 163.04. Rice needs more than 11.38 points to put Chris ahead. Yahoo projects Rice for 13.16, which would give Chris a 1.78-point win. Brett gets to spend Monday rooting against every catch.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=3&amp;mid2=6">View Chris–Brett on Yahoo</a>
     </section>
     <section class="weekly-card" aria-labelledby="upset-heading">
       <div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="upset-heading">Biggest Upset</h3></div>
-      <p>The underdog who turned the projections upside down and earned the right to talk about it.</p>
-      <p class="result-title">So much for the projections</p>
+      <p>Nick has already passed Dusty's total—and still has Kenneth Walker to play.</p>
+      <p class="result-title">Beast Infection crashes the projections</p>
       <dl>
-        <div class="weekly-stat"><dt>Upset winner</dt><dd>To be announced</dd></div>
-        <div class="weekly-stat"><dt>Opponent &amp; final score</dt><dd>Awaiting results</dd></div>
-        <div class="weekly-stat"><dt>Projected disadvantage</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Leading upset candidate</dt><dd>Nick N • Beast Infection</dd></div>
+        <div class="weekly-stat"><dt>Opponent &amp; current score</dt><dd>Nick 116.30 • Dusty 95.62</dd></div>
+        <div class="weekly-stat"><dt>Yahoo's displayed original projections</dt><dd>Nick 106.10 • Dusty 129.50<br>Nick was projected 23.40 points behind</dd></div>
       </dl>
-      <p class="result-note">The week's biggest surprise and the performance that sparked it will appear here.</p>
+      <p class="result-note">Jaxson Dart's 26.60 and Nico Collins' 21.20 helped Nick build a 20.68-point lead before Walker's Monday appearance. Dusty's starters are finished, with Kyler Murray contributing just 0.62. Nick currently leads the upset race by projected disadvantage, but this matchup is still in progress. Honorable mention: Mickey beat Tylor 157.16–141.46 after being projected 23.36 points behind; Josh Allen and Jalen Coker combined for 75.46.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=2&amp;mid2=12">View Nick–Dusty on Yahoo</a>
     </section>
     <section class="weekly-card" aria-labelledby="bench-heading">
       <div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="bench-heading">Worst Bench Decision</h3></div>
-      <p>The points were there. Unfortunately, they were sitting on the bench.</p>
-      <p class="result-title">Hindsight is undefeated</p>
+      <p>Jason Harle got the win on the scoreboard. His bench still has a complaint.</p>
+      <p class="result-title">Montgomery had a front-row seat</p>
       <dl>
-        <div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>To be announced</dd></div>
-        <div class="weekly-stat"><dt>Bench points vs. starter points</dt><dd>Awaiting results</dd></div>
-        <div class="weekly-stat"><dt>Points left on the bench</dt><dd>Awaiting results</dd></div>
+        <div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Jason H • David Montgomery</dd></div>
+        <div class="weekly-stat"><dt>Bench points vs. flex starter</dt><dd>Montgomery 28.90<br>Terry McLaurin 3.40</dd></div>
+        <div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>25.50 points</dd></div>
       </dl>
-      <p class="result-note">The most painful lineup call—and whether it changed the result—will appear here.</p>
+      <p class="result-note">Montgomery scored three touchdowns on Jason's bench. Starting him in the W/R/T slot instead of McLaurin would have lifted Gotham Knights from 121.46 to 146.96. Jason still finished ahead of Dillon's 94.86 with both starting lineups done, so it cost bragging rights rather than the win. This is the largest single eligible bench-to-starter improvement among players who have finished so far; Monday's bench performances could change the award.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=5&amp;mid2=7">View Jason–Dillon on Yahoo</a>
     </section>
   </div>
+  <section class="season-awards" aria-labelledby="season-awards-heading">
+    <div class="eyebrow">The season-long race</div>
+    <h2 id="season-awards-heading">Season Awards</h2>
+    <p class="recap-note" id="season-award-progress">2026 season • Completed weeks only</p>
+    <p class="recap-note">Both awards include regular-season and playoff weeks. Standings are refreshed with the weekly recap; they are not a live scoreboard.</p>
+    <div class="award-grid">
+      <article class="weekly-card">
+        <h3>🏆 Highest Point Total in One Week</h3>
+        <p>The largest single team score in any completed week, including playoffs.</p>
+        <div id="season-high-score"><p>No completed weeks yet.</p></div>
+      </article>
+      <article class="weekly-card">
+        <h3>🔥 Most Weeks with Most Points Scored</h3>
+        <p>One weekly high-score win for finishing first in points. Ties in the season standings are broken by average points scored in winning weeks only, with the higher average ahead. Playoff weeks count too.</p>
+        <p>Only owners with at least one weekly high-score win are listed below. Wins behind shows the gap in weekly wins; owners with the same win count are ordered by their winning-week average.</p>
+        <ol class="award-standings" id="weekly-win-standings"><li>No weekly high-score wins awarded yet.</li></ol>
+      </article>
+    </div>
+    <div class="recap-note" id="season-award-pending"></div>
+    <noscript><p class="recap-note">Enable JavaScript to view the calculated award standings.</p></noscript>
+  </section>
 </main>
 <footer><div class="container">CHQ Fantasy Keeper League • Weekly Updates • Built for bragging rights.</div></footer>
 </body>

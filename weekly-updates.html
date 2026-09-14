@@ -58,11 +58,16 @@ header { border-bottom:1px solid var(--line); background:linear-gradient(135deg,
 .weekly-card .result-note { margin:20px 0 0; }
 .season-awards { margin-top:44px; padding-top:32px; border-top:1px solid var(--line); }
 .season-awards h2 { font-size:28px; margin:8px 0 12px; }
-.award-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.award-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
 .award-standings { list-style:none; padding:0; margin:16px 0 0; }
 .award-standings li + li { border-top:1px solid var(--line); margin-top:16px; padding-top:16px; }
 .award-standings h4 { margin:0; font-size:17px; color:var(--gold2); }
 .award-standings p { margin:6px 0 0; }
+.award-standings li { min-width:0; padding:16px 12px; border-radius:10px; }
+.award-standings .award-leader { background:rgba(245,196,81,.07); }
+.weekly-card .award-row-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:12px 0; }
+.award-row-stats dt { font-size:11px; line-height:1.5; color:var(--muted); }
+.award-row-stats dd { margin:4px 0 0; font-size:18px; font-weight:800; font-variant-numeric:tabular-nums; }
 @media(max-width:700px) { .award-grid { grid-template-columns:minmax(0,1fr); } }
 .recap-note { margin:0 0 24px; color:var(--muted); font-size:14px; line-height:1.7; }
 .weekly-card .source-link { display:inline-block; margin-top:16px; padding:10px 0; color:var(--gold2); text-decoration:underline; text-underline-offset:3px; font-size:13px; }
@@ -169,6 +174,7 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
       <article class="weekly-card">
         <h3>🔥 Most Weeks with Most Points Scored</h3>
         <p>One weekly high-score win for finishing first in points. Ties in the season standings are broken by average points scored in winning weeks only, with the higher average ahead. Playoff weeks count too.</p>
+        <p>Only owners with at least one weekly high-score win are listed below. Wins behind shows the gap in weekly wins; owners with the same win count are ordered by their winning-week average.</p>
         <ol class="award-standings" id="weekly-win-standings"><li>No weekly high-score wins awarded yet.</li></ol>
       </article>
     </div>
