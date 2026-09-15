@@ -85,6 +85,9 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
 <script src="mobile-nav.js" defer></script>
 <script src="season-awards-data.js" defer></script>
 <script src="season-awards.js" defer></script>
+<link rel="stylesheet" href="team-performance.css">
+<script src="team-performance-data.js" defer></script>
+<script src="team-performance.js" defer></script>
 </head>
 <body>
 <header>
@@ -160,6 +163,14 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
       <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=5&amp;mid2=7">View Jason–Dillon on Yahoo</a>
     </section>
   </div>
+  <section class="season-awards team-performance" aria-labelledby="performance-heading">
+    <div class="eyebrow">The points you left behind</div>
+    <h2 id="performance-heading">Team Performance</h2>
+    <p class="recap-note" id="performance-week">Week 1 • 2026</p>
+    <p class="recap-note">Actual points versus your best possible lineup using that week's starters and bench. Maximum points fill 1 QB, 2 RB, 2 WR, 1 TE, 1 W/R/T flex, 1 K, and 1 DEF, with each player used once. IR and free agents are excluded; required slots stay filled even when a player scores negative points. This is a hindsight lineup comparison, not a projection.</p>
+    <div class="performance-controls"><label for="performance-sort">Rank teams by</label><select id="performance-sort"><option value="efficiency" selected>Lineup efficiency</option><option value="actual">Actual points</option><option value="missed">Points left on bench</option></select></div>
+    <ol class="performance-list" id="performance-list"><li>Team performance requires JavaScript to calculate optimal lineups.</li></ol>
+  </section>
   <section class="season-awards" aria-labelledby="season-awards-heading">
     <div class="eyebrow">The season-long race</div>
     <h2 id="season-awards-heading">Season Awards</h2>
