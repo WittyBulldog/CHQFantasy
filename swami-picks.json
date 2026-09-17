@@ -1,0 +1,17 @@
+{
+  "season": 2026,
+  "startWeek": 2,
+  "weeks": [
+    {
+      "week": 2,
+      "picks": [
+        {"teams": ["Mels-16", "Overdue Bills"], "pick": "Mels-16", "winner": null, "comment": "The featured pick: Mark's stacked RB room carries the day, Mick's horseshoe finally falls out, and Mels-16 wins by 50."},
+        {"teams": ["Beast Infection", "Chris’s Team"], "pick": "Chris’s Team", "winner": null, "comment": "Two one-time champions face off. Chris pulls this one out behind a bounce-back game from Ja’Marr Chase. I think KC leans less on the run against Indy this week, giving Rashee Rice his chance to shine."},
+        {"teams": ["Daniel’s Primo Team", "Mark’s Team"], "pick": "Mark’s Team", "winner": null, "comment": "Another battle of champions. This time, the defending champ takes the L thanks to a lack of firepower at running back. Mark's team is a little too well balanced here. I'm taking Mark."},
+        {"teams": ["DonkeyWoodDean", "Gotham Knights"], "pick": "Gotham Knights", "winner": null, "comment": "With a question mark around Zay Flowers' availability and a pretty weak RB2 spot, I don't think Brett can sustain the firepower he showed in Week 1. Jason takes this one—even with Fairbairn finishing as his third-highest scorer this week."},
+        {"teams": ["Grim Reaper", "Dillon’s Team"], "pick": "Grim Reaper", "winner": null, "comment": "Dillon is leaning a little too hard on an offense going up against Houston this week. Grim Reaper takes the W in what I'm calling the lowest-scoring matchup of the week."},
+        {"teams": ["Slim Pickens", "West Coast"], "pick": "Slim Pickens", "winner": null, "comment": "This might be the closest matchup on paper. I'm taking the Dallas stack, but it'll take a big effort from Jonathan Taylor on Sunday night to push Slim Pickens past Dusty."}
+      ]
+    }
+  ]
+}

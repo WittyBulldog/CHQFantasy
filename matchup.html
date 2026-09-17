@@ -811,6 +811,26 @@ img, svg { max-width:100%; }
     <p>The horseshoe lodged firmly up Mick's ass last week is due to fall out. Once it does, this one gets ugly. <strong>I'm taking Mark by 50.</strong></p>
   </div>
 </section>
+<!-- SWAMI:START -->
+<section class="swami-section" aria-labelledby="swami-heading">
+  <div class="swami-heading"><div class="kicker">THE COMMISH'S WEEKLY PICKS • 2026</div>
+  <h2 id="swami-heading">Commish Swami Sez</h2>
+  <p>A little Swami spirit. A lot of league trash talk. Let's see if the Commish can back it up.</p></div>
+  <dl class="swami-totals" aria-label="Season prediction totals">
+    <div><dt>Season record</dt><dd>0–0</dd></div>
+    <div><dt>Accuracy</dt><dd>—</dd></div>
+    <div><dt>Correct picks</dt><dd>0</dd></div>
+    <div><dt>Pending</dt><dd>6</dd></div>
+  </dl>
+  <p class="swami-note">Season tracking starts with Week 2; Week 1 is excluded. Only matchup winners count toward the record, including the featured pick above. Score margins and player predictions are for bragging rights. Ties are excluded from accuracy; pending picks are not graded.</p>
+  <h3 class="swami-week">Week 2 predictions</h3><div class="swami-grid"><article class="matchup-panel"><span class="swami-status">Pending</span><h4>Mels-16 vs. Overdue Bills</h4><p class="swami-winner">Swami sez: Mels-16</p><p>The featured pick: Mark&#39;s stacked RB room carries the day, Mick&#39;s horseshoe finally falls out, and Mels-16 wins by 50.</p></article>
+<article class="matchup-panel"><span class="swami-status">Pending</span><h4>Beast Infection vs. Chris’s Team</h4><p class="swami-winner">Swami sez: Chris’s Team</p><p>Two one-time champions face off. Chris pulls this one out behind a bounce-back game from Ja’Marr Chase. I think KC leans less on the run against Indy this week, giving Rashee Rice his chance to shine.</p></article>
+<article class="matchup-panel"><span class="swami-status">Pending</span><h4>Daniel’s Primo Team vs. Mark’s Team</h4><p class="swami-winner">Swami sez: Mark’s Team</p><p>Another battle of champions. This time, the defending champ takes the L thanks to a lack of firepower at running back. Mark&#39;s team is a little too well balanced here. I&#39;m taking Mark.</p></article>
+<article class="matchup-panel"><span class="swami-status">Pending</span><h4>DonkeyWoodDean vs. Gotham Knights</h4><p class="swami-winner">Swami sez: Gotham Knights</p><p>With a question mark around Zay Flowers&#39; availability and a pretty weak RB2 spot, I don&#39;t think Brett can sustain the firepower he showed in Week 1. Jason takes this one—even with Fairbairn finishing as his third-highest scorer this week.</p></article>
+<article class="matchup-panel"><span class="swami-status">Pending</span><h4>Grim Reaper vs. Dillon’s Team</h4><p class="swami-winner">Swami sez: Grim Reaper</p><p>Dillon is leaning a little too hard on an offense going up against Houston this week. Grim Reaper takes the W in what I&#39;m calling the lowest-scoring matchup of the week.</p></article>
+<article class="matchup-panel"><span class="swami-status">Pending</span><h4>Slim Pickens vs. West Coast</h4><p class="swami-winner">Swami sez: Slim Pickens</p><p>This might be the closest matchup on paper. I&#39;m taking the Dallas stack, but it&#39;ll take a big effort from Jonathan Taylor on Sunday night to push Slim Pickens past Dusty.</p></article></div>
+</section>
+<!-- SWAMI:END -->
 </main>
 
 <footer>
@@ -819,6 +839,22 @@ img, svg { max-width:100%; }
 
 <style>
 /* Matchup-specific additions */
+.swami-section { max-width:1080px; margin:0 auto 80px; padding:0 16px; }
+.swami-heading { border-top:2px solid var(--gold); padding-top:32px; }
+.swami-heading .kicker, .swami-winner { color:var(--gold); font-weight:800; }
+.swami-heading h2 { font-size:clamp(30px,5vw,48px); margin:10px 0; }
+.swami-heading p, .swami-note { color:var(--muted); line-height:1.7; }
+.swami-totals { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:24px 0 16px; }
+.swami-totals div { background:#151e2c; border:1px solid var(--line); border-radius:14px; padding:18px; }
+.swami-totals dt { color:var(--muted); font-size:12px; }
+.swami-totals dd { margin:8px 0 0; color:var(--gold); font-size:30px; font-weight:900; }
+.swami-note { font-size:13px; }
+.swami-week { margin:30px 0 16px; }
+.swami-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.swami-grid h4 { font-size:20px; margin:12px 0; }
+.swami-grid .swami-winner { color:var(--gold); }
+.swami-status { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:4px 10px; font-size:12px; color:var(--muted); }
+@media(max-width:700px) { .swami-totals { grid-template-columns:repeat(2,minmax(0,1fr)); } .swami-grid { grid-template-columns:minmax(0,1fr); } }
 .matchup-feature, .matchup-sections, .matchup-panel, .matchup-team {
   min-width:0;
 }
