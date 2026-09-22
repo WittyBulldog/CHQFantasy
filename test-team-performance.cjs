@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const {calculateTeamPerformance}=require('../team-performance.js');
-const data=require('../team-performance-data.js'),awards=require('../season-awards-data.js');
+const data=require('./team-performance-week-1.js'),awards=require('../season-awards-data.js');
 const rows=calculateTeamPerformance(data,awards);
 const expected={'tylor-c':152.26,'mickey-b':179.16,'nick-n':153.40,'dusty-d':133.88,'chris-m':186.86,'brett-d':176.94,'dan-e':113.12,'mark-me':153.10,'dillon-m':116.90,'jason-h':156.16,'mark-ma':124.02,'jason-b':122.40};
 for(const row of rows){
@@ -21,3 +21,4 @@ assert.throws(()=>calculateTeamPerformance(data,incomplete),/completed week/);
 const missing=structuredClone(data);missing.teams.pop();
 assert.throws(()=>calculateTeamPerformance(missing,awards),/Missing/);
 console.log('Team performance: all 12 totals, unique players, flex eligibility, negative scores, and invalid-data checks passed.');
+

@@ -5,13 +5,99 @@
     {
       "week": 2,
       "picks": [
-        {"teams": ["Mels-16", "Overdue Bills"], "pick": "Mels-16", "winner": null, "comment": "The featured pick: Mark's stacked RB room carries the day, Mick's horseshoe finally falls out, and Mels-16 wins by 50."},
-        {"teams": ["Beast Infection", "Chris’s Team"], "pick": "Chris’s Team", "winner": null, "comment": "Two one-time champions face off. Chris pulls this one out behind a bounce-back game from Ja’Marr Chase. I think KC leans less on the run against Indy this week, giving Rashee Rice his chance to shine."},
-        {"teams": ["Daniel’s Primo Team", "Mark’s Team"], "pick": "Mark’s Team", "winner": null, "comment": "Another battle of champions. This time, the defending champ takes the L thanks to a lack of firepower at running back. Mark's team is a little too well balanced here. I'm taking Mark."},
-        {"teams": ["DonkeyWoodDean", "Gotham Knights"], "pick": "Gotham Knights", "winner": null, "comment": "With a question mark around Zay Flowers' availability and a pretty weak RB2 spot, I don't think Brett can sustain the firepower he showed in Week 1. Jason takes this one—even with Fairbairn finishing as his third-highest scorer this week."},
-        {"teams": ["Grim Reaper", "Dillon’s Team"], "pick": "Grim Reaper", "winner": null, "comment": "Dillon is leaning a little too hard on an offense going up against Houston this week. Grim Reaper takes the W in what I'm calling the lowest-scoring matchup of the week."},
-        {"teams": ["Slim Pickens", "West Coast"], "pick": "Slim Pickens", "winner": null, "comment": "This might be the closest matchup on paper. I'm taking the Dallas stack, but it'll take a big effort from Jonathan Taylor on Sunday night to push Slim Pickens past Dusty."}
-      ]
+        {
+          "teams": [
+            "Mels-16",
+            "Overdue Bills"
+          ],
+          "pick": "Mels-16",
+          "winner": "Mels-16",
+          "comment": "The featured pick: Mark's stacked RB room carries the day, Mick's horseshoe finally falls out, and Mels-16 wins by 50.",
+          "scores": [
+            145.58,
+            125.82
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=9&mid2=10",
+          "recap": "Right winner, aggressive math. Mark won by 19.76, leaving the 50-point call 30.24 points short. Brock Purdy (28.48) and Jaylen Waddle (24.80) made the QB/WR2 doubts look pretty silly. Josh Allen still dropped 40.82, and Dalton Kincaid's 22.50 deserves an apology."
+        },
+        {
+          "teams": [
+            "Beast Infection",
+            "Chris’s Team"
+          ],
+          "pick": "Chris’s Team",
+          "winner": "Chris’s Team",
+          "comment": "Two one-time champions face off. Chris pulls this one out behind a bounce-back game from Ja’Marr Chase. I think KC leans less on the run against Indy this week, giving Rashee Rice his chance to shine.",
+          "scores": [
+            72.1,
+            112.02
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=2&mid2=3",
+          "recap": "The Chase bounce-back call landed: 26.50 points after 3.20 in Week 1. Rice added 12.30, and Chris won by 39.92. Chalk one up for the Swami."
+        },
+        {
+          "teams": [
+            "Daniel’s Primo Team",
+            "Mark’s Team"
+          ],
+          "pick": "Mark’s Team",
+          "winner": "Mark’s Team",
+          "comment": "Another battle of champions. This time, the defending champ takes the L thanks to a lack of firepower at running back. Mark's team is a little too well balanced here. I'm taking Mark.",
+          "scores": [
+            95.72,
+            122.26
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=4&mid2=8",
+          "recap": "The defending champ took the L, just as called. Mark won by 26.54 behind DeVonta Smith (30.70), Christian McCaffrey (22.60), and Jake Ferguson (20.30). Daniel's starting RBs combined for 17.10."
+        },
+        {
+          "teams": [
+            "DonkeyWoodDean",
+            "Gotham Knights"
+          ],
+          "pick": "Gotham Knights",
+          "winner": "DonkeyWoodDean",
+          "comment": "With a question mark around Zay Flowers' availability and a pretty weak RB2 spot, I don't think Brett can sustain the firepower he showed in Week 1. Jason takes this one—even with Fairbairn finishing as his third-highest scorer this week.",
+          "scores": [
+            152.98,
+            112.2
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=6&mid2=7",
+          "recap": "Brett heard the doubt and responded with 152.98 points and a 40.78-point win. Goff (32.78), Gibbs (23.30), and Olave (22.60) kept the firepower coming. Even JSN's 45.50 couldn't save Gotham. Fairbairn finished fourth on Jason's team, not third."
+        },
+        {
+          "teams": [
+            "Grim Reaper",
+            "Dillon’s Team"
+          ],
+          "pick": "Grim Reaper",
+          "winner": "Dillon’s Team",
+          "comment": "Dillon is leaning a little too hard on an offense going up against Houston this week. Grim Reaper takes the W in what I'm calling the lowest-scoring matchup of the week.",
+          "scores": [
+            107.58,
+            112.24
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=1&mid2=5",
+          "recap": "The Commish picked himself and paid for it. Dillon won by 4.66 despite DJ Moore scoring minus 0.10. This wasn't the lowest-scoring matchup either: Nick and Chris combined for 184.12, below this game's 219.82. Grim Reaper is now named Silence of the Lamb on Yahoo."
+        },
+        {
+          "teams": [
+            "Slim Pickens",
+            "West Coast"
+          ],
+          "pick": "Slim Pickens",
+          "winner": "Slim Pickens",
+          "comment": "This might be the closest matchup on paper. I'm taking the Dallas stack, but it'll take a big effort from Jonathan Taylor on Sunday night to push Slim Pickens past Dusty.",
+          "scores": [
+            156.36,
+            97.28
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=11&mid2=12",
+          "recap": "Right winner, wrong suspense level. Slim Pickens won by 59.08 and led the league with 156.36. Taylor delivered 29.20 and Dak added 29.76, but Davante Adams stole the show with 42.50. Dusty never got the close finish the Swami expected."
+        }
+      ],
+      "summary": "Week 2: 4–2 (66.7%). The Swami nailed both Marks, Chris, and Slim Pickens. Brett blew up the Gotham pick, and picking the Commish over Dillon did not age well. The winners count; the extra trash talk gets its own report card below.",
+      "verified": "September 22, 2026"
     }
   ]
 }

@@ -40,14 +40,35 @@ function calculateTeamPerformance(data, awards) {
   return result;
 }
 
-if(typeof module!=='undefined') module.exports={calculateTeamPerformance};
+function combineTeamPerformance(weeks, awards) {
+  const teams=new Map(),seen=new Set();
+  for(const data of weeks.slice().sort((a,b)=>a.week-b.week)){
+    if(seen.has(data.week)) throw Error('Duplicate performance week.');
+    seen.add(data.week);
+    for(const row of calculateTeamPerformance(data,awards)){
+      const total=teams.get(row.id)||{id:row.id,actualCents:0,possibleCents:0,weeks:[]};
+      total.name=row.name;total.team=row.team;
+      total.actualCents+=Math.round(row.actual*100);total.possibleCents+=Math.round(row.possible*100);
+      total.weeks.push({...row,week:data.week,slots:data.slots});teams.set(row.id,total);
+    }
+  }
+  return Array.from(teams.values(),t=>({...t,actual:t.actualCents/100,possible:t.possibleCents/100,
+    missed:(t.possibleCents-t.actualCents)/100,efficiency:t.possibleCents>0?t.actualCents/t.possibleCents*100:null}));
+}
+if(typeof module!=='undefined') module.exports={calculateTeamPerformance,combineTeamPerformance};
 if(typeof document!=='undefined'){
-  const list=document.getElementById('performance-list'),sort=document.getElementById('performance-sort');
+  const list=document.getElementById('performance-list'),sort=document.getElementById('performance-sort'),period=document.getElementById('performance-period');
   const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;};
   try{
-    const rows=calculateTeamPerformance(CHQ_TEAM_PERFORMANCE,CHQ_SEASON_AWARDS);
-    document.getElementById('performance-week').textContent=`Week ${CHQ_TEAM_PERFORMANCE.week} • ${CHQ_TEAM_PERFORMANCE.season}`;
+    const weeks=CHQ_TEAM_PERFORMANCE_WEEKS;
+    const combined=combineTeamPerformance(weeks,CHQ_SEASON_AWARDS);
+    for(const week of weeks){const option=el('option','', 'Week '+week.week);option.value=String(week.week);period.append(option);}
     function render(){
+      const selected=weeks.find(w=>String(w.week)===period.value);
+      const rows=selected?combined.map(t=>t.weeks.find(w=>w.week===selected.week)).filter(Boolean):combined;
+      document.getElementById('performance-week').textContent=selected
+        ? 'Week '+selected.week+' • '+selected.season
+        : 'All weeks • '+CHQ_SEASON_AWARDS.season+' • '+weeks.length+' completed weeks';
       const key=sort.value;
       const ordered=rows.slice().sort((a,b)=>(b[key]??-Infinity)-(a[key]??-Infinity)||b.actual-a.actual||a.name.localeCompare(b.name));
       list.replaceChildren();
@@ -63,21 +84,26 @@ if(typeof document!=='undefined'){
         const metrics=el('p','performance-metrics');
         metrics.append(el('strong','',team.efficiency===null?'Efficiency N/A':`${team.efficiency.toFixed(1)}% efficiency`),el('span','',`${team.missed.toFixed(2)} points left`));
         const details=el('details','performance-details');
-        details.append(el('summary','', 'View best possible lineup'));
-        const lineup=el('ul','performance-lineup');
-        team.lineup.forEach((p,i)=>{
-          const row=el('li','');
-          row.append(el('span','performance-slot',CHQ_TEAM_PERFORMANCE.slots[i]),el('span','',p.name+(p.index>=CHQ_TEAM_PERFORMANCE.slots.length?' • Bench':'')),el('strong','',p.points.toFixed(2)));
-          lineup.append(row);
-        });
-        const source=el('a','source-link','View roster on Yahoo');
-        source.href=`https://football.fantasysports.yahoo.com/f1/317429/matchup?week=${CHQ_TEAM_PERFORMANCE.week}&mid1=${team.matchup}`;
-        details.append(lineup,source);body.append(points,bar,metrics,details);item.append(rank,body);list.append(item);
+        details.append(el('summary','', selected?'View best possible lineup':'View weekly breakdown'));
+        const breakdown=selected?[team]:team.weeks;
+        for(const entry of breakdown){
+          if(!selected) details.append(el('p','performance-points','Week '+entry.week+' • '+entry.actual.toFixed(2)+' / '+entry.possible.toFixed(2)+' points • '+(entry.efficiency===null?'N/A':entry.efficiency.toFixed(1)+'%')));
+          const lineup=el('ul','performance-lineup');
+          entry.lineup.forEach((p,i)=>{
+            const row=el('li','');
+            row.append(el('span','performance-slot',entry.slots[i]),el('span','',p.name+(p.index>=entry.slots.length?' • Bench':'')),el('strong','',p.points.toFixed(2)));
+            lineup.append(row);
+          });
+          const source=el('a','source-link','View Week '+entry.week+' roster on Yahoo');
+          source.href='https://football.fantasysports.yahoo.com/f1/317429/matchup?week='+entry.week+'&mid1='+entry.matchup;
+          details.append(lineup,source);
+        }
+        body.append(points,bar,metrics,details);item.append(rank,body);list.append(item);
       });
     }
-    sort.addEventListener('change',render);render();
+    sort.addEventListener('change',render);period.addEventListener('change',render);render();
   }catch(error){
     list.replaceChildren(el('li','','Team performance is awaiting verified roster data.'));
-    sort.disabled=true;console.error(error);
+    sort.disabled=true;period.disabled=true;console.error(error);
   }
 }

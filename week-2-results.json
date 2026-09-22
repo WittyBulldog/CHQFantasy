@@ -1,0 +1,109 @@
+{
+  "season": 2026,
+  "week": 2,
+  "verified": "2026-09-22",
+  "statCorrectionsThrough": "2026-09-24",
+  "matchups": [
+    {
+      "teams": [
+        "Mels-16",
+        "Overdue Bills"
+      ],
+      "scores": [
+        145.58,
+        125.82
+      ],
+      "originalProjections": [
+        128.81,
+        110.29
+      ],
+      "winner": "Mels-16",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=9&mid2=10"
+    },
+    {
+      "teams": [
+        "Beast Infection",
+        "Chris’s Team"
+      ],
+      "scores": [
+        72.1,
+        112.02
+      ],
+      "originalProjections": [
+        105.56,
+        117.53
+      ],
+      "winner": "Chris’s Team",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=2&mid2=3"
+    },
+    {
+      "teams": [
+        "Daniel’s Primo Team",
+        "Mark’s Team"
+      ],
+      "scores": [
+        95.72,
+        122.26
+      ],
+      "originalProjections": [
+        103.48,
+        124.6
+      ],
+      "winner": "Mark’s Team",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=4&mid2=8"
+    },
+    {
+      "teams": [
+        "DonkeyWoodDean",
+        "Gotham Knights"
+      ],
+      "scores": [
+        152.98,
+        112.2
+      ],
+      "originalProjections": [
+        120.45,
+        119.87
+      ],
+      "winner": "DonkeyWoodDean",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=6&mid2=7"
+    },
+    {
+      "teams": [
+        "Grim Reaper",
+        "Dillon’s Team"
+      ],
+      "scores": [
+        107.58,
+        112.24
+      ],
+      "originalProjections": [
+        121.74,
+        122.49
+      ],
+      "winner": "Dillon’s Team",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=1&mid2=5"
+    },
+    {
+      "teams": [
+        "Slim Pickens",
+        "West Coast"
+      ],
+      "scores": [
+        156.36,
+        97.28
+      ],
+      "originalProjections": [
+        122.96,
+        123.67
+      ],
+      "winner": "Slim Pickens",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&mid1=11&mid2=12"
+    }
+  ],
+  "rename": {
+    "from": "Grim Reaper",
+    "to": "Silence of the Lamb",
+    "owner": "tylor-c"
+  }
+}
