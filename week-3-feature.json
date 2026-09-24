@@ -1,0 +1,85 @@
+{
+  "week": 3,
+  "source": "Commissioner-supplied Yahoo screenshot, September 23, 2026",
+  "teams": [
+    "Daniel’s Primo Team",
+    "West Coast"
+  ],
+  "records": [
+    "0–2",
+    "0–2"
+  ],
+  "originalProjections": [
+    91.86,
+    121.74
+  ],
+  "winProbabilities": [
+    26,
+    74
+  ],
+  "lineup": [
+    [
+      "QB",
+      "Drake Maye",
+      18.87,
+      "Jordan Love",
+      17.42
+    ],
+    [
+      "RB",
+      "J.K. Dobbins",
+      6.09,
+      "De’Von Achane",
+      17.73
+    ],
+    [
+      "RB",
+      "Aaron Jones Sr.",
+      12.57,
+      "Bucky Irving",
+      13.75
+    ],
+    [
+      "WR",
+      "Chris Godwin Jr.",
+      9.81,
+      "Amon-Ra St. Brown",
+      20.36
+    ],
+    [
+      "WR",
+      "DK Metcalf",
+      12.34,
+      "Parker Washington",
+      14.52
+    ],
+    [
+      "TE",
+      "Trey McBride",
+      16.14,
+      "Tucker Kraft",
+      11.44
+    ],
+    [
+      "W/R/T",
+      "Konata Mumpfield",
+      1.62,
+      "Josh Downs",
+      12.29
+    ],
+    [
+      "K",
+      "Evan McPherson",
+      8.86,
+      "Cameron Dicker",
+      8.48
+    ],
+    [
+      "DEF",
+      "Patriots",
+      5.56,
+      "Rams",
+      5.75
+    ]
+  ]
+}
