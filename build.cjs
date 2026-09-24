@@ -2,6 +2,7 @@ const fs=require('node:fs'),path=require('node:path');
 require('./data/build-career.cjs');
 require('./data/build-swami.cjs');
 require('./data/build-performance-history.cjs');
+require('./data/build-power-rankings.cjs');
 fs.mkdirSync('dist/data',{recursive:true});
 for(const file of fs.readdirSync('.').filter(f=>/\.(html|css|js)$/.test(f)))fs.copyFileSync(file,path.join('dist',file));
 fs.copyFileSync('data/career-data.js','dist/data/career-data.js');

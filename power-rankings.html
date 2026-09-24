@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHQ Fantasy Keeper League — Power Rankings</title>
+<style>
+:root {
+  --bg:#080b12; --panel:#101621; --line:#273143; --text:#f5f7fb;
+  --muted:#9ca8bb; --gold:#f5c451; --gold2:#ffe39a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:radial-gradient(circle at 50% 0,rgba(245,196,81,.08),transparent 35rem),var(--bg);
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,calc(100% - 32px)); margin:auto; }
+header { border-bottom:1px solid var(--line); background:linear-gradient(135deg,#0b0f18,#151b28); }
+.nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+.brand { font-size:14px; font-weight:900; letter-spacing:.08em; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; font-size:13px; color:var(--muted); }
+.navlinks a:hover { color:white; }
+.active-nav { color:var(--gold2); border-bottom:2px solid var(--gold); padding-bottom:4px; }
+.hero { padding:48px 0 52px; text-align:center; }
+.kicker, .eyebrow { color:var(--gold); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+.kicker {
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  padding:7px 12px;
+  border:1px solid rgba(245,196,81,.28);
+  border-radius:999px;
+  background:rgba(245,196,81,.06);
+  color:var(--gold2);
+  font-weight:800;
+}
+.hero h1 { margin:16px 0; font-size:clamp(34px,7vw,68px); line-height:1.05; letter-spacing:-.04em; }
+.hero p { max-width:600px; margin:auto; color:var(--muted); line-height:1.7; }
+.weekly-content { padding:40px 0 64px; }
+.weekly-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+.weekly-heading h2 { margin:8px 0 0; font-size:28px; letter-spacing:-.03em; }
+.status { margin:0; padding:9px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); }
+.weekly-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.weekly-card { min-width:0; padding:26px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#151e2c,#0d141e); overflow-wrap:anywhere; }
+.category { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.category-icon { display:grid; place-items:center; flex:0 0 44px; height:44px; font-size:24px; border-radius:12px; background:rgba(245,196,81,.08); }
+.weekly-card h3 { margin:0; font-size:22px; line-height:1.3; letter-spacing:-.025em; }
+.weekly-card p { color:var(--muted); font-size:14px; line-height:1.75; }
+.weekly-card .result-title { color:var(--gold2); font-size:17px; font-weight:800; margin:20px 0 8px; }
+.weekly-card dl { margin:24px 0 0; }
+.weekly-stat { padding:14px 0; border-top:1px solid var(--line); }
+.weekly-stat dt { color:var(--muted); font-size:12px; line-height:1.5; }
+.weekly-stat dd { margin:5px 0 0; font-size:15px; font-weight:800; line-height:1.5; }
+.weekly-card .result-note { margin:20px 0 0; }
+.season-awards { margin-top:44px; padding-top:32px; border-top:1px solid var(--line); }
+.season-awards h2 { font-size:28px; margin:8px 0 12px; }
+.award-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.award-standings { list-style:none; padding:0; margin:16px 0 0; }
+.award-standings li + li { border-top:1px solid var(--line); margin-top:16px; padding-top:16px; }
+.award-standings h4 { margin:0; font-size:17px; color:var(--gold2); }
+.award-standings p { margin:6px 0 0; }
+.award-standings li { min-width:0; padding:16px 12px; border-radius:10px; }
+.award-standings .award-leader { background:rgba(245,196,81,.07); }
+.weekly-card .award-row-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:12px 0; }
+.award-row-stats dt { font-size:11px; line-height:1.5; color:var(--muted); }
+.award-row-stats dd { margin:4px 0 0; font-size:18px; font-weight:800; font-variant-numeric:tabular-nums; }
+@media(max-width:700px) { .award-grid { grid-template-columns:minmax(0,1fr); } }
+.recap-note { margin:0 0 24px; color:var(--muted); font-size:14px; line-height:1.7; }
+.weekly-card .source-link { display:inline-block; margin-top:16px; padding:10px 0; color:var(--gold2); text-decoration:underline; text-underline-offset:3px; font-size:13px; }
+footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:center; color:var(--muted); font-size:12px; line-height:1.7; }
+@media(max-width:900px) { .weekly-grid { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:600px) {
+  .hero { padding:32px 0 36px; }
+  .hero p { font-size:14px; }
+  .weekly-content { padding:28px 0 44px; }
+  .weekly-card { padding:20px 16px; }
+  .weekly-card h3 { font-size:21px; }
+}
+</style>
+<link rel="stylesheet" href="mobile-nav.css"><link rel="stylesheet" href="power-rankings.css">
+<script src="mobile-nav.js" defer></script><script src="power-rankings-data.js" defer></script><script src="power-rankings.js" defer></script>
+</head><body><header><div class="container"><nav class="nav" aria-label="Main navigation">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
+        <a href="index.html">Champions</a>
+        <a href="matchup.html">Matchup of the Week</a>
+        <a href="weekly-updates.html">Weekly Updates</a>
+        <a href="power-rankings.html" class="active-nav" aria-current="page">Power Rankings</a>
+        <a href="players.html">Players</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="records.html">Records</a>
+        <a href="career.html">Career Records</a>
+        <a href="history.html">History</a>
+        <a href="rules.html">Rules</a>
+        <a href="payouts.html">Payouts</a>
+      </div>
+    </nav>
+<div class="hero"><div class="kicker">The Commish has spoken</div><h1>POWER RANKINGS</h1><p>Twelve teams. One very opinionated list. The weekly pecking order, straight from the Commish.</p></div></div></header>
+<main class="container rankings-content"><div class="rankings-toolbar"><label for="ranking-edition">Edition<select id="ranking-edition"><option value="0" selected>2026 · After Week 2</option></select></label><p id="edition-note" aria-live="polite">First edition • Everyone starts even.</p></div>
+<p class="legend"><span><span class="movement up">+1</span> Moved up</span><span><span class="movement down">-1</span> Moved down</span><span><span class="movement even">— Even</span> No change</span></p>
+<ol class="rankings-list" id="rankings"><li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 01">01</div><div class="ranking-copy"><div class="ranking-title"><h2>Mark Melquist</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>I mean, he did have like 30 picks in the top 4 rounds so I get it. His team is stacked from top to bottom and he has the 2nd best QB in the league on his squad. I swear when he was drafting at my house he couldn’t see his screen. This old son of a bitch didn’t have his readers. I think he was just picking at random and it all worked out.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 02">02</div><div class="ranking-copy"><div class="ranking-title"><h2>Slim Pickens</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>If Puka is out long term, Jason might win the whole damn thing. Davante looked 10 years younger out there this week. The RB’s are absolute dogs and there are no weak points. The depth is insane and he would need 2-3 season enders to have any issues. The only reason you are 2 and not 1 is the top end talent. You might have a better overall team, but I like Mark’s top dogs a little more.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 03">03</div><div class="ranking-copy"><div class="ranking-title"><h2>DonkeyWoodDean</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>I don’t know how he did it, but he managed to silently put together a good team. I’m kidding, I know how he did it. Anyone who gets to pick Jahmyr Gibbs up is automatically ranked highly in my book. While Olave is still in the mix, I will rank Brett up there with the elites. When he goes down, AntWoodDean will plummet.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 04">04</div><div class="ranking-copy"><div class="ranking-title"><h2>Mark’s Team</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>I am not going to lie, Vele was a nice pickup. I just don’t think 2-0 is indicative of this team’s talent. You should be in contention at the end of the year, but I think you finish somewhere in the middle of the pack and let fate decide the playoffs. I don’t love the depth of the team, but I think if you avoid major injuries, you should be fine.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 05">05</div><div class="ranking-copy"><div class="ranking-title"><h2>Dillon’s Team</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>I completely understand how unhinged this take is seeing that Dillon is 10th in points right now, but I really like the squad outside of WR2 and QB1 (if Jayden doesn’t come back). The Rb’s are great and Judkins probably turns it around soon. Tee Higgins is looking serviceable again. I really like the team.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 06">06</div><div class="ranking-copy"><div class="ranking-title"><h2>Beast Infection</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Had a couple of injuries here and there, but the team is solid. I want to give Egbuka another week to get back on track before I write him off. Walker is a monster and Stevenson somehow manages to continue to get looks. It sucks that you have to start Adonai in AJ Brown’s absence, but I assume he will come back at some point.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 07">07</div><div class="ranking-copy"><div class="ranking-title"><h2>Silence of the Lamb</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>If this was a contest based on pure sex appeal, we already know this owner would be #2 (you guys figure out #1), but unfortunately, we have to take the team into account too. The RB’s are pretty good, but we really need Penix to turn it around for Drake London if the commish has any chance in hell at making the playoffs. 5th most points and 0-2 doesn’t bode well for the luck aspect, but it’s probably karma from being a bit of an ass at times. I WILL NEVER FUCKING STOP!</p></div></article><p class="tier-break">After 7 it’s a bit of a dropoff in talent IMHO.</p></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 08">08</div><div class="ranking-copy"><div class="ranking-title"><h2>Chris’s Team</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>QB is meh, RBs are meh, WRs are better than average. I think Rashee Rice really turns it around soon. I watched some of the KC games and this dude is getting open, he is just never the first read it seems. Depth is fine and Jonah Coleman might end up being a steal with the health of that RB room currently.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 09">09</div><div class="ranking-copy"><div class="ranking-title"><h2>Gotham Knights</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Still here for the vibes. 8th in points overall thanks to JSN. Without him you would be ranked lower, but this dude can absolutely ball. Terry McLaurin can’t do worse now right? Right?! 9 targets and 7 points is insane.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 10">10</div><div class="ranking-copy"><div class="ranking-title"><h2>West Coast</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Bro must have been asleep for this draft. Last in points, last in standings, but never last in our hearts. It might be time to deal Amon-Ra to try and get some other players, because this squad is looking a little rough. Who would have thought putting Nabers and Barkley on the bench might actually be the right move. At the beginning of the season, I might have paid to swap teams with you, that’s why I am at the bottom of the standings too huh.</p></div></article><p class="tier-break">Another drop off</p></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 11">11</div><div class="ranking-copy"><div class="ranking-title"><h2>Daniel’s Primo Team</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Honestly, I know you traded away some picks for a championship last year, so I won’t go too harsh on you in the standings. That being said, this team is shit. You know it’s shit, Patty knows it’s shit, the league knows it’s shit. If you sneak into the playoffs somehow, I will lose my mind.</p></div></article><p class="tier-break">A huge drop off</p></li>
+<li><article class="ranking-card custom-rank"><div class="ranking-number" aria-label="Rank 898908">898908</div><div class="ranking-copy"><div class="ranking-title"><h2>Overdue Bills</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>The fact that you have so many points is absolutely mind boggling. If you make it into the playoffs, I want you to build a 2nd Josh Allen shrine in your house (I assume you already have 1 setup due to his success this year). If your team wins 3 games this year, I will be shocked.</p></div></article></li></ol>
+<noscript><p>The latest rankings are shown. Enable JavaScript to browse earlier editions.</p></noscript></main>
+<footer>CHQ FANTASY KEEPER LEAGUE · EST. 2020</footer></body></html>
