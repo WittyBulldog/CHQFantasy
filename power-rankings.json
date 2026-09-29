@@ -70,6 +70,77 @@
           "displayRank": 898908
         }
       ]
+    },
+    {
+      "season": 2026,
+      "week": 3,
+      "label": "After Week 3",
+      "teams": [
+        {
+          "id": "brett-d",
+          "name": "DonkeyWoodDean",
+          "comment": "Well shit, Brett. Last week I said you quietly put together a good team. This week I am putting you at number one, which means I now have to listen to you act like you knew what you were doing all along. Enjoy the view from the top. You have officially gone from sneaking up on people to being the asshole everyone wants to knock off. No pressure, Donkey."
+        },
+        {
+          "id": "mark-me",
+          "name": "Mels-16",
+          "comment": "Mark drops one spot, but I still like this team a hell of a lot. Having approximately 30 early draft picks remains a pretty solid strategy, even if you need somebody to read the screen for you. Brett gets the crown this week. You get second place and a reminder to bring your readers next time. Please do not mistake this tiny demotion for me wanting to play you."
+        },
+        {
+          "id": "jason-b",
+          "name": "Slim Pickens",
+          "comment": "Third feels disrespectful for a team I still like this much, but somebody has to be the bronze medalist in this pain-in-the-ass top three. Jason, you are still firmly in the group nobody wants to deal with. You slid one spot in my rankings, not into a rebuilding year. Save the angry text. I will probably ignore it anyway."
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark's Team",
+          "comment": "Fourth again. Congratulations on being the one person near the top who did not make me rearrange the damn furniture. I still see a contender, but I am not ready to put you at the big kids table with the top three. You are standing right outside the door, holding a plate, waiting for someone to choke. Honestly, not a bad place to be."
+        },
+        {
+          "id": "tylor-c",
+          "name": "Silence of the Lamb",
+          "comment": "The Commish is up two spots, and I am sure everyone will handle this completely rationally. Is it a conflict of interest to write your own power rankings? Probably. Do I give a shit? Absolutely not. I like this team enough to put it fifth, and I am prepared to be insufferable about it. The sex appeal ranking remains a separate discussion. I WILL NEVER FUCKING STOP!"
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris's Team",
+          "comment": "Chris climbs into the top half and gets the last seat before the drop off. Last week I handed out a whole lot of meh. This week you get a slightly more enthusiastic fine, I see you. I am buying in enough to move you up two spots, but do not make me look like an idiot for it. I am perfectly capable of doing that myself.",
+          "breakAfter": "DROP OFF"
+        },
+        {
+          "id": "jason-h",
+          "name": "Gotham Knights",
+          "comment": "Still here for the vibes, but the vibes have moved up two spots. Seventh puts you at the front of the next group, which is kind of like being first in line at the DMV. Technically an achievement, still not where you want to spend your afternoon. I am giving Gotham a little more respect. Do not make me turn the Bat-Signal off."
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon's Team",
+          "comment": "Last week I called my own take unhinged and ranked you fifth. Turns out I should occasionally listen to myself. I still want to like this squad, but I am backing away from my own hype and putting you eighth. That is a three-spot drop and a formal apology to everyone who had to read me talking you up. Please give me a reason to be obnoxiously right later."
+        },
+        {
+          "id": "nick-n",
+          "name": "Beast Infection",
+          "comment": "Down three spots. Last week I was handing out patience like it was free beer, and this week the tab is due. I am not ready to bury this team, but ninth is where my confidence currently lives. You are the last stop before another drop off, which is a pretty shitty selling point. The name is Beast Infection. I would like a little more beast and a little less infection.",
+          "breakAfter": "DROP OFF"
+        },
+        {
+          "id": "dan-e",
+          "name": "Daniel's Primo Team",
+          "comment": "Up one spot, Daniel. Please keep the parade route short. I still respect the championship, and I still do not like this team. Both things can be true. Moving from eleventh to tenth is like finding five bucks in a pair of pants you just shit in. Nice little surprise, bigger problems remain. If you turn this into a playoff run, I will be unbearable about how annoyed I am."
+        },
+        {
+          "id": "dusty-d",
+          "name": "West Coast",
+          "comment": "Dusty, I had you tenth and somehow found room to like this team even less. Eleventh. Last in neither our hearts nor these rankings, but that second part is mostly thanks to Mickey. I want to believe there is a respectable squad hiding in here. Right now I feel like I am looking for my keys in a dumpster. Please give me something to work with.",
+          "breakAfter": "DROP OFF"
+        },
+        {
+          "id": "mickey-b",
+          "name": "Overdue Bills",
+          "comment": "Still 898908. I considered moving you up, but the elevator does not go down this far. There is a drop off before your team because putting you directly next to eleventh felt dishonest. Keep that Josh Allen shrine dusted and the candles lit, Mickey. If this team makes the playoffs, I will have to apologize to you, the shrine, and whatever dark magic you have been practicing.",
+          "displayRank": 898908
+        }
+      ]
     }
   ]
 }
