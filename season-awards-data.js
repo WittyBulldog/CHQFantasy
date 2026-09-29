@@ -1,4 +1,4 @@
-// Verified Yahoo Weeks 1-2 final results on September 22, 2026; subject to stat corrections.
+// Verified Yahoo Weeks 1-3 final results on September 29, 2026; subject to stat corrections.
 // Replace a week's scores after verification; mark complete only after all games.
 // Include playoff weeks. For a tied weekly high, commissioner-approved credit
 // can be recorded as creditedWinnerIds: ['owner-id']; otherwise it stays pending.
@@ -37,6 +37,24 @@ const CHQ_SEASON_AWARDS = { season:2026, weeks:[{
     {id:'jason-h',name:'Jason H',points:112.20},
     {id:'mark-ma',name:'Mark Ma',points:122.26},
     {id:'jason-b',name:'Jason B',points:156.36}
+  ]
+},{
+  week:3, phase:'Regular season', complete:true,
+  label:'Week 3 - final results',
+  source:'https://football.fantasysports.yahoo.com/f1/317429?matchup_week=3',
+  scores:[
+    {id:'tylor-c',name:'Tylor C',points:123.14},
+    {id:'mickey-b',name:'Mickey B',points:68.26},
+    {id:'nick-n',name:'Nick N',points:103.50},
+    {id:'dusty-d',name:'Dusty D',points:89.88},
+    {id:'chris-m',name:'Chris M',points:141.32},
+    {id:'brett-d',name:'Brett D',points:180.26},
+    {id:'dan-e',name:'Dan E',points:104.36},
+    {id:'mark-me',name:'Mark Me',points:151.48},
+    {id:'dillon-m',name:'Dillon M',points:130.10},
+    {id:'jason-h',name:'Jason H',points:112.10},
+    {id:'mark-ma',name:'Mark Ma',points:118.44},
+    {id:'jason-b',name:'Jason B',points:119.44}
   ]
 }]};
 if (typeof module !== 'undefined') module.exports = CHQ_SEASON_AWARDS;
