@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHQ Fantasy Keeper League — Power Rankings</title>
+<style>
+:root {
+  --bg:#080b12; --panel:#101621; --line:#273143; --text:#f5f7fb;
+  --muted:#9ca8bb; --gold:#f5c451; --gold2:#ffe39a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:radial-gradient(circle at 50% 0,rgba(245,196,81,.08),transparent 35rem),var(--bg);
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1180px,calc(100% - 32px)); margin:auto; }
+header { border-bottom:1px solid var(--line); background:linear-gradient(135deg,#0b0f18,#151b28); }
+.nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+.brand { font-size:14px; font-weight:900; letter-spacing:.08em; }
+.brand span { color:var(--gold); }
+.navlinks { display:flex; gap:18px; font-size:13px; color:var(--muted); }
+.navlinks a:hover { color:white; }
+.active-nav { color:var(--gold2); border-bottom:2px solid var(--gold); padding-bottom:4px; }
+.hero { padding:48px 0 52px; text-align:center; }
+.kicker, .eyebrow { color:var(--gold); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+.kicker {
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  padding:7px 12px;
+  border:1px solid rgba(245,196,81,.28);
+  border-radius:999px;
+  background:rgba(245,196,81,.06);
+  color:var(--gold2);
+  font-weight:800;
+}
+.hero h1 { margin:16px 0; font-size:clamp(34px,7vw,68px); line-height:1.05; letter-spacing:-.04em; }
+.hero p { max-width:600px; margin:auto; color:var(--muted); line-height:1.7; }
+.weekly-content { padding:40px 0 64px; }
+.weekly-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+.weekly-heading h2 { margin:8px 0 0; font-size:28px; letter-spacing:-.03em; }
+.status { margin:0; padding:9px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); }
+.weekly-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.weekly-card { min-width:0; padding:26px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#151e2c,#0d141e); overflow-wrap:anywhere; }
+.category { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.category-icon { display:grid; place-items:center; flex:0 0 44px; height:44px; font-size:24px; border-radius:12px; background:rgba(245,196,81,.08); }
+.weekly-card h3 { margin:0; font-size:22px; line-height:1.3; letter-spacing:-.025em; }
+.weekly-card p { color:var(--muted); font-size:14px; line-height:1.75; }
+.weekly-card .result-title { color:var(--gold2); font-size:17px; font-weight:800; margin:20px 0 8px; }
+.weekly-card dl { margin:24px 0 0; }
+.weekly-stat { padding:14px 0; border-top:1px solid var(--line); }
+.weekly-stat dt { color:var(--muted); font-size:12px; line-height:1.5; }
+.weekly-stat dd { margin:5px 0 0; font-size:15px; font-weight:800; line-height:1.5; }
+.weekly-card .result-note { margin:20px 0 0; }
+.season-awards { margin-top:44px; padding-top:32px; border-top:1px solid var(--line); }
+.season-awards h2 { font-size:28px; margin:8px 0 12px; }
+.award-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.award-standings { list-style:none; padding:0; margin:16px 0 0; }
+.award-standings li + li { border-top:1px solid var(--line); margin-top:16px; padding-top:16px; }
+.award-standings h4 { margin:0; font-size:17px; color:var(--gold2); }
+.award-standings p { margin:6px 0 0; }
+.award-standings li { min-width:0; padding:16px 12px; border-radius:10px; }
+.award-standings .award-leader { background:rgba(245,196,81,.07); }
+.weekly-card .award-row-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:12px 0; }
+.award-row-stats dt { font-size:11px; line-height:1.5; color:var(--muted); }
+.award-row-stats dd { margin:4px 0 0; font-size:18px; font-weight:800; font-variant-numeric:tabular-nums; }
+@media(max-width:700px) { .award-grid { grid-template-columns:minmax(0,1fr); } }
+.recap-note { margin:0 0 24px; color:var(--muted); font-size:14px; line-height:1.7; }
+.weekly-card .source-link { display:inline-block; margin-top:16px; padding:10px 0; color:var(--gold2); text-decoration:underline; text-underline-offset:3px; font-size:13px; }
+footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:center; color:var(--muted); font-size:12px; line-height:1.7; }
+@media(max-width:900px) { .weekly-grid { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:600px) {
+  .hero { padding:32px 0 36px; }
+  .hero p { font-size:14px; }
+  .weekly-content { padding:28px 0 44px; }
+  .weekly-card { padding:20px 16px; }
+  .weekly-card h3 { font-size:21px; }
+}
+</style>
+<link rel="stylesheet" href="mobile-nav.css"><link rel="stylesheet" href="power-rankings.css">
+<script src="mobile-nav.js" defer></script><script src="power-rankings-data.js" defer></script><script src="power-rankings.js" defer></script>
+</head><body><header><div class="container"><nav class="nav" aria-label="Main navigation">
+      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="site-navigation">
+        <a href="index.html">Champions</a>
+        <a href="matchup.html">Matchup of the Week</a>
+        <a href="weekly-updates.html">Weekly Updates</a>
+        <a href="power-rankings.html" class="active-nav" aria-current="page">Power Rankings</a>
+        <a href="players.html">Players</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="records.html">Records</a>
+        <a href="career.html">Career Records</a>
+        <a href="history.html">History</a>
+        <a href="rules.html">Rules</a>
+        <a href="payouts.html">Payouts</a>
+      </div>
+    </nav>
+<div class="hero"><div class="kicker">The Commish has spoken</div><h1>POWER RANKINGS</h1><p>Twelve teams. One very opinionated list. The weekly pecking order, straight from the Commish.</p></div></div></header>
+<main class="container rankings-content"><div class="rankings-toolbar"><label for="ranking-edition">Edition<select id="ranking-edition"><option value="1" selected>2026 · After Week 3</option><option value="0">2026 · After Week 2</option></select></label><p id="edition-note" aria-live="polite">Movement since after week 2.</p></div>
+<p class="legend"><span><span class="movement up">+1</span> Moved up</span><span><span class="movement down">-1</span> Moved down</span><span><span class="movement even">— Even</span> No change</span></p>
+<ol class="rankings-list" id="rankings"><li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 01">01</div><div class="ranking-copy"><div class="ranking-title"><h2>DonkeyWoodDean</h2><span class="movement up" aria-label="Up 2 places">+2</span></div><p>Well shit, Brett. Last week I said you quietly put together a good team. This week I am putting you at number one, which means I now have to listen to you act like you knew what you were doing all along. Enjoy the view from the top. You have officially gone from sneaking up on people to being the asshole everyone wants to knock off. No pressure, Donkey.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 02">02</div><div class="ranking-copy"><div class="ranking-title"><h2>Mels-16</h2><span class="movement down" aria-label="Down 1 place">-1</span></div><p>Mark drops one spot, but I still like this team a hell of a lot. Having approximately 30 early draft picks remains a pretty solid strategy, even if you need somebody to read the screen for you. Brett gets the crown this week. You get second place and a reminder to bring your readers next time. Please do not mistake this tiny demotion for me wanting to play you.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 03">03</div><div class="ranking-copy"><div class="ranking-title"><h2>Slim Pickens</h2><span class="movement down" aria-label="Down 1 place">-1</span></div><p>Third feels disrespectful for a team I still like this much, but somebody has to be the bronze medalist in this pain-in-the-ass top three. Jason, you are still firmly in the group nobody wants to deal with. You slid one spot in my rankings, not into a rebuilding year. Save the angry text. I will probably ignore it anyway.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 04">04</div><div class="ranking-copy"><div class="ranking-title"><h2>Mark&#39;s Team</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Fourth again. Congratulations on being the one person near the top who did not make me rearrange the damn furniture. I still see a contender, but I am not ready to put you at the big kids table with the top three. You are standing right outside the door, holding a plate, waiting for someone to choke. Honestly, not a bad place to be.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 05">05</div><div class="ranking-copy"><div class="ranking-title"><h2>Silence of the Lamb</h2><span class="movement up" aria-label="Up 2 places">+2</span></div><p>The Commish is up two spots, and I am sure everyone will handle this completely rationally. Is it a conflict of interest to write your own power rankings? Probably. Do I give a shit? Absolutely not. I like this team enough to put it fifth, and I am prepared to be insufferable about it. The sex appeal ranking remains a separate discussion. I WILL NEVER FUCKING STOP!</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 06">06</div><div class="ranking-copy"><div class="ranking-title"><h2>Chris&#39;s Team</h2><span class="movement up" aria-label="Up 2 places">+2</span></div><p>Chris climbs into the top half and gets the last seat before the drop off. Last week I handed out a whole lot of meh. This week you get a slightly more enthusiastic fine, I see you. I am buying in enough to move you up two spots, but do not make me look like an idiot for it. I am perfectly capable of doing that myself.</p></div></article><p class="tier-break">DROP OFF</p></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 07">07</div><div class="ranking-copy"><div class="ranking-title"><h2>Gotham Knights</h2><span class="movement up" aria-label="Up 2 places">+2</span></div><p>Still here for the vibes, but the vibes have moved up two spots. Seventh puts you at the front of the next group, which is kind of like being first in line at the DMV. Technically an achievement, still not where you want to spend your afternoon. I am giving Gotham a little more respect. Do not make me turn the Bat-Signal off.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 08">08</div><div class="ranking-copy"><div class="ranking-title"><h2>Dillon&#39;s Team</h2><span class="movement down" aria-label="Down 3 places">-3</span></div><p>Last week I called my own take unhinged and ranked you fifth. Turns out I should occasionally listen to myself. I still want to like this squad, but I am backing away from my own hype and putting you eighth. That is a three-spot drop and a formal apology to everyone who had to read me talking you up. Please give me a reason to be obnoxiously right later.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 09">09</div><div class="ranking-copy"><div class="ranking-title"><h2>Beast Infection</h2><span class="movement down" aria-label="Down 3 places">-3</span></div><p>Down three spots. Last week I was handing out patience like it was free beer, and this week the tab is due. I am not ready to bury this team, but ninth is where my confidence currently lives. You are the last stop before another drop off, which is a pretty shitty selling point. The name is Beast Infection. I would like a little more beast and a little less infection.</p></div></article><p class="tier-break">DROP OFF</p></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 10">10</div><div class="ranking-copy"><div class="ranking-title"><h2>Daniel&#39;s Primo Team</h2><span class="movement up" aria-label="Up 1 place">+1</span></div><p>Up one spot, Daniel. Please keep the parade route short. I still respect the championship, and I still do not like this team. Both things can be true. Moving from eleventh to tenth is like finding five bucks in a pair of pants you just shit in. Nice little surprise, bigger problems remain. If you turn this into a playoff run, I will be unbearable about how annoyed I am.</p></div></article></li>
+<li><article class="ranking-card"><div class="ranking-number" aria-label="Rank 11">11</div><div class="ranking-copy"><div class="ranking-title"><h2>West Coast</h2><span class="movement down" aria-label="Down 1 place">-1</span></div><p>Dusty, I had you tenth and somehow found room to like this team even less. Eleventh. Last in neither our hearts nor these rankings, but that second part is mostly thanks to Mickey. I want to believe there is a respectable squad hiding in here. Right now I feel like I am looking for my keys in a dumpster. Please give me something to work with.</p></div></article><p class="tier-break">DROP OFF</p></li>
+<li><article class="ranking-card custom-rank"><div class="ranking-number" aria-label="Rank 898908">898908</div><div class="ranking-copy"><div class="ranking-title"><h2>Overdue Bills</h2><span class="movement even" aria-label="— Even">— Even</span></div><p>Still 898908. I considered moving you up, but the elevator does not go down this far. There is a drop off before your team because putting you directly next to eleventh felt dishonest. Keep that Josh Allen shrine dusted and the candles lit, Mickey. If this team makes the playoffs, I will have to apologize to you, the shrine, and whatever dark magic you have been practicing.</p></div></article></li></ol>
+<noscript><p>The latest rankings are shown. Enable JavaScript to browse earlier editions.</p></noscript></main>
+<footer>CHQ FANTASY KEEPER LEAGUE · EST. 2020</footer></body></html>
