@@ -198,7 +198,7 @@
     },
     {
       "week": 4,
-      "editorialNote": "Yahoo Week 4 starting lineups and projections checked October 1, 2026. Lineups, injury designations, and projections may change before kickoff.",
+      "editorialNote": "Original previews and picks are preserved below. Final scores, starting lineups, and benches verified on Yahoo October 6, 2026; stat corrections may apply through October 8.",
       "picks": [
         {
           "teams": [
@@ -206,13 +206,22 @@
             "Slim Pickens"
           ],
           "pick": "Slim Pickens",
-          "winner": null,
+          "winner": "DonkeyWoodDean",
           "comment": "Brett just dropped 180.26, so naturally this is where I pick against him. Yahoo has DonkeyWoodDean favored by 11.78, and Gibbs gets a Carolina defense allowing the third-most fantasy points to running backs. That's a hell of a starting point. Slim counters with Trevor Lawrence, Jonathan Taylor, and Jeremiyah Love, while Pickens and Adams bring the receiving firepower. I like Love and Matthew Golden to help Slim steal this one, even if Brett's Goff-Gibbs-LaPorta stack makes Sunday night extremely uncomfortable. Brett gets the spotlight; Slim gets my pick.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=6&mid2=11",
           "originalProjections": [
             135.54,
             123.76
-          ]
+          ],
+          "scores": [
+            164.28,
+            99.28
+          ],
+          "finalOriginalProjections": [
+            145.75,
+            125.61
+          ],
+          "recap": "Brett got the spotlight and the win. Flowers (28.80), Goff (23.48), Olave (22.60), LaPorta (22.40), and Reichard (20.00) helped DonkeyWoodDean cruise by 65.00. Flowers replaced Brian Thomas Jr. in the final flex spot. Taylor's 22.70 was Slim's only score above 20; the upset never materialized."
         },
         {
           "teams": [
@@ -220,13 +229,22 @@
             "Mels-16"
           ],
           "pick": "Mels-16",
-          "winner": null,
+          "winner": "Mels-16",
           "comment": "The Commish finally got a win, and his reward is Bijan, Henry, and Kyren. Very thoughtful of the schedule. Mels-16 also has Joe Burrow at quarterback now, while Silence of the Lamb is rolling with Sam Darnold. Lamb and London can keep me in it, but Mark's running back room is a weekly problem and Jadarian Price is carrying a questionable tag in my flex. Yahoo favors Mels by 17.41. I'm taking Mark and hoping those three backs at least have the decency to make it quick.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=1&mid2=9",
           "originalProjections": [
             115.05,
             132.46
-          ]
+          ],
+          "scores": [
+            165.42,
+            196.62
+          ],
+          "finalOriginalProjections": [
+            116.23,
+            137.76
+          ],
+          "recap": "Right winner, wrong idea about making it quick. The Commish scored 165.42 behind Lamb's 44.30 and Javonte's 31.30, and still lost by 31.20. McMillan (48.20), Kyren (36.70), Bijan (30.70), and Burrow (28.72) pushed Mels-16 to 196.62, the new season high. Mark's running back room was every bit the problem advertised."
         },
         {
           "teams": [
@@ -234,13 +252,22 @@
             "Gotham Knights"
           ],
           "pick": "Beast Infection",
-          "winner": null,
+          "winner": "Beast Infection",
           "comment": "Nick needs a response after Brett turned last week's matchup into a crime scene. Nico Collins is back in Beast Infection's starting lineup, though he's questionable, and his 17.98 projection matters a lot next to Walker and Egbuka. Gotham has Lamar marked questionable too, plus JSN and Terry McLaurin actually in the lineup this time. Yahoo separates these teams by just 2.32 points. I'm taking Nick's Walker-Collins combination to get him over the line, but both owners need to watch those injury tags.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=2&mid2=7",
           "originalProjections": [
             114.05,
             116.37
-          ]
+          ],
+          "scores": [
+            143.04,
+            88.98
+          ],
+          "finalOriginalProjections": [
+            114.1,
+            106.94
+          ],
+          "recap": "The Walker-Collins call landed: 67.70 combined, powering a 54.06-point win. Nick's final lineup used Antonio Williams at WR and Egbuka in the flex. Gotham started McLaurin for zero and Pitts instead of Andrews; Jameson Williams' 19.20 also stayed on the bench. None of those swaps alone would have erased the deficit."
         },
         {
           "teams": [
@@ -248,13 +275,22 @@
             "Daniel’s Primo Team"
           ],
           "pick": "Chris’s Team",
-          "winner": null,
+          "winner": "Daniel’s Primo Team",
           "comment": "Chris just beat Slim Pickens, and now Chase, Watson, and Rice get another chance to carry the offense. Swift and TreVeyon Henderson are the current running backs, so this pick is about the receivers doing the heavy lifting. Daniel can answer with McBride, Michael Wilson, and Jordan Addison, but Pollard's questionable tag adds another headache. Yahoo gives Chris a 12.49-point edge, and I'm with it. The defending champ gets my respect; Chris gets the pick.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=3&mid2=4",
           "originalProjections": [
             122.86,
             110.37
-          ]
+          ],
+          "scores": [
+            61.58,
+            133.26
+          ],
+          "finalOriginalProjections": [
+            116.97,
+            120.73
+          ],
+          "recap": "The receivers did not do the heavy lifting. Chris managed 61.58 with Rice scoring zero and Chase adding just 5.70. Daniel's final lineup included Puka, who delivered 30.70, alongside Maye's 27.16. A 71.68-point loss is a pretty firm rebuttal to the Swami. Monangai's 31.00 and Tate's 24.50 sat on Chris's bench."
         },
         {
           "teams": [
@@ -262,13 +298,22 @@
             "Mark’s Team"
           ],
           "pick": "Dillon’s Team",
-          "winner": null,
+          "winner": "Dillon’s Team",
           "comment": "Mark can roll out Mahomes, McCaffrey, Jefferson, DeVonta, and Bowers, which makes picking against him feel irresponsible. Fortunately, responsibility has never been the Swami's strongest position. Cook and Chase Brown give Dillon a real puncher's chance, and Higgins gets Jacksonville alongside Brown. Yahoo favors Mark by 16.32, but Jefferson and DeVonta are questionable; Dillon has his own tags on DJ Moore and flex option Kenyon Sadiq. Give me Dillon's backs and a big Higgins day to pull the upset.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=5&mid2=8",
           "originalProjections": [
             114.44,
             130.76
-          ]
+          ],
+          "scores": [
+            138.48,
+            105.4
+          ],
+          "finalOriginalProjections": [
+            121.94,
+            122.01
+          ],
+          "recap": "The Higgins call delivered 29.70, and Dillon's final lineup upgrades helped finish the job: Stroud scored 26.08 and Judkins 21.60. Mark started Sutton and Malik Washington with Jefferson and DeVonta out. Dillon won by 33.08; Yahoo's final projections had this nearly even, with Mark favored by just 0.07."
         },
         {
           "teams": [
@@ -276,15 +321,26 @@
             "West Coast"
           ],
           "pick": "Overdue Bills",
-          "winner": null,
+          "winner": "Overdue Bills",
           "comment": "Yahoo has Dusty ahead by 8.29, but I'm trusting the Josh Allen shrine one more time. Allen and Kincaid get New England, and Mick needs Hubbard and Croskey-Merritt to give that Buffalo pair some help. West Coast is starting Barkley and a questionable Bucky Irving alongside Amon-Ra, Parker Washington, and Josh Downs. That's enough talent to punish this pick, especially with Jalen Coker also questionable for Mick. I'm taking Overdue Bills on an Allen-Kincaid afternoon that does the heavy lifting.",
           "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=10&mid2=12",
           "originalProjections": [
             110.28,
             118.57
-          ]
+          ],
+          "scores": [
+            119.42,
+            79.28
+          ],
+          "finalOriginalProjections": [
+            111.8,
+            119.97
+          ],
+          "recap": "Right winner, different heroes. Hubbard's 28.90 and Doubs' 23.80 led Mick to a 40.14-point win. Allen added 19.52, but Kincaid managed only 1.70, so the Buffalo-pair prediction gets partial credit at best. Dusty's Barkley and Irving combined for 8.10, while Nabers' 26.20 and Deebo's 18.00 stayed on the bench."
         }
-      ]
+      ],
+      "summary": "Week 4: 4–2 (66.7%). Mels-16, Beast Infection, Dillon, and Overdue Bills delivered. Brett steamrolled the featured upset pick, and Daniel dismantled Chris. Season record: 12–6 (66.7%), with Week 1 excluded.",
+      "verified": "October 6, 2026"
     }
   ]
 }
