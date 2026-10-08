@@ -85,6 +85,10 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
 <script src="mobile-nav.js" defer></script>
 <script src="season-awards-data.js" defer></script>
 <script src="season-awards.js" defer></script>
+<link rel="stylesheet" href="team-performance.css">
+<script src="team-performance-history.js" defer></script>
+<script src="team-performance.js" defer></script>
+<style>.week-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:20px; }.week-results article { padding:20px; border:1px solid var(--line); border-radius:14px; background:var(--panel); }.week-results h3 { margin:0 0 12px; font-size:17px; }.week-results strong { color:var(--gold); }@media(max-width:700px){.week-results{grid-template-columns:1fr;}}</style>
 </head>
 <body>
 <header>
@@ -99,6 +103,7 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
         <a href="index.html">Champions</a>
         <a href="matchup.html">Matchup of the Week</a>
         <a href="weekly-updates.html" class="active-nav" aria-current="page">Weekly Updates</a>
+        <a href="power-rankings.html">Power Rankings</a>
         <a href="players.html">Players</a>
         <a href="quotes.html">Quotes</a>
         <a href="records.html">Records</a>
@@ -116,50 +121,29 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
   </div>
 </header>
 <main class="container weekly-content">
-  <div class="weekly-heading">
-    <div><div class="eyebrow">September 9–14, 2026</div><h2>Week 1 Highlights</h2></div>
-    <p class="status">Week 1 • Final results</p>
-  </div>
-  <p class="recap-note">Week 1 is complete. These highlights use Yahoo's final scores and displayed original projections. Results and season-award standings remain subject to stat corrections.</p>
+  <div class="weekly-heading"><div><div class="eyebrow">September 29–October 5, 2026</div><h2>Week 4 Highlights</h2></div><p class="status">Week 4 • Final results</p></div>
+  <p class="recap-note">Week 4 is complete. Yahoo scores, original projections, starters, and benches verified October 6. Stat corrections may apply through October 8. Upsets use Yahoo's final displayed original projections, which can differ from the earlier preview.</p>
   <div class="weekly-grid">
-    <!-- Week 1 final results verified September 15, 2026. -->
-    <section class="weekly-card" aria-labelledby="closest-heading">
-      <div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="closest-heading">Closest Matchup</h3></div>
-      <p>Chris had Rashee Rice on Monday night. Brett had just enough breathing room.</p>
-      <p class="result-title">Brett survives by 1.48</p>
-      <dl>
-        <div class="weekly-stat"><dt>Matchup</dt><dd>Chris M vs. Brett D</dd></div>
-        <div class="weekly-stat"><dt>Final score</dt><dd>Brett 163.04 • Chris 161.56</dd></div>
-        <div class="weekly-stat"><dt>Winning margin</dt><dd>Brett wins by 1.48</dd></div>
-      </dl>
-      <p class="result-note">The week's two highest-scoring teams drew each other. Caleb Williams (37.26), D'Andre Swift (35.40), and Christian Watson (35.70) kept Chris alive, while Jahmyr Gibbs (36.60) and Chris Olave (31.20) helped Brett reach 163.04. Rice added 9.90 on Monday, leaving Chris 1.48 short. Brett walks away with the win and the first weekly high-score award; Chris gets the league's most frustrating loss.</p>
-      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=3&amp;mid2=6">View Chris–Brett on Yahoo</a>
-    </section>
-    <section class="weekly-card" aria-labelledby="upset-heading">
-      <div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="upset-heading">Biggest Upset</h3></div>
-      <p>Mickey was projected more than 23 points behind Tylor. His lineup had other plans.</p>
-      <p class="result-title">Overdue Bills comes due</p>
-      <dl>
-        <div class="weekly-stat"><dt>Upset winner</dt><dd>Mickey B • Overdue Bills</dd></div>
-        <div class="weekly-stat"><dt>Opponent &amp; final score</dt><dd>Mickey 157.16 • Tylor 141.46</dd></div>
-        <div class="weekly-stat"><dt>Yahoo's displayed original projections</dt><dd>Mickey 96.67 • Tylor 120.03<br>Mickey was projected 23.36 points behind</dd></div>
-      </dl>
-      <p class="result-note">Josh Allen (38.66) and Jalen Coker (36.80) combined for 75.46 as Mickey turned a projected loss into a 15.70-point win. Nick deserves a mention for beating Dusty 153.40–95.62. Yahoo's final displayed original projections put Nick 23.28 points behind, narrowly less than Mickey's 23.36-point disadvantage. That changes the provisional upset pick from Nick to Mickey.</p>
-      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=1&amp;mid2=10">View Mickey–Tylor on Yahoo</a>
-    </section>
-    <section class="weekly-card" aria-labelledby="bench-heading">
-      <div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="bench-heading">Worst Bench Decision</h3></div>
-      <p>Jason Harle got the win on the scoreboard. His bench still has a complaint.</p>
-      <p class="result-title">Montgomery had a front-row seat</p>
-      <dl>
-        <div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Jason H • David Montgomery</dd></div>
-        <div class="weekly-stat"><dt>Bench points vs. flex starter</dt><dd>Montgomery 28.90<br>Terry McLaurin 3.40</dd></div>
-        <div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>25.50 points</dd></div>
-      </dl>
-      <p class="result-note">Montgomery scored three touchdowns on Jason's bench. Starting him in the W/R/T slot instead of McLaurin would have lifted Gotham Knights from 121.46 to 146.96. Jason still finished ahead of Dillon's 94.86, so it cost bragging rights rather than the win. After checking Monday's bench performances, this remains the week's largest single eligible bench-to-starter improvement: 25.50 points.</p>
-      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=5&amp;mid2=7">View Jason–Dillon on Yahoo</a>
-    </section>
+<section class="weekly-card" aria-labelledby="closest-heading"><div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="closest-heading">Closest Matchup</h3></div><p>The Commish scores 165.42 and still gets handed an L.</p><p class="result-title">Mels-16 wins by 31.20</p><dl><div class="weekly-stat"><dt>Matchup</dt><dd>Silence of the Lamb vs. Mels-16</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Tylor 165.42 • Mark Me 196.62</dd></div><div class="weekly-stat"><dt>Winning margin</dt><dd>31.20 points</dd></div></dl><p class="result-note">The closest game of the week was still a 31-point loss. Lamb's 44.30 and Javonte's 31.30 gave Tylor a huge afternoon, but McMillan (48.20), Kyren (36.70), Bijan (30.70), and Burrow (28.72) were too much. Mels-16's 196.62 sets the new season high, passing Brett's Week 3 mark of 180.26.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=1&amp;mid2=9">View matchup on Yahoo →</a></section>
+<section class="weekly-card" aria-labelledby="upset-heading"><div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="upset-heading">Biggest Upset</h3></div><p>The Allen shrine survives, but Hubbard and Doubs deserve some candles too.</p><p class="result-title">Overdue Bills flips the forecast</p><dl><div class="weekly-stat"><dt>Yahoo’s final displayed original projections</dt><dd>Overdue Bills 111.80 • West Coast 119.97</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Mick 119.42 • Dusty 79.28</dd></div><div class="weekly-stat"><dt>Underdog deficit</dt><dd>8.17 projected points</dd></div></dl><p class="result-note">An 8.17-point projected loss became a 40.14-point win, a 48.31-point swing. Hubbard (28.90) and Doubs (23.80) led the way, with Allen adding 19.52. Barkley and Irving combined for just 8.10 for West Coast. Dillon also won as a projected underdog, but his final deficit was only 0.07.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=10&amp;mid2=12">View matchup on Yahoo →</a></section>
+<section class="weekly-card" aria-labelledby="bench-heading"><div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="bench-heading">Worst Bench Decision</h3></div><p>Chris had points available. They were watching from the bench.</p><p class="result-title">Monangai’s 31.00 sits behind Rice’s zero</p><dl><div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Chris M • Kyle Monangai</dd></div><div class="weekly-stat"><dt>Bench vs. eligible flex starter</dt><dd>Monangai 31.00 • Rashee Rice 0.00</dd></div><div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>31.00 points</dd></div></dl><p class="result-note">Starting Monangai in the W/R/T flex would have lifted Chris from 61.58 to 92.58, the largest single eligible upgrade across all 12 rosters. It still would not have caught Daniel's 133.26. Chris's best possible lineup totaled 114.88; even perfect hindsight would have left him 18.38 short. Dusty also left Nabers' 26.20 behind Washington's 2.00, but that 24.20-point swap was smaller.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=3&amp;mid2=4">View matchup on Yahoo →</a></section>
   </div>
+  <section class="season-awards" aria-labelledby="week-4-results-heading"><div class="eyebrow">Around the league</div><h2 id="week-4-results-heading">Week 4 Results</h2><div class="week-results"><article><h3>DonkeyWoodDean vs. Slim Pickens</h3><p><strong>164.28 – 99.28</strong> • Winner: DonkeyWoodDean</p><p class="result-note">Brett got the spotlight and the win. Flowers (28.80), Goff (23.48), Olave (22.60), LaPorta (22.40), and Reichard (20.00) helped DonkeyWoodDean cruise by 65.00. Flowers replaced Brian Thomas Jr. in the final flex spot. Taylor's 22.70 was Slim's only score above 20; the upset never materialized.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=6&amp;mid2=11">View on Yahoo →</a></article>
+<article><h3>Silence of the Lamb vs. Mels-16</h3><p><strong>165.42 – 196.62</strong> • Winner: Mels-16</p><p class="result-note">Right winner, wrong idea about making it quick. The Commish scored 165.42 behind Lamb's 44.30 and Javonte's 31.30, and still lost by 31.20. McMillan (48.20), Kyren (36.70), Bijan (30.70), and Burrow (28.72) pushed Mels-16 to 196.62, the new season high. Mark's running back room was every bit the problem advertised.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=1&amp;mid2=9">View on Yahoo →</a></article>
+<article><h3>Beast Infection vs. Gotham Knights</h3><p><strong>143.04 – 88.98</strong> • Winner: Beast Infection</p><p class="result-note">The Walker-Collins call landed: 67.70 combined, powering a 54.06-point win. Nick's final lineup used Antonio Williams at WR and Egbuka in the flex. Gotham started McLaurin for zero and Pitts instead of Andrews; Jameson Williams' 19.20 also stayed on the bench. None of those swaps alone would have erased the deficit.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=2&amp;mid2=7">View on Yahoo →</a></article>
+<article><h3>Chris’s Team vs. Daniel’s Primo Team</h3><p><strong>61.58 – 133.26</strong> • Winner: Daniel’s Primo Team</p><p class="result-note">The receivers did not do the heavy lifting. Chris managed 61.58 with Rice scoring zero and Chase adding just 5.70. Daniel's final lineup included Puka, who delivered 30.70, alongside Maye's 27.16. A 71.68-point loss is a pretty firm rebuttal to the Swami. Monangai's 31.00 and Tate's 24.50 sat on Chris's bench.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=3&amp;mid2=4">View on Yahoo →</a></article>
+<article><h3>Dillon’s Team vs. Mark’s Team</h3><p><strong>138.48 – 105.40</strong> • Winner: Dillon’s Team</p><p class="result-note">The Higgins call delivered 29.70, and Dillon's final lineup upgrades helped finish the job: Stroud scored 26.08 and Judkins 21.60. Mark started Sutton and Malik Washington with Jefferson and DeVonta out. Dillon won by 33.08; Yahoo's final projections had this nearly even, with Mark favored by just 0.07.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=5&amp;mid2=8">View on Yahoo →</a></article>
+<article><h3>Overdue Bills vs. West Coast</h3><p><strong>119.42 – 79.28</strong> • Winner: Overdue Bills</p><p class="result-note">Right winner, different heroes. Hubbard's 28.90 and Doubs' 23.80 led Mick to a 40.14-point win. Allen added 19.52, but Kincaid managed only 1.70, so the Buffalo-pair prediction gets partial credit at best. Dusty's Barkley and Irving combined for 8.10, while Nabers' 26.20 and Deebo's 18.00 stayed on the bench.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&amp;mid1=10&amp;mid2=12">View on Yahoo →</a></article></div></section>
+  <p class="recap-note"><strong>Commish Swami Sez: 4–2 this week; 12–6 for the season (66.7%).</strong> Week 1 is excluded. <a href="matchup.html#swami-heading">See the original picks and final report cards →</a></p>
+  <section class="season-awards team-performance" aria-labelledby="performance-heading">
+    <div class="eyebrow">The points you left behind</div>
+    <h2 id="performance-heading">Team Performance</h2>
+    <p class="recap-note" id="performance-week" aria-live="polite">All weeks • 2026</p>
+    <p class="recap-note">All weeks combines actual points and best possible points from every completed week. Overall efficiency is total actual points divided by total possible points, not an average of weekly percentages.</p>
+    <p class="recap-note">Actual points versus your best possible lineup using that week's starters and bench. Maximum points fill 1 QB, 2 RB, 2 WR, 1 TE, 1 W/R/T flex, 1 K, and 1 DEF, with each player used once. IR and free agents are excluded; required slots stay filled even when a player scores negative points. This is a hindsight lineup comparison, not a projection.</p>
+    <div class="performance-controls"><label for="performance-period">Show</label><select id="performance-period"><option value="all">All weeks</option></select><label for="performance-sort">Rank teams by</label><select id="performance-sort"><option value="efficiency" selected>Lineup efficiency</option><option value="actual">Actual points</option><option value="missed">Points left on bench</option></select></div>
+    <ol class="performance-list" id="performance-list"><li>Team performance requires JavaScript to calculate optimal lineups.</li></ol>
+  </section>
   <section class="season-awards" aria-labelledby="season-awards-heading">
     <div class="eyebrow">The season-long race</div>
     <h2 id="season-awards-heading">Season Awards</h2>
@@ -181,6 +165,89 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
     <div class="recap-note" id="season-award-pending"></div>
     <noscript><p class="recap-note">Enable JavaScript to view the calculated award standings.</p></noscript>
   </section>
+<details class="season-awards"><summary>Week 3 recap archive</summary>  <div class="weekly-heading"><div><div class="eyebrow">September 22–28, 2026</div><h2>Week 3 Highlights</h2></div><p class="status">Week 3 • Final results</p></div>
+  <p class="recap-note">Week 3 is complete. Yahoo scores, starters, and benches verified September 29. Results remain subject to stat corrections through October 1. Upsets use Yahoo's final displayed original projections, which can differ from the earlier preview.</p>
+  <div class="weekly-grid">
+    <section class="weekly-card" aria-labelledby="week-3-closest-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="week-3-closest-heading">Closest Matchup</h3></div>
+      <p>The Commish finally gets a win. Gotham leaves the winning move on the bench.</p>
+      <p class="result-title">Silence of the Lamb survives by 11.04</p>
+      <dl><div class="weekly-stat"><dt>Matchup</dt><dd>Tylor C vs. Jason H</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Tylor 123.14 • Jason 112.10</dd></div><div class="weekly-stat"><dt>Winning margin</dt><dd>11.04 points</dd></div></dl>
+      <p class="result-note">Drake London (31.40), CeeDee Lamb (23.20), and Spencer Shrader (19.70) helped Tylor survive Jaxon Smith-Njigba's 38.36 for Gotham. Jason had a winning swap available: Terry McLaurin's 19.70 instead of Rashod Bateman's 5.70 would have lifted him to 126.10—a 2.96-point win. Tylor gets the actual W; Jason gets the hypothetical one.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=3&amp;mid1=1&amp;mid2=7">View Tylor–Jason on Yahoo</a>
+    </section>
+    <section class="weekly-card" aria-labelledby="week-3-upset-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="week-3-upset-heading">Biggest Upset</h3></div>
+      <p>The Swami picked Slim Pickens. Chris brought the rebuttal.</p>
+      <p class="result-title">Chris crashes the forecast</p>
+      <dl><div class="weekly-stat"><dt>Yahoo's final displayed original projections</dt><dd>Chris 123.32 • Slim Pickens 126.94</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Chris 141.32 • Jason B 119.44</dd></div><div class="weekly-stat"><dt>Underdog deficit</dt><dd>3.62 projected points</dd></div></dl>
+      <p class="result-note">Chris was the only winning underdog in Yahoo's final displayed original projections. A 3.62-point projected loss became a 21.88-point win—a 25.50-point swing. Ja'Marr Chase (24.80), Harold Fannin Jr. (24.10), Christian Watson (22.60), and Rashee Rice (15.80) did the heavy lifting. Daniel also beat the Swami's West Coast pick, but Yahoo's final displayed projections had Daniel narrowly favored, 105.98–105.67.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=3&amp;mid1=3&amp;mid2=11">View Chris–Jason on Yahoo</a>
+    </section>
+    <section class="weekly-card" aria-labelledby="week-3-bench-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="week-3-bench-heading">Worst Bench Decision</h3></div>
+      <p>A first win does not make the bench decisions immune to review.</p>
+      <p class="result-title">Darnold watches 18.92 points go missing</p>
+      <dl><div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Tylor C • Sam Darnold</dd></div><div class="weekly-stat"><dt>Bench vs. starter</dt><dd>Darnold 32.66 • Justin Herbert 13.74</dd></div><div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>18.92 points</dd></div></dl>
+      <p class="result-note">Starting Darnold would have raised Tylor's total from 123.14 to 142.06 and turned the narrowest win of the week into a 29.96-point cushion. This was the largest single eligible bench-to-starter upgrade across all 12 rosters. Chris was next: Geno Smith's 29.04 over Kyler Murray's 11.42 would have added 17.62. Both managers won anyway; the bench still deserves a mention.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=3&amp;mid1=1&amp;mid2=7">View Tylor's lineup on Yahoo</a>
+    </section>
+  </div>
+  <p class="recap-note"><strong>Commish Swami Sez: 4–2 this week; 8–4 for the season (66.7%).</strong> Week 1 is excluded. <a href="matchup.html#swami-heading">See the original picks and final report cards →</a></p>
+</details>
+<details class="season-awards"><summary>Week 2 recap archive</summary>
+  <div class="weekly-heading"><div><div class="eyebrow">September 15–21, 2026</div><h2>Week 2 Highlights</h2></div><p class="status">Week 2 • Final results</p></div>
+  <p class="recap-note">Week 2 is complete. Scores, original projections, starters, and benches verified on Yahoo September 22. Stat corrections may apply through September 24.</p>
+  <div class="weekly-grid"><section class="weekly-card" aria-labelledby="week2-closest-heading"><div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="week2-closest-heading">Closest Matchup</h3></div><p>The Commish picked himself. Dillon had other plans.</p><p class="result-title">Dillon escapes by 4.66</p><dl><div class="weekly-stat"><dt>Matchup</dt><dd>Dillon’s Team vs. Silence of the Lamb</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Dillon 112.24 • Tylor 107.58</dd></div><div class="weekly-stat"><dt>Winning margin</dt><dd>4.66 points</dd></div></dl><p class="result-note">CeeDee Lamb's 38.30 kept Tylor in it, but James Cook III (23.90), George Kittle (18.00), and Chase McLaughlin (17.60) helped Dillon survive even with DJ Moore at minus 0.10. Starting Xavier Worthy (13.50) over Javonte Williams (8.00) in the flex would have flipped the result: Tylor 113.08, Dillon 112.24. Silence of the Lamb is the team previously named Grim Reaper.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&amp;mid1=1&amp;mid2=5">View Dillon–Tylor on Yahoo</a></section>
+<section class="weekly-card" aria-labelledby="week2-upset-heading"><div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="week2-upset-heading">Biggest Upset</h3></div><p>A tiny projected disadvantage turned into a massive win.</p><p class="result-title">Slim Pickens runs away with it</p><dl><div class="weekly-stat"><dt>Yahoo's original projections</dt><dd>Slim Pickens 122.96 • West Coast 123.67</dd></div><div class="weekly-stat"><dt>Final score</dt><dd>Slim Pickens 156.36 • West Coast 97.28</dd></div><div class="weekly-stat"><dt>Underdog deficit</dt><dd>0.71 projected points</dd></div></dl><p class="result-note">This was the only winning underdog in Yahoo's displayed original projections this week. Jason turned a 0.71-point projected deficit into a 59.08-point win. Davante Adams erupted for 42.50, Dak Prescott added 29.76, and Jonathan Taylor put up 29.20. It was also the week's highest team score, edging Brett's 152.98 by 3.38.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&amp;mid1=11&amp;mid2=12">View Jason–Dusty on Yahoo</a></section>
+<section class="weekly-card" aria-labelledby="week2-bench-heading"><div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="week2-bench-heading">Worst Bench Decision</h3></div><p>Nick’s better quarterback watched from the bench.</p><p class="result-title">Shough outscored Dart by 21.58</p><dl><div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Nick N • Tyler Shough</dd></div><div class="weekly-stat"><dt>Bench vs. starter</dt><dd>Shough 22.38 • Jaxson Dart 0.80</dd></div><div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>21.58 points</dd></div></dl><p class="result-note">The largest single eligible bench-to-starter upgrade belonged to Beast Infection. Shough over Dart would have raised Nick from 72.10 to 93.68, still short of Chris's 112.02. The full optimal lineup tells a different story: 116.78 possible points, enough to win. Dillon gets the runner-up bench blunder: Denzel Boston's 20.50 instead of DJ Moore's minus 0.10 would have added 20.60.</p><a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=2&amp;mid1=2&amp;mid2=3">View Nick–Chris on Yahoo</a></section></div>
+  <p class="recap-note"><strong>Commish Swami Sez: 4–2 this week, 66.7% accuracy.</strong> Week 1 is excluded from the season record. <a href="matchup.html#swami-heading">See the picks and their report cards →</a></p>
+</details>
+<details class="season-awards"><summary>Week 1 recap archive</summary>  <div class="weekly-heading">
+    <div><div class="eyebrow">September 9–14, 2026</div><h2>Week 1 Highlights</h2></div>
+    <p class="status">Week 1 • Final results</p>
+  </div>
+  <p class="recap-note">Week 1 is complete. These highlights use Yahoo's final scores and displayed original projections. Results and season-award standings remain subject to stat corrections.</p>
+  <div class="weekly-grid">
+    <!-- Week 1 final results verified September 15, 2026. -->
+    <section class="weekly-card" aria-labelledby="week1-closest-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🤏</span><h3 id="week1-closest-heading">Closest Matchup</h3></div>
+      <p>Chris had Rashee Rice on Monday night. Brett had just enough breathing room.</p>
+      <p class="result-title">Brett survives by 1.48</p>
+      <dl>
+        <div class="weekly-stat"><dt>Matchup</dt><dd>Chris M vs. Brett D</dd></div>
+        <div class="weekly-stat"><dt>Final score</dt><dd>Brett 163.04 • Chris 161.56</dd></div>
+        <div class="weekly-stat"><dt>Winning margin</dt><dd>Brett wins by 1.48</dd></div>
+      </dl>
+      <p class="result-note">The week's two highest-scoring teams drew each other. Caleb Williams (37.26), D'Andre Swift (35.40), and Christian Watson (35.70) kept Chris alive, while Jahmyr Gibbs (36.60) and Chris Olave (31.20) helped Brett reach 163.04. Rice added 9.90 on Monday, leaving Chris 1.48 short. Brett walks away with the win and the first weekly high-score award; Chris gets the league's most frustrating loss.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=3&amp;mid2=6">View Chris–Brett on Yahoo</a>
+    </section>
+    <section class="weekly-card" aria-labelledby="week1-upset-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">⚡</span><h3 id="week1-upset-heading">Biggest Upset</h3></div>
+      <p>Mickey was projected more than 23 points behind Tylor. His lineup had other plans.</p>
+      <p class="result-title">Overdue Bills comes due</p>
+      <dl>
+        <div class="weekly-stat"><dt>Upset winner</dt><dd>Mickey B • Overdue Bills</dd></div>
+        <div class="weekly-stat"><dt>Opponent &amp; final score</dt><dd>Mickey 157.16 • Tylor 141.46</dd></div>
+        <div class="weekly-stat"><dt>Yahoo's displayed original projections</dt><dd>Mickey 96.67 • Tylor 120.03<br>Mickey was projected 23.36 points behind</dd></div>
+      </dl>
+      <p class="result-note">Josh Allen (38.66) and Jalen Coker (36.80) combined for 75.46 as Mickey turned a projected loss into a 15.70-point win. Nick deserves a mention for beating Dusty 153.40–95.62. Yahoo's final displayed original projections put Nick 23.28 points behind, narrowly less than Mickey's 23.36-point disadvantage. That changes the provisional upset pick from Nick to Mickey.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=1&amp;mid2=10">View Mickey–Tylor on Yahoo</a>
+    </section>
+    <section class="weekly-card" aria-labelledby="week1-bench-heading">
+      <div class="category"><span class="category-icon" aria-hidden="true">🪑</span><h3 id="week1-bench-heading">Worst Bench Decision</h3></div>
+      <p>Jason Harle got the win on the scoreboard. His bench still has a complaint.</p>
+      <p class="result-title">Montgomery had a front-row seat</p>
+      <dl>
+        <div class="weekly-stat"><dt>Owner &amp; benched player</dt><dd>Jason H • David Montgomery</dd></div>
+        <div class="weekly-stat"><dt>Bench points vs. flex starter</dt><dd>Montgomery 28.90<br>Terry McLaurin 3.40</dd></div>
+        <div class="weekly-stat"><dt>Missed points from one eligible swap</dt><dd>25.50 points</dd></div>
+      </dl>
+      <p class="result-note">Montgomery scored three touchdowns on Jason's bench. Starting him in the W/R/T slot instead of McLaurin would have lifted Gotham Knights from 121.46 to 146.96. Jason still finished ahead of Dillon's 94.86, so it cost bragging rights rather than the win. After checking Monday's bench performances, this remains the week's largest single eligible bench-to-starter improvement: 25.50 points.</p>
+      <a class="source-link" href="https://football.fantasysports.yahoo.com/f1/317429/matchup?week=1&amp;mid1=5&amp;mid2=7">View Jason–Dillon on Yahoo</a>
+    </section>
+  </div>
+</details>
 </main>
 <footer><div class="container">CHQ Fantasy Keeper League • Weekly Updates • Built for bragging rights.</div></footer>
 </body>

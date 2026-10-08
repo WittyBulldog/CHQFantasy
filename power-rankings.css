@@ -1,0 +1,24 @@
+.rankings-content { padding:36px 0 64px; max-width:960px; }
+.rankings-toolbar { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; margin-bottom:26px; }
+.rankings-toolbar label { font-size:13px; font-weight:800; }
+.rankings-toolbar select { margin-left:10px; padding:12px; color:var(--text); background:var(--panel); border:1px solid var(--line); border-radius:8px; font:inherit; }
+.rankings-toolbar p,.legend { color:var(--muted); font-size:13px; line-height:1.7; }
+.legend { display:flex; flex-wrap:wrap; gap:16px; margin:0 0 24px; }
+.rankings-list { list-style:none; padding:0; margin:0; display:grid; gap:16px; }
+.ranking-card { display:flex; gap:24px; padding:28px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(135deg,#151e2c,#0d141e); }
+.rankings-list > li:first-child .ranking-card { border-color:rgba(245,196,81,.5); }
+.ranking-number { flex:0 0 58px; color:var(--gold); font-size:40px; line-height:1.1; font-weight:900; font-variant-numeric:tabular-nums; }
+.ranking-copy { min-width:0; flex:1; }
+.custom-rank { flex-wrap:wrap; }
+.custom-rank .ranking-number { flex-basis:100%; font-size:32px; }
+.ranking-title { display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between; }
+.ranking-title h2 { margin:0; font-size:23px; letter-spacing:-.025em; }
+.movement { display:inline-block; padding:5px 10px; border-radius:7px; font-size:13px; font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.up { color:#78e9a4; background:rgba(57,196,110,.12); }
+.down { color:#ff9393; background:rgba(240,80,80,.12); }
+.even { color:#b4bfd0; background:rgba(156,168,187,.1); }
+.ranking-copy p { margin:14px 0 0; color:#bdc6d5; font-size:15px; line-height:1.85; }
+.tier-break { display:flex; align-items:center; gap:16px; margin:28px 0 12px; color:var(--gold2); font-size:13px; font-style:italic; }
+.tier-break::before,.tier-break::after { content:''; height:1px; flex:1; background:var(--line); }
+select:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+@media(max-width:600px) { .ranking-card { padding:20px 16px; gap:12px; } .ranking-number { flex-basis:34px; font-size:27px; } .ranking-title h2 { font-size:20px; } .ranking-copy p { font-size:14px; } }
