@@ -1,0 +1,30 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const swami=require('./swami-picks.json');
+const w=swami.weeks.find(w=>w.week===4);
+assert.equal(w.picks.length,6);
+assert.equal(w.picks.filter(p=>p.pick===p.winner).length,4);
+assert.equal(swami.weeks.flatMap(w=>w.picks).filter(p=>p.pick===p.winner).length,12);
+assert.ok(w.picks.every(p=>p.winner&&p.scores&&p.recap&&p.finalOriginalProjections));
+const awards=require('../season-awards-data.js');
+const performance=require('../team-performance-data.js');
+const api=require('../team-performance.js');
+const rows=api.calculateTeamPerformance(performance,awards);
+assert.equal(rows.length,12);
+assert.equal(rows.find(r=>r.id==='chris-m').possible,114.88);
+assert.equal(rows.find(r=>r.id==='dusty-d').possible,116.88);
+assert.equal(Math.max(...awards.weeks.flatMap(w=>w.scores.map(s=>s.points))),196.62);
+assert.equal(new Set(awards.weeks.map(w=>w.week)).size,4);
+for(const file of ['weekly-updates.html','matchup.html']){
+  const html=fs.readFileSync(file,'utf8');
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  assert.equal(new Set(ids).size,ids.length,'Duplicate IDs in '+file);
+  assert.ok(html.includes('12–6'));
+}
+const weekly=fs.readFileSync('weekly-updates.html','utf8');
+assert.ok(weekly.includes('Week 4 Highlights'));
+for(const n of [1,2,3])assert.ok(weekly.includes(`Week ${n} recap archive`));
+const match=fs.readFileSync('matchup.html','utf8');
+assert.ok(match.includes('WEEK 4 FEATURED MATCHUP • FINAL RESULT'));
+assert.ok(match.includes('Week 4 featured preview archive'));
+assert.ok(!match.includes('Week 5 predictions'));
+console.log('Week 4 verified: 6 results, Swami 4–2 / season 12–6, 12 lineups, season awards, preserved archives, and unique page IDs.');

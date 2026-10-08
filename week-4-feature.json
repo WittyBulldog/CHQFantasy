@@ -1,0 +1,87 @@
+{
+  "season": 2026,
+  "week": 4,
+  "verified": "2026-10-01",
+  "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=4&mid1=6&mid2=11",
+  "teams": [
+    "DonkeyWoodDean",
+    "Slim Pickens"
+  ],
+  "records": [
+    "3–0 • 1st",
+    "1–2 • 6th"
+  ],
+  "originalProjections": [
+    135.54,
+    123.76
+  ],
+  "winProbabilities": [
+    59,
+    41
+  ],
+  "lineup": [
+    [
+      "QB",
+      "Jared Goff",
+      18.67,
+      "Trevor Lawrence",
+      19.51
+    ],
+    [
+      "RB",
+      "Jahmyr Gibbs",
+      24.38,
+      "Jonathan Taylor",
+      19.71
+    ],
+    [
+      "RB",
+      "Jaylen Warren",
+      18.3,
+      "Jeremiyah Love",
+      16.21
+    ],
+    [
+      "WR",
+      "Garrett Wilson",
+      17.49,
+      "George Pickens",
+      14.96
+    ],
+    [
+      "WR",
+      "Chris Olave",
+      18.53,
+      "Davante Adams",
+      13.66
+    ],
+    [
+      "TE",
+      "Sam LaPorta",
+      11.1,
+      "Colston Loveland",
+      10.61
+    ],
+    [
+      "W/R/T",
+      "Brian Thomas Jr.",
+      8.03,
+      "Matthew Golden",
+      13.03
+    ],
+    [
+      "K",
+      "Will Reichard",
+      10.33,
+      "Brandon Aubrey",
+      9.63
+    ],
+    [
+      "DEF",
+      "Vikings",
+      8.71,
+      "Chiefs",
+      6.44
+    ]
+  ]
+}
