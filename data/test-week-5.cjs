@@ -1,0 +1,32 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const swami=require('./swami-picks.json'),raw=require('./week-5-results.json');
+const w=swami.weeks.find(w=>w.week===5);
+assert.equal(w.picks.filter(p=>p.winner===p.pick).length,3);
+assert.equal(swami.weeks.flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,15);
+assert.ok(w.picks.every(p=>p.winner&&p.scores&&p.recap));
+const awards=require('../season-awards-data.js'),data=require('../team-performance-data.js');
+const rows=require('../team-performance.js').calculateTeamPerformance(data,awards);
+assert.equal(data.week,5);
+assert.equal(rows.length,12);
+assert.equal(awards.weeks.filter(w=>w.complete).length,5);
+assert.equal(rows.find(r=>r.id==='dan-e').possible,168.74);
+assert.equal(rows.find(r=>r.id==='brett-d').actual,206.74);
+assert.equal(Math.min(...raw.matchups.map(m=>Math.round(Math.abs(m.scores[0]-m.scores[1])*100))),868);
+assert.equal(Math.max(...awards.weeks.flatMap(w=>w.scores.map(s=>s.points))),206.74);
+const swaps=[];
+for(const t of data.teams)for(const bench of t.players.slice(9))for(let i=0;i<9;i++)if(data.slots[i]==='W/R/T'?['WR','RB','TE'].includes(bench[1]):bench[1]===data.slots[i])swaps.push({team:t.id,name:bench[0],gain:Math.round((bench[2]-t.players[i][2])*100)});
+const best=swaps.sort((a,b)=>b.gain-a.gain)[0];
+assert.deepEqual(best,{team:'dan-e',name:'Drake Maye',gain:1618});
+for(const file of ['weekly-updates.html','matchup.html']){
+ const html=fs.readFileSync(file,'utf8');
+ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+ assert.equal(new Set(ids).size,ids.length);
+ assert.ok(html.includes('15–9'));
+}
+const weekly=fs.readFileSync('weekly-updates.html','utf8');
+assert.ok(weekly.includes('Week 5 Highlights'));
+for(const n of [1,2,3,4])assert.ok(weekly.includes(`Week ${n} recap archive`));
+const matchup=fs.readFileSync('matchup.html','utf8');
+assert.ok(matchup.includes('WEEK 5 FEATURED MATCHUP • FINAL RESULT'));
+assert.ok(!matchup.includes('Week 5 result pending'));
+console.log('Week 5 checks pass: 6 results, Swami 3–3 / season 15–9, 12 valid lineups, 5 award weeks, closest game, largest bench swap, and preserved archives.');

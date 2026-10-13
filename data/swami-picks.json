@@ -344,7 +344,7 @@
     },
     {
       "week": 5,
-      "editorialNote": "Week 5 matchups, standings, and projections checked on Yahoo October 8, 2026. Results are pending; projections may change before kickoff.",
+      "editorialNote": "Original Week 5 previews and picks are preserved. Final scores, starters, and benches checked on Yahoo October 13, 2026; corrections may apply through October 15.",
       "picks": [
         {
           "teams": [
@@ -352,13 +352,22 @@
             "Mark’s Team"
           ],
           "pick": "Silence of the Lamb",
-          "winner": null,
+          "winner": "Silence of the Lamb",
           "comment": "The Commish is 1–3 despite scoring 537.60 points. Mark is 3–1, but Yahoo gives Silence a 9.07-point edge. Give me the Commish to turn those points into a damn win.",
           "originalProjections": [
             125.86,
             116.79
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=1&mid2=8"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=1&mid2=8",
+          "scores": [
+            128.8,
+            118.3
+          ],
+          "finalOriginalProjections": [
+            124.44,
+            120.86
+          ],
+          "recap": "The Commish finally got a win to match the points. Likely's 32.40, London's 21.80, and Shrader's 21.30 helped Silence survive Lamb's 2.90 and beat Mark by 10.50. Bowers (26.00), Rodgers (22.00), and Jefferson (18.80) kept Mark close, but the supporting cast could not close the gap."
         },
         {
           "teams": [
@@ -366,13 +375,22 @@
             "Slim Pickens"
           ],
           "pick": "Beast Infection",
-          "winner": null,
+          "winner": "Slim Pickens",
           "comment": "Nick just beat Gotham by 54.06, while Slim took a 65-point beating from Brett. Yahoo still favors Slim by 21.01. Beast is 2–2, Slim is 1–3, and I’m backing Nick to keep his momentum going. Beast Infection gets the spotlight and my upset pick.",
           "originalProjections": [
             104.52,
             125.53
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=2&mid2=11"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=2&mid2=11",
+          "scores": [
+            88.44,
+            144.84
+          ],
+          "finalOriginalProjections": [
+            106.42,
+            126.47
+          ],
+          "recap": "The spotlight was on Nick. The points were on Jason's side. Pickens (31.00), Golden (23.30), Adams (22.10), and Braelon Allen (21.60) powered Slim to a 56.40-point win. Shough's 1.84 put Beast in a hole, and Walker was on a bye. Egbuka and Stevenson tried to help, but this upset call was dead well before the final tally."
         },
         {
           "teams": [
@@ -380,13 +398,22 @@
             "Overdue Bills"
           ],
           "pick": "Chris’s Team",
-          "winner": null,
+          "winner": "Chris’s Team",
           "comment": "Chris scored 61.58 last week. That’s not a repeat performance I’m betting on. Both teams are 2–2, but Yahoo favors Chris by 19.03. Give me Chris to bounce back and leave Mick staring at the scoreboard.",
           "originalProjections": [
             117.81,
             98.78
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=3&mid2=10"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=3&mid2=10",
+          "scores": [
+            115.08,
+            106.4
+          ],
+          "finalOriginalProjections": [
+            119.43,
+            102.11
+          ],
+          "recap": "The bounce-back call survived, barely. Watson's 35.30 and Chase's 19.70 carried Chris to an 8.68-point win despite Bagent scoring 3.18. Allen dropped 34.50 for Mick, but the shrine needed more help from the receivers. Starting Bourne (12.00) instead of Concepcion (1.50) would have flipped the result to a 1.82-point Overdue Bills win."
         },
         {
           "teams": [
@@ -394,13 +421,22 @@
             "Daniel’s Primo Team"
           ],
           "pick": "DonkeyWoodDean",
-          "winner": null,
+          "winner": "DonkeyWoodDean",
           "comment": "Brett is 4–0 with a league-leading 660.56 points. Daniel just demolished Chris, but this is a bigger problem. Yahoo gives Brett a 14.54-point edge. Until someone stops this donkey, I’m riding with DonkeyWoodDean.",
           "originalProjections": [
             142.81,
             128.27
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=6&mid2=4"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=6&mid2=4",
+          "scores": [
+            206.74,
+            136.16
+          ],
+          "finalOriginalProjections": [
+            145.38,
+            136.44
+          ],
+          "recap": "Until someone stops the donkey, keep riding. Gibbs (40.70) and Warren (39.80) combined for 80.50, with Goff (28.94) and Wilson (26.40) adding to the damage. Brett's 206.74 is the new season high, and he won by 70.58. Puka matched Gibbs with 40.70 for Daniel, but one monster game could not keep up with the whole damn stable."
         },
         {
           "teams": [
@@ -408,13 +444,22 @@
             "West Coast"
           ],
           "pick": "Dillon’s Team",
-          "winner": null,
+          "winner": "West Coast",
           "comment": "Dillon just knocked off Mark by 33.08. Dusty is 0–4 and still hunting that first win. Yahoo separates them by only 2.10 points. I’m taking Dillon and making West Coast wait another week.",
           "originalProjections": [
             119.53,
             117.43
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=5&mid2=12"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=5&mid2=12",
+          "scores": [
+            124.06,
+            176.68
+          ],
+          "finalOriginalProjections": [
+            116.55,
+            116.17
+          ],
+          "recap": "West Coast finally showed up, and Dillon got the bill. Irving (34.50), Washington (33.40), Nabers (32.10), and Love (28.28) powered Dusty's 176.68 and a 52.62-point first win. Daniels (35.26), Evans (29.30), and Cook (25.80) gave Dillon a solid total, but this was the week the basement fought back."
         },
         {
           "teams": [
@@ -422,15 +467,26 @@
             "Mels-16"
           ],
           "pick": "Gotham Knights",
-          "winner": null,
+          "winner": "Mels-16",
           "comment": "Mels is 4–0 and just dropped 196.62. Gotham is 1–3 with three straight losses. Yahoo favors Mark by 24.12, which makes this pick look ridiculous on paper. Good. Give me Gotham to spoil the perfect record.",
           "originalProjections": [
             103.73,
             127.85
           ],
-          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=7&mid2=9"
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=5&mid1=7&mid2=9",
+          "scores": [
+            110.46,
+            126.8
+          ],
+          "finalOriginalProjections": [
+            116.06,
+            127.89
+          ],
+          "recap": "The ridiculous upset pick stayed ridiculous. Mels won by 16.34 behind Burrow (24.60), Henry (24.00), and Tyler Warren (21.40), keeping the perfect record intact. JSN's 25.80 helped Gotham, but Montgomery's 1.10 did not. Woody Marks over Montgomery alone would not have won it; combine that with Pitts over Andrews and Gotham could have flipped the result."
         }
-      ]
+      ],
+      "summary": "Week 5: 3–3 (50.0%). Silence of the Lamb, Chris, and Brett delivered. Slim and Mels spoiled the upset calls, and West Coast finally got its first win. Season record: 15–9 (62.5%), with Week 1 excluded.",
+      "verified": "October 13, 2026"
     }
   ]
 }
