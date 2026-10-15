@@ -210,6 +210,76 @@
           "comment": "What the hell happened to Saquon? Achane has disappeared from the starting lineup, Bucky is sliding, and the Jags might have too many mouths to feed for everybody to eat. Nabers has not carried this team out of the basement either, although leaving his 26.20 on the bench last week certainly did not help. If you had told me after the draft that this squad would start 0–4, I would have laughed and assumed you benched everyone to give the league a chance. Turns out you did not need to bench everyone. Just enough of the right people."
         }
       ]
+    },
+    {
+      "season": 2026,
+      "week": 5,
+      "label": "After Week 5",
+      "teams": [
+        {
+          "id": "brett-d",
+          "name": "DonkeyWoodDean",
+          "comment": "Top scorer in three of five weeks, a perfect record, and 114.96 more points than the next team. This is no fluke. Brett came to play, and apparently the rest of us came to provide opponents. Missing some of his top guys this week might finally put a dent in that record, but it will take more than one loss to knock him off this spot. You have earned a little breathing room, Brett. Please do not use all of it to talk."
+        },
+        {
+          "id": "mark-me",
+          "name": "Mels-16",
+          "comment": "Old man Melquist is still undefeated and showing no signs of slowing down. Gotham made him work a little harder than usual last week, but a win is a win, and nobody gets bonus points for making it look easy. The running backs are ridiculous, the receivers are serviceable, and the playoff invitation feels like it is already in the mail. The real question is whether everybody holds up once he gets there. Keep the players healthy and the readers handy."
+        },
+        {
+          "id": "tylor-c",
+          "name": "Silence of the Lamb",
+          "comment": "Still taking everybody’s best shot, still leading the league in points against, and finally finding a couple of wins along the way. Third in points scored buys me some confidence, even if third in my own rankings buys me another week of homer accusations. Likely just dropped 32.40, which was very thoughtful of him considering Lamb apparently took the afternoon off. I like the starters a lot. The depth is thin enough that every injury notification feels personal."
+        },
+        {
+          "id": "jason-b",
+          "name": "Slim Pickens",
+          "comment": "Apparently public humiliation works. One win later and you are back up to fourth, which probably means I will spend next week explaining myself again. The starters are solid, the depth is even better, and Pickens, Golden, and Adams just reminded everyone why I liked this team in the first place. If Jeremiyah ‘blocking RB’ Love starts contributing to the fantasy portion of fantasy football, this squad gets scary. For now, welcome back to the neighborhood."
+        },
+        {
+          "id": "dusty-d",
+          "name": "West Coast",
+          "comment": "Twelfth to fifth. Apparently the team I thought you drafted was just stuck in traffic for a month. Irving, Washington, Nabers, and Love finally put a whole afternoon together, and 176.68 is a pretty convincing request to reconsider my opinion. I still need more consistent production from the star power. Barkley and Nabers, I am looking at you. Only one game out of the playoffs means there is still time, Dusty. Please try to make that first win the beginning of something.",
+          "breakAfter": "DROP OFF"
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris’s Team",
+          "comment": "Chase is the headliner, and then there is a lot of perfectly fine talent that does not exactly have me clearing a spot for your trophy. Watson’s 35.30 last week deserves credit, though, and the lower end of a healthy starting lineup is still solid enough to keep you competitive. Nothing here makes me want to write a championship speech, but there is enough to make somebody’s Sunday annoying. Sixth again. Dependable mediocrity has found its mailing address."
+        },
+        {
+          "id": "nick-n",
+          "name": "Beast Infection",
+          "comment": "A.J. Brown is back, baby. Time to see what Nick’s team looks like when the receiver room spends a little less time on the injury report. Brown, Collins, and Egbuka give me reasons to like the ceiling, and Walker gives this team another real weapon when available. You might have been higher if I trusted everybody to stay on the field. Seventh is where I am parking the optimism until the healthy version shows up for more than a cameo."
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark’s Team",
+          "comment": "Cam is not quite looking like the player we thought we were getting, and the flex spot keeps making me look for a better option that apparently is not there. McCaffrey and Bowers are doing plenty to hold this together, but they cannot personally fill every box in the lineup. No JJ this week makes the receiver situation even less inviting. Down five spots, Mark. I still see the good pieces; I am having a harder time seeing the complete team.",
+          "breakAfter": "DROP OFF"
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon’s Team",
+          "comment": "James Cook gives me confidence. After that, I start asking questions. Kittle and Mike Evans have been nice surprises, but I am less comfortable counting on the older guys to carry this thing all the way down the stretch. Daniels coming back helps, although last week proved a good quarterback score cannot fix everything around it. The depth is lacking, and I do not love enough of the top-end talent to talk myself into a higher spot. Overall, a bit meh."
+        },
+        {
+          "id": "jason-h",
+          "name": "Gotham Knights",
+          "comment": "I bet you felt pretty good about David Montgomery after Week 1. What the hell happened? JSN is still a dog, and Jayden coming back gives Terry McLaurin a reason to feel better about his Sundays, but I am still struggling to see a real contender here. You made Mels work for it last week, which counts for something in this paragraph and absolutely nothing in the standings. The supporting cast needs to start pulling its weight before the Bat-Signal becomes a permanent fixture."
+        },
+        {
+          "id": "dan-e",
+          "name": "Daniel’s Primo Team",
+          "comment": "This running back room is actually gross. Even as a Pollard truther, I am having a hard time looking directly at it. Puka and McBride give you legitimate stars, and Maye clearly has points in him when those points make it into the starting lineup. The problem is that the running backs keep handing the rest of the team extra homework. I can talk myself into a few players here. I cannot talk myself into eleventh being unfair.",
+          "breakAfter": "MASSIVE DROP OFF"
+        },
+        {
+          "id": "mickey-b",
+          "name": "Overdue Bills",
+          "comment": "Yuck. Allen keeps trying to drag this roster somewhere respectable, and the rest of the lineup keeps asking if they can stop for a break. You were one receiver swap away from beating Chris last week, so congratulations on finding a way to make both the loss and the bench frustrating. Twelfth, Mick. I considered writing more, but ‘yuck’ did most of the work."
+        }
+      ]
     }
   ]
 }
