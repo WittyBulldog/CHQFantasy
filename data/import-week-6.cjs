@@ -1,0 +1,27 @@
+const fs=require('node:fs');
+const raw=require('./week-6-results.json'),prior=require('../team-performance-data.js'),awards=require('../season-awards-data.js'),swami=require('./swami-picks.json');
+const identity={1:['tylor-c','Silence of the Lamb'],2:['nick-n','Beast Infection'],3:['chris-m','Chris’s Team'],4:['dan-e','Daniel’s Primo Team'],5:['dillon-m','Dillon’s Team'],6:['brett-d','DonkeyWoodDean'],7:['jason-h','Gotham Knights'],8:['mark-ma','Mark’s Team'],9:['mark-me','Mels-16'],10:['mickey-b','Overdue Bills'],11:['jason-b','Slim Pickens'],12:['dusty-d','West Coast']};
+const members=require('./league-members.json').members;
+const source=m=>`https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=${m.ids[0]}&mid2=${m.ids[1]}`;
+if(prior.week!==6)fs.copyFileSync('team-performance-data.js',`data/team-performance-week-${prior.week}.js`);
+const weekAward={week:6,phase:'Regular season',complete:true,label:'Week 6 • final results',source:'https://football.fantasysports.yahoo.com/f1/317429?matchup_week=6',scores:raw.matchups.flatMap(m=>m.ids.map((id,i)=>({id:identity[id][0],name:members.find(p=>p.id===identity[id][0]).name,points:m.scores[i]})))};
+awards.weeks=awards.weeks.filter(w=>w.week!==6).concat(weekAward).sort((a,b)=>a.week-b.week);
+const performance={season:2026,week:6,slots:prior.slots,teams:raw.matchups.flatMap(m=>m.ids.map((id,i)=>({id:identity[id][0],team:identity[id][1],matchup:`${m.ids[0]}&mid2=${m.ids[1]}`,players:m.rosters[i]})))};
+const rows=require('../team-performance.js').calculateTeamPerformance(performance,awards);
+fs.writeFileSync('season-awards-data.js','// Yahoo results through Week 6 verified October 20, 2026; corrections may apply through October 22.\nconst CHQ_SEASON_AWARDS = '+JSON.stringify(awards,null,2)+";\nif(typeof module !== 'undefined') module.exports=CHQ_SEASON_AWARDS;\n");
+fs.writeFileSync('team-performance-data.js','// Yahoo Week 6 starters and benches verified October 20, 2026. IR excluded.\n// Bye-week bench scores are zero; corrections may apply through October 22. First nine players are starters.\nconst CHQ_TEAM_PERFORMANCE = '+JSON.stringify(performance,null,2)+";\nif(typeof module !== 'undefined') module.exports=CHQ_TEAM_PERFORMANCE;\n");
+const recaps={
+  2:"The bounce-back call landed. Walker's 30.90 and Shough's 26.96 gave Nick the foundation, while Egbuka added 17.80 in an 11.06-point win. Johnson scored zero and Brown managed 5.70, so this was not exactly comfortable. Daniel got 23.80 from Maye and 20.30 from Metcalf, but Folk's 1.00 and a quieter day from Puka left him short. Beast won as Yahoo's final 7.35-point underdog.",
+  1:"The Commish turned another pick into a win, by 21.88. Likely (23.90) and Cousins (22.52) led the scoring; Lamb and London combined for 28.20. Nabers gave Dusty 31.50, but Irving and Lloyd combined for only 7.90. Tucker's 26.70 stayed on Tylor's bench, so there was still room for the victory to be more comfortable.",
+  3:"Chris made the Swami pay for picking against him. Swift (23.00), Caleb Williams (19.50), Tate (19.00), and Flournoy (17.00) delivered an 8.50-point win. Cook and Daniels combined for 48.30 for Dillon, but zeroes from Judkins and DJ Moore left too much to overcome. Even Dillon's best possible lineup from this roster would have finished short.",
+  6:"The donkey finally stopped, and Mick was the one holding the rope. Hubbard (22.10), Bass (18.70), and Allen (18.30) helped Overdue Bills win by 49.42 and post the week's highest score, 125.50. Brett's final lineup left Olave's 14.30 on the bench while Brian Thomas Jr. scored zero. That swap alone would not have saved the unbeaten record.",
+  7:"Slim found the answer to Gotham's early JSN surge. Golden scored 25.40, Taylor added 21.10, and the Chiefs defense supplied 15.00 in a 14.84-point win. JSN (28.40) and Tuten (24.70) gave Gotham a chance, but Andrews' 1.40 hurt. Pitts scored 23.00 on the bench; that one swap would have turned this into a 6.76-point Gotham win.",
+  8:"The backfield the Swami hated betting against combined for just 22.00 from Bijan, Henry, and Kyren. McCaffrey scored 30.70 by himself for Mark's Team, with DeVonta adding 20.50. Mark won by 22.02 despite Skattebo scoring zero. Mels' perfect record ended, and the Swami's confidence in that running back room got a fairly direct response."
+};
+const w=swami.weeks.find(w=>w.week===6);
+w.picks.forEach(p=>{const m=raw.matchups.find(m=>m.ids.every(id=>p.teams.includes(identity[id][1])));if(!m)throw Error('Unmatched pick');if(p.teams[0]!==identity[m.ids[0]][1])throw Error('Unexpected team order');p.scores=m.scores;p.finalOriginalProjections=m.originalProjections;p.winner=identity[m.ids[m.scores[0]>m.scores[1]?0:1]][1];p.source=source(m);p.recap=recaps[m.ids[0]];});
+w.editorialNote='Original Week 6 picks and previews are preserved. Final scores, original projections, starters, and benches checked on Yahoo October 20, 2026; corrections may apply through October 22.';
+w.summary='Week 6: 3–3 (50.0%). Beast Infection, Silence of the Lamb, and Slim Pickens delivered. Chris beat the Dillon pick, while Overdue Bills and Mark’s Team ended both unbeaten runs. Season record: 18–12 (60.0%), with Week 1 excluded.';
+w.verified='October 20, 2026';
+fs.writeFileSync('data/swami-picks.json',JSON.stringify(swami,null,2)+'\n');
+console.log(rows.map(r=>({team:r.team,actual:r.actual,possible:r.possible,missed:r.missed})));

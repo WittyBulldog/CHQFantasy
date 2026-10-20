@@ -1,8 +1,8 @@
-// Yahoo Week 5 starters and benches verified October 13, 2026. IR excluded.
-// Bye-week bench scores are zero; corrections may apply through October 15. First nine players are starters.
+// Yahoo Week 6 starters and benches verified October 20, 2026. IR excluded.
+// Bye-week bench scores are zero; corrections may apply through October 22. First nine players are starters.
 const CHQ_TEAM_PERFORMANCE = {
   "season": 2026,
-  "week": 5,
+  "week": 6,
   "slots": [
     "QB",
     "RB",
@@ -18,47 +18,47 @@ const CHQ_TEAM_PERFORMANCE = {
     {
       "id": "nick-n",
       "team": "Beast Infection",
-      "matchup": "2&mid2=11",
+      "matchup": "2&mid2=4",
       "players": [
         [
           "Tyler Shough",
           "QB",
-          1.84
-        ],
-        [
-          "Keaton Mitchell",
-          "RB",
-          5.9
+          26.96
         ],
         [
           "Rhamondre Stevenson",
           "RB",
-          17.5
+          3.6
+        ],
+        [
+          "Kenneth Walker III",
+          "RB",
+          30.9
         ],
         [
           "Nico Collins",
           "WR",
-          10.6
+          10.9
         ],
         [
           "Emeka Egbuka",
           "WR",
-          17.2
+          17.8
         ],
         [
           "Juwan Johnson",
           "TE",
-          5.6
+          0
         ],
         [
-          "Keon Coleman",
+          "A.J. Brown",
           "WR",
-          7.7
+          5.7
         ],
         [
           "Cam Little",
           "K",
-          10.1
+          10
         ],
         [
           "Broncos",
@@ -66,568 +66,81 @@ const CHQ_TEAM_PERFORMANCE = {
           12
         ],
         [
-          "Antonio Williams",
+          "Germie Bernard",
           "WR",
-          6.1
+          25.7
         ],
         [
-          "Kenneth Walker III",
-          "RB",
-          0
+          "Antonio Williams",
+          "WR",
+          8
         ],
         [
           "Mike Washington Jr.",
           "RB",
-          2
+          6
         ],
         [
           "Makai Lemon",
           "WR",
-          9.3
-        ],
-        [
-          "Brian Robinson",
-          "RB",
-          1.6
-        ],
-        [
-          "Jalen Hurts",
-          "QB",
-          13
-        ]
-      ]
-    },
-    {
-      "id": "jason-b",
-      "team": "Slim Pickens",
-      "matchup": "2&mid2=11",
-      "players": [
-        [
-          "Dak Prescott",
-          "QB",
-          17.64
-        ],
-        [
-          "Jonathan Taylor",
-          "RB",
-          11.2
-        ],
-        [
-          "Braelon Allen",
-          "RB",
-          21.6
-        ],
-        [
-          "George Pickens",
-          "WR",
-          31
-        ],
-        [
-          "Matthew Golden",
-          "WR",
-          23.3
-        ],
-        [
-          "Colston Loveland",
-          "TE",
-          3.9
-        ],
-        [
-          "Davante Adams",
-          "WR",
-          22.1
-        ],
-        [
-          "Brandon Aubrey",
-          "K",
-          5.1
-        ],
-        [
-          "Browns",
-          "DEF",
-          9
-        ],
-        [
-          "Jeremiyah Love",
-          "RB",
-          2.2
-        ],
-        [
-          "Trevor Lawrence",
-          "QB",
-          25.74
-        ],
-        [
-          "Omarion Hampton",
-          "RB",
           4.9
         ],
         [
-          "Luther Burden III",
-          "WR",
-          8.9
-        ],
-        [
-          "Ladd McConkey",
-          "WR",
-          0
-        ],
-        [
-          "Chiefs",
-          "DEF",
-          0
-        ]
-      ]
-    },
-    {
-      "id": "tylor-c",
-      "team": "Silence of the Lamb",
-      "matchup": "1&mid2=8",
-      "players": [
-        [
-          "Sam Darnold",
-          "QB",
-          10.3
-        ],
-        [
-          "Javonte Williams",
-          "RB",
-          14.2
-        ],
-        [
-          "Ashton Jeanty",
-          "RB",
-          10.7
-        ],
-        [
-          "CeeDee Lamb",
-          "WR",
-          2.9
-        ],
-        [
-          "Drake London",
-          "WR",
-          21.8
-        ],
-        [
-          "Isaiah Likely",
-          "TE",
-          32.4
-        ],
-        [
-          "Emanuel Wilson",
-          "RB",
-          13.2
-        ],
-        [
-          "Spencer Shrader",
-          "K",
-          21.3
-        ],
-        [
-          "Jaguars",
-          "DEF",
-          2
-        ],
-        [
-          "Ollie Gordon II",
-          "RB",
-          14.8
-        ],
-        [
-          "Jakobi Meyers",
-          "WR",
-          5.7
-        ],
-        [
-          "Justin Herbert",
-          "QB",
-          11.24
-        ],
-        [
-          "Tre Tucker",
-          "WR",
-          7.5
-        ],
-        [
-          "Xavier Worthy",
-          "WR",
-          0
-        ],
-        [
-          "Josh Jacobs",
-          "RB",
-          0
-        ]
-      ]
-    },
-    {
-      "id": "mark-ma",
-      "team": "Mark’s Team",
-      "matchup": "1&mid2=8",
-      "players": [
-        [
-          "Aaron Rodgers",
-          "QB",
-          22
-        ],
-        [
-          "Christian McCaffrey",
-          "RB",
-          17.3
-        ],
-        [
-          "Cam Skattebo",
-          "RB",
-          7.1
-        ],
-        [
-          "Malik Washington",
-          "WR",
-          12.1
-        ],
-        [
-          "Devaughn Vele",
-          "WR",
-          6.6
-        ],
-        [
-          "Brock Bowers",
-          "TE",
-          26
-        ],
-        [
-          "Justin Jefferson",
-          "WR",
-          18.8
-        ],
-        [
-          "Eddy Pineiro",
-          "K",
-          7.4
-        ],
-        [
-          "Cowboys",
-          "DEF",
-          1
-        ],
-        [
-          "Courtland Sutton",
-          "WR",
-          9.8
-        ],
-        [
-          "Patrick Mahomes",
-          "QB",
-          0
-        ],
-        [
-          "Jake Ferguson",
-          "TE",
-          4.9
-        ],
-        [
-          "Kenny Gainwell",
-          "RB",
-          5.8
-        ],
-        [
-          "Rachaad White",
-          "RB",
-          3
-        ]
-      ]
-    },
-    {
-      "id": "chris-m",
-      "team": "Chris’s Team",
-      "matchup": "3&mid2=10",
-      "players": [
-        [
-          "Tyson Bagent",
-          "QB",
-          3.18
-        ],
-        [
-          "D'Andre Swift",
-          "RB",
-          17.3
-        ],
-        [
-          "Will Shipley",
-          "RB",
-          8.3
-        ],
-        [
-          "Ja'Marr Chase",
-          "WR",
-          19.7
-        ],
-        [
-          "Christian Watson",
-          "WR",
-          35.3
-        ],
-        [
-          "Harold Fannin Jr.",
-          "TE",
-          1.4
-        ],
-        [
-          "Carnell Tate",
-          "WR",
-          1.6
-        ],
-        [
-          "Tyler Loop",
-          "K",
-          13.3
-        ],
-        [
-          "Texans",
-          "DEF",
-          15
-        ],
-        [
-          "TreVeyon Henderson",
-          "RB",
-          4.8
-        ],
-        [
-          "Rashee Rice",
-          "WR",
-          0
-        ],
-        [
-          "Ryan Flournoy",
-          "WR",
-          12
-        ],
-        [
-          "Emmett Johnson",
+          "Dylan Sampson",
           "RB",
           0
         ],
         [
-          "Breece Hall",
+          "Kendre Miller",
           "RB",
-          0
-        ],
-        [
-          "Caleb Williams",
-          "QB",
-          0
-        ]
-      ]
-    },
-    {
-      "id": "mickey-b",
-      "team": "Overdue Bills",
-      "matchup": "3&mid2=10",
-      "players": [
-        [
-          "Josh Allen",
-          "QB",
-          34.5
-        ],
-        [
-          "Jacory Croskey-Merritt",
-          "RB",
-          14.2
-        ],
-        [
-          "Blake Corum",
-          "RB",
-          16.2
-        ],
-        [
-          "Romeo Doubs",
-          "WR",
-          2.6
-        ],
-        [
-          "KC Concepcion Jr.",
-          "WR",
-          1.5
-        ],
-        [
-          "Dalton Kincaid",
-          "TE",
-          3.7
-        ],
-        [
-          "Khalil Shakir",
-          "WR",
-          11
-        ],
-        [
-          "Tyler Bass",
-          "K",
-          13.7
-        ],
-        [
-          "Bengals",
-          "DEF",
           9
-        ],
-        [
-          "Dontayvion Wicks",
-          "WR",
-          11.3
-        ],
-        [
-          "Chuba Hubbard",
-          "RB",
-          0
-        ],
-        [
-          "Jalen Coker",
-          "WR",
-          0
-        ],
-        [
-          "Bryce Young",
-          "QB",
-          0
-        ],
-        [
-          "Tyreek Hill",
-          "WR",
-          0
-        ],
-        [
-          "Kendrick Bourne",
-          "WR",
-          12
-        ]
-      ]
-    },
-    {
-      "id": "brett-d",
-      "team": "DonkeyWoodDean",
-      "matchup": "6&mid2=4",
-      "players": [
-        [
-          "Jared Goff",
-          "QB",
-          28.94
-        ],
-        [
-          "Jahmyr Gibbs",
-          "RB",
-          40.7
-        ],
-        [
-          "Jaylen Warren",
-          "RB",
-          39.8
-        ],
-        [
-          "Garrett Wilson",
-          "WR",
-          26.4
-        ],
-        [
-          "Chris Olave",
-          "WR",
-          8.6
-        ],
-        [
-          "Sam LaPorta",
-          "TE",
-          19.8
-        ],
-        [
-          "Zay Flowers",
-          "WR",
-          14.6
-        ],
-        [
-          "Will Reichard",
-          "K",
-          16.9
-        ],
-        [
-          "Vikings",
-          "DEF",
-          11
-        ],
-        [
-          "Brian Thomas Jr.",
-          "WR",
-          0
-        ],
-        [
-          "Dallas Goedert",
-          "TE",
-          9.8
-        ],
-        [
-          "Bo Nix",
-          "QB",
-          7.92
-        ],
-        [
-          "Jonathon Brooks",
-          "RB",
-          0
-        ],
-        [
-          "Matthew Stafford",
-          "QB",
-          30.32
-        ],
-        [
-          "Jayden Higgins",
-          "WR",
-          0
         ]
       ]
     },
     {
       "id": "dan-e",
       "team": "Daniel’s Primo Team",
-      "matchup": "6&mid2=4",
+      "matchup": "2&mid2=4",
       "players": [
         [
-          "Jacoby Brissett",
+          "Drake Maye",
           "QB",
-          26.28
-        ],
-        [
-          "Aaron Jones Sr.",
-          "RB",
-          21.7
+          23.8
         ],
         [
           "RJ Harvey",
           "RB",
-          0.7
+          14.6
+        ],
+        [
+          "Tony Pollard",
+          "RB",
+          7.6
         ],
         [
           "Michael Wilson",
           "WR",
-          7.28
+          7.2
         ],
         [
           "DK Metcalf",
           "WR",
-          5.3
+          20.3
         ],
         [
           "Trey McBride",
           "TE",
-          21.6
+          12.3
         ],
         [
           "Puka Nacua",
           "WR",
-          40.7
+          14
         ],
         [
-          "Evan McPherson",
+          "Nick Folk",
           "K",
-          6.6
+          1
         ],
         [
           "Patriots",
@@ -635,14 +148,14 @@ const CHQ_TEAM_PERFORMANCE = {
           6
         ],
         [
-          "Drake Maye",
-          "QB",
-          42.46
+          "Aaron Jones Sr.",
+          "RB",
+          0
         ],
         [
-          "Tony Pollard",
-          "RB",
-          5.2
+          "Jacoby Brissett",
+          "QB",
+          7.92
         ],
         [
           "Jordan Addison",
@@ -652,156 +165,151 @@ const CHQ_TEAM_PERFORMANCE = {
         [
           "Chris Godwin Jr.",
           "WR",
-          7
+          7.7
         ],
         [
           "J.K. Dobbins",
           "RB",
-          15.4
+          13.6
         ],
         [
           "Tyler Allgeier",
           "RB",
-          3.6
+          5.8
         ]
       ]
     },
     {
-      "id": "dillon-m",
-      "team": "Dillon’s Team",
-      "matchup": "5&mid2=12",
+      "id": "tylor-c",
+      "team": "Silence of the Lamb",
+      "matchup": "1&mid2=12",
       "players": [
         [
-          "Jayden Daniels",
+          "Kirk Cousins",
           "QB",
-          35.26
+          22.52
         ],
         [
-          "Quinshon Judkins",
+          "Ashton Jeanty",
           "RB",
-          8
+          15.8
         ],
         [
-          "Chase Brown",
+          "Emanuel Wilson",
           "RB",
-          7
+          5.2
         ],
         [
-          "Tee Higgins",
+          "CeeDee Lamb",
           "WR",
-          4.2
+          16
         ],
         [
-          "Mike Evans",
+          "Drake London",
           "WR",
-          29.3
+          12.2
         ],
         [
-          "George Kittle",
+          "Isaiah Likely",
           "TE",
-          7.4
+          23.9
         ],
         [
-          "James Cook III",
+          "Javonte Williams",
           "RB",
-          25.8
+          13
         ],
         [
-          "Chase McLaughlin",
+          "Spencer Shrader",
           "K",
-          7.1
+          9
         ],
         [
-          "Colts",
+          "Jaguars",
           "DEF",
+          1
+        ],
+        [
+          "Ollie Gordon II",
+          "RB",
           0
         ],
         [
-          "DJ Moore",
+          "Jakobi Meyers",
           "WR",
+          13.3
+        ],
+        [
+          "Tre Tucker",
+          "WR",
+          26.7
+        ],
+        [
+          "Xavier Worthy",
+          "WR",
+          14.3
+        ],
+        [
+          "Josh Jacobs",
+          "RB",
           0
         ],
         [
-          "Kenyon Sadiq",
-          "TE",
-          0.3
-        ],
-        [
-          "Malik Willis",
-          "QB",
-          20.88
-        ],
-        [
-          "Denzel Boston",
-          "WR",
-          13.6
-        ],
-        [
-          "T.J. Hockenson",
-          "TE",
-          1.7
-        ],
-        [
-          "Skyler Bell",
-          "WR",
-          0
+          "Brian Robinson Jr.",
+          "RB",
+          3
         ]
       ]
     },
     {
       "id": "dusty-d",
       "team": "West Coast",
-      "matchup": "5&mid2=12",
+      "matchup": "1&mid2=12",
       "players": [
         [
           "Jordan Love",
           "QB",
-          28.28
+          21.24
         ],
         [
           "Bucky Irving",
           "RB",
-          34.5
+          6.9
         ],
         [
           "MarShawn Lloyd",
           "RB",
-          16.7
-        ],
-        [
-          "Amon-Ra St. Brown",
-          "WR",
-          12.9
+          1
         ],
         [
           "Parker Washington",
           "WR",
-          33.4
-        ],
-        [
-          "Tucker Kraft",
-          "TE",
-          11.6
+          10.4
         ],
         [
           "Malik Nabers",
           "WR",
-          32.1
+          31.5
         ],
         [
-          "Cameron Dicker",
-          "K",
-          6.2
-        ],
-        [
-          "Rams",
-          "DEF",
-          1
+          "Tucker Kraft",
+          "TE",
+          8.7
         ],
         [
           "Josh Downs",
           "WR",
-          7.7
+          8.7
+        ],
+        [
+          "Cameron Dicker",
+          "K",
+          5.3
+        ],
+        [
+          "Rams",
+          "DEF",
+          3
         ],
         [
           "Saquon Barkley",
@@ -809,178 +317,680 @@ const CHQ_TEAM_PERFORMANCE = {
           0
         ],
         [
+          "Amon-Ra St. Brown",
+          "WR",
+          0
+        ],
+        [
+          "Michael Pittman Jr.",
+          "WR",
+          0
+        ],
+        [
           "Deebo Samuel Sr.",
           "WR",
-          2.5
+          0
         ],
         [
           "Hunter Henry",
           "TE",
+          14.8
+        ]
+      ]
+    },
+    {
+      "id": "chris-m",
+      "team": "Chris’s Team",
+      "matchup": "3&mid2=5",
+      "players": [
+        [
+          "Caleb Williams",
+          "QB",
+          19.5
+        ],
+        [
+          "D'Andre Swift",
+          "RB",
+          23
+        ],
+        [
+          "Dameon Pierce",
+          "RB",
+          15
+        ],
+        [
+          "Christian Watson",
+          "WR",
+          9.4
+        ],
+        [
+          "Carnell Tate",
+          "WR",
+          19
+        ],
+        [
+          "Harold Fannin Jr.",
+          "TE",
+          1.9
+        ],
+        [
+          "Ryan Flournoy",
+          "WR",
+          17
+        ],
+        [
+          "Tyler Loop",
+          "K",
+          4.4
+        ],
+        [
+          "Houston",
+          "DEF",
+          1
+        ],
+        [
+          "Rashee Rice",
+          "WR",
+          0
+        ],
+        [
+          "TreVeyon Henderson",
+          "RB",
+          3
+        ],
+        [
+          "Ja'Marr Chase",
+          "WR",
+          0
+        ],
+        [
+          "Emmett Johnson",
+          "RB",
+          4.4
+        ],
+        [
+          "Kyle Monangai",
+          "RB",
+          0
+        ],
+        [
+          "Kaelon Black",
+          "RB",
+          4.7
+        ]
+      ]
+    },
+    {
+      "id": "dillon-m",
+      "team": "Dillon’s Team",
+      "matchup": "3&mid2=5",
+      "players": [
+        [
+          "Jayden Daniels",
+          "QB",
+          24
+        ],
+        [
+          "Quinshon Judkins",
+          "RB",
+          0
+        ],
+        [
+          "James Cook III",
+          "RB",
+          24.3
+        ],
+        [
+          "Mike Evans",
+          "WR",
+          12.4
+        ],
+        [
+          "Denzel Boston",
+          "WR",
+          2.5
+        ],
+        [
+          "George Kittle",
+          "TE",
+          17.9
+        ],
+        [
+          "DJ Moore",
+          "WR",
+          0
+        ],
+        [
+          "Chase McLaughlin",
+          "K",
+          18.6
+        ],
+        [
+          "Indianapolis",
+          "DEF",
+          2
+        ],
+        [
+          "Chase Brown",
+          "RB",
+          0
+        ],
+        [
+          "Tee Higgins",
+          "WR",
+          0
+        ],
+        [
+          "Kenyon Sadiq",
+          "TE",
+          2.2
+        ],
+        [
+          "T.J. Hockenson",
+          "TE",
+          0
+        ],
+        [
+          "Skyler Bell",
+          "WR",
+          0
+        ],
+        [
+          "Joe Milton",
+          "QB",
+          0
+        ]
+      ]
+    },
+    {
+      "id": "brett-d",
+      "team": "DonkeyWoodDean",
+      "matchup": "6&mid2=10",
+      "players": [
+        [
+          "Matthew Stafford",
+          "QB",
+          16.88
+        ],
+        [
+          "Jaylen Warren",
+          "RB",
+          9.8
+        ],
+        [
+          "Tyjae Spears",
+          "RB",
+          1.8
+        ],
+        [
+          "Garrett Wilson",
+          "WR",
+          8.4
+        ],
+        [
+          "Brian Thomas Jr.",
+          "WR",
+          0
+        ],
+        [
+          "Dallas Goedert",
+          "TE",
+          12.1
+        ],
+        [
+          "Zay Flowers",
+          "WR",
+          12.7
+        ],
+        [
+          "Harrison Butker",
+          "K",
           13.4
+        ],
+        [
+          "Buffalo",
+          "DEF",
+          1
+        ],
+        [
+          "Chris Olave",
+          "WR",
+          14.3
+        ],
+        [
+          "Jahmyr Gibbs",
+          "RB",
+          0
+        ],
+        [
+          "Sam LaPorta",
+          "TE",
+          0
+        ],
+        [
+          "Jared Goff",
+          "QB",
+          0
+        ],
+        [
+          "Will Reichard",
+          "K",
+          0
+        ],
+        [
+          "Minnesota",
+          "DEF",
+          0
+        ]
+      ]
+    },
+    {
+      "id": "mickey-b",
+      "team": "Overdue Bills",
+      "matchup": "6&mid2=10",
+      "players": [
+        [
+          "Josh Allen",
+          "QB",
+          18.3
+        ],
+        [
+          "Chuba Hubbard",
+          "RB",
+          22.1
+        ],
+        [
+          "Blake Corum",
+          "RB",
+          14
+        ],
+        [
+          "Romeo Doubs",
+          "WR",
+          11.2
+        ],
+        [
+          "Jalen Coker",
+          "WR",
+          15.7
+        ],
+        [
+          "Dalton Kincaid",
+          "TE",
+          10.8
+        ],
+        [
+          "Kendrick Bourne",
+          "WR",
+          9.7
+        ],
+        [
+          "Tyler Bass",
+          "K",
+          18.7
+        ],
+        [
+          "San Francisco",
+          "DEF",
+          5
+        ],
+        [
+          "KC Concepcion Jr.",
+          "WR",
+          7.9
+        ],
+        [
+          "Khalil Shakir",
+          "WR",
+          13.4
+        ],
+        [
+          "Bryce Young",
+          "QB",
+          19.84
+        ],
+        [
+          "Marvin Harrison Jr.",
+          "WR",
+          6.4
+        ],
+        [
+          "Cyrus Allen",
+          "WR",
+          4.7
+        ],
+        [
+          "Keon Coleman",
+          "WR",
+          15.9
         ]
       ]
     },
     {
       "id": "jason-h",
       "team": "Gotham Knights",
-      "matchup": "7&mid2=9",
+      "matchup": "7&mid2=11",
       "players": [
         [
-          "Kyler Murray",
+          "Cam Ward",
           "QB",
-          18.26
-        ],
-        [
-          "David Montgomery",
-          "RB",
-          1.1
+          7.78
         ],
         [
           "Bhayshul Tuten",
           "RB",
-          11.6
-        ],
-        [
-          "Jaxon Smith-Njigba",
-          "WR",
-          25.8
-        ],
-        [
-          "Jameson Williams",
-          "WR",
-          18.7
-        ],
-        [
-          "Mark Andrews",
-          "TE",
-          4.8
-        ],
-        [
-          "Wan'Dale Robinson",
-          "WR",
-          11.3
-        ],
-        [
-          "Ka'imi Fairbairn",
-          "K",
-          17.9
-        ],
-        [
-          "Pittsburgh",
-          "DEF",
-          1
-        ],
-        [
-          "Kyle Pitts Sr.",
-          "TE",
-          15.2
-        ],
-        [
-          "Terry McLaurin",
-          "WR",
-          12.2
-        ],
-        [
-          "Rashod Bateman",
-          "WR",
-          11.2
-        ],
-        [
-          "Rico Dowdle",
-          "RB",
-          0
+          24.7
         ],
         [
           "Woody Marks",
           "RB",
-          12.5
+          10.1
+        ],
+        [
+          "Jaxon Smith-Njigba",
+          "WR",
+          28.4
+        ],
+        [
+          "Terry McLaurin",
+          "WR",
+          3.7
+        ],
+        [
+          "Mark Andrews",
+          "TE",
+          1.4
+        ],
+        [
+          "Wan'Dale Robinson",
+          "WR",
+          5.2
+        ],
+        [
+          "Ka'imi Fairbairn",
+          "K",
+          11.4
+        ],
+        [
+          "Steelers",
+          "DEF",
+          10
+        ],
+        [
+          "Kyle Pitts Sr.",
+          "TE",
+          23
+        ],
+        [
+          "David Montgomery",
+          "RB",
+          0
+        ],
+        [
+          "Jameson Williams",
+          "WR",
+          0
+        ],
+        [
+          "Rashod Bateman",
+          "WR",
+          0
+        ],
+        [
+          "Rico Dowdle",
+          "RB",
+          7.9
         ],
         [
           "Keenan Allen",
           "WR",
-          9.5
+          16.2
+        ]
+      ]
+    },
+    {
+      "id": "jason-b",
+      "team": "Slim Pickens",
+      "matchup": "7&mid2=11",
+      "players": [
+        [
+          "Dak Prescott",
+          "QB",
+          13.02
+        ],
+        [
+          "Jonathan Taylor",
+          "RB",
+          21.1
+        ],
+        [
+          "Braelon Allen",
+          "RB",
+          12.4
+        ],
+        [
+          "George Pickens",
+          "WR",
+          13.3
+        ],
+        [
+          "Davante Adams",
+          "WR",
+          6.9
+        ],
+        [
+          "Brenton Strange",
+          "TE",
+          9.4
+        ],
+        [
+          "Matthew Golden",
+          "WR",
+          25.4
+        ],
+        [
+          "Brandon Aubrey",
+          "K",
+          1
+        ],
+        [
+          "Chiefs",
+          "DEF",
+          15
+        ],
+        [
+          "Colston Loveland",
+          "TE",
+          18.5
+        ],
+        [
+          "Trevor Lawrence",
+          "QB",
+          31.34
+        ],
+        [
+          "Omarion Hampton",
+          "RB",
+          7.9
+        ],
+        [
+          "Luther Burden III",
+          "WR",
+          17.5
+        ],
+        [
+          "Ladd McConkey",
+          "WR",
+          2.7
+        ],
+        [
+          "Kimani Vidal",
+          "RB",
+          7
+        ]
+      ]
+    },
+    {
+      "id": "mark-ma",
+      "team": "Mark’s Team",
+      "matchup": "8&mid2=9",
+      "players": [
+        [
+          "Patrick Mahomes",
+          "QB",
+          11.48
+        ],
+        [
+          "Christian McCaffrey",
+          "RB",
+          30.7
+        ],
+        [
+          "Cam Skattebo",
+          "RB",
+          0
+        ],
+        [
+          "Devaughn Vele",
+          "WR",
+          7.2
+        ],
+        [
+          "Courtland Sutton",
+          "WR",
+          3.9
+        ],
+        [
+          "Brock Bowers",
+          "TE",
+          11
+        ],
+        [
+          "DeVonta Smith",
+          "WR",
+          20.5
+        ],
+        [
+          "Eddy Pineiro",
+          "K",
+          5.3
+        ],
+        [
+          "Ravens",
+          "DEF",
+          9
+        ],
+        [
+          "Malik Washington",
+          "WR",
+          0
+        ],
+        [
+          "Aaron Rodgers",
+          "QB",
+          17.02
+        ],
+        [
+          "Justin Jefferson",
+          "WR",
+          0
+        ],
+        [
+          "Jake Ferguson",
+          "TE",
+          3.3
+        ],
+        [
+          "Kenny Gainwell",
+          "RB",
+          3.4
+        ],
+        [
+          "Rachaad White",
+          "RB",
+          15.7
         ]
       ]
     },
     {
       "id": "mark-me",
       "team": "Mels-16",
-      "matchup": "7&mid2=9",
+      "matchup": "8&mid2=9",
       "players": [
         [
-          "Joe Burrow",
+          "Brock Purdy",
           "QB",
-          24.6
+          17.36
         ],
         [
           "Bijan Robinson",
           "RB",
-          15.8
+          7.3
         ],
         [
           "Derrick Henry",
           "RB",
-          24
+          5
         ],
         [
           "Jaylen Waddle",
           "WR",
-          4.8
-        ],
-        [
-          "Rome Odunze",
-          "WR",
-          5
-        ],
-        [
-          "Tyler Warren",
-          "TE",
-          21.4
-        ],
-        [
-          "Kyren Williams",
-          "RB",
-          19.6
-        ],
-        [
-          "Jake Bates",
-          "K",
-          10.6
-        ],
-        [
-          "Chicago",
-          "DEF",
-          1
-        ],
-        [
-          "Stefon Diggs",
-          "WR",
-          0
+          6.4
         ],
         [
           "Tetairoa McMillan",
           "WR",
-          0
-        ],
-        [
-          "Brock Purdy",
-          "QB",
-          17.16
+          14.6
         ],
         [
           "Travis Kelce",
           "TE",
+          9.3
+        ],
+        [
+          "Kyren Williams",
+          "RB",
+          9.7
+        ],
+        [
+          "Blake Grupe",
+          "K",
+          4.4
+        ],
+        [
+          "Seahawks",
+          "DEF",
+          3
+        ],
+        [
+          "Tyler Warren",
+          "TE",
           0
+        ],
+        [
+          "Rome Odunze",
+          "WR",
+          6.9
+        ],
+        [
+          "Joe Burrow",
+          "QB",
+          0
+        ],
+        [
+          "Stefon Diggs",
+          "WR",
+          16.4
         ],
         [
           "Alvin Kamara",
           "RB",
-          2.6
+          14.9
         ],
         [
-          "Tre' Harris",
-          "WR",
-          3.6
+          "Bears",
+          "DEF",
+          11
         ]
       ]
     }

@@ -2,9 +2,10 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 const swami=require('./swami-picks.json'),raw=require('./week-5-results.json');
 const w=swami.weeks.find(w=>w.week===5);
 assert.equal(w.picks.filter(p=>p.winner===p.pick).length,3);
-assert.equal(swami.weeks.flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,15);
+assert.equal(swami.weeks.filter(w=>w.week<=5).flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,15);
 assert.ok(w.picks.every(p=>p.winner&&p.scores&&p.recap));
-const awards=require('../season-awards-data.js'),data=require('../team-performance-data.js');
+const allAwards=require('../season-awards-data.js');
+const awards={...allAwards,weeks:allAwards.weeks.filter(w=>w.week<=5)},data=require('./team-performance-week-5.js');
 const rows=require('../team-performance.js').calculateTeamPerformance(data,awards);
 assert.equal(data.week,5);
 assert.equal(rows.length,12);
@@ -21,12 +22,11 @@ for(const file of ['weekly-updates.html','matchup.html']){
  const html=fs.readFileSync(file,'utf8');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length);
- assert.ok(html.includes('15–9'));
 }
 const weekly=fs.readFileSync('weekly-updates.html','utf8');
 assert.ok(weekly.includes('Week 5 Highlights'));
 for(const n of [1,2,3,4])assert.ok(weekly.includes(`Week ${n} recap archive`));
 const matchup=fs.readFileSync('matchup.html','utf8');
-assert.ok(matchup.includes('WEEK 5 FEATURED MATCHUP • FINAL RESULT'));
+assert.ok(matchup.includes('Week 5 results'));
 assert.ok(!matchup.includes('Week 5 result pending'));
 console.log('Week 5 checks pass: 6 results, Swami 3–3 / season 15–9, 12 valid lineups, 5 award weeks, closest game, largest bench swap, and preserved archives.');

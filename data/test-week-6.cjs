@@ -1,0 +1,37 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const swami=require('./swami-picks.json'),raw=require('./week-6-results.json');
+const w=swami.weeks.find(w=>w.week===6);
+assert.equal(w.picks.length,6);
+assert.equal(new Set(w.picks.flatMap(p=>p.teams)).size,12);
+assert.equal(w.picks.filter(p=>p.winner===p.pick).length,3);
+assert.equal(swami.weeks.flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,18);
+assert.ok(w.picks.every(p=>p.winner&&p.scores&&p.recap&&p.source));
+const awards=require('../season-awards-data.js'),data=require('../team-performance-data.js');
+const rows=require('../team-performance.js').calculateTeamPerformance(data,awards);
+assert.equal(data.week,6);
+assert.equal(rows.length,12);
+assert.equal(awards.weeks.filter(w=>w.complete).length,6);
+assert.equal(rows.find(r=>r.id==='chris-m').efficiency,100);
+assert.equal(rows.find(r=>r.id==='dillon-m').possible,103.9);
+assert.equal(Math.max(...rows.map(r=>r.actual)),125.5);
+assert.equal(Math.max(...awards.weeks.flatMap(w=>w.scores.map(s=>s.points))),206.74);
+assert.equal(Math.min(...raw.matchups.map(m=>Math.round(Math.abs(m.scores[0]-m.scores[1])*100))),850);
+const underdogs=raw.matchups.map(m=>({m,i:m.scores[0]>m.scores[1]?0:1})).filter(({m,i})=>m.originalProjections[i]<m.originalProjections[1-i]).sort((a,b)=>(b.m.originalProjections[1-b.i]-b.m.originalProjections[b.i])-(a.m.originalProjections[1-a.i]-a.m.originalProjections[a.i]));
+assert.equal(underdogs.length,3);
+assert.deepEqual(underdogs[0].m.ids,[8,9]);
+const swaps=[];
+for(const t of data.teams)for(const bench of t.players.slice(9))for(let i=0;i<9;i++)if(data.slots[i]==='W/R/T'?['WR','RB','TE'].includes(bench[1]):bench[1]===data.slots[i])swaps.push({team:t.id,name:bench[0],gain:Math.round((bench[2]-t.players[i][2])*100)});
+assert.deepEqual(swaps.sort((a,b)=>b.gain-a.gain)[0],{team:'jason-h',name:'Kyle Pitts Sr.',gain:2160});
+for(const file of ['weekly-updates.html','matchup.html']){
+ const html=fs.readFileSync(file,'utf8');
+ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+ assert.equal(new Set(ids).size,ids.length,'Duplicate ID in '+file);
+ assert.ok(html.includes('18–12'));
+}
+const weekly=fs.readFileSync('weekly-updates.html','utf8');
+assert.ok(weekly.includes('Week 6 Highlights'));
+for(const n of [1,2,3,4,5])assert.ok(weekly.includes(`Week ${n} recap archive`));
+const matchup=fs.readFileSync('matchup.html','utf8');
+assert.ok(matchup.includes('WEEK 6 FEATURED MATCHUP • FINAL RESULT'));
+assert.ok(!matchup.includes('Week 6 result pending'));
+console.log('Week 6 checks pass: 6 results, Swami 3–3 / season 18–12, 12 valid lineups, 6 award weeks, highlights, and preserved archives.');

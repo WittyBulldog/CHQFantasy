@@ -490,7 +490,7 @@
     },
     {
       "week": 6,
-      "editorialNote": "The Commish’s Week 6 picks. Results are pending.",
+      "editorialNote": "Original Week 6 picks and previews are preserved. Final scores, original projections, starters, and benches checked on Yahoo October 20, 2026; corrections may apply through October 22.",
       "picks": [
         {
           "teams": [
@@ -498,8 +498,18 @@
             "Daniel’s Primo Team"
           ],
           "pick": "Beast Infection",
-          "winner": null,
-          "comment": "Daniel can make this uncomfortable, but I like Nick’s path to a bounce-back. Walker gives Beast a strong foundation, and Collins and Egbuka bring the kind of receiving upside that can swing a matchup. Daniel has plenty of punch with Puka and McBride; I’m backing Nick to get more help across the lineup. Beast Infection gets the spotlight and the win."
+          "winner": "Beast Infection",
+          "comment": "Daniel can make this uncomfortable, but I like Nick’s path to a bounce-back. Walker gives Beast a strong foundation, and Collins and Egbuka bring the kind of receiving upside that can swing a matchup. Daniel has plenty of punch with Puka and McBride; I’m backing Nick to get more help across the lineup. Beast Infection gets the spotlight and the win.",
+          "scores": [
+            117.86,
+            106.8
+          ],
+          "finalOriginalProjections": [
+            120.44,
+            127.79
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=2&mid2=4",
+          "recap": "The bounce-back call landed. Walker's 30.90 and Shough's 26.96 gave Nick the foundation, while Egbuka added 17.80 in an 11.06-point win. Johnson scored zero and Brown managed 5.70, so this was not exactly comfortable. Daniel got 23.80 from Maye and 20.30 from Metcalf, but Folk's 1.00 and a quieter day from Puka left him short. Beast won as Yahoo's final 7.35-point underdog."
         },
         {
           "teams": [
@@ -507,8 +517,18 @@
             "West Coast"
           ],
           "pick": "Silence of the Lamb",
-          "winner": null,
-          "comment": "Dusty finally reminded everyone his team can put up a fight. Unfortunately, I still like the Lamb and London combination to give the Commish the edge. West Coast can absolutely make me regret this, but I’m trusting my playmakers to finish the job. Give me Silence of the Lamb."
+          "winner": "Silence of the Lamb",
+          "comment": "Dusty finally reminded everyone his team can put up a fight. Unfortunately, I still like the Lamb and London combination to give the Commish the edge. West Coast can absolutely make me regret this, but I’m trusting my playmakers to finish the job. Give me Silence of the Lamb.",
+          "scores": [
+            118.62,
+            96.74
+          ],
+          "finalOriginalProjections": [
+            132.36,
+            119.08
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=1&mid2=12",
+          "recap": "The Commish turned another pick into a win, by 21.88. Likely (23.90) and Cousins (22.52) led the scoring; Lamb and London combined for 28.20. Nabers gave Dusty 31.50, but Irving and Lloyd combined for only 7.90. Tucker's 26.70 stayed on Tylor's bench, so there was still room for the victory to be more comfortable."
         },
         {
           "teams": [
@@ -516,8 +536,18 @@
             "Dillon’s Team"
           ],
           "pick": "Dillon’s Team",
-          "winner": null,
-          "comment": "Chris has the receivers to turn this into a headache, but I like Dillon’s running backs to keep his lineup moving. Cook and the rest of that backfield give him a way to stay in it without waiting for a receiver to save the afternoon. I’m taking Dillon to grind this one out."
+          "winner": "Chris’s Team",
+          "comment": "Chris has the receivers to turn this into a headache, but I like Dillon’s running backs to keep his lineup moving. Cook and the rest of that backfield give him a way to stay in it without waiting for a receiver to save the afternoon. I’m taking Dillon to grind this one out.",
+          "scores": [
+            110.2,
+            101.7
+          ],
+          "finalOriginalProjections": [
+            108.85,
+            94.77
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=3&mid2=5",
+          "recap": "Chris made the Swami pay for picking against him. Swift (23.00), Caleb Williams (19.50), Tate (19.00), and Flournoy (17.00) delivered an 8.50-point win. Cook and Daniels combined for 48.30 for Dillon, but zeroes from Judkins and DJ Moore left too much to overcome. Even Dillon's best possible lineup from this roster would have finished short."
         },
         {
           "teams": [
@@ -525,8 +555,18 @@
             "Overdue Bills"
           ],
           "pick": "DonkeyWoodDean",
-          "winner": null,
-          "comment": "Josh Allen can drag Mick into just about any matchup, so this is no free ride for Brett. I’m leaning on Wilson and Olave to give DonkeyWoodDean enough receiving firepower to get through a tougher week. Mick has a real opening here, but I still trust Brett’s receivers to make the difference. I’m staying on the damn donkey."
+          "winner": "Overdue Bills",
+          "comment": "Josh Allen can drag Mick into just about any matchup, so this is no free ride for Brett. I’m leaning on Wilson and Olave to give DonkeyWoodDean enough receiving firepower to get through a tougher week. Mick has a real opening here, but I still trust Brett’s receivers to make the difference. I’m staying on the damn donkey.",
+          "scores": [
+            76.08,
+            125.5
+          ],
+          "finalOriginalProjections": [
+            109.28,
+            98.29
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=6&mid2=10",
+          "recap": "The donkey finally stopped, and Mick was the one holding the rope. Hubbard (22.10), Bass (18.70), and Allen (18.30) helped Overdue Bills win by 49.42 and post the week's highest score, 125.50. Brett's final lineup left Olave's 14.30 on the bench while Brian Thomas Jr. scored zero. That swap alone would not have saved the unbeaten record."
         },
         {
           "teams": [
@@ -534,8 +574,18 @@
             "Slim Pickens"
           ],
           "pick": "Slim Pickens",
-          "winner": null,
-          "comment": "JSN already played and got rolling, giving Gotham a strong start. I still like Slim’s mix of Taylor in the backfield and Pickens and Adams through the air. There are more ways for that group to carry the afternoon, and I’m trusting Slim to find one."
+          "winner": "Slim Pickens",
+          "comment": "JSN already played and got rolling, giving Gotham a strong start. I still like Slim’s mix of Taylor in the backfield and Pickens and Adams through the air. There are more ways for that group to carry the afternoon, and I’m trusting Slim to find one.",
+          "scores": [
+            102.68,
+            117.52
+          ],
+          "finalOriginalProjections": [
+            101.2,
+            111.41
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=7&mid2=11",
+          "recap": "Slim found the answer to Gotham's early JSN surge. Golden scored 25.40, Taylor added 21.10, and the Chiefs defense supplied 15.00 in a 14.84-point win. JSN (28.40) and Tuten (24.70) gave Gotham a chance, but Andrews' 1.40 hurt. Pitts scored 23.00 on the bench; that one swap would have turned this into a 6.76-point Gotham win."
         },
         {
           "teams": [
@@ -543,10 +593,22 @@
             "Mels-16"
           ],
           "pick": "Mels-16",
-          "winner": null,
-          "comment": "Mark’s Team has the star power to make picking against him feel stupid. I’m doing it anyway. Bijan, Henry, and Kyren give Mels a backfield I hate betting against, and the rest of the lineup doesn’t need to be spectacular when those guys get going. Give me Mels to wear him down."
+          "winner": "Mark’s Team",
+          "comment": "Mark’s Team has the star power to make picking against him feel stupid. I’m doing it anyway. Bijan, Henry, and Kyren give Mels a backfield I hate betting against, and the rest of the lineup doesn’t need to be spectacular when those guys get going. Give me Mels to wear him down.",
+          "scores": [
+            99.08,
+            77.06
+          ],
+          "finalOriginalProjections": [
+            117.64,
+            129.89
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=6&mid1=8&mid2=9",
+          "recap": "The backfield the Swami hated betting against combined for just 22.00 from Bijan, Henry, and Kyren. McCaffrey scored 30.70 by himself for Mark's Team, with DeVonta adding 20.50. Mark won by 22.02 despite Skattebo scoring zero. Mels' perfect record ended, and the Swami's confidence in that running back room got a fairly direct response."
         }
-      ]
+      ],
+      "summary": "Week 6: 3–3 (50.0%). Beast Infection, Silence of the Lamb, and Slim Pickens delivered. Chris beat the Dillon pick, while Overdue Bills and Mark’s Team ended both unbeaten runs. Season record: 18–12 (60.0%), with Week 1 excluded.",
+      "verified": "October 20, 2026"
     }
   ]
 }
