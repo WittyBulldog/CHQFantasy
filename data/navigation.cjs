@@ -2,8 +2,7 @@ const GROUPS = [
   {label:'This Week',links:[['weekly-updates.html','Weekly Updates'],['matchup.html','Matchup of the Week'],['power-rankings.html','Power Rankings']]},
   {label:'League',links:[['players.html','Players'],['rules.html','Rules'],['payouts.html','Payouts']]},
   {label:'Records & History',links:[['records.html','Records'],['career.html','Career Records'],['history.html','History']]},
-  // Add the punishment poll here when its separate publication is approved.
-  {label:'League Fun',links:[['quotes.html','Quotes']]}
+  {label:'League Fun',links:[['quotes.html','Quotes'],['punishment-poll.html','Punishment Poll']]}
 ];
 const escape = value => value.replaceAll('&','&amp;').replaceAll('"','&quot;');
 function renderNavigation(page) {

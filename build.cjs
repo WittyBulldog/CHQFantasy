@@ -3,7 +3,7 @@ require('./data/build-career.cjs');
 require('./data/build-swami.cjs');
 require('./data/build-performance-history.cjs');
 require('./data/build-power-rankings.cjs');
-if(fs.existsSync('data/build-punishment-poll.cjs'))require('./data/build-punishment-poll.cjs');
+require('./data/build-punishment-poll.cjs');
 require('./data/build-navigation.cjs');
 fs.mkdirSync('dist/data',{recursive:true});
 for(const file of fs.readdirSync('.').filter(f=>/\.(html|css|mjs|js)$/.test(f)))fs.copyFileSync(file,path.join('dist',file));

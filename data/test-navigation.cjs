@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {GROUPS,renderNavigation}=require('./navigation.cjs');
 const expected=['index.html',...GROUPS.flatMap(g=>g.links.map(([url])=>url))];
-assert.equal(new Set(expected).size,11);
+assert.equal(new Set(expected).size,12);
 const files=fs.readdirSync('.').filter(f=>f.endsWith('.html'));
 for(const file of files){
  const html=fs.readFileSync(file,'utf8');
@@ -20,4 +20,4 @@ for(const file of files){
  assert.ok(!nav.includes('punishment-poll-admin.html'),'Commissioner controls must not be in public navigation');
  assert.equal(fs.readFileSync('dist/'+file,'utf8').match(/<nav class="nav"[\s\S]*?<\/nav>/)[0],nav);
 }
-console.log(`Grouped navigation verified on ${files.length} pages: all 11 published destinations, 4 collapsed groups, active links, and matching published assets.`);
+console.log(`Grouped navigation verified on ${files.length} pages: all 12 published destinations, 4 collapsed groups, active links, and matching published assets.`);

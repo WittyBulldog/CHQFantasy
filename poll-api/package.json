@@ -1,0 +1,13 @@
+{
+  "name": "chq-punishment-poll-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy --secrets-file .private/secrets.json",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "undici": "^8.12.3",
+    "wrangler": "^4.151.3"
+  }
+}

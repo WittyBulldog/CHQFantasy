@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chq-punishment-poll",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    "ALLOWED_ORIGINS": "https://www.chqfantasy.com,https://chqfantasy.com"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "chq-punishment-poll",
+    "database_id": "81f7320d-134c-4ac6-ab13-0d4a547c13c4",
+    "migrations_dir": "migrations"
+  }]
+}
