@@ -47,6 +47,12 @@ button.poll-option:hover:not(:disabled) { background:rgba(245,196,81,.08); borde
 .poll-rules h3 { color:var(--text); margin:0 0 10px; font-size:15px; }
 .poll-rules ul { padding-left:20px; margin:0; }
 .poll-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+.poll-reset { margin-top:26px; padding-top:22px; border-top:1px solid var(--line); }
+.poll-reset h4 { margin:20px 0 10px; }
+.poll-reset label { display:block; margin:16px 0 8px; font-size:13px; }
+.poll-reset input { display:block; width:100%; max-width:260px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#0d141e; color:var(--text); font:inherit; }
+.poll-button.danger { background:#8c303b; color:#fff; border-color:#c55c68; }
+.poll-button.danger:hover:not(:disabled) { background:#a53b48; }
 .poll-ties label { display:grid; gap:8px; margin-top:16px; color:var(--gold2); font-size:13px; }
 [hidden] { display:none !important; }
 @media(max-width:900px) { .poll-bracket { grid-template-columns:1fr; max-width:620px; margin:auto; gap:34px; }.poll-round-matches { gap:16px; }.poll-intro { align-items:flex-start; flex-direction:column; gap:8px; } }

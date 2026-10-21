@@ -67,6 +67,8 @@ function renderAdmin(){
   const panel=document.getElementById('poll-admin-controls');panel.hidden=!credential||!online;
   const buttons=document.getElementById('poll-admin-actions');buttons.replaceChildren();
   const ties=document.getElementById('poll-ties');ties.replaceChildren();
+  for(const id of ['poll-reset-toggle','poll-reset-confirmation','poll-reset-cancel','poll-reset-submit'])document.getElementById(id).disabled=busy;
+  if(panel.hidden)hideReset();
   if(panel.hidden)return;
   document.getElementById('poll-admin-note').textContent=state.phase==='complete'?'The final result is locked. Voting is finished.':state.phase==='draft'?'Open the quarterfinals when the league is ready.':state.phase==='open'?'Close voting to lock the totals. You can then review ties and advance the round.':'Voting is closed. Resolve any tied matchups below, then advance. You can also reopen this round.';
   if(state.phase==='closed')for(const m of state.matches.filter(m=>m.round===state.round)){
@@ -76,12 +78,31 @@ function renderAdmin(){
   const actions=state.phase==='draft'?[['open','Open quarterfinal voting']]:state.phase==='open'?[['close','Close voting for this round']]:state.phase==='closed'?[['advance',state.round===3?'Confirm the champion':'Advance winners and open next round'],['reopen','Reopen this round']]:[];
   for(const [action,label]of actions){const button=el('button','poll-button'+(action==='reopen'?' secondary':''),label);button.type='button';button.disabled=busy;button.addEventListener('click',()=>adminAction(action));buttons.append(button);}
 }
-async function adminAction(action){
+function hideReset(){
+  document.getElementById('poll-reset-form').hidden=true;
+  document.getElementById('poll-reset-toggle').setAttribute('aria-expanded','false');
+  document.getElementById('poll-reset-confirmation').value='';
+}
+async function adminAction(action,confirmation){
+  if(busy)return;
   const tieChoices=Object.fromEntries(Array.from(document.querySelectorAll('#poll-ties select')).filter(s=>s.value).map(s=>[s.dataset.match,s.value]));
   busy=true;render();
-  try{state=await request('/admin',{action,revision:state.revision,tieChoices});tell(action==='advance'?'Winners advanced.':'Round updated.');}
+  try{state=await request('/admin',{action,revision:state.revision,tieChoices,...(action==='reset'?{confirmation}:{})});if(action==='reset')hideReset();tell(action==='reset'?'Bracket reset. All votes and results were erased. Quarterfinal voting is closed until you open it.':action==='advance'?'Winners advanced.':'Round updated.');}
   catch(error){tell(error.message,true);}
   finally{busy=false;render();}
+}
+if(admin){
+  document.getElementById('poll-reset-toggle').addEventListener('click',()=>{
+    const form=document.getElementById('poll-reset-form');
+    if(!form.hidden){hideReset();return;}
+    form.hidden=false;document.getElementById('poll-reset-toggle').setAttribute('aria-expanded','true');
+    document.getElementById('poll-reset-confirmation').focus();
+  });
+  document.getElementById('poll-reset-cancel').addEventListener('click',()=>{hideReset();document.getElementById('poll-reset-toggle').focus();});
+  document.getElementById('poll-reset-form').addEventListener('submit',event=>{
+    event.preventDefault();const confirmation=document.getElementById('poll-reset-confirmation').value;
+    if(confirmation==='RESET')adminAction('reset',confirmation);
+  });
 }
 document.getElementById('poll-access-form').addEventListener('submit',async event=>{
   event.preventDefault();credential=document.getElementById('poll-code').value.trim();if(!credential)return;

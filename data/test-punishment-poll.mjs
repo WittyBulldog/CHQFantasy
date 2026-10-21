@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {DatabaseSync} from 'node:sqlite';
 import {createHash} from 'node:crypto';
-import {snapshot,publicSnapshot,castVote,changePhase,advance,selectWinners} from '../poll-api/src/core.mjs';
+import {snapshot,publicSnapshot,castVote,changePhase,advance,selectWinners,resetBracket} from '../poll-api/src/core.mjs';
 import worker from '../poll-api/src/index.mjs';
 import {ENTRIES,INITIAL_MATCHES} from '../punishment-poll-data.mjs';
 
@@ -56,6 +56,21 @@ next=await snapshot(db);assert.equal(next.phase,'complete');
 assert.equal(next.matches.find(m=>m.id==='final').winner,'plunge');
 assert.equal(await castVote(db,'owner2','final','calendar'),false);
 assert.throws(()=>selectWinners([{id:'x',left:'a',right:'b',counts:{a:1,b:1}}],{x:'c'}),/tied/);
+await assert.rejects(resetBracket(db,next.revision,'reset'),/Type RESET/);
+assert.equal((await snapshot(db)).phase,'complete','Missing confirmation must preserve the completed bracket');
+assert.equal(await resetBracket(db,next.revision,'RESET'),true);
+let fresh=await snapshot(db,'owner1');
+assert.equal(fresh.phase,'draft');assert.equal(fresh.round,1);
+assert.equal(fresh.revision,next.revision+1,'Reset must preserve revision ordering');
+assert.deepEqual(fresh.matches.map(m=>({id:m.id,round:m.round,left:m.left,right:m.right})),INITIAL_MATCHES);
+assert.ok(fresh.matches.every(m=>m.winner===null&&m.myVote===null&&Object.keys(m.counts).length===0));
+assert.equal(await castVote(db,'owner1','qf1','calendar'),false,'Reset must leave voting closed');
+assert.equal(await changePhase(db,'open',fresh.revision),true);
+assert.equal(await castVote(db,'owner1','qf1','calendar'),true);
+assert.equal(await resetBracket(db,next.revision,'RESET'),false,'Stale reset must not erase new votes');
+fresh=await snapshot(db,'owner1');
+assert.equal(fresh.phase,'open');assert.equal(fresh.matches[0].myVote,'calendar');
+assert.equal(await resetBracket(db,fresh.revision,'RESET'),true,'Reset must also work during open voting');
 db.close();
 
 const httpDb=database(),code='1234567890ABCDEF1234567890ABCDEF12345678';
@@ -77,6 +92,16 @@ assert.equal((await call('/ballot',{},code.match(/.{1,5}/g).join('-'))).status,2
 assert.equal((await call('/vote',{matchId:'sf1',choice:'calendar'},code)).status,409);
 assert.equal((await call('/admin',{action:'close',revision:1},env.ADMIN_SECRET)).status,200);
 assert.equal((await call('/vote',{matchId:'qf1',choice:'bowling'},code)).status,409);
+assert.equal((await call('/admin',{action:'reset',revision:2,confirmation:'RESET'},code)).status,401);
+assert.equal((await call('/admin',{action:'reset',revision:2},env.ADMIN_SECRET)).status,400);
+assert.equal((await call('/admin',{action:'reset',revision:2,confirmation:'reset'},env.ADMIN_SECRET)).status,400);
+assert.equal((await snapshot(httpDb)).matches[0].counts.calendar,1,'Unconfirmed resets must preserve votes');
+assert.equal((await call('/admin',{action:'reset',revision:1,confirmation:'RESET'},env.ADMIN_SECRET)).status,409);
+response=await call('/admin',{action:'reset',revision:2,confirmation:'RESET'},env.ADMIN_SECRET);
+assert.equal(response.status,200);
+const reset=await response.json();assert.equal(reset.phase,'draft');assert.equal(reset.revision,3);
+assert.ok(reset.matches.every(m=>Object.keys(m.counts).length===0));
+assert.equal((await call('/ballot',{},code)).status,200,'Existing owner codes must work after reset');
 httpDb.close();
 for(const file of ['punishment-poll.html','punishment-poll-admin.html']){
  const html=fs.readFileSync(file,'utf8');
@@ -85,3 +110,6 @@ for(const file of ['punishment-poll.html','punishment-poll-admin.html']){
  assert.ok(fs.readFileSync('dist/'+file,'utf8').includes('punishment-poll.mjs'));
 }
 console.log('Punishment poll: actual SQL ballot uniqueness, closed rounds, ties, all three rounds, stale advancement, authentication, and CORS checks passed.');
+assert.ok(fs.readFileSync('punishment-poll-admin.html','utf8').includes('poll-reset-confirmation'));
+assert.ok(!fs.readFileSync('punishment-poll.html','utf8').includes('poll-reset-confirmation'));
+console.log('Reset checks passed: commissioner authorization, explicit confirmation, complete and open bracket resets, vote deletion, preserved codes, and stale-request protection.');

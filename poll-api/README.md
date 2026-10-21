@@ -22,7 +22,7 @@ The website and API must use HTTPS in production. `ALLOWED_ORIGINS` is limited t
 - Open → collect votes → close → review results and ties → advance. Advancing opens the next round. Results remain visible for completed rounds.
 - A matchup needs at least one vote before advancing. All 12 owners do not have to vote. Close rounds only when the league has had its agreed voting window.
 - Close voting before resolving a tie. The commissioner can choose either tied entry, but cannot override a non-tied result. Reopen the current closed round if more voting is needed.
-- Final confirmation locks the champion. There is no public reset, deletion, or bracket editing endpoint.
+- Final confirmation locks the champion. To start over, unlock commissioner controls, select **Reset bracket…**, type **RESET**, and confirm. This permanently deletes all votes and results, restores the original quarterfinals, and closes voting. Owner codes and the commissioner key stay valid. Reset is commissioner-only and rejects stale requests; it cannot be undone.
 - Entry details are in `punishment-poll-data.mjs`. The database seed must match the entry IDs and pairings. Do not change IDs or pairings during a live tournament.
 - Credentials are held in browser memory only and are sent to the API in the Authorization header, not in URLs. Public responses omit voter identities and hide per-entry totals while voting is open. The commissioner can see those totals.
 

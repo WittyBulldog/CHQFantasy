@@ -1,4 +1,18 @@
-import { POLL_ID } from '../../punishment-poll-data.mjs';
+import { POLL_ID, INITIAL_MATCHES } from '../../punishment-poll-data.mjs';
+
+export async function resetBracket(db, revision, confirmation) {
+  if (confirmation !== 'RESET') throw new Error('Type RESET to confirm erasing all votes and results.');
+  const guard = 'EXISTS (SELECT 1 FROM polls WHERE id=? AND revision=?)';
+  const statements = [
+    db.prepare(`DELETE FROM votes WHERE poll_id=? AND ${guard}`).bind(POLL_ID,POLL_ID,revision),
+    db.prepare(`DELETE FROM matches WHERE poll_id=? AND round>1 AND ${guard}`).bind(POLL_ID,POLL_ID,revision),
+    ...INITIAL_MATCHES.map(m=>db.prepare(`UPDATE matches SET round=1,left_id=?,right_id=?,winner=NULL WHERE poll_id=? AND id=? AND ${guard}`)
+      .bind(m.left,m.right,POLL_ID,m.id,POLL_ID,revision)),
+    db.prepare("UPDATE polls SET round=1,phase='draft',revision=revision+1 WHERE id=? AND revision=?").bind(POLL_ID,revision)
+  ];
+  const results = await db.batch(statements);
+  return results.at(-1).meta.changes>0;
+}
 
 export function selectWinners(matches, tieChoices = {}) {
   if (!tieChoices || typeof tieChoices !== 'object' || Array.isArray(tieChoices)) throw new Error('Invalid tie selections.');
