@@ -81,25 +81,24 @@ footer { border-top:1px solid var(--line); padding:26px 0 36px; text-align:cente
 <link rel="stylesheet" href="mobile-nav.css"><link rel="stylesheet" href="power-rankings.css">
 <script src="mobile-nav.js" defer></script><script src="power-rankings-data.js" defer></script><script src="power-rankings.js" defer></script>
 </head><body><header><div class="container"><nav class="nav" aria-label="Main navigation">
-      <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
-      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
-        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
-        <span>Menu</span>
-      </button>
-      <div class="navlinks" id="site-navigation">
-        <a href="index.html">Champions</a>
-        <a href="matchup.html">Matchup of the Week</a>
-        <a href="weekly-updates.html">Weekly Updates</a>
-        <a href="power-rankings.html" class="active-nav" aria-current="page">Power Rankings</a>
-        <a href="players.html">Players</a>
-        <a href="quotes.html">Quotes</a>
-        <a href="records.html">Records</a>
-        <a href="career.html">Career Records</a>
-        <a href="history.html">History</a>
-        <a href="rules.html">Rules</a>
-        <a href="payouts.html">Payouts</a>
-      </div>
-    </nav>
+  <div class="brand">CHQ <span>FANTASY</span> KEEPER LEAGUE</div>
+  <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu" hidden>
+    <span class="nav-toggle-icon" aria-hidden="true"><span></span></span><span>Menu</span>
+  </button>
+  <div class="navlinks" id="site-navigation">
+    <a href="index.html">Home</a>
+    <details class="nav-group active-group"><summary>This Week<span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-submenu"><a href="weekly-updates.html">Weekly Updates</a>
+<a href="matchup.html">Matchup of the Week</a>
+<a href="power-rankings.html" class="active-nav" aria-current="page">Power Rankings</a></div></details>
+<details class="nav-group"><summary>League<span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-submenu"><a href="players.html">Players</a>
+<a href="rules.html">Rules</a>
+<a href="payouts.html">Payouts</a></div></details>
+<details class="nav-group"><summary>Records &amp; History<span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-submenu"><a href="records.html">Records</a>
+<a href="career.html">Career Records</a>
+<a href="history.html">History</a></div></details>
+<details class="nav-group"><summary>League Fun<span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-submenu"><a href="quotes.html">Quotes</a></div></details>
+  </div>
+</nav>
 <div class="hero"><div class="kicker">The Commish has spoken</div><h1>POWER RANKINGS</h1><p>Twelve teams. One very opinionated list. The weekly pecking order, straight from the Commish.</p></div></div></header>
 <main class="container rankings-content"><div class="rankings-toolbar"><label for="ranking-edition">Edition<select id="ranking-edition"><option value="3" selected>2026 · After Week 5</option><option value="2">2026 · After Week 4</option><option value="1">2026 · After Week 3</option><option value="0">2026 · After Week 2</option></select></label><p id="edition-note" aria-live="polite">Movement since after week 4.</p></div>
 <p class="legend"><span><span class="movement up">+1</span> Moved up</span><span><span class="movement down">-1</span> Moved down</span><span><span class="movement even">— Even</span> No change</span></p>

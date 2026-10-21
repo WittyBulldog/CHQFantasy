@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const { render } = require('../power-rankings.js');
+const { renderNavigation } = require('./navigation.cjs');
 const data = JSON.parse(fs.readFileSync('data/power-rankings.json', 'utf8'));
 data.editions.sort((a, b) => a.season - b.season || a.week - b.week);
 const seen = new Set();
@@ -12,7 +13,7 @@ for (const edition of data.editions) {
 const latest = data.editions.at(-1);
 const previous = data.editions.at(-2)?.season === latest.season ? data.editions.at(-2) : undefined;
 const base = fs.readFileSync('weekly-updates.html', 'utf8');
-const nav = base.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0].replace('href="weekly-updates.html" class="active-nav" aria-current="page"', 'href="weekly-updates.html"').replace('href="power-rankings.html"', 'href="power-rankings.html" class="active-nav" aria-current="page"');
+const nav = renderNavigation('power-rankings.html');
 const styles = base.match(/<style>[\s\S]*?<\/style>/)[0];
 const note = previous ? `Movement since ${previous.label.toLowerCase()}.` : 'First edition • Everyone starts even.';
 fs.writeFileSync('power-rankings-data.js', `// Generated from data/power-rankings.json.\nwindow.POWER_RANKINGS = ${JSON.stringify(data)};\n`);

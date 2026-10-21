@@ -1,87 +1,38 @@
-/* Shared navigation: keep links available when JavaScript is disabled. */
-.nav { gap:16px; flex-wrap:wrap; }
-.navlinks { flex-wrap:wrap; }
-.nav-toggle { display:none; }
-.nav-toggle[hidden] { display:none; }
+/* Native disclosures keep grouped navigation usable without JavaScript. */
+header:has(.nav-group[open]) { overflow:visible; z-index:30; }
+header:has(.nav-group[open])::before,header:has(.nav-group[open])::after { visibility:hidden; }
+header .nav { gap:20px; flex-wrap:nowrap; position:relative; z-index:30; }
+header .nav .navlinks { display:flex; align-items:center; flex-wrap:nowrap; gap:6px; overflow:visible; }
+header .nav .navlinks > a,.nav-group > summary { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:44px; padding:10px 12px; border:1px solid transparent; border-radius:9px; color:var(--muted); font:inherit; font-size:13px; line-height:1.4; white-space:nowrap; }
+.nav-group { position:relative; }
+.nav-group > summary { list-style:none; cursor:pointer; user-select:none; }
+.nav-group > summary::-webkit-details-marker { display:none; }
+.nav-group > summary::marker { content:''; }
+.nav-chevron { width:6px; height:6px; border:solid currentColor; border-width:0 1.5px 1.5px 0; transform:rotate(45deg); margin-top:-4px; }
+.nav-group[open] .nav-chevron { transform:rotate(225deg); margin-top:3px; }
+.nav-group.active-group > summary,header .nav .navlinks > a.active-nav { color:var(--gold2); border-color:rgba(245,196,81,.3); background:rgba(245,196,81,.07); padding-bottom:10px; }
+.nav-group[open] > summary,.nav-group > summary:hover,header .nav .navlinks > a:hover { color:var(--text); background:var(--panel); }
+.nav-submenu { position:absolute; left:0; top:calc(100% + 8px); min-width:220px; padding:8px; border:1px solid var(--line); border-radius:13px; background:var(--panel); box-shadow:0 16px 40px rgba(0,0,0,.4); z-index:40; }
+.nav-group:last-child .nav-submenu { left:auto; right:0; }
+header .nav .nav-submenu a { display:block; min-height:44px; padding:12px; border:1px solid transparent; border-radius:8px; font-size:13px; line-height:1.4; white-space:normal; }
+header .nav .nav-submenu a:hover { background:rgba(255,255,255,.05); color:var(--text); }
+header .nav .nav-submenu a.active-nav { padding-bottom:12px; border-color:rgba(245,196,81,.3); background:rgba(245,196,81,.08); color:var(--gold2); }
+.nav-toggle,.nav-toggle[hidden] { display:none; }
 .nav :focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
-
-@media (max-width:900px) {
-  header .nav {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:14px 0;
-  }
-  header .nav .brand {
-    flex:1;
-    min-width:0;
-    text-align:left;
-    font-size:12px;
-    line-height:1.5;
-  }
-  .nav-toggle {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    min-width:88px;
-    min-height:44px;
-    padding:10px 12px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    background:var(--panel);
-    color:var(--gold2);
-    font:inherit;
-    font-size:13px;
-    font-weight:800;
-    cursor:pointer;
-  }
+@media(max-width:900px){
+  header .nav { display:flex; flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:14px 0; }
+  header .nav .brand { flex:1; min-width:0; text-align:left; font-size:12px; line-height:1.5; }
+  .nav-toggle { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:88px; min-height:44px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--gold2); font:inherit; font-size:13px; font-weight:800; cursor:pointer; }
   .nav-toggle-icon { position:relative; width:18px; height:14px; }
-  .nav-toggle-icon::before, .nav-toggle-icon::after, .nav-toggle-icon span {
-    content:"";
-    position:absolute;
-    left:0;
-    width:18px;
-    height:2px;
-    border-radius:2px;
-    background:currentColor;
-  }
-  .nav-toggle-icon::before { top:0; }
-  .nav-toggle-icon span { top:6px; }
-  .nav-toggle-icon::after { top:12px; }
+  .nav-toggle-icon::before,.nav-toggle-icon::after,.nav-toggle-icon span { content:''; position:absolute; left:0; width:18px; height:2px; border-radius:2px; background:currentColor; }
+  .nav-toggle-icon::before { top:0; }.nav-toggle-icon span { top:6px; }.nav-toggle-icon::after { top:12px; }
   .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before { top:6px; transform:rotate(45deg); }
   .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after { top:6px; transform:rotate(-45deg); }
   .nav-toggle[aria-expanded="true"] .nav-toggle-icon span { opacity:0; }
-  header .nav .navlinks {
-    display:grid;
-    grid-template-columns:minmax(0,1fr);
-    flex-basis:100%;
-    width:100%;
-    margin:0;
-    padding:8px;
-    gap:4px;
-    overflow:visible;
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:var(--panel);
-  }
+  header .nav .navlinks { display:grid; grid-template-columns:minmax(0,1fr); flex-basis:100%; width:100%; margin:0; padding:8px; gap:4px; border:1px solid var(--line); border-radius:14px; background:var(--panel); }
   header .nav.nav-enhanced:not(.nav-open) .navlinks { display:none; }
-  header .nav .navlinks a {
-    display:flex;
-    align-items:center;
-    min-height:44px;
-    padding:10px 12px;
-    border:1px solid transparent;
-    border-radius:8px;
-    white-space:normal;
-    font-size:14px;
-    line-height:1.4;
-  }
-  header .nav .navlinks a.active-nav {
-    padding-bottom:10px;
-    border-color:rgba(245,196,81,.35);
-    background:rgba(245,196,81,.08);
-  }
+  header .nav .navlinks > a,.nav-group > summary { width:100%; font-size:14px; white-space:normal; }
+  .nav-group { min-width:0; }
+  .nav-submenu,.nav-group:last-child .nav-submenu { position:static; min-width:0; margin:4px 0 8px 15px; padding:4px 0 4px 9px; border:0; border-left:2px solid var(--line); border-radius:0; background:transparent; box-shadow:none; }
+  header .nav .nav-submenu a { font-size:13px; }
 }
