@@ -25,6 +25,7 @@
 .poll-match { padding:16px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#151e2c,#0d141e); position:relative; min-width:0; }
 .poll-match.current { border-color:rgba(245,196,81,.5); box-shadow:0 8px 30px rgba(0,0,0,.16); }
 .poll-match h4 { margin:0 0 13px; font-size:10px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; }
+.poll-match-theme { margin:0 0 13px; color:var(--gold2); font-size:12px; line-height:1.5; }
 .poll-option { display:flex; width:100%; gap:10px; align-items:center; text-align:left; padding:13px 10px; border:1px solid var(--line); border-radius:10px; background:rgba(255,255,255,.025); color:var(--text); font:inherit; font-size:13px; font-weight:750; line-height:1.4; }
 button.poll-option { cursor:pointer; }
 button.poll-option:hover:not(:disabled) { background:rgba(245,196,81,.08); border-color:var(--gold); }

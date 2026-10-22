@@ -1,4 +1,4 @@
-import {ENTRIES,INITIAL_MATCHES,ROUND_NAMES,POLL_ID} from './punishment-poll-data.mjs';
+import {ENTRIES,INITIAL_MATCHES,ROUND_NAMES,POLL_ID,MATCHUP_THEMES} from './punishment-poll-data.mjs';
 const byId=new Map(ENTRIES.map(e=>[e.id,e]));
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const admin=document.body.dataset.pollAdmin==='true';
@@ -17,6 +17,7 @@ function describe(m){const details=el('details');details.append(el('summary',nul
 function matchCard(m,index){
   const current=m.round===state.round,canVote=!admin&&credential&&online&&!busy&&state.phase==='open'&&current;
   const card=el('article','poll-match'+(current?' current':''));card.append(el('h4',null,`Matchup ${index+1}`));
+  if(MATCHUP_THEMES[m.id])card.append(el('p','poll-match-theme',MATCHUP_THEMES[m.id]));
   [m.left,m.right].forEach((id,i)=>{
     if(i)card.append(el('div','poll-vs','VS'));
     const entry=byId.get(id);if(!entry)return;
