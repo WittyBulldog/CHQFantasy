@@ -1,4 +1,4 @@
-import {ENTRIES,INITIAL_MATCHES,ROUND_NAMES,POLL_ID,MATCHUP_THEMES} from './punishment-poll-data.mjs';
+import {ENTRIES,INITIAL_MATCHES,ROUND_NAMES,POLL_ID,MATCHUP_THEMES} from './punishment-poll-data.mjs?v=86bfbe6ecdbe';
 const byId=new Map(ENTRIES.map(e=>[e.id,e]));
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const admin=document.body.dataset.pollAdmin==='true';

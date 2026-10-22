@@ -1,4 +1,9 @@
 const fs=require('node:fs');
+const {createHash}=require('node:crypto');
+const version=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,12);
+// Version the imported lineup as well as the page's assets so they refresh together.
+const pollScript=fs.readFileSync('punishment-poll.mjs','utf8').replace(/\.\/punishment-poll-data\.mjs(?:\?v=[a-f0-9]+)?/g,`./punishment-poll-data.mjs?v=${version('punishment-poll-data.mjs')}`);
+fs.writeFileSync('punishment-poll.mjs',pollScript);
 const {renderNavigation}=require('./navigation.cjs');
 // Keep the voting and commissioner pages in the site's existing visual system.
 const base=fs.readFileSync('weekly-updates.html','utf8');
@@ -6,8 +11,8 @@ const style=base.match(/<style>[\s\S]*?<\/style>/)[0];
 const nav=renderNavigation('punishment-poll.html');
 function page(admin){return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${admin?'Commissioner Controls':'Punishment Bracket'} | CHQ Fantasy</title>
-${style}<link rel="stylesheet" href="mobile-nav.css"><link rel="stylesheet" href="punishment-poll.css">
-${admin?'<meta name="robots" content="noindex,nofollow">':''}<script src="mobile-nav.js" defer></script><script src="punishment-poll-config.js" defer></script><script type="module" src="punishment-poll.mjs"></script></head>
+${style}<link rel="stylesheet" href="mobile-nav.css"><link rel="stylesheet" href="punishment-poll.css?v=${version('punishment-poll.css')}">
+${admin?'<meta name="robots" content="noindex,nofollow">':''}<script src="mobile-nav.js" defer></script><script src="punishment-poll-config.js?v=${version('punishment-poll-config.js')}" defer></script><script type="module" src="punishment-poll.mjs?v=${version('punishment-poll.mjs')}"></script></head>
 <body${admin?' data-poll-admin="true"':''}><header><div class="container">${nav}<div class="hero page-hero"><div class="kicker">${admin?'THE COMMISH IS IN CONTROL':'THE LEAGUE DECIDES'}</div><h1>${admin?'BRACKET CONTROL':'PUNISHMENT BRACKET'}</h1><p>${admin?'Open voting. Settle ties. Send the winners through.':'Eight questionable ways to spend a day. Help decide which one awaits the league’s last-place finisher.'}</p></div></div></header>
 <main class="container poll-content"><div class="poll-intro"><div><div class="eyebrow">The road to last place</div><h2 id="poll-round-title">Eight punishments. One unlucky champion.</h2><p>Quarterfinals → Semifinals → The final</p></div><span class="poll-status" id="poll-status">Bracket preview</span></div>
 <section class="poll-access" aria-labelledby="poll-access-heading"><h3 id="poll-access-heading">${admin?'Commissioner access':'Your vote. Their problem.'}</h3><p class="poll-muted">${admin?'Use your private commissioner key. Keep it separate from owner voting codes.':'Enter the private voting code supplied by the commissioner. One vote per matchup; change your pick until voting closes.'}</p>

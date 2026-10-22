@@ -109,7 +109,13 @@ for(const file of ['punishment-poll.html','punishment-poll-admin.html']){
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length,'Duplicate ID in '+file);
  assert.ok(fs.readFileSync('dist/'+file,'utf8').includes('punishment-poll.mjs'));
+ for(const asset of ['punishment-poll.mjs','punishment-poll.css','punishment-poll-config.js']){
+  const version=createHash('sha256').update(fs.readFileSync(asset)).digest('hex').slice(0,12);
+  assert.ok(html.includes(`${asset}?v=${version}`),'Page must request the current asset: '+asset);
+ }
 }
+const lineupVersion=createHash('sha256').update(fs.readFileSync('punishment-poll-data.mjs')).digest('hex').slice(0,12);
+assert.ok(fs.readFileSync('punishment-poll.mjs','utf8').includes(`./punishment-poll-data.mjs?v=${lineupVersion}`),'Browser must request the current lineup instead of a cached older copy');
 console.log('Punishment poll: actual SQL ballot uniqueness, closed rounds, ties, all three rounds, stale advancement, authentication, and CORS checks passed.');
 assert.ok(fs.readFileSync('punishment-poll-admin.html','utf8').includes('poll-reset-confirmation'));
 assert.ok(!fs.readFileSync('punishment-poll.html','utf8').includes('poll-reset-confirmation'));
