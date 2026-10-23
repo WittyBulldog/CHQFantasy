@@ -29,5 +29,5 @@ ${styles}
 <p class="legend"><span><span class="movement up">+1</span> Moved up</span><span><span class="movement down">-1</span> Moved down</span><span><span class="movement even">— Even</span> No change</span></p>
 <ol class="rankings-list" id="rankings">${render(latest,previous)}</ol>
 <noscript><p>The latest rankings are shown. Enable JavaScript to browse earlier editions.</p></noscript></main>
-<footer>CHQ FANTASY KEEPER LEAGUE · EST. 2020</footer></body></html>`);
+<footer><div class="container">CHQ Fantasy Keeper League • Power Rankings • Built for bragging rights.</div></footer></body></html>`);
 console.log('Power rankings generated with weekly movement and edition archive.');

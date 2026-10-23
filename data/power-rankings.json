@@ -280,6 +280,73 @@
           "comment": "Yuck. Allen keeps trying to drag this roster somewhere respectable, and the rest of the lineup keeps asking if they can stop for a break. You were one receiver swap away from beating Chris last week, so congratulations on finding a way to make both the loss and the bench frustrating. Twelfth, Mick. I considered writing more, but ‘yuck’ did most of the work."
         }
       ]
+    },
+    {
+      "season": 2026,
+      "week": 6,
+      "label": "After Week 6",
+      "teams": [
+        {
+          "id": "brett-d",
+          "name": "DonkeyWoodDean",
+          "comment": "Brett is the reason I regret giving this league a group chat. Putting DonkeyWoodDean first is basically handing him a microphone at a wedding: technically deserved, but everybody knows we are going to be here a while. Somebody beat this man before he starts a podcast."
+        },
+        {
+          "id": "mark-me",
+          "name": "Mels-16",
+          "comment": "Mels-16 sounds like a password Yahoo rejected for being too easy to guess. Unfortunately, beating the actual team requires considerably more effort. I would compliment the roster, but Mark might screenshot it and make me read it aloud the next time we see each other."
+        },
+        {
+          "id": "tylor-c",
+          "name": "Silence of the Lamb",
+          "comment": "The Commish remains third, and I am sure everyone appreciates the integrity of a ranking system run entirely by the guy sitting in third. I reviewed my own placement and found absolutely no evidence of bias. Case closed."
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris’s Team",
+          "comment": "Up to fourth. The team is climbing faster than the effort going into its name. At this rate, Chris might win a championship before discovering that Yahoo lets you change the default."
+        },
+        {
+          "id": "dan-e",
+          "name": "Daniel’s Primo Team",
+          "comment": "Eleventh to fifth. Six spots in one week, and somehow the team name still sounds like it came free with the account. Dan, this is going to make your next tirade considerably harder to write. I expect you to find a way."
+        },
+        {
+          "id": "dusty-d",
+          "name": "West Coast",
+          "comment": "Sixth feels about right for a team that keeps making me alternate between optimism and concern. West Coast has provided the full vacation experience: expensive expectations, a few nice moments, and me wondering whether I should have stayed home."
+        },
+        {
+          "id": "jason-b",
+          "name": "Slim Pickens",
+          "comment": "Fourth to seventh. Every time I put this team near the top, I end up having to rearrange the rankings again. I still like the squad, Jason. I would just appreciate being able to say that without needing a correction the following week."
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon’s Team",
+          "comment": "Up one spot to eighth. A modest promotion, but I would absolutely tell everyone I was moving in the right direction and leave out the details. Congratulations, Dillon. You have earned the fantasy equivalent of a slightly better parking space."
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark’s Team",
+          "comment": "Down to ninth. The team name is Mark’s Team, and the ranking is giving me about the same amount of excitement. I keep waiting for a reason to move you back up. Preferably one stronger than you disagreeing with me."
+        },
+        {
+          "id": "nick-n",
+          "name": "Beast Infection",
+          "comment": "Tenth, Nick. Beast Infection is a tremendous name for a team that keeps making me nervous when I look at the lineup. I would like to see a little more beast and spend a little less time wondering whether this is contagious."
+        },
+        {
+          "id": "jason-h",
+          "name": "Gotham Knights",
+          "comment": "Eleventh. Gotham keeps sending up the Bat-Signal, but at this point I think somebody needs to check whether the bulb is the only thing working. A superhero entrance would be great. A little help from the supporting cast would also do."
+        },
+        {
+          "id": "mickey-b",
+          "name": "Overdue Bills",
+          "comment": "A weekly high score and still twelfth in the power rankings. Mick is going to print that sentence and bring it to the next league meeting. Fair enough. Give me another reason to move you up and I will start looking for the elevator."
+        }
+      ]
     }
   ]
 }
