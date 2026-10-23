@@ -18,6 +18,8 @@ The website and API must use HTTPS in production. `ALLOWED_ORIGINS` is limited t
 
 ## Run the bracket
 
+- After unlocking commissioner controls, **Who has voted?** lists each team's completed matchups for the current and previous rounds. It distinguishes complete, partial, and missing ballots without showing individual picks. Use **Refresh bracket** to update it. Participation follows voting-code usage; simply viewing the poll is not tracked. Only authenticated commissioner responses include this report.
+
 - Each owner has one vote in each active matchup and may change it until the commissioner closes voting. The code works across devices; reusing a code changes the same ballot rather than adding votes. Anyone holding a code can use that owner's ballot, so keep it private.
 - Open → collect votes → close → review results and ties → advance. Advancing opens the next round. Results remain visible for completed rounds.
 - A matchup needs at least one vote before advancing. All 12 owners do not have to vote. Close rounds only when the league has had its agreed voting window.

@@ -1,4 +1,20 @@
 import { POLL_ID, INITIAL_MATCHES } from '../../punishment-poll-data.mjs';
+import { OWNER_NAMES } from './owners.mjs';
+
+export async function commissionerSnapshot(db, ownerIds) {
+  const state=await snapshot(db);
+  const {results}=await db.prepare(`SELECT v.voter_id,m.round,COUNT(*) AS voted
+    FROM votes v JOIN matches m ON m.poll_id=v.poll_id AND m.id=v.match_id
+    WHERE v.poll_id=? GROUP BY v.voter_id,m.round`).bind(POLL_ID).all();
+  return {...state,participation:{round:state.round,owners:ownerIds.map(id=>({
+    team:OWNER_NAMES[id]||id,
+    rounds:Array.from({length:state.round},(_,i)=>{
+      const round=i+1,total=state.matches.filter(m=>m.round===round).length;
+      const voted=results.find(r=>r.voter_id===id&&r.round===round)?.voted||0;
+      return {round,voted,total,status:voted===0?'not-started':voted===total?'complete':'partial'};
+    })
+  })).sort((a,b)=>a.team.localeCompare(b.team))}};
+}
 
 export async function resetBracket(db, revision, confirmation) {
   if (confirmation !== 'RESET') throw new Error('Type RESET to confirm erasing all votes and results.');

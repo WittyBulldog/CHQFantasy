@@ -70,6 +70,7 @@ function renderAdmin(){
   const ties=document.getElementById('poll-ties');ties.replaceChildren();
   for(const id of ['poll-reset-toggle','poll-reset-confirmation','poll-reset-cancel','poll-reset-submit'])document.getElementById(id).disabled=busy;
   if(panel.hidden)hideReset();
+  renderParticipation(panel.hidden);
   if(panel.hidden)return;
   document.getElementById('poll-admin-note').textContent=state.phase==='complete'?'The final result is locked. Voting is finished.':state.phase==='draft'?'Open the quarterfinals when the league is ready.':state.phase==='open'?'Close voting to lock the totals. You can then review ties and advance the round.':'Voting is closed. Resolve any tied matchups below, then advance. You can also reopen this round.';
   if(state.phase==='closed')for(const m of state.matches.filter(m=>m.round===state.round)){
@@ -78,6 +79,30 @@ function renderAdmin(){
   }
   const actions=state.phase==='draft'?[['open','Open quarterfinal voting']]:state.phase==='open'?[['close','Close voting for this round']]:state.phase==='closed'?[['advance',state.round===3?'Confirm the champion':'Advance winners and open next round'],['reopen','Reopen this round']]:[];
   for(const [action,label]of actions){const button=el('button','poll-button'+(action==='reopen'?' secondary':''),label);button.type='button';button.disabled=busy;button.addEventListener('click',()=>adminAction(action));buttons.append(button);}
+}
+function renderParticipation(hidden){
+  const container=document.getElementById('poll-participation');container.replaceChildren();
+  if(hidden||!state.participation)return;
+  const owners=state.participation.owners;
+  const current=owner=>owner.rounds.find(r=>r.round===state.round);
+  const complete=owners.filter(o=>current(o)?.status==='complete').length;
+  container.append(el('h3',null,'Who has voted?'),el('p','poll-muted',`${ROUND_NAMES[state.round-1]}: ${complete} of ${owners.length} teams have voted in every matchup.`),el('p','poll-muted','Participation is based on each team’s voting code. Picks stay private. Use Refresh bracket to check for new votes.'));
+  if(state.phase==='draft')container.append(el('p','poll-muted','Voting has not opened yet.'));
+  const wrapper=el('div','poll-participation-scroll'),table=el('table','poll-participation-table');
+  table.append(el('caption','poll-muted','Votes submitted by round'));
+  const head=el('thead'),row=el('tr'),teamHeader=el('th',null,'Team');teamHeader.scope='col';row.append(teamHeader);
+  for(let round=1;round<=state.round;round++){const th=el('th',null,ROUND_NAMES[round-1]);th.scope='col';row.append(th);}
+  head.append(row);table.append(head);
+  const body=el('tbody');
+  for(const owner of owners){
+    const tr=el('tr'),name=el('th',null,owner.team);name.scope='row';tr.append(name);
+    for(const round of owner.rounds){
+      const label=round.status==='complete'?'Complete':round.status==='partial'?'Partially voted':'Not voted';
+      const td=el('td');td.append(el('span','poll-voter-status '+round.status,`${label} · ${round.voted}/${round.total}`));tr.append(td);
+    }
+    body.append(tr);
+  }
+  table.append(body);wrapper.append(table);container.append(wrapper);
 }
 function hideReset(){
   document.getElementById('poll-reset-form').hidden=true;
@@ -112,7 +137,7 @@ document.getElementById('poll-access-form').addEventListener('submit',async even
   catch(error){credential='';tell(error.message,true);}
   finally{busy=false;render();}
 });
-document.getElementById('poll-signout').addEventListener('click',()=>{credential='';state.matches.forEach(m=>m.myVote=null);tell('Signed out.');render();refresh();});
+document.getElementById('poll-signout').addEventListener('click',()=>{credential='';delete state.participation;state.matches.forEach(m=>m.myVote=null);tell('Signed out.');render();refresh();});
 document.getElementById('poll-refresh').addEventListener('click',refresh);
 render();
 if(api)refresh();else tell('The bracket is ready. Voting will open once the commissioner connects the poll.');

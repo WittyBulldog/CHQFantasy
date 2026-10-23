@@ -1,4 +1,4 @@
-import {snapshot,publicSnapshot,castVote,changePhase,advance,resetBracket} from './core.mjs';
+import {snapshot,publicSnapshot,castVote,changePhase,advance,resetBracket,commissionerSnapshot} from './core.mjs';
 
 const encoder=new TextEncoder();
 async function digest(value){return new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(value)));}
@@ -30,12 +30,13 @@ export default {async fetch(request,env){
       if(!env.ADMIN_SECRET||env.ADMIN_SECRET.length<32)return json({error:'Commissioner access is not configured.'},503);
       if(!same(await digest(token),await digest(env.ADMIN_SECRET)))return json({error:'Commissioner key not recognized.'},401);
       const state=await snapshot(env.DB);
-      if(body.action==='state')return json(state);
+      const adminState=()=>commissionerSnapshot(env.DB,Object.keys(JSON.parse(env.VOTER_CODE_HASHES||'{}')));
+      if(body.action==='state')return json(await adminState());
       if(!Number.isInteger(body.revision)||body.revision!==state.revision)return json({error:'The bracket changed. Refresh and try again.'},409);
       let changed;
       try{changed=body.action==='reset'?await resetBracket(env.DB,body.revision,body.confirmation):body.action==='advance'?await advance(env.DB,state,body.tieChoices||{}):await changePhase(env.DB,body.action,body.revision);}catch(error){return json({error:error.message},400);}
       if(!changed)return json({error:'The bracket changed. Refresh and try again.'},409);
-      return json(await snapshot(env.DB));
+      return json(await adminState());
     }
     const hashes=JSON.parse(env.VOTER_CODE_HASHES||'{}');
     if(!Object.keys(hashes).length)return json({error:'Voting codes have not been configured.'},503);
