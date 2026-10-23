@@ -1,0 +1,20 @@
+.all-play .all-play-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:12px; margin-top:18px; }
+.all-play .all-play-scroll:focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
+.all-play .all-play-table { width:100%; min-width:760px; border-collapse:separate; border-spacing:0; font-size:13px; font-variant-numeric:tabular-nums; }
+.all-play-table caption { caption-side:top; text-align:left; padding:16px; color:var(--muted); background:var(--panel); font-size:12px; }
+.all-play-table th,.all-play-table td { padding:13px 16px; text-align:center; border-bottom:1px solid var(--line); white-space:nowrap; }
+.all-play-table thead th { background:#182333; color:var(--gold2); font-size:12px; font-weight:800; }
+.all-play-table thead tr:first-child th { border-bottom:1px solid var(--line); }
+.all-play-table th:first-child[rowspan],.all-play-table tbody th { position:sticky; left:0; text-align:left; min-width:190px; }
+.all-play-table thead th:first-child[rowspan] { z-index:2; }
+.all-play-table tbody th { z-index:1; color:var(--text); background:var(--panel); font-weight:750; }
+.all-play-table tbody td { background:var(--panel); color:var(--text); }
+.all-play-table tbody tr:nth-child(even) th,.all-play-table tbody tr:nth-child(even) td { background:#151e2b; }
+.all-play-table .all-play-total { color:var(--gold2); border-left:1px solid var(--line); }
+.all-play-table tbody tr:last-child th,.all-play-table tbody tr:last-child td { border-bottom:0; }
+.all-play .all-play-scroll-note { display:none; color:var(--muted); font-size:12px; line-height:1.6; }
+@media(max-width:800px) {
+  .all-play .all-play-scroll-note { display:block; }
+  .all-play-table th,.all-play-table td { padding:12px; }
+  .all-play-table th:first-child[rowspan],.all-play-table tbody th { min-width:145px; max-width:155px; white-space:normal; }
+}
