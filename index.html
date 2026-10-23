@@ -67,125 +67,6 @@ header:after { right:-250px; bottom:-300px; }
 h2 { margin:7px 0 0; font-size:32px; letter-spacing:-.035em; }
 .section-head p { margin:0; color:var(--muted); font-size:14px; max-width:500px; line-height:1.6; }
 
-.champions {
-  display:grid;
-  grid-template-columns:repeat(6,130px);
-  justify-content:center;
-  column-gap:55px;
-  row-gap:32px;
-  align-items:start;
-  padding:20px 20px 18px;
-}
-
-.banner {
-  appearance:none;
-  border:0;
-  min-height:305px;
-  padding:0 13px 31px;
-  cursor:pointer;
-  position:relative;
-  overflow:visible;
-  color:#fff;
-  background:transparent;
-  transition:.25s transform,.25s filter,.25s box-shadow;
-  filter:drop-shadow(0 12px 10px rgba(0,0,0,.42));
-}
-.banner .banner-pole {
-  position:absolute; top:0; left:-5px; right:-5px; height:12px; border-radius:8px; z-index:5;
-  background:linear-gradient(180deg,#fff0a0 0%,#f5c451 28%,#a97112 72%,#6d470b 100%);
-  box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 2px 3px rgba(0,0,0,.55);
-}
-.banner .banner-pole:before,.banner .banner-pole:after {
-  content:""; position:absolute; top:-3px; width:18px; height:18px; border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#fff6b5 0 10%,#f5c451 25%,#a97012 68%,#5e3d08 100%);
-  border:2px solid #e4b63f; box-shadow:0 2px 4px rgba(0,0,0,.6);
-}
-.banner .banner-pole:before { left:-7px; }
-.banner .banner-pole:after { right:-7px; }
-
-.banner .banner-fabric {
-  position:relative; min-height:292px; padding:31px 12px 58px;
-  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
-  background:
-    radial-gradient(circle at 50% 20%,rgba(79,102,137,.28),transparent 48%),
-    linear-gradient(105deg,#111c2d 0%,#1b2940 48%,#0b1424 100%);
-  border:3px solid #c79628;
-  box-shadow:inset 0 0 0 2px rgba(255,225,126,.55),inset 0 -30px 45px rgba(0,0,0,.2);
-}
-.banner .banner-fabric:before {
-  content:""; position:absolute; inset:9px 8px 35px;
-  clip-path:polygon(0 0,100% 0,100% 84%,50% 100%,0 84%);
-  border:2px solid rgba(255,255,255,.72); pointer-events:none;
-}
-.banner .banner-fabric:after {
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.055) 48%,transparent 70%);
-  pointer-events:none;
-}
-.banner .year {
-  position:relative; z-index:2; font-size:28px; line-height:1; font-weight:950;
-  color:#f5c451; letter-spacing:.05em; text-shadow:0 2px 4px rgba(0,0,0,.8);
-}
-.banner .label {
-  position:relative; z-index:2; margin-top:12px; color:#fff; font-size:10px; font-weight:850;
-  text-transform:uppercase; letter-spacing:.18em; text-shadow:0 2px 4px rgba(0,0,0,.85);
-}
-.banner .champion {
-  position:relative;
-  z-index:2;
-  color:#fff;
-  font-weight:950;
-  font-size:9px;
-  line-height:1.05;
-  margin:8px auto 0;
-  width:100%;
-  max-width:105px;
-  padding:0 2px;
-  box-sizing:border-box;
-  overflow-wrap:anywhere;
-  word-break:break-word;
-  text-align:center;
-  text-transform:uppercase;
-  text-shadow:0 2px 5px rgba(0,0,0,.9);
-}
-
-.banner .champion {
-  hyphens:none;
-  text-align:center;
-}
-
-
-.banner .champion .first-name,
-.banner .champion .last-name {
-  display:block;
-  width:100%;
-}
-
-.trophy {
-  position:relative; z-index:2; font-size:44px; line-height:1; margin:24px 0 5px;
-  filter:drop-shadow(0 4px 4px rgba(0,0,0,.7));
-}
-.banner .banner-fabric .laurel {
-  position:absolute; left:50%; bottom:43px; transform:translateX(-50%);
-  width:86px; height:36px; z-index:2; opacity:.9;
-}
-.banner .banner-fabric .laurel:before,.banner .banner-fabric .laurel:after {
-  content:"❯ ❯ ❯"; position:absolute; top:0; color:#f5c451; font-size:12px; letter-spacing:-2px;
-}
-.banner .banner-fabric .laurel:before { right:48px; transform:rotate(58deg); }
-.banner .banner-fabric .laurel:after { left:48px; transform:scaleX(-1) rotate(58deg); }
-
-.banner:hover {
-  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(0,0,0,.55)) brightness(1.08);
-}
-.banner.active {
-  transform:translateY(-8px); filter:drop-shadow(0 18px 15px rgba(245,196,81,.2)) brightness(1.08);
-}
-.banner.active .banner-fabric {
-  box-shadow:inset 0 0 0 2px rgba(255,241,169,.8),inset 0 -30px 45px rgba(0,0,0,.18),
-             0 0 0 1px rgba(245,196,81,.35);
-}
-
 .detail {
   margin-top:18px; border:1px solid var(--line); background:linear-gradient(135deg,#131a27,#0d121b);
   border-radius:20px; padding:28px; box-shadow:var(--shadow);
@@ -427,11 +308,6 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   .landing-champions { margin-top:60px; }
 
 @media(max-width:1100px) {
-  .champions {
-    grid-template-columns:repeat(3,135px);
-    justify-content:center;
-    gap:42px;
-  }
   .records { grid-template-columns:1fr; }
 }
 
@@ -450,36 +326,6 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
   }
   .hero { padding:45px 0 55px; }
 
-  .champions {
-    grid-template-columns:repeat(2,minmax(115px,145px));
-    justify-content:center;
-    gap:28px 28px;
-    padding:18px 8px 12px;
-  }
-
-  .banner {
-    min-height:270px;
-    padding-left:6px;
-    padding-right:6px;
-  }
-
-  .banner .banner-fabric {
-    min-height:258px;
-    padding-left:7px;
-    padding-right:7px;
-  }
-
-  .banner .year { font-size:22px; }
-  .banner .champion {
-    font-size:8px;
-    line-height:1.02;
-    max-width:96px;
-    padding-left:1px;
-    padding-right:1px;
-  }
-  .banner .label { font-size:8px; letter-spacing:.12em; }
-  .trophy { font-size:34px; }
-
   .stats { grid-template-columns:1fr 1fr; }
   .awards { grid-template-columns:1fr; }
   .section { padding:50px 0; }
@@ -487,32 +333,6 @@ footer { border-top:1px solid var(--line); padding:30px 0 45px; color:var(--mute
 }
 
 @media(max-width:430px) {
-  .champions {
-    grid-template-columns:repeat(2,minmax(105px,130px));
-    gap:24px 22px;
-    padding-left:4px;
-    padding-right:4px;
-  }
-
-  .banner {
-    min-height:245px;
-  }
-
-  .banner .banner-fabric {
-    min-height:234px;
-    padding-top:28px;
-  }
-
-  .banner .year { font-size:20px; }
-  .banner .champion {
-    font-size:7px;
-    line-height:1.02;
-    max-width:88px;
-    padding-left:1px;
-    padding-right:1px;
-  }
-  .banner .label { font-size:7px; }
-  .trophy { font-size:30px; }
 }
 </style>
 <style>
@@ -605,6 +425,7 @@ img, svg { max-width:100%; }
 }
 </style>
 <link rel="stylesheet" href="mobile-nav.css">
+<link rel="stylesheet" href="championship-banners.css?v=arena-1">
 <script src="mobile-nav.js" defer></script>
 </head>
 <body>
@@ -765,7 +586,7 @@ function normalizeMoneyRows(rows) {
 
 function renderDetail(index) {
   const s = seasons[index];
-  document.querySelectorAll(".banner").forEach((b,i)=>b.classList.toggle("active",i===index));
+  document.querySelectorAll(".banner").forEach((b,i)=>{ b.classList.toggle("active",i===index); b.setAttribute("aria-pressed",String(i===index)); });
   const detail = document.getElementById("seasonDetail");
   if (!detail) return;
   detail.innerHTML = `
@@ -816,16 +637,18 @@ function renderBanners() {
     const b = document.createElement("button");
     b.className = "banner";
     b.type = "button";
+    b.setAttribute("aria-label", `${s.year} champion: ${s.champion}. View season details.`);
+    b.setAttribute("aria-controls", "seasonDetail");
     b.innerHTML = `
-      <div class="banner-pole"></div>
-      <div class="banner-fabric">
-        <div class="year">${s.year}</div>
-        
-        <div class="champion">${splitChampionName(s.champion)}</div>
-        <div class="trophy">🏆</div>
-        <div class="laurel"></div>
-      </div>`;
-    b.addEventListener("click",()=>{      renderDetail(i);      setTimeout(()=>{        const detail=document.getElementById("seasonDetail");        if(detail){          detail.scrollIntoView({behavior:"smooth", block:"start"});        }      },50);    });
+      <span class="banner-fabric">
+        <span class="banner-league">CHQ FANTASY</span>
+        <span class="year">${s.year}</span>
+        <span class="label">LEAGUE CHAMPION</span>
+        <span class="trophy" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z M8 5H5v2a4 4 0 0 0 4 4 M16 5h3v2a4 4 0 0 1-4 4 M12 12v6 M8 21h8 M9 18h6v3H9z"/></svg></span>
+        <span class="champion">${splitChampionName(s.champion)}</span>
+        <span class="banner-motto">A SEASON TO REMEMBER</span>
+      </span>`;
+    b.addEventListener("click",()=>{      renderDetail(i);      setTimeout(()=>{        const detail=document.getElementById("seasonDetail");        if(detail){          detail.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"});        }      },50);    });
     container.appendChild(b);
   });
   if (seasons.length) renderDetail(0);
