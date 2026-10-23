@@ -1,0 +1,21 @@
+const fs=require('node:fs'),{createHash}=require('node:crypto');
+const file='weekly-updates.html';
+let html=fs.readFileSync(file,'utf8');
+const main='<main class="container weekly-content">';
+if(!html.includes(main))throw Error('Weekly Updates content not found.');
+// Keep stable links while the latest week changes and older recaps move into archives.
+html=html.replace(/<h2(?: id="weekly-highlights")?>(Week \d+ Highlights)<\/h2>/,'<h2 id="weekly-highlights">$1</h2>');
+const results=html.match(/<h2 id="(week-\d+-results-heading)">/);
+if(!results)throw Error('Latest weekly results not found.');
+html=html.replace(/<details class="season-awards"(?: id="weekly-archives")?><summary>(Week \d+ recap archive)/,'<details class="season-awards" id="weekly-archives"><summary>$1');
+const links=[['weekly-highlights','Highlights'],[results[1],'Results'],['all-play-heading','All-Team Records'],['performance-heading','Team Performance'],['season-awards-heading','Season Awards'],['weekly-archives','Past Weeks']];
+for(const [id] of links)if(!html.includes(`id="${id}"`))throw Error('Missing weekly jump target: '+id);
+const start='<!-- WEEKLY JUMPS START -->',end='<!-- WEEKLY JUMPS END -->';
+const nav=`${start}\n<nav class="weekly-jumps" aria-label="Jump to a section on this page"><span class="weekly-jumps-label">Jump to</span><div class="weekly-jumps-links">${links.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</div></nav>\n${end}`;
+if(html.includes(start))html=html.slice(0,html.indexOf(start))+nav+html.slice(html.indexOf(end)+end.length);
+else html=html.replace(main,main+'\n'+nav);
+const version=createHash('sha256').update(fs.readFileSync('weekly-jumps.css')).digest('hex').slice(0,12);
+html=html.replace(/\n<link rel="stylesheet" href="weekly-jumps\.css[^"\n]*">/g,'');
+html=html.replace('</head>',`<link rel="stylesheet" href="weekly-jumps.css?v=${version}">\n</head>`);
+fs.writeFileSync(file,html);
+console.log('Weekly section jump links generated and targets verified.');

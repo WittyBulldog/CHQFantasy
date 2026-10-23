@@ -1,0 +1,12 @@
+.weekly-jumps { display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; padding:18px 20px; margin:0 0 30px; border:1px solid var(--line); border-radius:14px; background:var(--panel); }
+.weekly-jumps-label { color:var(--muted); font-size:11px; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+.weekly-jumps-links { display:flex; flex-wrap:wrap; gap:8px; }
+.weekly-jumps-links a { display:inline-flex; align-items:center; min-height:44px; padding:10px 14px; border:1px solid var(--line); border-radius:8px; color:var(--gold2); background:rgba(245,196,81,.04); font-size:13px; font-weight:750; line-height:1.4; text-decoration:none; }
+.weekly-jumps-links a:hover { background:rgba(245,196,81,.12); border-color:var(--gold); }
+.weekly-jumps-links a:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.weekly-content :is(h2[id],details[id]) { scroll-margin-top:24px; }
+@media(max-width:600px) {
+  .weekly-jumps { padding:16px; gap:12px; }
+  .weekly-jumps-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; }
+  .weekly-jumps-links a { padding:10px; font-size:12px; }
+}

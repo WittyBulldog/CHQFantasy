@@ -1,5 +1,6 @@
 const fs=require('node:fs'),path=require('node:path');
 require('./data/build-all-play.cjs');
+require('./data/build-weekly-jumps.cjs');
 require('./data/build-career.cjs');
 require('./data/build-swami.cjs');
 require('./data/build-performance-history.cjs');
