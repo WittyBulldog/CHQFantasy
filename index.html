@@ -646,7 +646,6 @@ function renderBanners() {
         <span class="label">LEAGUE CHAMPION</span>
         <span class="trophy" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z M8 5H5v2a4 4 0 0 0 4 4 M16 5h3v2a4 4 0 0 1-4 4 M12 12v6 M8 21h8 M9 18h6v3H9z"/></svg></span>
         <span class="champion">${splitChampionName(s.champion)}</span>
-        <span class="banner-motto">A SEASON TO REMEMBER</span>
       </span>`;
     b.addEventListener("click",()=>{      renderDetail(i);      setTimeout(()=>{        const detail=document.getElementById("seasonDetail");        if(detail){          detail.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"});        }      },50);    });
     container.appendChild(b);
