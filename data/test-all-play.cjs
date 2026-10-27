@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {calculateAllPlay,recordLabel}=require('./all-play-records.cjs');
 const data=require('../season-awards-data.js'),teams=require('../team-performance-data.js').teams;
-const result=calculateAllPlay(data,teams);
+const result=calculateAllPlay({...data,weeks:data.weeks.filter(w=>w.week<=6)},teams);
 const expected={
   'brett-d':['11-0','10-1','11-0','9-2','11-0','0-11','52-14'],
   'tylor-c':['7-4','3-8','7-4','10-1','7-4','10-1','44-22'],
@@ -39,6 +39,8 @@ assert.throws(()=>calculateAllPlay({...small,weeks:[small.weeks[0],small.weeks[0
 const html=fs.readFileSync('weekly-updates.html','utf8');
 assert.equal((html.match(/id="all-play-heading"/g)||[]).length,1);
 assert.ok(html.indexOf('id="all-play-heading"')<html.indexOf('id="performance-heading"'));
-assert.ok(html.includes('scope="colgroup" colspan="6"'));
+const current=calculateAllPlay(data,teams);
+assert.ok(html.includes(`scope="colgroup" colspan="${current.weeks.length}"`));
+for(const row of current.rows)assert.equal(row.wins+row.losses+row.ties,current.weeks.length*11);
 assert.equal(fs.readFileSync('dist/weekly-updates.html','utf8'),html);
 console.log('All-play: all 84 example records match; balanced wins/losses, ties, negative scores, incomplete weeks, input validation, and generated table checks pass.');
