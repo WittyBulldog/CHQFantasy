@@ -347,6 +347,73 @@
           "comment": "A weekly high score and still twelfth in the power rankings. Mick is going to print that sentence and bring it to the next league meeting. Fair enough. Give me another reason to move you up and I will start looking for the elevator."
         }
       ]
+    },
+    {
+      "season": 2026,
+      "week": 7,
+      "label": "After Week 7",
+      "teams": [
+        {
+          "id": "brett-d",
+          "name": "DonkeyWoodDean",
+          "comment": "You keep winning, so you keep ending up here. The starters are excellent; the bench is where I start seeing a little daylight for the rest of us. This team is beatable, but somebody needs to catch you without the full starting lineup available. Until then, first place stays yours."
+        },
+        {
+          "id": "mark-me",
+          "name": "Mels-16",
+          "comment": "Still the best trio of running backs in the league, and it is not particularly close. The WR1 is serviceable, and the backfield gives you enough firepower to compete with anybody. Two straight losses are a concern, though. At some point those three running backs need to remember they were supposed to be everybody else’s problem."
+        },
+        {
+          "id": "tylor-c",
+          "name": "Silence of the Lamb",
+          "comment": "Absolute dog of a team. Very good starters, the deepest bench in the league, and somehow still taking everybody’s best shot. Second in points against and third in the standings is not a bad place to be after that start. Call me a homer if you want. I have been called worse by people whose teams I currently rank below mine."
+        },
+        {
+          "id": "dan-e",
+          "name": "Daniel’s Primo Team",
+          "comment": "Fourth, Dan. You put up 169.34, and I am not going to pretend that happened by accident. Maye and McBride gave you plenty to like, but Pollard dropping 39.50 feels like the sort of event you save the box score from because you may never see it again. Enjoy the points. Just do not build next week’s budget around winning the lottery twice."
+        },
+        {
+          "id": "dusty-d",
+          "name": "West Coast",
+          "comment": "I tried to tell you this team could still put up points. Beating Mels by 35.64 is a pretty convincing way to make me look right, and I appreciate the cooperation. There is still a real chance here if you can get dependable production and enough options at running back. Keep the star power delivering, Dusty."
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris’s Team",
+          "comment": "I do not know, man. The team is fine. There is enough here to stay in the middle of the pack and make somebody nervous, but I still have a hard time picturing you running through the top dogs. You are the opponent nobody circles as an easy win and nobody loses sleep over either. Sixth feels like the appropriate amount of enthusiasm."
+        },
+        {
+          "id": "jason-b",
+          "name": "Slim Pickens",
+          "comment": "Not bad at all. Good players throughout, a fairly balanced lineup, and enough depth to avoid needing a miracle every Sunday. I still do not see quite enough firepower at the top to put you with the favorites. Scoring 153.48 and losing is a rough way to make your case, though. Second in points for the week, zero consolation prizes."
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon’s Team",
+          "comment": "A couple of the underachievers are finally showing up, and I am starting to like the direction of this team. Higgins and Judkins combining for 53.20 is the kind of thing that gets my attention. Eighth for now, but you are my pick for the team most likely to move up. I have put that in writing, so naturally I am expecting immediate consequences."
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark’s Team",
+          "comment": "Fewest points against is doing a lot of work for your playoff hopes right now. With all those byes, this week’s lineup might actually look worse than Mick’s, which is a sentence I did not expect to type. There is still enough here to put up points once everybody is available. For now, thank the schedule makers and try to survive the attendance problem."
+        },
+        {
+          "id": "jason-h",
+          "name": "Gotham Knights",
+          "comment": "Finally putting some points on the board. JSN and Jameson Williams combining for 60.40 makes the whole operation look a lot more respectable, and a 41.92-point win deserves a little credit. There is still work to do before I call this a contender, but you are not out of it. Keep getting help from somebody other than JSN and we can have a more interesting conversation."
+        },
+        {
+          "id": "nick-n",
+          "name": "Beast Infection",
+          "comment": "You beat the only team that scored less than you, and you did it by 0.90. That is an impressive level of efficiency in using absolutely all of your good fortune. Lowest points scored in the league, yet still firmly in the hunt thanks to the matchups. The wins count, Nick. I just need a little more evidence before I start respecting how they happened."
+        },
+        {
+          "id": "mickey-b",
+          "name": "Overdue Bills",
+          "comment": "Talks all that shit just to finish as the lowest scorer again. I know Josh Allen was on bye, but the rest of the roster was allowed to participate. Omar Cooper Jr. put up 25.50 on your bench while Coker managed 1.90, and you lost by less than a point. The group chat gets your full attention. Next week, maybe let the lineup borrow some."
+        }
+      ]
     }
   ]
 }
