@@ -609,6 +609,72 @@
       ],
       "summary": "Week 6: 3–3 (50.0%). Beast Infection, Silence of the Lamb, and Slim Pickens delivered. Chris beat the Dillon pick, while Overdue Bills and Mark’s Team ended both unbeaten runs. Season record: 18–12 (60.0%), with Week 1 excluded.",
       "verified": "October 20, 2026"
+    },
+    {
+      "week": 8,
+      "editorialNote": "Week 8 picks from the Commish. Week 7 was an unscheduled Swami bye: no picks were submitted and no results were graded. The season record remains 18–12 (60.0%) entering Week 8. All six picks below are predictions; results are pending.",
+      "picks": [
+        {
+          "teams": [
+            "Silence of the Lamb",
+            "DonkeyWoodDean"
+          ],
+          "pick": "Silence of the Lamb",
+          "winner": null,
+          "featured": true,
+          "comment": "Closest game of the week, but the older brother lays the smackdown on Brett’s candy ass."
+        },
+        {
+          "teams": [
+            "Beast Infection",
+            "Dillon’s Team"
+          ],
+          "pick": "Dillon’s Team",
+          "winner": null,
+          "comment": "Second-closest game of the week, in my opinion. Nick might be lucky that Nico isn’t going to play, given the way he has been playing lately. James Cook and Tee Higgins carry Dillon to the promised land."
+        },
+        {
+          "teams": [
+            "Chris’s Team",
+            "Mels-16"
+          ],
+          "pick": "Mels-16",
+          "winner": null,
+          "comment": "I don’t even think this one is particularly close. I think the RBs for Mels-16 put up enough points this week to really offset the shitty WR play he has had lately."
+        },
+        {
+          "teams": [
+            "Daniel’s Primo Team",
+            "Gotham Knights"
+          ],
+          "pick": "Gotham Knights",
+          "winner": null,
+          "comment": "I really want to pick Dan. I really like Dan’s team for the most part, but those RBs are rough. I am going with Gotham Knights this week, as I project a pass-heavy game for IND and think that Keenan Allen might see 10+ targets."
+        },
+        {
+          "teams": [
+            "Mark’s Team",
+            "West Coast"
+          ],
+          "pick": "West Coast",
+          "winner": null,
+          "lock": true,
+          "comment": "This is my lock of the week. Mark has bye-week hell at the RB position, and the starting WRs haven’t been producing well."
+        },
+        {
+          "teams": [
+            "Overdue Bills",
+            "Slim Pickens"
+          ],
+          "pick": "Slim Pickens",
+          "winner": null,
+          "comment": "Another close one, in my opinion, but I think the WRs for Slim Pickens outweigh the two talented players for Mick. This is a pretty important game that could come back to haunt the loser by the end of the year."
+        }
+      ]
     }
+  ],
+  "excludedWeeks": [
+    1,
+    7
   ]
 }
