@@ -4,7 +4,7 @@ const w=swami.weeks.find(w=>w.week===6);
 assert.equal(w.picks.length,6);
 assert.equal(new Set(w.picks.flatMap(p=>p.teams)).size,12);
 assert.equal(w.picks.filter(p=>p.winner===p.pick).length,3);
-assert.equal(swami.weeks.flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,18);
+assert.equal(swami.weeks.filter(w=>w.week<=6).flatMap(w=>w.picks).filter(p=>p.winner===p.pick).length,18);
 assert.ok(w.picks.every(p=>p.winner&&p.scores&&p.recap&&p.source));
 const allAwards=require('../season-awards-data.js');
 const awards={...allAwards,weeks:allAwards.weeks.filter(w=>w.week<=6)},data=require('./team-performance-week-6.js');
@@ -27,7 +27,7 @@ for(const file of ['weekly-updates.html','matchup.html']){
  const html=fs.readFileSync(file,'utf8');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length,'Duplicate ID in '+file);
- assert.ok(html.includes('18–12'));
+ assert.ok(html.includes('Week 6'));
 }
 const weekly=fs.readFileSync('weekly-updates.html','utf8');
 assert.ok(weekly.includes('Week 6 Highlights'));

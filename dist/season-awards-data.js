@@ -1,4 +1,4 @@
-// Yahoo results through Week 7 verified October 27, 2026; corrections may apply through October 29.
+// Yahoo results through Week 8 verified November 3, 2026; corrections may apply through November 5.
 const CHQ_SEASON_AWARDS = {
   "season": 2026,
   "weeks": [
@@ -482,6 +482,75 @@ const CHQ_SEASON_AWARDS = {
           "id": "dusty-d",
           "name": "Dusty D",
           "points": 134.26
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "phase": "Regular season",
+      "complete": true,
+      "label": "Week 8 • final results",
+      "source": "https://football.fantasysports.yahoo.com/f1/317429?matchup_week=8",
+      "scores": [
+        {
+          "id": "tylor-c",
+          "name": "Tylor C",
+          "points": 104.58
+        },
+        {
+          "id": "brett-d",
+          "name": "Brett D",
+          "points": 93.04
+        },
+        {
+          "id": "nick-n",
+          "name": "Nick N",
+          "points": 87.4
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon M",
+          "points": 136.28
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris M",
+          "points": 170.98
+        },
+        {
+          "id": "mark-me",
+          "name": "Mark Me",
+          "points": 121.58
+        },
+        {
+          "id": "dan-e",
+          "name": "Dan E",
+          "points": 160.46
+        },
+        {
+          "id": "jason-h",
+          "name": "Jason H",
+          "points": 128.6
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark Ma",
+          "points": 128.44
+        },
+        {
+          "id": "dusty-d",
+          "name": "Dusty D",
+          "points": 124.12
+        },
+        {
+          "id": "mickey-b",
+          "name": "Mickey B",
+          "points": 116.36
+        },
+        {
+          "id": "jason-b",
+          "name": "Jason B",
+          "points": 144.3
         }
       ]
     }

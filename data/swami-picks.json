@@ -612,7 +612,7 @@
     },
     {
       "week": 8,
-      "editorialNote": "Week 8 picks from the Commish. Week 7 was an unscheduled Swami bye: no picks were submitted and no results were graded. The season record remains 18–12 (60.0%) entering Week 8. All six picks below are predictions; results are pending.",
+      "editorialNote": "Original Week 8 picks and wording are preserved. Final scores, original projections, starters, and benches checked on Yahoo November 3, 2026; stat corrections may apply through November 5. Week 7 had no submitted picks and remains excluded.",
       "picks": [
         {
           "teams": [
@@ -620,9 +620,19 @@
             "DonkeyWoodDean"
           ],
           "pick": "Silence of the Lamb",
-          "winner": null,
+          "winner": "Silence of the Lamb",
           "featured": true,
-          "comment": "Closest game of the week, but the older brother lays the smackdown on Brett’s candy ass."
+          "comment": "Closest game of the week, but the older brother lays the smackdown on Brett’s candy ass.",
+          "scores": [
+            104.58,
+            93.04
+          ],
+          "finalOriginalProjections": [
+            129.3,
+            123.99
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=1&mid2=6",
+          "recap": "The older brother backed up the talk. Cousins supplied 28.18, Jacobs added 23.20, and Gesicki chipped in 17.60 as Silence beat Brett by 11.54. Gibbs and Warren combined for 52.10 for DonkeyWoodDean, but Flowers scored zero and Coleman managed 1.40. The featured pick was correct; the closest-game prediction was not. Brett’s best possible lineup from the available roster was 106.34, enough to have flipped the result with several changes."
         },
         {
           "teams": [
@@ -630,8 +640,18 @@
             "Dillon’s Team"
           ],
           "pick": "Dillon’s Team",
-          "winner": null,
-          "comment": "Second-closest game of the week, in my opinion. Nick might be lucky that Nico isn’t going to play, given the way he has been playing lately. James Cook and Tee Higgins carry Dillon to the promised land."
+          "winner": "Dillon’s Team",
+          "comment": "Second-closest game of the week, in my opinion. Nick might be lucky that Nico isn’t going to play, given the way he has been playing lately. James Cook and Tee Higgins carry Dillon to the promised land.",
+          "scores": [
+            87.4,
+            136.28
+          ],
+          "finalOriginalProjections": [
+            107.98,
+            118.98
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=2&mid2=5",
+          "recap": "Cook and Higgins did exactly what the preview asked: 58.60 combined points, including Higgins’ 40.50, powered Dillon to a 48.88-point win. Hockenson added 15.80 and Chase Brown supplied 16.10. Nick’s starters topped out at Geno Smith’s 19.00, and even his best possible lineup would have reached only 92.30. Correct winner, considerably less drama than the predicted second-closest game."
         },
         {
           "teams": [
@@ -639,8 +659,18 @@
             "Mels-16"
           ],
           "pick": "Mels-16",
-          "winner": null,
-          "comment": "I don’t even think this one is particularly close. I think the RBs for Mels-16 put up enough points this week to really offset the shitty WR play he has had lately."
+          "winner": "Chris’s Team",
+          "comment": "I don’t even think this one is particularly close. I think the RBs for Mels-16 put up enough points this week to really offset the shitty WR play he has had lately.",
+          "scores": [
+            170.98,
+            121.58
+          ],
+          "finalOriginalProjections": [
+            119.08,
+            139.19
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=3&mid2=9",
+          "recap": "The Swami said this would not be particularly close. That part was right; the winner was not. Chase scored 34.10, Swift added 27.90, and Fannin supplied 26.40 as Chris posted the week’s highest score and beat Mels by 49.40. Burrow’s 45.48 could not cover for a 34.50 total from Bijan, Henry, and Kyren. Mels has now lost three straight. Chris won despite a 20.11-point projected deficit."
         },
         {
           "teams": [
@@ -648,8 +678,18 @@
             "Gotham Knights"
           ],
           "pick": "Gotham Knights",
-          "winner": null,
-          "comment": "I really want to pick Dan. I really like Dan’s team for the most part, but those RBs are rough. I am going with Gotham Knights this week, as I project a pass-heavy game for IND and think that Keenan Allen might see 10+ targets."
+          "winner": "Daniel’s Primo Team",
+          "comment": "I really want to pick Dan. I really like Dan’s team for the most part, but those RBs are rough. I am going with Gotham Knights this week, as I project a pass-heavy game for IND and think that Keenan Allen might see 10+ targets.",
+          "scores": [
+            160.46,
+            128.6
+          ],
+          "finalOriginalProjections": [
+            135.7,
+            99.79
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=4&mid2=7",
+          "recap": "The running backs the Swami questioned supplied another reminder that predictions are harder before the games. Pollard scored 31.70, Wilson added 29.80, and Puka delivered 25.00 in Daniel’s 31.86-point win. Allgeier’s 39.10 stayed on the bench, so Dan still had another gear available. Tuten’s 32.90 and JSN’s 26.80 kept Gotham scoring, but Lamar’s zero hurt. Keenan Allen finished with 13.70. Picking Gotham was the wrong call."
         },
         {
           "teams": [
@@ -657,9 +697,19 @@
             "West Coast"
           ],
           "pick": "West Coast",
-          "winner": null,
+          "winner": "Mark’s Team",
           "lock": true,
-          "comment": "This is my lock of the week. Mark has bye-week hell at the RB position, and the starting WRs haven’t been producing well."
+          "comment": "This is my lock of the week. Mark has bye-week hell at the RB position, and the starting WRs haven’t been producing well.",
+          "scores": [
+            128.44,
+            124.12
+          ],
+          "finalOriginalProjections": [
+            102.14,
+            119.27
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=8&mid2=12",
+          "recap": "The lock of the week immediately became evidence against the person who made it. Mahomes (28.44) and Bowers (28.20) helped Mark overcome the running-back byes and beat West Coast by 4.32. Irving’s 24.00 and Love’s 22.52 kept Dusty close. Starting Downs for Washington would have added 8.70 and turned the loss into a 4.38-point win. Mark used his best possible lineup and won as a 17.13-point underdog."
         },
         {
           "teams": [
@@ -667,10 +717,22 @@
             "Slim Pickens"
           ],
           "pick": "Slim Pickens",
-          "winner": null,
-          "comment": "Another close one, in my opinion, but I think the WRs for Slim Pickens outweigh the two talented players for Mick. This is a pretty important game that could come back to haunt the loser by the end of the year."
+          "winner": "Slim Pickens",
+          "comment": "Another close one, in my opinion, but I think the WRs for Slim Pickens outweigh the two talented players for Mick. This is a pretty important game that could come back to haunt the loser by the end of the year.",
+          "scores": [
+            116.36,
+            144.3
+          ],
+          "finalOriginalProjections": [
+            113.96,
+            131.81
+          ],
+          "source": "https://football.fantasysports.yahoo.com/f1/317429/matchup?week=8&mid1=10&mid2=11",
+          "recap": "Slim won by 27.94 behind Braelon Allen’s 26.30, Golden’s 20.90, and 20.00 from the Jaguars defense. Josh Allen and Hubbard combined for 52.46 for Mick, but Cooper’s zero and Myers’ 2.70 left too much to cover. Douglas scored 16.60 on the bench; even Mick’s best possible 137.66 would have finished 6.64 short. The Slim pick landed, although this was not one of the week’s closest finishes."
         }
-      ]
+      ],
+      "summary": "Week 8: 3–3 (50.0%). Silence of the Lamb, Dillon’s Team, and Slim Pickens delivered. Chris and Daniel won against the picks, while Mark beat the West Coast lock. Season record: 21–15 (58.3%), with Weeks 1 and 7 excluded.",
+      "verified": "November 3, 2026"
     }
   ],
   "excludedWeeks": [
