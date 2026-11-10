@@ -1,5 +1,6 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
-const raw=require('./week-8-results.json'),data=require('../team-performance-data.js'),awards=require('../season-awards-data.js'),swami=require('./swami-picks.json');
+const raw=require('./week-8-results.json'),data=require('./team-performance-week-8.js'),allAwards=require('../season-awards-data.js'),swami=require('./swami-picks.json');
+const awards={...allAwards,weeks:allAwards.weeks.filter(w=>w.week<=8)};
 const week=swami.weeks.find(w=>w.week===8),picks=swami.weeks.flatMap(w=>w.picks);
 assert.equal(week.picks.filter(p=>p.pick===p.winner).length,3);
 assert.ok(week.picks.every(p=>p.winner&&p.scores&&p.recap&&p.source));
@@ -31,9 +32,9 @@ for(const file of ['weekly-updates.html','matchup.html']){
  assert.ok(html.includes('21–15'));assert.equal(fs.readFileSync('dist/'+file,'utf8'),html);
 }
 const weekly=fs.readFileSync('weekly-updates.html','utf8');
-assert.ok(weekly.includes('Week 8 Highlights'));assert.ok(weekly.includes('scope="colgroup" colspan="8"'));
+assert.ok(weekly.includes('Week 8 Highlights'));assert.ok(weekly.includes(`scope="colgroup" colspan="${allAwards.weeks.filter(w=>w.complete).length}"`));
 for(let n=1;n<=7;n++)assert.ok(weekly.includes('Week '+n+' recap archive'));
-assert.ok(weekly.includes('href="#week-8-results-heading"'));
+assert.ok(weekly.includes('id="week-8-results-heading"'));
 const matchup=fs.readFileSync('matchup.html','utf8');
 assert.ok(matchup.includes('WEEK 8 FEATURED MATCHUP • FINAL RESULT'));
 assert.ok(matchup.includes('Original Prediction'));assert.ok(matchup.includes('The Final Word'));

@@ -414,6 +414,73 @@
           "comment": "Talks all that shit just to finish as the lowest scorer again. I know Josh Allen was on bye, but the rest of the roster was allowed to participate. Omar Cooper Jr. put up 25.50 on your bench while Coker managed 1.90, and you lost by less than a point. The group chat gets your full attention. Next week, maybe let the lineup borrow some."
         }
       ]
+    },
+    {
+      "season": 2026,
+      "week": 9,
+      "label": "After Week 9",
+      "teams": [
+        {
+          "id": "tylor-c",
+          "name": "Silence of the Lamb",
+          "comment": "Five wins in a row and sitting in 2nd place. Currently 2nd in points against, but you guys can keep throwing your best at me, and I will keep knocking you down!"
+        },
+        {
+          "id": "chris-m",
+          "name": "Chris’s Team",
+          "comment": "The team is solid. You’ve had some great pickups throughout the year, and the draft was done well. Putting up huge games the past few weeks earns you a top spot. You might lose this week while down a couple of RBs, but I think you’ll be fine."
+        },
+        {
+          "id": "brett-d",
+          "name": "DonkeyWoodDean",
+          "comment": "You’re going in the wrong direction, but three losses in four weeks will do that to a man. Unable to even score 100 points in those losses, and it’s starting to look like the team is turning against you."
+        },
+        {
+          "id": "dillon-m",
+          "name": "Dillon’s Team",
+          "comment": "The team doesn’t have a single hole, but it really doesn’t have star power either. This team is going to be an issue come playoffs."
+        },
+        {
+          "id": "dan-e",
+          "name": "Daniel’s Primo Team",
+          "comment": "You have rattled off three straight, and the fact that you played the bottom two teams usually would be enough for me to question the wins, but you dropped your nuts on some of these teams’ heads and scored over 160 twice in those wins. Tough matchup this week. Let’s see who pulls it off."
+        },
+        {
+          "id": "dusty-d",
+          "name": "West Coast",
+          "comment": "Someone needs to tell Dusty that he’s allowed to win more than one game in a row. This every-other-week thing can’t keep up."
+        },
+        {
+          "id": "mark-me",
+          "name": "Mels-16",
+          "comment": "Good to see you get back to your winning ways, but you did it while scoring less than 120. King Henry and Kyren are both somehow losing touches to their inferior backups, and if that trend continues, you’re going to be in trouble."
+        },
+        {
+          "id": "jason-b",
+          "name": "Slim Pickens",
+          "comment": "Davante Adams and Jeremiyah Love died. Pickens is WR3 on his team now? Ladd might as well be dead, and is JT gonna get traded? There’s talent on the team; they just aren’t working out right now."
+        },
+        {
+          "id": "nick-n",
+          "name": "Beast Infection",
+          "comment": "Put together a really good week, but had to play someone who scored pretty highly, unfortunately. A couple of losses in a row, but still in the hunt. I just worry about tiebreakers now."
+        },
+        {
+          "id": "mark-ma",
+          "name": "Mark’s Team",
+          "comment": "This is the most middle-of-the-road team I have ever seen. You need 110 points? This is your guy. You need 130 points? Better look elsewhere."
+        },
+        {
+          "id": "jason-h",
+          "name": "Gotham Knights",
+          "comment": "Bruh, what happened? This team just cannot put together a win. Someone will pop off, and the rest of the team takes the week off."
+        },
+        {
+          "id": "mickey-b",
+          "name": "Overdue Bills",
+          "comment": "I mean, is anyone surprised?"
+        }
+      ]
     }
   ]
 }
